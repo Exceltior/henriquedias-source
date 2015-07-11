@@ -25,7 +25,7 @@ Começaremos por criar um ficheiro chamado ```admin.php``` na pasta ```inc```�
 
 Antes de continuarmos o desenvolvimento deste ficheiro, vamos chamar este ficheiro através do ```functions.php```. **Neste, coloquem o seguinte código:**
 
-{{< highlight php "linenos=table" >}}
+{{< highlight php  >}}
 //...
 
 require get_template_directory() . '/inc/admin.php';
@@ -45,7 +45,7 @@ Neste tutorial, iremos criar uma variável com um dado que será depois utilizad
 
 Vamos começar por criar a seguinte função:
 
-{{< highlight php "linenos=table" >}}
+{{< highlight php  >}}
 <?php
 
 function themeslug_admin_menus() {
@@ -70,7 +70,7 @@ Existem várias formas de adicionar um menu. Podemos adicionar um sub-menu ou um
 
 Para adicionar um sub-menu a um menu, utilizamos a função ```add_theme_page``` que tem a seguinte sintaxe:
 
-{{< highlight php "linenos=table" >}}
+{{< highlight php  >}}
 add_theme_page( $titulo_da_pagina, $titulo_do_menu, $permissoes, $slug_do_menu, $funcao);
 {{< /highlight >}}
 
@@ -84,7 +84,7 @@ Vamos por partes:
 
 Para criar um menu de nível principal (como *Settings*), utiliza-se a seguinte sintaxe:
 
-{{< highlight php "linenos=table" >}}
+{{< highlight php  >}}
 add_menu_page( $titulo_da_pag, $titulo_do_menu, $permissoes, $slug_do_menu, $funcao, $icon_url, $posicao );
 {{< /highlight >}}
 
@@ -92,7 +92,7 @@ A sintaxe é muito parecida mas conta com mais duas variáveis. A ```$icon_url``
 
 Vamos, finalmente, criar o menu. Já conhecendo a sintaxe, vou substituir o comentário que escrevemos no ficheiro ```admin.php``` pela criação de um sub-menu ficando o código da seguinte forma:
 
-{{< highlight php "linenos=table" >}}
+{{< highlight php  >}}
 <?php
 
 function themeslug_admin_menus() {

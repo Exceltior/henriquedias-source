@@ -30,7 +30,7 @@ Cada uma tem uma função diferente porém estão todas relacionadas. Assim, vam
 
 Esta função pode ser considerada a principal do conjunto pois é com ela que criamos as *hash* e deve ser utilizada da seguinte forma:
 
-{{< highlight php "linenos=table" >}}
+{{< highlight php  >}}
 $password = 'a_minha_password';
 
 /*
@@ -48,7 +48,7 @@ password_hash($password, PASSWORD_DEFAULT);
 
 Podemos ainda definir alguns parâmetros opcionais nomeadamente o ```cost``` ("custo") e o ```salt``` ("sal") da seguinte forma:
 
-{{< highlight php "linenos=table" >}}
+{{< highlight php  >}}
 $password = 'a_minha_password';
 
 /*
@@ -78,7 +78,7 @@ Acrescento ainda que a função retornará ```false``` em caso de erro.
 
 Depois de criarmos a *hash* vamos precisar de, evidentemente, confirmá-la. Para confirmar se uma password corresponde a uma hash basta utilizarmos esta função da seguinte forma:
 
-{{< highlight php "linenos=table" >}}
+{{< highlight php  >}}
 /*
  * Para utilizar esta função basta colocar a password
  * a verificar no primeiro parâmetro e a hash no segundo.
@@ -99,7 +99,7 @@ password_verify($password, $hash);
 ## password_get_info
 Esta informação permite-nos obter a informação acerca de uma hash. A informação obtida corresponde ao algoritmo, o seu nome e as opções dadas quando criámos a hash. Exemplo:
 
-{{< highlight php "linenos=table" >}}
+{{< highlight php  >}}
 //Criação de uma hash de exemplo
 
 $options = array(
@@ -132,7 +132,7 @@ $info = password_get_info($hash);
 
 Esta função permite-nos confirmar se uma hash já criada corresponde a uma array de opções e a um algoritmos. Podem observar mais no seguinte exemplo:
 
-{{< highlight php "linenos=table" >}}
+{{< highlight php  >}}
 //Criação de uma hash de exemplo
 
 $options = array(

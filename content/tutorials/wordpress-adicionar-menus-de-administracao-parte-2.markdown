@@ -20,7 +20,7 @@ Hoje vamos dar continuação ao tutorial sobre como [adicionar menus de administ
 
 Na primeira parte, criámos duas funções e adicionámos uma opção ao menu de administração do WordPress sendo que ficámos com o seguinte código:
 
-{{< highlight php "linenos=table" >}}
+{{< highlight php  >}}
 <?php
 
 function themeslug_admin_menus() {
@@ -46,7 +46,7 @@ Resumindo, hoje vamos fazer o seguinte:
 
 Pode parecer complicado, mas vai ver que é simples. Vamos começar por substituir o comentário que está dentro da função themeslug_options  pelo seguinte:
 
-{{< highlight php "linenos=table" >}}
+{{< highlight php  >}}
 <?php
 
 //...

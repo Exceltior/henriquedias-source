@@ -24,7 +24,7 @@ Os DocBlocks, ao contrário dos comentários tradicionais, começam sempre por `
 
 Estes blocos documentam o código a que precedem. Abaixo podem ver um simples exemplo:
 
-{{< highlight php "linenos=table" >}}
+{{< highlight php  >}}
 /**
  * Função lorem faz x,y,z
  *
@@ -48,7 +48,7 @@ Normalmente, a estrutura destes blocos de documentação é:
   * Tags
 Hoje vamos analisar o último ponto: as **tags**. Existem imensas e vamos apenas ver as principais e mais utilizadas.
 
-{{< highlight php "linenos=table" >}}
+{{< highlight php  >}}
 /**
  * @author        Nome Do Autor <email@do.autor>    -> Autor do ficheiro
  * @copyright     Nome Data                         -> Info da Copyright

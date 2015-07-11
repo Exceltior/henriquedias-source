@@ -77,7 +77,7 @@ I think almost all of the content of that file is self-explanatory. If you have 
 
 Now, and because it is a command-line application, we should add two other informations to the ```package.json``` file:
 
-{{< highlight json "linenos=table" >}}
+{{< highlight json  >}}
 "preferGlobal": true,
 "bin": {
   "mycliapp": "./bin/mycliapp"

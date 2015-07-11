@@ -94,7 +94,7 @@ Como pode ver, este é um modelo bastante simples cuja única função é buscar
 
 Agora devemos voltar ao controlador e substituir o comentário que lá deixámos pelas seguintes duas linhas:
 
-{{< highlight php "linenos=table" >}}
+{{< highlight php  >}}
 $data = $this->model->getPosts();
 $this->view->setData($data);
 {{< /highlight >}}

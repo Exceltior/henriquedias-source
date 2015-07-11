@@ -81,7 +81,7 @@ Não vou explicar de forma profunda o código acima, mas este faz com que todo 
 
 Agora precisamos que o nosso ficheiro em PHP consiga saber qual a página em que estamos de forma a mais tarde mostrar apenas os itens referentes aquela página. Para isso copia e cola o código seguinte a seguir da ligação à base de dados:
 
-{{< highlight php "linenos=table" >}}
+{{< highlight php  >}}
 /*
  * Utilizando o operador ternário, definimos
  * a variável $url.

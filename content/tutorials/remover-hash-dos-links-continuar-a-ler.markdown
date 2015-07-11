@@ -22,7 +22,7 @@ Por vezes precisamos de melhorar os temas ou alguma outra coisa. Quando estava a
 Depois de uma rápida pesquisa deparei-me com um fórum onde explicavam, em Inglês, como proceder. Afinal é bastante simples. No ficheiro ```functions.php``` do vosso tema basta colarem o seguinte código:
 
 
-{{< highlight php "linenos=table" >}}
+{{< highlight php  >}}
 function remove_more_link_scroll( $link ) {
   $link = preg_replace( '|#more-[0-9]+|', '', $link );
   return $link;

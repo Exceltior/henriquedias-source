@@ -6,21 +6,24 @@
     {{ if isset .Params "image" }}
     <div class="banner" style="background-image: url('{{ .Site.BaseURL }}{{ .Params.image }}')"></div>
     {{ end }}
-    <div class="container">
+    <div class="container sans">
       <h1>{{ .Title }}</h1>
       <span class="meta">
-        Posted on <time datetime="2015-06-23">June 23, 2015
+        <span class="category">{{ range .Params.categories }}<a href="/{{ . | urlize }}">{{ . }}</a>{{ end }}</span> |
+        {{ if .PublishDate.IsZero }}Posted on{{ else }}Updated on{{ end }} <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 2, 2006" }}
       </span>
     </div>
   </header>
 
   <div class="container">
-    {{ .Content }}
+  {{ .Content }}
   </div>
 
   <footer class="container">
     {{ template "_internal/disqus.html" . }}
   </footer>
 </article>
+
+<a href="{{ .Next.Permalink  }}">Next</a>
 
 {{ partial "footer" . }}

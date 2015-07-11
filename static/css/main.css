@@ -1,8 +1,22 @@
 @import url(http://fonts.googleapis.com/css?family=Roboto:300,300italic,400,400italic,500);
 
+html {
+  font-size: 18px;
+}
+
 body {
-  font: 300 18px/1.5 Roboto, "Helvetica Neue", Arial, sans-serif;
+  text-rendering: optimizeLegibility;
+  font: normal 1em/1.6 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
   padding-top: 3em;
+  word-wrap: break-word
+}
+
+img {
+  max-width: 100%;
+}
+
+p {
+  margin: 1.5em 0;
 }
 
 a,
@@ -12,11 +26,15 @@ a:visited {
   text-decoration: none;
 }
 
-h1, h2, h3, h4 {
-  font-weight: 500;
+ul li p {
+  margin: .5em 0;
 }
 
-strong {
+.sans {
+  font: 300 1em/1.5 Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+.sans strong {
   font-weight: 500;
 }
 
@@ -79,12 +97,35 @@ header.imaged .banner {
     background-size: cover;
 }
 
+.site-footer {
+    background-color: #060708;
+    color: #fff;
+    margin-top: 1.5em;
+    text-align: center;
+    padding: 2em 1em;
+    box-sizing: border-box;
+}
+
 .container {
-  max-width: 600px;
+  max-width: 650px;
+  width: 95%;
   margin: 0 auto;
 }
 
 /* ARTICLES */
-article header.imaged h1 {
+article header h1 {
+    margin-bottom: 0;
+    font-size: 2em;
+}
 
+article header .meta {
+  font-size: .9em;
+}
+
+article header .category {
+  font-weight: bold;
+}
+
+article header .category a {
+  color: inherit;
 }

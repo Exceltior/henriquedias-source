@@ -22,7 +22,7 @@ Em primeiro lugar, quero referir algumas modificações que efetuei em alguns do
 
 Adicionei a constante ```SITE_TITLE``` ao ficheiro ```config.php```, ficando a primeira secção deste ficheiro da seguinte forma:
 
-{{< highlight php "linenos=table" >}}
+{{< highlight php  >}}
 <?php //...
 //1. Base Constants
 define('ROOT', dirname(__FILE__) . '/');
@@ -33,7 +33,7 @@ define('SITE_TITLE', 'Simple MVC Structure Model');
 
 Na classe ```View``` foi adicionada uma função que permitirá ao utilizador definir o título (aquele que aparece na parte superior do _browser_).
 
-{{< highlight php "linenos=table" >}}
+{{< highlight php  >}}
 public function setTitle($title)
 {
     $this->_pageInfo['title'] = $title . ' | ' . SITE_TITLE;

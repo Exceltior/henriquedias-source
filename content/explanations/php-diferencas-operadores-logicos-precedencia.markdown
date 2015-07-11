@@ -21,7 +21,7 @@ Para exemplificar, vamos utilizar valores **booleanos**, ou seja, ```false``` 
 
 Em primeiro lugar, vamos declarar duas variáveis, uma que seja igual a true  e outra igual a false como as seguintes:
 
-{{< highlight php "linenos=table" >}}
+{{< highlight php  >}}
 $verdadeiro = true;
 $falso = false;
 {{< /highlight >}}
@@ -35,13 +35,13 @@ Antes de continuarmos, vou recordar algo parecido às regras da multiplicação/
 
 Esta tabela mostra o resultado de comparações feitas entre os vários valores booleanos. Continuando agora com o "nosso" PHP, vamos definir uma variável chamada, por exemplo, $comparacao e igualá-la a comparações entre as variáveis booleanas anteriormente definidas.
 
-{{< highlight php "linenos=table" >}}
+{{< highlight php  >}}
 $comparacao = $verdadeiro && $falso;
 {{< /highlight >}}
 
 Assim, concluímos que a variável ```$comparacao```  é igual a falso. Vamos agora utilizar o operador AND.
 
-{{< highlight php "linenos=table" >}}
+{{< highlight php  >}}
 $comparacao = $verdadeiro AND $falso;
 {{< /highlight >}}
 
@@ -51,7 +51,7 @@ Isto acontece devido ao **[nível de precedência](http://php.net/manual/pt_BR/
 
 As duas linhas acima são equivalentes às seguintes, respetivamente:
 
-{{< highlight php "linenos=table" >}}
+{{< highlight php  >}}
 $comparacao = ( $verdadeiro && $falso );
 ( $comparacao = $verdadeiro ) AND $falso;
 {{< /highlight >}}

@@ -23,7 +23,7 @@ Ao longo das versões 4.x e 5.x do PHP, os desenvolvedores já podiam utilizar f
 
 Se, por exemplo, quiséssemos criar uma função que fizesse a soma de todos os valores passados nos argumentos, bastaria fazermos assim:
 
-{{< highlight php "linenos=table" >}}
+{{< highlight php  >}}
 function soma() {
   return array_sum(func_get_args());
 }
@@ -33,7 +33,7 @@ echo soma(1, 4, 12, 20); // => 37
 
 Apesar desta forma ainda estar disponível na versão 5.6.0, a sua sintaxe pode ser aprimorada para a seguinte:
 
-{{< highlight php "linenos=table" >}}
+{{< highlight php  >}}
 function soma(...$nums) {
   return array_sum($nums);
 }
@@ -49,7 +49,7 @@ Ou seja, na nova versão do PHP, basta utilizarmos o operador ...  para criarm
 
 Uma vantagem na utilização deste método é a **menor perda de tempo**. Como assim? Vou utilizar um exemplo dado pelos colegas do [imasters.com.br](http://imasters.com.br). Em vez de escrevermos assim:
 
-{{< highlight php "linenos=table" >}}
+{{< highlight php  >}}
 public function tryMethod() {
 
         $args = func_get_args();
@@ -71,7 +71,7 @@ public function tryMethod() {
 
 Podemos, simplesmente, escrever da seguinte forma:
 
-{{< highlight php "linenos=table" >}}
+{{< highlight php  >}}
 public function tryMethod($method, ...$args) {
 
     try {

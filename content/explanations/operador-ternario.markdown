@@ -22,13 +22,13 @@ Já utilizava este operador há algum tempo mas estava reticente em relação à
 
 Este operador é excelente para pequenas e simples condições de ```if else``` onde não pretendemos utilizar muitas linhas.
 
-{{< highlight php "linenos=table" >}}
+{{< highlight php  >}}
 $url = isset($_GET['url']) ? $_GET['url'] : null;
 {{< /highlight >}}
 
 Esse excerto acima foi tirado do artigo que mencionei acima e faz o mesmo que o código abaixo:
 
-{{< highlight php "linenos=table" >}}
+{{< highlight php  >}}
 if (isset($_GET['url']) {
       $url = $_GET['url'];
 } else {
@@ -44,7 +44,7 @@ A palavra "ternário" provém de "três" e é utilizada neste operador porque es
 
 Abaixo encontra-se mais um pequeno exemplo:
 
-{{< highlight php "linenos=table" >}}
+{{< highlight php  >}}
 $n = rand(0,100);
 
 if ($n > 50) {

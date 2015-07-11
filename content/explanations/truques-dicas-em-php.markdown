@@ -22,7 +22,7 @@ Para os iniciantes ou mesmo profissionais, aqui estão 5 simples e úteis truque
 
 Nós já escrevemos um artigo sobre este operador que podem ver [aqui](/explanations/operador-ternario/). Para laços (*loops*) simples, podemos utilizar o operador ternário de forma a poupar espaço como podem ver no exemplo seguinte:
 
-{{< highlight php "linenos=table" >}}
+{{< highlight php  >}}
 $n = rand(0,100);
 
 if ($n > 50) {
@@ -47,7 +47,7 @@ O mais "engraçado" é que o PHP não dá erro e, por vezes, gastamos muito temp
 
 Esta situação pode ser invertida colocando a variável na segunda posição. Assim, o PHP irá gerar um erro quando nos enganamos:
 
-{{< highlight php "linenos=table" >}}
+{{< highlight php  >}}
 //Não produz erro
 if ( $userRole = 0 ) {
    echo 'Você é Administrador.';
@@ -67,7 +67,7 @@ O que acontece aqui, é que o PHP não nos vai deixar atribuir um valor a um val
 
 Existe uma forma extremamente simples de saber se um número é par ou ímpar. Veja:
 
-{{< highlight php "linenos=table" >}}
+{{< highlight php  >}}
 $n = 1250;
 
 // ex1
@@ -86,7 +86,7 @@ if ($n & 1) {
 
 Quando utilizamos funções dentro de um laço, esta função é chamada sempre que o laço é executado tornando o tempo de execução mais lento. Exemplo:
 
-{{< highlight php "linenos=table" >}}
+{{< highlight php  >}}
 for ($i = 0; $i < count($array); $i) {
   //Sempre que este laço é executado, a função count() será chamada.
 }
@@ -97,7 +97,7 @@ for ($i = 0; $i < count($array); $i) {
 
 Última mas não menos importante. Mais uma que pode parecer desnecessária, mas pode ser muito útil. Exemplo:
 
-{{< highlight php "linenos=table" >}}
+{{< highlight php  >}}
 $frase1 = 'Não se esqueçam de gostar a nossa página do Facebook';
 $frase2 = 'Não se esqueçam de seguir a nossa página do Google+';
 
