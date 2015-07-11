@@ -1,0 +1,337 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Html on Henrique Dias</title>
+    <link>http://localhost:1313/tags/html/</link>
+    <description>Recent content in Html on Henrique Dias</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 08 Aug 2014 13:14:25 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/html/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Extensão Emmet para o editor de texto Atom</title>
+      <link>http://localhost:1313/general/extensao-emmet-para-editor-de-texto-atom</link>
+      <pubDate>Fri, 08 Aug 2014 13:14:25 +0000</pubDate>
+      
+      <guid>http://localhost:1313/general/extensao-emmet-para-editor-de-texto-atom</guid>
+      <description>&lt;p&gt;Ontem fizemos uma breve apresentação ao &lt;a href=&#34;http://localhost:1313/general/atom-io-um-excelente-editor-de-texto-da-github/&#34;&gt;editor de texto Atom&lt;/a&gt; da GitHub e referimos que, a partir de hoje, iríamos falar sobre algumas extensões disponíveis para o Atom.&lt;/p&gt;
+
+&lt;p&gt;Assim, vamos começar hoje com a primeira: &lt;strong&gt;Emmet&lt;/strong&gt;. Esta é uma extensão que vai ajudar na produtividade de todos os desenvolvedores web.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/extensaoemmet.png&#34; alt=&#34;Extensão Emmet para o editor de texto Atom&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;A extensão &lt;a href=&#34;http://emmet.io/&#34;&gt;Emmet&lt;/a&gt; é, provavelmente, conhecida de quase todos os desenvolvedores web pois permite agilizar a processo de criação e aumentar a produtividade.&lt;/p&gt;
+
+&lt;p&gt;Com esta extensão são ativados diversos atalhos e uma funcionalidade de abreviaturas. Se, por exemplo, escrevermos: &lt;code&gt;ul#minha_lista&amp;gt;li*5&lt;/code&gt; e clicarmos na tecla &amp;ldquo;tab&amp;rdquo;, o seguinte será produzido:&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span class=&#34;nt&#34;&gt;&amp;lt;ul&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;id=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;quot;minha_lista&amp;quot;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;&amp;gt;&lt;/span&gt;
+ &lt;span class=&#34;nt&#34;&gt;&amp;lt;li&amp;gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
+ &lt;span class=&#34;nt&#34;&gt;&amp;lt;li&amp;gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
+ &lt;span class=&#34;nt&#34;&gt;&amp;lt;li&amp;gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
+ &lt;span class=&#34;nt&#34;&gt;&amp;lt;li&amp;gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
+ &lt;span class=&#34;nt&#34;&gt;&amp;lt;li&amp;gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
+&lt;span class=&#34;nt&#34;&gt;&amp;lt;/ul&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;No vídeo abaixo mostro como instalar esta extensão além de vos mostrar como funciona o sistema de abreviaturas e alguns atalhos. &lt;a href=&#34;https://www.youtube.com/user/hacdias?sub_confirmation=1&#34;&gt;Não se esqueça de subscrever o canal&lt;/a&gt;. :)&lt;/p&gt;
+
+&lt;div class=&#34;embed video-player&#34;&gt;
+&lt;iframe class=&#34;youtube-player&#34; type=&#34;text/html&#34; width=&#34;640&#34; height=&#34;385&#34; src=&#34;http://www.youtube.com/embed/f5Uy2EyvT6E&#34; allowfullscreen frameborder=&#34;0&#34;&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
+
+
+&lt;p&gt;Como foi referido no vídeo, não falámos de todos os atalhos. Podem ver mais atalhos &lt;a href=&#34;https://github.com/emmetio/emmet-atom&#34;&gt;aqui&lt;/a&gt;. Além disso, acredito que esta extensão vos seja muito útil.&lt;/p&gt;
+
+&lt;p&gt;Esta extensão está disponível para mais editores de texto como o Espresso, Notepad++, Sublime Text, etc. Podem descarregar para outros editores de texto &lt;a href=&#34;http://emmet.io/download/&#34;&gt;aqui&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Listagem web de uma tabela MySQL</title>
+      <link>http://localhost:1313/tutorials/listagem-web-de-uma-tabela-mysql</link>
+      <pubDate>Thu, 17 Jul 2014 14:51:56 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tutorials/listagem-web-de-uma-tabela-mysql</guid>
+      <description>
+
+&lt;p&gt;No &lt;a href=&#34;http://localhost:1313/tutorials/selecionar-um-intervalo-de-linhas-em-mysql/&#34;&gt;último artigo&lt;/a&gt;, falei sobre como selecionar um intervalo de linhas em MySQL e, no final, prometi escrever um tutorial que explicasse como criar um  pequeno sistema de navegação em PHP e HTML para listar as linhas contidas numa tabela de uma base de dados.&lt;/p&gt;
+
+&lt;p&gt;Aqui está ele. Abaixo encontram passo-a-passo como criar um pequeno sistema que liste todas as linhas de uma base de dados, separadas com páginas, cada uma com &lt;code&gt;x&lt;/code&gt; linhas e botões de navegação.&lt;/p&gt;
+
+&lt;p&gt;Para seguir este tutorial é necessário o Apache e o MySQL instalados no computador. Pode utilizar, por exemplo, o tudo-em-um &lt;a href=&#34;https://www.apachefriends.org/pt_br/index.html&#34;&gt;XAMPP&lt;/a&gt; que já conta com o Apache e MySQL e é muito fácil de instalar.&lt;/p&gt;
+
+&lt;p&gt;Para este tutorial estou a utilizar uma base de dados MySQL com uma tabela chamada &lt;code&gt;mytable&lt;/code&gt; que conta com 145 linhas. Existem duas colunas: a do &lt;code&gt;id&lt;/code&gt; e a do conteúdo a que chamei &lt;code&gt;content&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Na primeira coluna, todas as linhas estão numeradas automaticamente e na segunda, todas as linhas têm uma pequena frase gerada &lt;a href=&#34;http://pt.lipsum.com/&#34;&gt;aqui&lt;/a&gt;. O conteúdo desta coluna é igual para todas as linhas pois utilizei um pequeno script para criar todas as linhas automaticamente.&lt;/p&gt;
+
+&lt;h2 id=&#34;1-ligação-à-base-de-dados:95ae2512994674faa2e5d9de8679b927&#34;&gt;1. Ligação à Base de Dados&lt;/h2&gt;
+
+&lt;p&gt;Neste tutorial assumo que os leitores sabem criar uma base de dados e/ou já têm uma criada. Caso tenham alguma dúvida não hesitem em perguntar, ou através dos comentários, ou da página &lt;a href=&#34;https://henriquedias.com/contact/&#34;&gt;contacto&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Dentro da pasta onde estão colocados os documentos do servidor (o XAMPP usa normalmente a directoria &amp;ldquo;C:/xampp/htdocs&amp;rdquo;) crie um ficheiro chamado &lt;strong&gt;index.php&lt;/strong&gt;. Dentro deste copie e cole o seguinte código:&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span class=&#34;cp&#34;&gt;&amp;lt;?php&lt;/span&gt;
+
+&lt;span class=&#34;cm&#34;&gt;/* Coloque abaixo os dados de acesso à base de dados.&lt;/span&gt;
+&lt;span class=&#34;cm&#34;&gt; *&lt;/span&gt;
+&lt;span class=&#34;cm&#34;&gt; * $host -&amp;gt; servidor onde está localizada a base de dados.&lt;/span&gt;
+&lt;span class=&#34;cm&#34;&gt; *          se for o seu computador mantenha &amp;quot;localhost&amp;quot;.&lt;/span&gt;
+&lt;span class=&#34;cm&#34;&gt; *&lt;/span&gt;
+&lt;span class=&#34;cm&#34;&gt; * $db   -&amp;gt; nome da base de dados.&lt;/span&gt;
+&lt;span class=&#34;cm&#34;&gt; * $username -&amp;gt; o nome de utilizador para aceder à base de dados.&lt;/span&gt;
+&lt;span class=&#34;cm&#34;&gt; * $password -&amp;gt; a senha correspondente ao utilizador anterior.&lt;/span&gt;
+&lt;span class=&#34;cm&#34;&gt; */&lt;/span&gt;
+
+&lt;span class=&#34;nv&#34;&gt;$host&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;localhost&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;span class=&#34;nv&#34;&gt;$db&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;mydb&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;span class=&#34;nv&#34;&gt;$username&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;username&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;span class=&#34;nv&#34;&gt;$password&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;password&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+
+&lt;span class=&#34;c1&#34;&gt;//Utilizando a extensão PDO, criamos uma ligação à base de dados.&lt;/span&gt;
+&lt;span class=&#34;nv&#34;&gt;$db&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;PDO&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;mysql:host=&amp;#39;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;.&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$host&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;.&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;;dbname=&amp;#39;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;.&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$db&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$username&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$password&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Se não conhecerem bem a extensão PDO, recomendo-vos uma pequena leitura no &lt;a href=&#34;http://php.net/manual/pt_BR/book.pdo.php&#34;&gt;manual oficial do PHP&lt;/a&gt;. Não se esqueça de alterar os dados acima para ligar à base de dados.&lt;/p&gt;
+
+&lt;h2 id=&#34;2-htacess-e-mais-uns-pormenores:95ae2512994674faa2e5d9de8679b927&#34;&gt;2. HTACESS e mais uns pormenores&lt;/h2&gt;
+
+&lt;p&gt;Como vão ser listados &lt;code&gt;x&lt;/code&gt; linhas por página, é provável que tenham que existir várias páginas. Estas irão ser do formato: &lt;code&gt;URL/NÚMERO_DA_PÁGINA&lt;/code&gt;. Se estivermos a correr num servidor local (no nosso computador) será, por exemplo, &lt;code&gt;http://localhost/1&lt;/code&gt;, &lt;code&gt;http://localhost/2&lt;/code&gt;, etc.&lt;/p&gt;
+
+&lt;p&gt;Mas, quando escrevemos esse URL, o Apache assume que estamos a tentar aceder a pastas cujo nome é 1, 2&amp;hellip; por aí fora. Para que isto não aconteça, vamos criar um ficheiro chamado &lt;code&gt;.htaccess&lt;/code&gt; na mesma pasta onde está o &lt;code&gt;index.php&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;É crucial que o ficheiro tenha o nome mencionado. Neste copia e cola o seguinte código:&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span class=&#34;nt&#34;&gt;&amp;lt;IfModule&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;mod_rewrite.c&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;&amp;gt;&lt;/span&gt;
+	&lt;span class=&#34;nb&#34;&gt;RewriteEngine&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;On&lt;/span&gt;
+
+	&lt;span class=&#34;nb&#34;&gt;RewriteCond&lt;/span&gt; %{REQUEST_FILENAME} !-d
+	&lt;span class=&#34;nb&#34;&gt;RewriteCond&lt;/span&gt; %{REQUEST_FILENAME} !-f
+	&lt;span class=&#34;nb&#34;&gt;RewriteRule&lt;/span&gt; ^(.*) index.php?url=$1 [QSA,L]
+&lt;span class=&#34;nt&#34;&gt;&amp;lt;/IfModule&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Normalmente o &lt;code&gt;mod_rewrite&lt;/code&gt; já vem ativado por padrão. Caso vocês tentem aceder a alguma página e dê algum erro, expliquem o que acontece nos comentários para eu ou outro leitor tentarmos ajudar.&lt;/p&gt;
+
+&lt;p&gt;Não vou explicar de forma profunda o código acima, mas este faz com que todo o que escrevemos depois da barra do URL seja aberto na &lt;strong&gt;index.php&lt;/strong&gt; através de um método GET. Podes ler mais sobre os métodos GET &lt;a href=&#34;http://www.w3schools.com/tags/ref_httpmethods.asp&#34;&gt;aqui&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Agora precisamos que o nosso ficheiro em PHP consiga saber qual a página em que estamos de forma a mais tarde mostrar apenas os itens referentes aquela página. Para isso copia e cola o código seguinte a seguir da ligação à base de dados:&lt;/p&gt;
+
+&lt;table class=&#34;highlighttable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;linenos&#34;&gt;&lt;div class=&#34;linenodiv&#34;&gt;&lt;pre&gt; 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span class=&#34;x&#34;&gt;/*&lt;/span&gt;
+&lt;span class=&#34;x&#34;&gt; * Utilizando o operador ternário, definimos&lt;/span&gt;
+&lt;span class=&#34;x&#34;&gt; * a variável $url.&lt;/span&gt;
+&lt;span class=&#34;x&#34;&gt; */&lt;/span&gt;
+
+&lt;span class=&#34;x&#34;&gt;$url = isset($_GET[&amp;#39;url&amp;#39;]) ? $_GET[&amp;#39;url&amp;#39;] : null;&lt;/span&gt;
+
+&lt;span class=&#34;x&#34;&gt;//Remove-se alguma barra do final do $url caso exista.&lt;/span&gt;
+&lt;span class=&#34;x&#34;&gt;$url = rtrim($url, &amp;#39;/&amp;#39;);&lt;/span&gt;
+
+&lt;span class=&#34;x&#34;&gt;// Cria-se uma array dividindo o $url em partes.&lt;/span&gt;
+&lt;span class=&#34;x&#34;&gt;$url = explode(&amp;#39;/&amp;#39;, $url);&lt;/span&gt;
+
+&lt;span class=&#34;x&#34;&gt;/*&lt;/span&gt;
+&lt;span class=&#34;x&#34;&gt; * Se o primeiro valor da array estiver vazio,&lt;/span&gt;
+&lt;span class=&#34;x&#34;&gt; * define este como 1 pois não podemos ter uma página sem identificação.&lt;/span&gt;
+&lt;span class=&#34;x&#34;&gt; */&lt;/span&gt;
+
+&lt;span class=&#34;x&#34;&gt;if (empty($url[0])) {&lt;/span&gt;
+&lt;span class=&#34;x&#34;&gt;      $url[0] = 1;&lt;/span&gt;
+&lt;span class=&#34;x&#34;&gt;}&lt;/span&gt;
+
+&lt;span class=&#34;x&#34;&gt;/*&lt;/span&gt;
+&lt;span class=&#34;x&#34;&gt; * Definimos a variável $n com o primeiro valor que vem depois do URL, o número da página.&lt;/span&gt;
+&lt;span class=&#34;x&#34;&gt; * $n -&amp;gt; Número da Página&lt;/span&gt;
+&lt;span class=&#34;x&#34;&gt; */&lt;/span&gt;
+
+&lt;span class=&#34;x&#34;&gt;$n = $url[0];&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+
+&lt;p&gt;A explicação do código acima está feita nos comentários. Podes saber mais acerca do &lt;strong&gt;operador ternário &lt;/strong&gt;&lt;a href=&#34;http://localhost:1313/explanations/operador-ternario/&#34;&gt;aqui&lt;/a&gt;. Agora que já podemos saber o número da página e temos uma ligação à base de dados pronta, vamos avançar para a página e a listagem em si.&lt;/p&gt;
+
+&lt;h2 id=&#34;3-um-pouco-de-html-e-php:95ae2512994674faa2e5d9de8679b927&#34;&gt;3. Um pouco de HTML&amp;hellip; e PHP&lt;/h2&gt;
+
+&lt;p&gt;Abaixo da tag ?&amp;gt; , copiem e colem o seguinte trecho de código HTML.&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span class=&#34;nt&#34;&gt;&amp;lt;html&amp;gt;&lt;/span&gt;
+	&lt;span class=&#34;nt&#34;&gt;&amp;lt;head&amp;gt;&lt;/span&gt;
+		&lt;span class=&#34;nt&#34;&gt;&amp;lt;title&amp;gt;&lt;/span&gt;Listagem de uma tabela MySQL&lt;span class=&#34;nt&#34;&gt;&amp;lt;/title&amp;gt;&lt;/span&gt;
+	&lt;span class=&#34;nt&#34;&gt;&amp;lt;/head&amp;gt;&lt;/span&gt;
+
+	&lt;span class=&#34;nt&#34;&gt;&amp;lt;body&amp;gt;&lt;/span&gt;
+		&lt;span class=&#34;nt&#34;&gt;&amp;lt;h1&amp;gt;&lt;/span&gt;Listagem de uma tabela MySQL&lt;span class=&#34;nt&#34;&gt;&amp;lt;/h1&amp;gt;&lt;/span&gt;
+		&lt;span class=&#34;c&#34;&gt;&amp;lt;!-- Aqui vamos criar a listagem --&amp;gt;&lt;/span&gt;
+
+	&lt;span class=&#34;nt&#34;&gt;&amp;lt;/body&amp;gt;&lt;/span&gt;
+&lt;span class=&#34;nt&#34;&gt;&amp;lt;/html&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Penso que tudo o que está acima seja conhecido de todos vós por isso, vamos continuar.  O restante código será todo escrito no local do comentário acima. Faremos a listagem das linhas e os botões de navegação aí.&lt;/p&gt;
+
+&lt;p&gt;Agora, no local do comentário copia o seguinte:&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span class=&#34;cp&#34;&gt;&amp;lt;?php&lt;/span&gt;
+
+&lt;span class=&#34;cm&#34;&gt;/*&lt;/span&gt;
+&lt;span class=&#34;cm&#34;&gt; * Criação de uma consulta à Base de Dados para&lt;/span&gt;
+&lt;span class=&#34;cm&#34;&gt; * sabermos o número total de linhas existentes na tabela&lt;/span&gt;
+&lt;span class=&#34;cm&#34;&gt; */&lt;/span&gt;
+&lt;span class=&#34;nv&#34;&gt;$consulta&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$db&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;query&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;quot;SELECT count(*) FROM mytable&amp;quot;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;span class=&#34;nv&#34;&gt;$numeroDeLinhas&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$consulta&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;fetchColumn&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;();&lt;/span&gt;
+
+&lt;span class=&#34;cm&#34;&gt;/*&lt;/span&gt;
+&lt;span class=&#34;cm&#34;&gt; * Sabendo o número de linhas é possível determinar o&lt;/span&gt;
+&lt;span class=&#34;cm&#34;&gt; * número máximo de páginas. Para isso dividimos o número&lt;/span&gt;
+&lt;span class=&#34;cm&#34;&gt; * total de linhas pelo número de itens a apresentar em&lt;/span&gt;
+&lt;span class=&#34;cm&#34;&gt; * cada página. ($numeroDeLinhas / $itensPorPag).&lt;/span&gt;
+&lt;span class=&#34;cm&#34;&gt; *&lt;/span&gt;
+&lt;span class=&#34;cm&#34;&gt; * Depois arredondamos para cima esse número utilizando&lt;/span&gt;
+&lt;span class=&#34;cm&#34;&gt; * a função ceil().&lt;/span&gt;
+&lt;span class=&#34;cm&#34;&gt; *&lt;/span&gt;
+&lt;span class=&#34;cm&#34;&gt; * O arredondamento para cima é feito porque, por exemplo,&lt;/span&gt;
+&lt;span class=&#34;cm&#34;&gt; * se a divisão resultasse em 4.2, seriam necessárias 5 páginas&lt;/span&gt;
+&lt;span class=&#34;cm&#34;&gt; * para mostrar todo o conteúdo e não 4. Utilizando um arredon-&lt;/span&gt;
+&lt;span class=&#34;cm&#34;&gt; * damento tradicional, o valor ficaria em 4 não mostrando os&lt;/span&gt;
+&lt;span class=&#34;cm&#34;&gt; * restantes itens.&lt;/span&gt;
+&lt;span class=&#34;cm&#34;&gt; */&lt;/span&gt;
+
+&lt;span class=&#34;nv&#34;&gt;$itensPorPag&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;15&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;span class=&#34;nv&#34;&gt;$maximoDePaginas&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;ceil&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$numeroDeLinhas&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;/&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$itensPorPag&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+
+&lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$n&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$maximoDePaginas&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;||&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$n&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+
+	&lt;span class=&#34;cm&#34;&gt;/*&lt;/span&gt;
+&lt;span class=&#34;cm&#34;&gt;	 * Se o número da página for superior ao número máximo de páginas&lt;/span&gt;
+&lt;span class=&#34;cm&#34;&gt;	 * ou for menor que 1, a página mostra a mensagem que está entre aspas.&lt;/span&gt;
+&lt;span class=&#34;cm&#34;&gt;	 */&lt;/span&gt;
+
+	&lt;span class=&#34;k&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;Página não existe.&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;else&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+
+	&lt;span class=&#34;cm&#34;&gt;/*&lt;/span&gt;
+&lt;span class=&#34;cm&#34;&gt;	 * Por outro lado, se o número da página for coerente, devemos definir&lt;/span&gt;
+&lt;span class=&#34;cm&#34;&gt;	 * o OFFSET para utilizar na consulta à BD.&lt;/span&gt;
+&lt;span class=&#34;cm&#34;&gt;	 *&lt;/span&gt;
+&lt;span class=&#34;cm&#34;&gt;	 * Para definir o offset/deslocamento utilizamos uma pequena função algébrica&lt;/span&gt;
+&lt;span class=&#34;cm&#34;&gt;	 * sendo a variável $n o número da página, substraímos a esta 1 e multiplicamo-la&lt;/span&gt;
+&lt;span class=&#34;cm&#34;&gt;	 * pelo número de itens por página.&lt;/span&gt;
+&lt;span class=&#34;cm&#34;&gt;	 *&lt;/span&gt;
+&lt;span class=&#34;cm&#34;&gt;	 * Exemplos:&lt;/span&gt;
+&lt;span class=&#34;cm&#34;&gt;	 *&lt;/span&gt;
+&lt;span class=&#34;cm&#34;&gt;	 *	Sendo $n = 1 e $itensPorPag = 15, $offset = (1-1)*15 = 0*15 = 0.&lt;/span&gt;
+&lt;span class=&#34;cm&#34;&gt;	 *	O deslocamento seria 0 e o limite 15 logo seriam apresentados os itens 1 a 15.&lt;/span&gt;
+&lt;span class=&#34;cm&#34;&gt;	 *&lt;/span&gt;
+&lt;span class=&#34;cm&#34;&gt;	 *	Sendo $n = 2 e $itensPorPag = 15, $offset = (2-1)*15 = 1*15 = 15.&lt;/span&gt;
+&lt;span class=&#34;cm&#34;&gt;	 *	O deslocamento seria 0 e o limite 15 logo seriam apresentados os itens 16 a 30.&lt;/span&gt;
+&lt;span class=&#34;cm&#34;&gt;	 */&lt;/span&gt;
+
+	&lt;span class=&#34;nv&#34;&gt;$offset&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$n&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$itensPorPag&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+
+	&lt;span class=&#34;cm&#34;&gt;/*&lt;/span&gt;
+&lt;span class=&#34;cm&#34;&gt;	 * Aqui é feita a consulta à Base de Dados que seleciona o intervalo de linhas&lt;/span&gt;
+&lt;span class=&#34;cm&#34;&gt;	 * referentes à página atual.&lt;/span&gt;
+&lt;span class=&#34;cm&#34;&gt;	 */&lt;/span&gt;
+
+	&lt;span class=&#34;nv&#34;&gt;$query&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;quot;SELECT * FROM mytable LIMIT &amp;quot;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$itensPorPag&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;.&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;quot; OFFSET &amp;quot;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;.&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$offset&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+	&lt;span class=&#34;nv&#34;&gt;$items&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$db&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;query&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$query&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+
+	&lt;span class=&#34;k&#34;&gt;foreach&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$items&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;as&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$item&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;	&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;	&lt;span class=&#34;cp&#34;&gt;?&amp;gt;&lt;/span&gt;&lt;span class=&#34;x&#34;&gt;&lt;/span&gt;
+
+&lt;span class=&#34;x&#34;&gt;		&amp;lt;!--&lt;/span&gt;
+&lt;span class=&#34;x&#34;&gt;			O apresentado abaixo é o que vai ser mostrado para cada linha que foi&lt;/span&gt;
+&lt;span class=&#34;x&#34;&gt;			seleciona com a query anterior.&lt;/span&gt;
+
+&lt;span class=&#34;x&#34;&gt;			O formato para chamar o conteúdo de uma coluna de uma linha é:&lt;/span&gt;
+
+&lt;span class=&#34;x&#34;&gt;			$item[&amp;#39;NOME_DA_COLUNA&amp;#39;];&lt;/span&gt;
+&lt;span class=&#34;x&#34;&gt;		--&amp;gt;&lt;/span&gt;
+
+&lt;span class=&#34;x&#34;&gt;		&amp;lt;h2&amp;gt;Id: &lt;/span&gt;&lt;span class=&#34;cp&#34;&gt;&amp;lt;?&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$item&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;id&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;];&lt;/span&gt;&lt;span class=&#34;cp&#34;&gt;?&amp;gt;&lt;/span&gt;&lt;span class=&#34;x&#34;&gt;&amp;lt;/h2&amp;gt;&lt;/span&gt;
+&lt;span class=&#34;x&#34;&gt;		&amp;lt;p&amp;gt;&lt;/span&gt;&lt;span class=&#34;cp&#34;&gt;&amp;lt;?&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$item&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;content&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;];&lt;/span&gt;&lt;span class=&#34;cp&#34;&gt;?&amp;gt;&lt;/span&gt;&lt;span class=&#34;x&#34;&gt;&amp;lt;/p&amp;gt;&lt;/span&gt;
+
+&lt;span class=&#34;x&#34;&gt;	&lt;/span&gt;&lt;span class=&#34;cp&#34;&gt;&amp;lt;?php&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+
+	&lt;span class=&#34;c1&#34;&gt;//Botões de Navegação&lt;/span&gt;
+
+	&lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$n&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+
+		&lt;span class=&#34;cm&#34;&gt;/*&lt;/span&gt;
+&lt;span class=&#34;cm&#34;&gt;		 * Se o  número da página for maior que 1, mostra o botão para voltar&lt;/span&gt;
+&lt;span class=&#34;cm&#34;&gt;		 * à página anterior.&lt;/span&gt;
+&lt;span class=&#34;cm&#34;&gt;		 */&lt;/span&gt;
+
+		&lt;span class=&#34;nv&#34;&gt;$pagAnterior&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$n&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;cp&#34;&gt;?&amp;gt;&lt;/span&gt;&lt;span class=&#34;x&#34;&gt;&lt;/span&gt;
+
+&lt;span class=&#34;x&#34;&gt;		&amp;lt;button&amp;gt;&amp;lt;a href=&amp;quot;/&lt;/span&gt;&lt;span class=&#34;cp&#34;&gt;&amp;lt;?&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$pagAnterior&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;cp&#34;&gt;?&amp;gt;&lt;/span&gt;&lt;span class=&#34;x&#34;&gt;&amp;quot;&amp;gt;Anterior&amp;lt;/a&amp;gt;&amp;lt;/button&amp;gt;&lt;/span&gt;
+
+&lt;span class=&#34;x&#34;&gt;	&lt;/span&gt;&lt;span class=&#34;cp&#34;&gt;&amp;lt;?php&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+
+	&lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$n&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$maximoDePaginas&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+
+		&lt;span class=&#34;cm&#34;&gt;/*&lt;/span&gt;
+&lt;span class=&#34;cm&#34;&gt;		 * Se o número da página for inferior ao número total de páginas,&lt;/span&gt;
+&lt;span class=&#34;cm&#34;&gt;		 * mostra o botão para ir para a página seguinte-&lt;/span&gt;
+&lt;span class=&#34;cm&#34;&gt;		 */&lt;/span&gt;
+
+		&lt;span class=&#34;nv&#34;&gt;$pagSeguinte&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$n&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;cp&#34;&gt;?&amp;gt;&lt;/span&gt;&lt;span class=&#34;x&#34;&gt;&lt;/span&gt;
+
+&lt;span class=&#34;x&#34;&gt;		&amp;lt;button&amp;gt;&amp;lt;a href=&amp;quot;/&lt;/span&gt;&lt;span class=&#34;cp&#34;&gt;&amp;lt;?&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$pagSeguinte&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;cp&#34;&gt;?&amp;gt;&lt;/span&gt;&lt;span class=&#34;x&#34;&gt;&amp;quot;&amp;gt;Seguinte&amp;lt;/a&amp;gt;&amp;lt;/button&amp;gt;&lt;/span&gt;
+
+&lt;span class=&#34;x&#34;&gt;	&lt;/span&gt;&lt;span class=&#34;cp&#34;&gt;&amp;lt;?php&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+
+&lt;span class=&#34;cp&#34;&gt;?&amp;gt;&lt;/span&gt;&lt;span class=&#34;x&#34;&gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;O código está todo comentado e explicado. Reforço novamente que, caso tenham  alguma dúvida, não hesitem em perguntar. Se quiserem saber mais sobre a função ceil , podem aceder a &lt;a href=&#34;http://php.net/manual/en/function.ceil.php&#34;&gt;esta página&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;4-já-está:95ae2512994674faa2e5d9de8679b927&#34;&gt;4. Já está&lt;/h2&gt;
+
+&lt;p&gt;Tal como o sub cabeçalho indica, já está! Basta abrirem a página através do browser para verem como ficou. É evidente que essa página não está muito bonita mas vocês logo tratam do CSS.&lt;/p&gt;
+
+&lt;p&gt;Visto que o PDO é um pouco abstrato às bases de dados, este tutorial funciona também para &lt;strong&gt;SQLite&lt;/strong&gt; e outros tipos de Bases de Dados alterando apenas o comando de conexão.&lt;/p&gt;
+
+&lt;p&gt;Abaixo encontram-se dois botões que podem utilizar para fazer download de todo o código, comentado e não comentado e também uma demo. Espero que tenham gostado :)&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;//henriquedias.com/downloads/listagem-mysql.zip&#34;&gt;Download&lt;/a&gt; | &lt;a href=&#34;//henriquedias.com/downloads/listagem-mysql-comentado.zip&#34;&gt;Download (Comentado)&lt;/a&gt; | &lt;a href=&#34;https://github.com/hacdias/labs/tree/master/php/paginated-database-listing&#34;&gt;GitHub&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

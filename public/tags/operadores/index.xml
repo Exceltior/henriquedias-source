@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Operadores on Henrique Dias</title>
+    <link>http://localhost:1313/tags/operadores/</link>
+    <description>Recent content in Operadores on Henrique Dias</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 10 Jun 2015 15:01:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/operadores/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>PHP - Diferenças entre &#39;&amp;&amp;/||&#39; e &#39;AND/OR&#39;</title>
+      <link>http://localhost:1313/explanations/php-diferencas-operadores-logicos-precedencia</link>
+      <pubDate>Wed, 10 Jun 2015 15:01:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/explanations/php-diferencas-operadores-logicos-precedencia</guid>
+      <description>&lt;p&gt;Há alguns dias publiquei um artigo onde expliquei as &lt;a href=&#34;http://localhost:1313/explanations/diferencas-entre-igual-identico-php/&#34;&gt;diferenças entre os operadores &lt;code&gt;==&lt;/code&gt; e &lt;code&gt;===&lt;/code&gt;&lt;/a&gt;. Depois de partilhar esse artigo no Google Plus, a comunidade &lt;a href=&#34;https://plus.google.com/communities/106163623473782778474&#34;&gt;PHP Brasil&lt;/a&gt; sugeriu-me que falasse sobre as diferenças entre os operadores &lt;code&gt;&amp;amp;&amp;amp;&lt;/code&gt;/&lt;code&gt;||&lt;/code&gt; e &lt;code&gt;AND&lt;/code&gt;/&lt;code&gt;OR&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Depois de ter pesquisado sobre estes quatro operadores, descobri que sim, realmente &lt;strong&gt;existem diferenças entre&lt;/strong&gt; esses dois conjuntos de operadores.&lt;/p&gt;
+
+&lt;p&gt;Para exemplificar, vamos utilizar valores &lt;strong&gt;booleanos&lt;/strong&gt;, ou seja, &lt;code&gt;false&lt;/code&gt; e &lt;code&gt;true&lt;/code&gt; (ou 0 e 1, respetivamente), e os operadores &lt;code&gt;AND&lt;/code&gt; e &lt;code&gt;&amp;amp;&amp;amp;&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Em primeiro lugar, vamos declarar duas variáveis, uma que seja igual a true  e outra igual a false como as seguintes:&lt;/p&gt;
+
+&lt;table class=&#34;highlighttable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;linenos&#34;&gt;&lt;div class=&#34;linenodiv&#34;&gt;&lt;pre&gt;1
+2&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span class=&#34;x&#34;&gt;$verdadeiro = true;&lt;/span&gt;
+&lt;span class=&#34;x&#34;&gt;$falso = false;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+
+&lt;p&gt;Antes de continuarmos, vou recordar algo parecido às regras da multiplicação/divisão com sinais diferentes, mas aqui para verdadeiros e falsos:&lt;/p&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;true&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;false&lt;/strong&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;true&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;true&lt;/td&gt;
+&lt;td&gt;false&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;false&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;false&lt;/td&gt;
+&lt;td&gt;true&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;Esta tabela mostra o resultado de comparações feitas entre os vários valores booleanos. Continuando agora com o &amp;ldquo;nosso&amp;rdquo; PHP, vamos definir uma variável chamada, por exemplo, $comparacao e igualá-la a comparações entre as variáveis booleanas anteriormente definidas.&lt;/p&gt;
+
+&lt;table class=&#34;highlighttable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;linenos&#34;&gt;&lt;div class=&#34;linenodiv&#34;&gt;&lt;pre&gt;1&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span class=&#34;x&#34;&gt;$comparacao = $verdadeiro &amp;amp;&amp;amp; $falso;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+
+&lt;p&gt;Assim, concluímos que a variável &lt;code&gt;$comparacao&lt;/code&gt;  é igual a falso. Vamos agora utilizar o operador AND.&lt;/p&gt;
+
+&lt;table class=&#34;highlighttable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;linenos&#34;&gt;&lt;div class=&#34;linenodiv&#34;&gt;&lt;pre&gt;1&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span class=&#34;x&#34;&gt;$comparacao = $verdadeiro AND $falso;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+
+&lt;p&gt;Olhando para a tabela e para a igualdade, pensamos logo que $comparacao  é igual a falso mas&amp;hellip; está &lt;strong&gt;errado!&lt;/strong&gt; &lt;code&gt;$comparacao&lt;/code&gt;  é agora igual a &lt;strong&gt;verdadeiro&lt;/strong&gt;. Mas como assim?&lt;/p&gt;
+
+&lt;p&gt;Isto acontece devido ao &lt;strong&gt;&lt;a href=&#34;http://php.net/manual/pt_BR/language.operators.precedence.php&#34;&gt;nível de precedência&lt;/a&gt;&lt;/strong&gt; dos operadores, ou seja, quando existe mais do que um operador num comando, existem níveis de prioridade sendo uns executados antes do que outros.&lt;/p&gt;
+
+&lt;p&gt;As duas linhas acima são equivalentes às seguintes, respetivamente:&lt;/p&gt;
+
+&lt;table class=&#34;highlighttable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;linenos&#34;&gt;&lt;div class=&#34;linenodiv&#34;&gt;&lt;pre&gt;1
+2&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span class=&#34;x&#34;&gt;$comparacao = ( $verdadeiro &amp;amp;&amp;amp; $falso );&lt;/span&gt;
+&lt;span class=&#34;x&#34;&gt;( $comparacao = $verdadeiro ) AND $falso;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+
+&lt;p&gt;O nível de precedência do operador &lt;code&gt;=&lt;/code&gt;  é mais elevado que o do operador &lt;code&gt;AND&lt;/code&gt;. Porém, o nível de precedência do operador &lt;code&gt;&amp;amp;&amp;amp;&lt;/code&gt; é mais elevado que o de &lt;code&gt;=&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Podemos exemplificar isto dos níveis de precedência utilizando matemática. Se escrevermos &lt;code&gt;5 + 2 * 4&lt;/code&gt;, automaticamente sabemos que vamos efetuar primeiro a multiplicação e só depois a adição, resultando em 13 ou seja, a multiplicação tem prioridade em relação à adição. Assim, &lt;code&gt;5 + 2 * 4 = 5 + (2 * 4)&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Só colocando parênteses é que podemos efetuar primeiro a adição e depois a multiplicação: (5 + 2) * 4 . Esta última já resulta em 28.&lt;/p&gt;
+
+&lt;p&gt;O mesmo acontece com os operadores &lt;code&gt;OR&lt;/code&gt; e &lt;code&gt;||&lt;/code&gt; sendo que o segundo tem um nível de precedência mais elevado que o primeiro. Acrescento ainda que esta explicação é válida para outras linguagens de programação, como Ruby, por exemplo.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Operador Ternário ( ? ) em PHP</title>
+      <link>http://localhost:1313/explanations/operador-ternario</link>
+      <pubDate>Tue, 22 Jul 2014 09:08:08 +0000</pubDate>
+      
+      <guid>http://localhost:1313/explanations/operador-ternario</guid>
+      <description>&lt;p&gt;Recentemente, escrevi um artigo onde explicava como fazer uma &lt;a href=&#34;http://localhost:1313/tutorials/listagem-web-de-uma-tabela-mysql/&#34;&gt;listagem web de uma tabela MySQL&lt;/a&gt; onde utilizei um operador que não tinha a certeza absoluta do que fazia e deixei a explicação um pouco vaga.&lt;/p&gt;
+
+&lt;p&gt;O operador em questão era o ponto de interrogação. Depois de uma pequena pesquisa, descobri que o seu nome é &lt;strong&gt;operador ternário&lt;/strong&gt; e é um operador condicional.&lt;/p&gt;
+
+&lt;p&gt;Já utilizava este operador há algum tempo mas estava reticente em relação à sua sintaxe pois não tinha a certeza se o que estava a fazer estava 100% correto por isso decidi pesquisar.&lt;/p&gt;
+
+&lt;p&gt;Este operador é excelente para pequenas e simples condições de &lt;code&gt;if else&lt;/code&gt; onde não pretendemos utilizar muitas linhas.&lt;/p&gt;
+
+&lt;table class=&#34;highlighttable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;linenos&#34;&gt;&lt;div class=&#34;linenodiv&#34;&gt;&lt;pre&gt;1&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span class=&#34;x&#34;&gt;$url = isset($_GET[&amp;#39;url&amp;#39;]) ? $_GET[&amp;#39;url&amp;#39;] : null;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+
+&lt;p&gt;Esse excerto acima foi tirado do artigo que mencionei acima e faz o mesmo que o código abaixo:&lt;/p&gt;
+
+&lt;table class=&#34;highlighttable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;linenos&#34;&gt;&lt;div class=&#34;linenodiv&#34;&gt;&lt;pre&gt;1
+2
+3
+4
+5&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span class=&#34;x&#34;&gt;if (isset($_GET[&amp;#39;url&amp;#39;]) {&lt;/span&gt;
+&lt;span class=&#34;x&#34;&gt;      $url = $_GET[&amp;#39;url&amp;#39;];&lt;/span&gt;
+&lt;span class=&#34;x&#34;&gt;} else {&lt;/span&gt;
+&lt;span class=&#34;x&#34;&gt;      $url = null;&lt;/span&gt;
+&lt;span class=&#34;x&#34;&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+
+&lt;p&gt;Vendo isto, concluímos que o  operador ternário é mais simples de utilizar, porém um pouco mais difícil de ler.&lt;/p&gt;
+
+&lt;p&gt;A palavra &amp;ldquo;ternário&amp;rdquo; provém de &amp;ldquo;três&amp;rdquo; e é utilizada neste operador porque este precisa de três argumentos. A sintaxe é a seguinte:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;(CONDIÇÃO)  ? &amp;lt;O QUE FAZ SE FOR VERDADEIRO&amp;gt; : &amp;lt;O QUE FAZ SE FOR FALSO&amp;gt;&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Abaixo encontra-se mais um pequeno exemplo:&lt;/p&gt;
+
+&lt;table class=&#34;highlighttable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;linenos&#34;&gt;&lt;div class=&#34;linenodiv&#34;&gt;&lt;pre&gt; 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span class=&#34;x&#34;&gt;$n = rand(0,100);&lt;/span&gt;
+
+&lt;span class=&#34;x&#34;&gt;if ($n &amp;gt; 50) {&lt;/span&gt;
+&lt;span class=&#34;x&#34;&gt;    echo &amp;#39;O número é maior que 50!&amp;#39;;&lt;/span&gt;
+&lt;span class=&#34;x&#34;&gt;} else {&lt;/span&gt;
+&lt;span class=&#34;x&#34;&gt;    echo &amp;#39;O número é menor que 50!&amp;#39;;&lt;/span&gt;
+&lt;span class=&#34;x&#34;&gt;}&lt;/span&gt;
+
+&lt;span class=&#34;x&#34;&gt;//Utilizando o operador ternário ficaria:&lt;/span&gt;
+
+&lt;span class=&#34;x&#34;&gt;echo ($n &amp;gt; 50) ? &amp;#39;O número é maior que 50!&amp;#39; : &amp;#39;O número é menor que 50!&amp;#39;;&lt;/span&gt;
+
+&lt;span class=&#34;x&#34;&gt;//O leitor Gustavo Rafael sugeriu uma forma mais simplificada:&lt;/span&gt;
+&lt;span class=&#34;x&#34;&gt;echo &amp;#39;O número é &amp;#39; . (($n &amp;gt; 50) ? &amp;#39;maior&amp;#39; : &amp;#39;menor&amp;#39;) . &amp;#39; que 50!&amp;#39;;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+
+&lt;p&gt;Mais uma vez podemos concluir que utilizando  o operador ternário gastamos menos linhas e poupamos *bytes* no tamanho do ficheiro.&lt;/p&gt;
+
+&lt;p&gt;Para saberem mais sobre operadores em PHP podem aceder a &lt;a href=&#34;http://br2.php.net/manual/en/language.operators.comparison.php&#34;&gt;esta página&lt;/a&gt; no guia oficial da linguagem. Este operador existe também em outras linguagens como C ou JS por exemplo.&lt;/p&gt;
+
+&lt;p&gt;Espero que tenham gostado desta pequena explicação. :)&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

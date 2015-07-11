@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Php 5.6.0 on Henrique Dias</title>
+    <link>http://localhost:1313/tags/php-5.6/index.0/</link>
+    <description>Recent content in Php 5.6.0 on Henrique Dias</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 31 Aug 2014 09:37:05 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/php-5.6.0/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>PHP 5.6 - Funções Variádicas (Nova Sintaxe)</title>
+      <link>http://localhost:1313/explanations/php-56-funcoes-variadicas-nova-sintaxe</link>
+      <pubDate>Sun, 31 Aug 2014 09:37:05 +0000</pubDate>
+      
+      <guid>http://localhost:1313/explanations/php-56-funcoes-variadicas-nova-sintaxe</guid>
+      <description>
+
+&lt;p&gt;Há pouco mais de dois dias, foi lançada uma nova versão do PHP, &lt;a href=&#34;http://php.net/archive/2014.php#id2014-08-28-1&#34;&gt;a versão 5.6.0&lt;/a&gt; que trouxe inúmeras novidades e incompatibilidades com as versões anteriores &lt;a href=&#34;http://pt2.php.net/manual/en/migration56.php&#34;&gt;(ver aqui)&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Hoje vamos falar de uma das diversas grandes novidades desta esplêndida atualização, as &lt;strong&gt;funções variádicas&lt;/strong&gt;.&lt;/p&gt;
+
+
+&lt;figure &gt;
+    
+        &lt;img src=&#34;http://localhost:1313/images/funcoesvariadicas560.png&#34; /&gt;
+    
+    
+&lt;/figure&gt;
+
+
+&lt;p&gt;Ao longo das versões 4.x e 5.x do PHP, os desenvolvedores já podiam utilizar funções variádicas através do uso da função &lt;code&gt;func_get_args()&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Se, por exemplo, quiséssemos criar uma função que fizesse a soma de todos os valores passados nos argumentos, bastaria fazermos assim:&lt;/p&gt;
+
+&lt;table class=&#34;highlighttable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;linenos&#34;&gt;&lt;div class=&#34;linenodiv&#34;&gt;&lt;pre&gt;1
+2
+3
+4
+5&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span class=&#34;x&#34;&gt;function soma() {&lt;/span&gt;
+&lt;span class=&#34;x&#34;&gt;  return array_sum(func_get_args());&lt;/span&gt;
+&lt;span class=&#34;x&#34;&gt;}&lt;/span&gt;
+
+&lt;span class=&#34;x&#34;&gt;echo soma(1, 4, 12, 20); // =&amp;gt; 37&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+
+&lt;p&gt;Apesar desta forma ainda estar disponível na versão 5.6.0, a sua sintaxe pode ser aprimorada para a seguinte:&lt;/p&gt;
+
+&lt;table class=&#34;highlighttable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;linenos&#34;&gt;&lt;div class=&#34;linenodiv&#34;&gt;&lt;pre&gt;1
+2
+3
+4
+5&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span class=&#34;x&#34;&gt;function soma(...$nums) {&lt;/span&gt;
+&lt;span class=&#34;x&#34;&gt;  return array_sum($nums);&lt;/span&gt;
+&lt;span class=&#34;x&#34;&gt;}&lt;/span&gt;
+
+&lt;span class=&#34;x&#34;&gt;echo soma(1, 4, 12, 20); //= 37&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+
+&lt;p&gt;Ou seja, na nova versão do PHP, basta utilizarmos o operador &amp;hellip;  para criarmos um &lt;em&gt;array&lt;/em&gt; que contenha todos os restantes parâmetros enviados.&lt;/p&gt;
+
+&lt;h2 id=&#34;perda-de-tempo-menor:49a54b9d504b4767ba55a4663de4b4cd&#34;&gt;Perda de tempo menor&lt;/h2&gt;
+
+&lt;p&gt;Uma vantagem na utilização deste método é a &lt;strong&gt;menor perda de tempo&lt;/strong&gt;. Como assim? Vou utilizar um exemplo dado pelos colegas do &lt;a href=&#34;http://imasters.com.br&#34;&gt;imasters.com.br&lt;/a&gt;. Em vez de escrevermos assim:&lt;/p&gt;
+
+&lt;table class=&#34;highlighttable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;linenos&#34;&gt;&lt;div class=&#34;linenodiv&#34;&gt;&lt;pre&gt; 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span class=&#34;x&#34;&gt;public function tryMethod() {&lt;/span&gt;
+
+&lt;span class=&#34;x&#34;&gt;        $args = func_get_args();&lt;/span&gt;
+&lt;span class=&#34;x&#34;&gt;        $method = $args[0];&lt;/span&gt;
+&lt;span class=&#34;x&#34;&gt;        unset($args[0]);&lt;/span&gt;
+&lt;span class=&#34;x&#34;&gt;        $args = array_values($args);&lt;/span&gt;
+
+&lt;span class=&#34;x&#34;&gt;    try {&lt;/span&gt;
+
+&lt;span class=&#34;x&#34;&gt;        return call_user_func_array([$this, $method], $args);&lt;/span&gt;
+
+&lt;span class=&#34;x&#34;&gt;    } catch (Exception $e) {&lt;/span&gt;
+
+&lt;span class=&#34;x&#34;&gt;        return false;&lt;/span&gt;
+
+&lt;span class=&#34;x&#34;&gt;    }&lt;/span&gt;
+&lt;span class=&#34;x&#34;&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+
+&lt;p&gt;Podemos, simplesmente, escrever da seguinte forma:&lt;/p&gt;
+
+&lt;table class=&#34;highlighttable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;linenos&#34;&gt;&lt;div class=&#34;linenodiv&#34;&gt;&lt;pre&gt; 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span class=&#34;x&#34;&gt;public function tryMethod($method, ...$args) {&lt;/span&gt;
+
+&lt;span class=&#34;x&#34;&gt;    try {&lt;/span&gt;
+
+&lt;span class=&#34;x&#34;&gt;        return call_user_func_array([$this, $method], $args);&lt;/span&gt;
+
+&lt;span class=&#34;x&#34;&gt;    } catch (Exception $e) {&lt;/span&gt;
+
+&lt;span class=&#34;x&#34;&gt;        return false;&lt;/span&gt;
+
+&lt;span class=&#34;x&#34;&gt;    }&lt;/span&gt;
+&lt;span class=&#34;x&#34;&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+
+&lt;h2 id=&#34;legibilidade:49a54b9d504b4767ba55a4663de4b4cd&#34;&gt;Legibilidade&lt;/h2&gt;
+
+&lt;p&gt;Simples, não é? Outra grande vantagem é a &lt;strong&gt;legibilidade&lt;/strong&gt; visto que o código fica mais legível utilizando esta sintaxe. O exemplo acima é, também, um bom exemplo para este ponto.&lt;/p&gt;
+
+&lt;h2 id=&#34;conclusão:49a54b9d504b4767ba55a4663de4b4cd&#34;&gt;Conclusão&lt;/h2&gt;
+
+&lt;p&gt;Falando mais no geral e vendo a lista de &lt;a href=&#34;http://pt2.php.net/manual/pt_BR/migration56.new-features.php&#34;&gt;novas funcionalidades/alterações&lt;/a&gt; da nova versão do PHP, podemos verificar que a versão traz muitas melhorias.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;O que acham vocês, leitores e desenvolvedores, desta nova versão do PHP?&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,644 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ferramentas on Henrique Dias</title>
+    <link>http://localhost:1313/tags/ferramentas/</link>
+    <description>Recent content in Ferramentas on Henrique Dias</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 25 Oct 2014 10:56:42 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/ferramentas/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Font Awesome - Excelente para designers.</title>
+      <link>http://localhost:1313/general/font-awesome-excelente-para-designers</link>
+      <pubDate>Sat, 25 Oct 2014 10:56:42 +0000</pubDate>
+      
+      <guid>http://localhost:1313/general/font-awesome-excelente-para-designers</guid>
+      <description>
+
+&lt;p&gt;Nós, aqui, temos uma categoria unicamente dedicada a ferramentas para desenvolvedores e, hoje, trazemos mais um item para ser colocado nessa categoria.&lt;/p&gt;
+
+&lt;p&gt;Apesar de não ser uma ferramenta de definição, colocarei este artigo nessa categoria porque a &lt;strong&gt;Font Awesome&lt;/strong&gt; é algo que pode ser deveras útil para os programadores e &lt;em&gt;web designers&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/fontawesome.jpg&#34; alt=&#34;Font Awesome - Excelente para designers.&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Font Awesome&lt;/strong&gt; é um projeto &lt;em&gt;open source&lt;/em&gt; que nos permite, de forma muito simples, incorporar ícones em páginas &lt;em&gt;web&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;Como assim? Através de um simples ficheiro CSS temos à nossa disposição uma gigante quantidade de ícones padrão como o símbolo de eliminar, câmara, de redes sociais, etc.&lt;/p&gt;
+
+&lt;h2 id=&#34;como-instalar:409e4fee0e71fc53e6c8d129bdfedc19&#34;&gt;Como &amp;ldquo;instalar&amp;rdquo;&lt;/h2&gt;
+
+&lt;p&gt;Existem diversas formas de utilizar a &lt;em&gt;Font Awesome&lt;/em&gt;. A primeira e mais fácil forma é, simplesmente, chamar o ficheiro CSS da fonte no cabeçalho de um ficheiro HTML.&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span class=&#34;nt&#34;&gt;&amp;lt;link&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;href=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;quot;//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css&amp;quot;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;rel=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;quot;stylesheet&amp;quot;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Pode também descarregar os ficheiros da &lt;em&gt;Font Awesome&lt;/em&gt; &lt;a href=&#34;http://fortawesome.github.io/Font-Awesome/&#34;&gt;aqui&lt;/a&gt; e chamar o ficheiro CSS principal, o font-awesome.min.css font-awesome.min.css  através do HTML.&lt;/p&gt;
+
+&lt;p&gt;Existem outras formas mais complicadas que podem ser úteis em diversas situações. Pode ver &lt;a href=&#34;http://fortawesome.github.io/Font-Awesome/get-started/&#34;&gt;aqui&lt;/a&gt; mais formas de instalar a &lt;em&gt;Font Awesome&lt;/em&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;como-utilizar:409e4fee0e71fc53e6c8d129bdfedc19&#34;&gt;Como utilizar&lt;/h2&gt;
+
+&lt;p&gt;A utilização da Font Awesomeé deveras simples. Para inserir ícones utilizamos a seguinte sintaxe:&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span class=&#34;nt&#34;&gt;&amp;lt;i&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;class=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;quot;fa fa-nome fa-tamanho&amp;quot;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;&amp;gt;&amp;lt;/i&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;No código HTML acima devemos substituir nome  pelo respetivo nome do ícone que pode encontrar &lt;a href=&#34;http://fortawesome.github.io/Font-Awesome/icons/&#34;&gt;aqui&lt;/a&gt; e, tamanho  por um dos seguintes:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/fontawesomesize.jpg&#34; alt=&#34;fontawesomesize&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Existem ainda muitos outros atributos que pode adicionar ao código de forma a personalizar o ícone. Veja a tabela seguinte:&lt;/p&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;strong&gt;Código&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Para que serve&lt;/strong&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;fa-spin&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Faz com que o ícone rode continuamente no sentido dos ponteiros do relógio.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;fa-border&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Adiciona uma borda ao ícone.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;fa-rotate-x&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Gira o ícone 90, 180 ou 270 graus (colocar os graus em vez de &amp;ldquo;x&amp;rdquo;).&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;fa-flip-x&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Transforma o ícone no seu simétrico vertical ou horizontalmente.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;Etc&lt;/td&gt;
+&lt;td&gt;Pode ver mais &lt;a href=&#34;http://fortawesome.github.io/Font-Awesome/examples/&#34;&gt;aqui&lt;/a&gt;.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;Como pode ver, este pequeno CSS pode ser extremamente útil quando o site/aplicação que está a desenvolver necessita de muitos ícones. Se quiser ler mais sobre a Font Awesome, pode aceder ao seu site oficial &lt;a href=&#34;http://fontawesome.io/&#34;&gt;aqui&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>SASS - Será a futura versão do CSS?</title>
+      <link>http://localhost:1313/personal/sass-sera-a-futura-versao-do-css</link>
+      <pubDate>Sun, 07 Sep 2014 10:23:57 +0000</pubDate>
+      
+      <guid>http://localhost:1313/personal/sass-sera-a-futura-versao-do-css</guid>
+      <description>&lt;p&gt;Atualmente, uma das grandes vertentes da programação é a web e esta está muito difundida. Os desenvolvedores web, têm que utilizar várias linguagens de vários tipos: programação, marcação e estilo.&lt;/p&gt;
+
+&lt;p&gt;A última versão do CSS &lt;em&gt;(Cascading Style Sheet)&lt;/em&gt;, o CSS3, trouxe muitas melhorias e novidades tornando-se mais poderoso. &lt;strong&gt;Mas será suficiente?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/sass.jpg&#34; alt=&#34;SASS - Será a futura versão do CSS?&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Atualmente, existem várias &amp;ldquo;alternativas&amp;rdquo; e pré-processadores de CSS, como &lt;a href=&#34;http://lesscss.org/&#34;&gt;LESS&lt;/a&gt; e SASS. Este último, tem vindo a crescer e muitos acreditam que poderá ser a &lt;strong&gt;futura versão do CSS.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;O SASS está na versão 3.4.3 e toda a versão três é mais conhecida por SCSS ou seja, Sassy CSS. Para utilizar esta ferramenta é necessário terem Ruby instalado no vosso computador. Pode seguir as restantes &lt;a href=&#34;http://sass-lang.com/install&#34;&gt;instruções aqui&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Aqui está um pequeno exemplo que compara CSS com SCSS.&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span class=&#34;cm&#34;&gt;/* CSS */&lt;/span&gt;
+
+&lt;span class=&#34;nt&#34;&gt;nav&lt;/span&gt; &lt;span class=&#34;err&#34;&gt;{&lt;/span&gt;
+  &lt;span class=&#34;na&#34;&gt;color&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;blue&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;;&lt;/span&gt;
+  &lt;span class=&#34;na&#34;&gt;font-family&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;no&#34;&gt;sans-serif&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;;&lt;/span&gt;
+&lt;span class=&#34;err&#34;&gt;}&lt;/span&gt;
+
+&lt;span class=&#34;nt&#34;&gt;nav&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;ul&lt;/span&gt; &lt;span class=&#34;err&#34;&gt;{&lt;/span&gt;
+  &lt;span class=&#34;na&#34;&gt;margin&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;;&lt;/span&gt;
+  &lt;span class=&#34;na&#34;&gt;padding&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;;&lt;/span&gt;
+  &lt;span class=&#34;na&#34;&gt;list-style&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;no&#34;&gt;none&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;;&lt;/span&gt;
+&lt;span class=&#34;err&#34;&gt;}&lt;/span&gt;
+
+
+&lt;span class=&#34;na&#34;&gt;nav&lt;/span&gt;&lt;span class=&#34;err&#34;&gt; &lt;/span&gt;&lt;span class=&#34;na&#34;&gt;li&lt;/span&gt;&lt;span class=&#34;err&#34;&gt; &lt;/span&gt;&lt;span class=&#34;na&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;err&#34;&gt; &lt;/span&gt;&lt;span class=&#34;na&#34;&gt;display&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;no&#34;&gt;inline&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;no&#34;&gt;block&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;err&#34;&gt;}&lt;/span&gt;
+
+&lt;span class=&#34;nt&#34;&gt;nav&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;a&lt;/span&gt; &lt;span class=&#34;err&#34;&gt;{&lt;/span&gt;
+  &lt;span class=&#34;na&#34;&gt;display&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;no&#34;&gt;block&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;;&lt;/span&gt;
+  &lt;span class=&#34;na&#34;&gt;padding&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;6&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;px&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;12&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;px&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;;&lt;/span&gt;
+  &lt;span class=&#34;na&#34;&gt;text-decoration&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;no&#34;&gt;none&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;;&lt;/span&gt;
+  &lt;span class=&#34;na&#34;&gt;color&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;red&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;;&lt;/span&gt;
+&lt;span class=&#34;err&#34;&gt;}&lt;/span&gt;
+
+&lt;span class=&#34;c1&#34;&gt;//O Mesmo em SCSS&lt;/span&gt;
+
+&lt;span class=&#34;na&#34;&gt;$font-stack&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt;    &lt;span class=&#34;no&#34;&gt;sans-serif&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;;&lt;/span&gt;
+&lt;span class=&#34;na&#34;&gt;$primary-color&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;blue&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;;&lt;/span&gt;
+&lt;span class=&#34;na&#34;&gt;$links-color&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt;   &lt;span class=&#34;nb&#34;&gt;red&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;;&lt;/span&gt;
+
+&lt;span class=&#34;nt&#34;&gt;nav&lt;/span&gt; &lt;span class=&#34;err&#34;&gt;{&lt;/span&gt;
+  &lt;span class=&#34;na&#34;&gt;color&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$primary-color&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;;&lt;/span&gt;
+  &lt;span class=&#34;na&#34;&gt;font-family&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$font-stack&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;;&lt;/span&gt;
+
+  &lt;span class=&#34;nt&#34;&gt;ul&lt;/span&gt; &lt;span class=&#34;err&#34;&gt;{&lt;/span&gt;
+    &lt;span class=&#34;na&#34;&gt;margin&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;;&lt;/span&gt;
+    &lt;span class=&#34;na&#34;&gt;padding&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;;&lt;/span&gt;
+    &lt;span class=&#34;na&#34;&gt;list-style&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;no&#34;&gt;none&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;;&lt;/span&gt;
+  &lt;span class=&#34;err&#34;&gt;}&lt;/span&gt;
+
+  &lt;span class=&#34;na&#34;&gt;li&lt;/span&gt;&lt;span class=&#34;err&#34;&gt; &lt;/span&gt;&lt;span class=&#34;na&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;err&#34;&gt; &lt;/span&gt;&lt;span class=&#34;na&#34;&gt;display&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;no&#34;&gt;inline&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;no&#34;&gt;block&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;err&#34;&gt;}&lt;/span&gt;
+
+  &lt;span class=&#34;nt&#34;&gt;a&lt;/span&gt; &lt;span class=&#34;err&#34;&gt;{&lt;/span&gt;
+    &lt;span class=&#34;na&#34;&gt;display&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;no&#34;&gt;block&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;;&lt;/span&gt;
+    &lt;span class=&#34;na&#34;&gt;padding&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;6&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;px&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;12&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;px&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;;&lt;/span&gt;
+    &lt;span class=&#34;na&#34;&gt;text-decoration&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;no&#34;&gt;none&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;;&lt;/span&gt;
+    &lt;span class=&#34;na&#34;&gt;color&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$links-color&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;;&lt;/span&gt;
+  &lt;span class=&#34;err&#34;&gt;}&lt;/span&gt;
+
+&lt;span class=&#34;err&#34;&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Sim, viram bem. Com SCSS podemos utilizar variáveis e também aninhar itens. Mas não acaba por aqui. Existem várias outras funcionalidades:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Importar ficheiros com &lt;code&gt;@import &#39;nome&#39;&lt;/code&gt;;&lt;/li&gt;
+&lt;li&gt;Mixins;&lt;/li&gt;
+&lt;li&gt;Herança utilizando &lt;code&gt;@extend&lt;/code&gt;;&lt;/li&gt;
+&lt;li&gt;Operadores aritméticos.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Podem ler mais sobre estas funcionalidades no &lt;a href=&#34;http://sass-lang.com/guide&#34;&gt;guia oficial&lt;/a&gt;. Uma das grandes vantagens em utilizar este pré-processador é o aumento de produtividade.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Agora, deixo-vos a pergunta: acham que o SCSS pode vir a ser o futuro CSS?
+Poder-se-à tornar mais que um pré-processador?&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>WordPress 4.0 &#39;Benny&#39; chegou com novidades para todos.</title>
+      <link>http://localhost:1313/general/wordpress-4-chegou-com-novidades</link>
+      <pubDate>Fri, 05 Sep 2014 09:30:25 +0000</pubDate>
+      
+      <guid>http://localhost:1313/general/wordpress-4-chegou-com-novidades</guid>
+      <description>
+
+&lt;p&gt;O WordPress é, como vocês sabem, um dos CMS mais utilizados atualmente estando instalado em milhões de sites por todo o mundo. Este CMS é feito em PHP, open-source e oferece muita flexibilidade.&lt;/p&gt;
+
+&lt;p&gt;Já devem ter lido que a nova versão do WordPress chegou - a versão 4.0 - e hoje vamos falar das mudanças no painel de administração e também de algumas das funções introduzidas com esta nova versão.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/wordpress40.jpg&#34; alt=&#34;WordPress 4.0 &amp;quot;Benny&amp;quot; chegou com novidades para todos.&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Esta nova versão do WordPress veio trazer diversas melhorias para os &amp;ldquo;utilizadores comuns&amp;rdquo; mas os desenvolvedores não ficaram esquecidos pois existem muitas novas funções. Da mesma forma existem outras que ficaram obsoletas.&lt;/p&gt;
+
+&lt;h2 id=&#34;melhorias-visíveis:a050fb5001f2ef08094c37d95de89581&#34;&gt;Melhorias &amp;ldquo;visíveis&amp;rdquo;&lt;/h2&gt;
+
+&lt;p&gt;Várias são as novidades &amp;ldquo;visíveis&amp;rdquo; ou seja, que podemos observar no painel de administração. Vamos começar com &lt;em&gt;&amp;ldquo;Gerencie conteúdos multimédia com estilo&amp;rdquo;&lt;/em&gt;. Esta é uma das várias frases encontradas &lt;a href=&#34;http://wordpress.org/news/2014/09/benny/&#34;&gt;neste artigo&lt;/a&gt; do blog do WordPress.&lt;/p&gt;
+
+&lt;p&gt;Ou seja, a biblioteca multimédia foi redesenhada sendo agora mais bonita e fácil de utilizar.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/wordpress40_01.jpg&#34; alt=&#34;wordpress40_01&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Agora, para colocarmos itens externos nos nosso artigos/páginas é extremamente simples. Estou a falar de vídeos do YouTube ou tweets, por exemplo.&lt;/p&gt;
+
+&lt;p&gt;Basta colocarmos o link numa nova linha que automaticamente será embebido no artigo. Podem ver &lt;a href=&#34;http://codex.wordpress.org/pt-br:Incorporados&#34;&gt;aqui&lt;/a&gt; a lista dos incorporados automaticos atualmente disponíveis.&lt;/p&gt;
+
+&lt;p&gt;Agora, a escrita é mais suave visto que o editor auto ajusta-se à medida que escrevemos deixando a barra de ferramentas sempre disponível.&lt;/p&gt;
+
+&lt;p&gt;A área dos plugins também recebeu uma grande pincelada sendo que se parece como nova.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/wordpress40_02.jpg&#34; alt=&#34;wordpress40_02&#34; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;melhorias-escondidas:a050fb5001f2ef08094c37d95de89581&#34;&gt;Melhorias &amp;ldquo;escondidas&amp;rdquo;&lt;/h2&gt;
+
+&lt;p&gt;Além destas maravilhosas melhorias que já falámos, houve uma grande correção de bugs que resulta numa melhor performance e segurança. Podem ver esta lista &lt;a href=&#34;http://codex.wordpress.org/Version_4.0&#34;&gt;aqui&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Para os desenvolvedores existem muitas melhorias. A WordPress tem agora um &lt;a href=&#34;http://developer.wordpress.org/reference/&#34;&gt;novo local&lt;/a&gt; onde podemos procurar por funções.&lt;/p&gt;
+
+&lt;p&gt;Reunimos alguns links para tentar ajudar os desenvolvedores a encontrarem melhor todas as novas funcionalidades do WordPress 4.0:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://wordpress.org/news/2014/09/benny/&#34;&gt;WordPress 4.0 “Benny” &lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://make.wordpress.org/core/2014/07/08/customizer-improvements-in-4-0/&#34;&gt;Customizer Improvements in 4.0&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://codex.wordpress.org/Version_4.0&#34;&gt;Version 4.0 « WordPress Codex&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://make.wordpress.org/core/2014/09/05/language-chooser-in-4-0/&#34;&gt;Language chooser in 4.0&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://make.wordpress.org/core/2014/08/29/a-more-powerful-order-by-in-wordpress-4-0/&#34;&gt;A more powerful ORDER BY in WordPress 4.0&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://make.wordpress.org/core/2014/08/21/introducing-plugin-icons-in-the-plugin-installer/&#34;&gt;Introducing plugin icons in the plugin installer&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://make.wordpress.org/core/2014/09/03/4-0-release-plan-update/&#34;&gt;4.0 release plan update&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://make.wordpress.org/core/2014/08/20/gsoc-update/&#34;&gt;GSoC update&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://make.wordpress.org/&#34;&gt;Make WordPress&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;À medida que encontrar novos links que possam ser úteis, deixo aqui. Se quiserem colaborar, podem deixar links nos comentários para serem adicionados à lista :)&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Git - Uma história e repositórios do GitHub</title>
+      <link>http://localhost:1313/tutorials/git-historia-repositorios-github</link>
+      <pubDate>Tue, 02 Sep 2014 14:09:59 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tutorials/git-historia-repositorios-github</guid>
+      <description>
+
+&lt;p&gt;&lt;strong&gt;Git&lt;/strong&gt; é um sistema de controlo de versão e gestão de código fonte extremamente utilizado em todos os cantos do mundo.&lt;/p&gt;
+
+&lt;p&gt;Hoje vamos aprender a criar um simples repositório no GitHub e fazer a primeira &amp;ldquo;commit&amp;rdquo; ou seja, enviar os primeiros dados para o repositório.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/git00.jpg&#34; alt=&#34;Git - Uma história e repositórios do GitHub&#34; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;um-pouco-de-história:51197f15ea7f7b00898d59ae0541182c&#34;&gt;Um pouco de história&amp;hellip;&lt;/h2&gt;
+
+&lt;p&gt;O kernel (ou núcleo) do Linux é um projeto de código aberto com um tamanho muito grande. No período de 1991 a 2002 houveram grandes mudanças no kernel do Linux visto que foi o período onde a manutenção foi maior.&lt;/p&gt;
+
+&lt;p&gt;Em 2002, este projeto começou a utilizar um sistema de controlo de versão proprietário, o &lt;a href=&#34;http://www.bitkeeper.com/&#34;&gt;BitKeeper&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Três anos mais tarde, em 2015, o relacionamento existente entre a comunidade que desenvolvia o Kernel e a empresa do BitKeeper desfez-se e isso levou a comunidade a pensar numa nova solução.&lt;/p&gt;
+
+&lt;p&gt;A comunidade começou então a desenvolver um novo sistema sendo que os objetivos que pretendiam atingir com este sistema eram a &lt;strong&gt;velocidade&lt;/strong&gt;, &lt;strong&gt;um software robusto, design simples&lt;/strong&gt; e capaz de lidar com &lt;strong&gt;grandes projetos&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Foi assim que nasceu o Git. Ao longo dos anos tem vindo a tornar-se um sistema de controlo de versão mundialmente conhecido e utilizado.&lt;/p&gt;
+
+&lt;h2 id=&#34;porquê-o-github:51197f15ea7f7b00898d59ae0541182c&#34;&gt;Porquê o GitHub?&lt;/h2&gt;
+
+&lt;p&gt;O tutorial de hoje é, em parte para o GitHub, mas a restante parte é indiferente pois basta ser um repositório Git.&lt;/p&gt;
+
+&lt;p&gt;Estamos a utilizar o GitHub por ser um serviço muito conhecido e utilizado e a criação de repositórios ser simples, fácil e rápida.&lt;/p&gt;
+
+&lt;h2 id=&#34;let-s-start:51197f15ea7f7b00898d59ae0541182c&#34;&gt;&lt;em&gt;Let&amp;rsquo;s start&lt;/em&gt;&lt;/h2&gt;
+
+&lt;p&gt;Os requisitos são ter uma ligação à Internet, ter o Git instalado no vosso computador &lt;a href=&#34;http://git-scm.com/&#34;&gt;através desta página&lt;/a&gt; e ter uma conta no &lt;a href=&#34;https://github.com&#34;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Assim, começamos por ir ao site do GitHub e clicamos no botão &lt;strong&gt;+ → New Repository&lt;/strong&gt; como podem ver na imagem abaixo.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/github01.jpg&#34; alt=&#34;Primeiro Passo&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Depois tens que preencher o nome do repositório, a descrição e, por agora, não são precisas mais configurações. No final é só clicar no botão verde.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/github02.jpg&#34; alt=&#34;Segundo Passo&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Copia o código HTTPS ou SSH utilizando o botão que aparece do lado direito.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/github03.jpg&#34; alt=&#34;Terceiro Passo&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Agora que já temos o repositório configurado no GitHub, vamos colocá-lo no nosso computador. Esta parte agora &lt;strong&gt;é igual independentemente do serviço utilizado&lt;/strong&gt;, GitHub, Bitbucket, etc, basta ser Git.&lt;/p&gt;
+
+&lt;h2 id=&#34;git-git-git-e-mais-git:51197f15ea7f7b00898d59ae0541182c&#34;&gt;Git, git, git e mais git&lt;/h2&gt;
+
+&lt;p&gt;Começa por abrir a linha de comandos/shell ou qualquer outra coisa que use o teu sistema operativo no local onde queres que o repositório seja clonado/copiado/armazenado.&lt;/p&gt;
+
+&lt;p&gt;Tem em atenção que, se abrires na pasta &lt;code&gt;D:\dev&lt;/code&gt;, o repositório vai ser clonado em &lt;code&gt;D:\dev\nomeDoRepo&lt;/code&gt;. Executa então o seguinte comando:&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;git clone &amp;lt;URL-QUE-COPIASTE&amp;gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Agora é só esperar uns segundos até que o repositório seja clonado. Deves receber uma mensagem semelhante à seguinte:&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;Cloning into &lt;span class=&#34;s1&#34;&gt;&amp;#39;RepositorioDeExemploCOXPE&amp;#39;&lt;/span&gt;...
+warning: You appear to have cloned an empty repository.
+Checking connectivity... &lt;span class=&#34;k&#34;&gt;done&lt;/span&gt;.
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Agora naveguem até à pasta do repositório utilizando o comando cd &lt;NOME-DO-REPO&gt; . Agora que estão dentro da pasta, devem ver uma pasta chamada &lt;code&gt;.git&lt;/code&gt; oculta.&lt;/p&gt;
+
+&lt;p&gt;Vamos então criar o nosso primeiro ficheiro para enviar para o repositório. Comecem por executar o seguinte comando:&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span class=&#34;nb&#34;&gt;echo &lt;/span&gt;Este é o meu primeiro repositório &amp;gt; README.md
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Esse comando vai fazer com que seja criado um ficheiro &lt;code&gt;README.md&lt;/code&gt; com o conteúdo &amp;ldquo;Este é o meu primeiro repositório&amp;rdquo; (sem aspas). Agora é hora de enviar este ficheiro para o servidor. Para isso executamos um dos seguintes comandos:&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span class=&#34;c&#34;&gt;#Para adicionar apenas UM ficheiro&lt;/span&gt;
+git add &amp;lt;nome-do-ficheiro&amp;gt;
+
+&lt;span class=&#34;c&#34;&gt;#Para adicionar todas as novas modificações&lt;/span&gt;
+git add -all
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Agora temos que adicionar uma mensagem que vai identificar este envio. Para isso escreve o seguinte, substituindo &amp;ldquo;My Message&amp;rdquo; pelo que quiseres (mas sempre com aspas):&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;git commit -m &lt;span class=&#34;s2&#34;&gt;&amp;quot;My Message&amp;quot;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Agora é hora de enviar as mudanças para o repositório remoto. Para isso executa o seguinte comando que irá enviar as alterações para a &amp;ldquo;branch&amp;rdquo; master:&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;git push origin
+
+&lt;span class=&#34;c&#34;&gt;#Depois insere os dados de utilizador quando pedido&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2 id=&#34;pronto:51197f15ea7f7b00898d59ae0541182c&#34;&gt;Pronto&amp;hellip;&lt;/h2&gt;
+
+&lt;p&gt;Pronto, já está! Se fores agora ao repositório que criaste irás ver o novo ficheiro. Como o ficheiro foi denominado &lt;code&gt;README.md&lt;/code&gt;, este estará sempre visível quando abrimos o repositório na parte abaixo da listagem dos ficheiros.&lt;/p&gt;
+
+&lt;p&gt;Espero que tenham gostado deste pequeno tutorial :)&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Fiquem atentos. Em breve teremos novidades com o &lt;a href=&#34;http://pplware.com&#34;&gt;Pplware&lt;/a&gt;:)&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Atom - Extensão Fancy New File</title>
+      <link>http://localhost:1313/general/atom-extensao-fancy-new-file</link>
+      <pubDate>Mon, 25 Aug 2014 12:25:12 +0000</pubDate>
+      
+      <guid>http://localhost:1313/general/atom-extensao-fancy-new-file</guid>
+      <description>&lt;p&gt;Como sabem, nas últimas semanas tenho vindo a publicar semanalmente uma extensão para o editor de texto Atom com um vídeo.&lt;/p&gt;
+
+&lt;p&gt;A extensão que vos trazemos hoje chama-se &lt;strong&gt;Fancy New File&lt;/strong&gt; e vai fazer com que a criação de ficheiros se torne mais rápida.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/atomfancy01.jpg&#34; alt=&#34;Atom - Extensão Fancy New File&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Hoje, ao contrário dos outros dias, o artigo não irá estar acompanhado de vídeo visto que a extensão é deveras simples de utilizar. Vamos ver :)&lt;/p&gt;
+
+&lt;p&gt;A extensão pode ser descarregada &lt;a href=&#34;https://atom.io/packages/fancy-new-file&#34;&gt;aqui&lt;/a&gt; e, para utilizar, basta clicar nas teclas &lt;strong&gt;alt-cmd-n&lt;/strong&gt; para Mac e &lt;strong&gt;alt-ctrl+n&lt;/strong&gt; no Windows e Linux e depois digitar o caminho onde queremos criar o ficheiro.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/fancynewfile.gif&#34; alt=&#34;Fancy New FIle&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;O caminho pode ser relativo (à pasta atualmente aberta) ou então absoluto. Nas definições da extensão temos também três úteis opções que podemos ativar:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Auto completação sensitiva&lt;/li&gt;
+&lt;li&gt;Mostrar ficheiros na auto completação&lt;/li&gt;
+&lt;li&gt;Sugerir o caminho do ficheiro atual&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;del&gt;Na próxima semana traremos mais uma extensão, mas dessa vez, com vídeo :)&lt;/del&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Como utilizar o Bower, um gestor de pacotes web</title>
+      <link>http://localhost:1313/tutorials/como-utilizar-o-bower-um-gestor-de-pacotes-web</link>
+      <pubDate>Mon, 18 Aug 2014 12:01:12 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tutorials/como-utilizar-o-bower-um-gestor-de-pacotes-web</guid>
+      <description>&lt;p&gt;O &lt;strong&gt;Bower&lt;/strong&gt; é um excelente gestor de pacotes web. Utilizando este gestor, torna-se mais fácil e prático adicionar e atualizar as diversas bibliotecas que utilizamos nos nossos sites/web-apps.&lt;/p&gt;
+
+&lt;p&gt;Hoje vamos instalar o Bower e depois vamos criar um ficheiro para gerir os pacotes de um site de exemplo.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/bower.jpg&#34; alt=&#34;Como utilizar o Bower, um gestor de pacotes web&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Utilizar o &lt;a href=&#34;http://bower.io/&#34;&gt;Bower&lt;/a&gt; é bastante simples. Vamos começar com os requisitos. Para podermos utilizar este gestor de pacotes, temos que ter instalado o &lt;a href=&#34;http://nodejs.org/&#34;&gt;Node.js&lt;/a&gt;  no nosso computador. Podem descarregar o Node.js no site oficial.&lt;/p&gt;
+
+&lt;p&gt;Depois de terem o node.js instalado no vosso computador, vamos instalar o Bower. Para isso, abram a linha de comandos do vosso SO, se for Windows corram como Administrador e escrevam o seguinte:&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;npm install -g bower
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Agora, existem várias formas de fazer o dowload dos pacotes que precisamos no nosso projeto. Nós vamos começar por analisar as &amp;ldquo;menos divertidas&amp;rdquo; e depois passaremos à que, talvez, possa ser considerada a &amp;ldquo;melhor&amp;rdquo;&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span class=&#34;c&#34;&gt;# Instala através do ficheiro bower.json&lt;/span&gt;
+bower install
+&lt;span class=&#34;c&#34;&gt;# Instala um pacote específico&lt;/span&gt;
+bower install package
+&lt;span class=&#34;c&#34;&gt;# Instala uma versão específica de um pacote&lt;/span&gt;
+bower install package#version
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Como podem ver, existem essas três formas mencionadas acima. Podemos substituir &lt;strong&gt;package&lt;/strong&gt; por diversos itens como:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Nome do pacote como angularjs&lt;/li&gt;
+&lt;li&gt;Ficheiro zip ou tar remoto ou local&lt;/li&gt;
+&lt;li&gt;Repositório Git remoto ou local&lt;/li&gt;
+&lt;li&gt;Atalho para repositórios do GitHub&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Assim, para instalar o jQuery, basta correr o seguinte comando para que seja criada uma pasta no caminho &lt;strong&gt;bower_components\jquery&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;bower install jquery
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Agora vamos criar um ficheiro chamado &lt;code&gt;bower.json&lt;/code&gt; para descarregar a versão 1.11.0 do jQuery e a versão mais recente do &lt;strong&gt;angular.js&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+  &lt;span class=&#34;nt&#34;&gt;&amp;quot;name&amp;quot;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;quot;projeto-x&amp;quot;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+  &lt;span class=&#34;nt&#34;&gt;&amp;quot;version&amp;quot;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;quot;0.0.1&amp;quot;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+  &lt;span class=&#34;nt&#34;&gt;&amp;quot;dependencies&amp;quot;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+    &lt;span class=&#34;nt&#34;&gt;&amp;quot;jquery&amp;quot;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;quot;1.11.0&amp;quot;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+    &lt;span class=&#34;nt&#34;&gt;&amp;quot;angular&amp;quot;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;quot;master&amp;quot;&lt;/span&gt;
+  &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Agora basta correr o seguinte comando para efetuar o download dos pacotes:&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;bower install
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Agora, imaginando que saia uma nova versão do angular.js, bastava correr o seguinte comando para atualizar o angular e manter o jQuery na mesma versão:&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;bower update
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Como podem ver, é bastante simples fazer o download de pacotes utilizando o Bower. Para os chamar através do HTML basta fazermos como sempre: utilizar as tags &lt;code&gt;&amp;lt;script&amp;gt;&lt;/code&gt; e utilizar o URL absoluto ou relativo para o local onde estão os ficheiros.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Editor de Texto Atom - Extensão Minimap</title>
+      <link>http://localhost:1313/general/editor-de-texto-atom-extensao-minimap</link>
+      <pubDate>Sat, 16 Aug 2014 09:39:32 +0000</pubDate>
+      
+      <guid>http://localhost:1313/general/editor-de-texto-atom-extensao-minimap</guid>
+      <description>&lt;p&gt;Na semana passada, &lt;a href=&#34;http://localhost:1313/general/atom-io-um-excelente-editor-de-texto-da-github/&#34;&gt;apresentei-vos o editor de texto Atom&lt;/a&gt;, da GitHub e ainda falei de uma das centenas de extensões disponíveis para ele, &lt;a href=&#34;http://localhost:1313/general/extensao-emmet-para-editor-de-texto-atom/&#34;&gt;a extensão Emmet&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Referi ainda que, ao longo do tempo, iria falar de mais extensões e hoje, é hora de outra. Esta é uma funcionalidade muito útil e chama-se &lt;strong&gt;minimap&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/minimap.png&#34; alt=&#34;Editor de Texto Atom - Extensão Minimap&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Para quem utiliza o Sublime Text, esta funcionalidade não é nenhuma novidade porque já vem instalada por padrão.&lt;/p&gt;
+
+&lt;p&gt;Como o Atom é modular, os desenvolvedores decidiram trazer esta funcionalidade para este editor de texto criando uma simples extensão (ou pacote).&lt;/p&gt;
+
+&lt;p&gt;O &lt;a href=&#34;https://atom.io/packages/minimap&#34;&gt;&lt;strong&gt;Minimap&lt;/strong&gt;&lt;/a&gt; permite aos utilizadores terem um mini-mapa num dos lados do ecrã (esquerdo ou direito) em que todo o código do ficheiro pode ser visualizado em miniatura.&lt;/p&gt;
+
+&lt;p&gt;Com esta extensão torna-se facílimo navegar por dentro do ficheiro visto que basta clicar e arrastar sobre o mini-mapa para o fazer.&lt;/p&gt;
+
+&lt;p&gt;Existem outras extensões que permitem ampliar as funcionalidades desta extensão (passa a redundância) e podem encontrar os links para as mesmas &lt;a href=&#34;https://atom.io/packages/minimap&#34;&gt;aqui&lt;/a&gt;, na secção plugins.&lt;/p&gt;
+
+&lt;p&gt;Aqui está um vídeo onde, além de explicar como se instala, explico como podemos ativar o mini-mapa por predefinição sempre que abrimos o Atom.&lt;/p&gt;
+
+&lt;iframe width=&#34;100%&#34; height=&#34;auto&#34; src=&#34;https://www.youtube.com/embed/4xpkHqYFLCg&#34; frameborder=&#34;0&#34; allowfullscreen&gt;&lt;/iframe&gt;
+
+&lt;p&gt;Espero que tenham gostado e que esta extensão vos seja bastante útil.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Extensão Emmet para o editor de texto Atom</title>
+      <link>http://localhost:1313/general/extensao-emmet-para-editor-de-texto-atom</link>
+      <pubDate>Fri, 08 Aug 2014 13:14:25 +0000</pubDate>
+      
+      <guid>http://localhost:1313/general/extensao-emmet-para-editor-de-texto-atom</guid>
+      <description>&lt;p&gt;Ontem fizemos uma breve apresentação ao &lt;a href=&#34;http://localhost:1313/general/atom-io-um-excelente-editor-de-texto-da-github/&#34;&gt;editor de texto Atom&lt;/a&gt; da GitHub e referimos que, a partir de hoje, iríamos falar sobre algumas extensões disponíveis para o Atom.&lt;/p&gt;
+
+&lt;p&gt;Assim, vamos começar hoje com a primeira: &lt;strong&gt;Emmet&lt;/strong&gt;. Esta é uma extensão que vai ajudar na produtividade de todos os desenvolvedores web.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/extensaoemmet.png&#34; alt=&#34;Extensão Emmet para o editor de texto Atom&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;A extensão &lt;a href=&#34;http://emmet.io/&#34;&gt;Emmet&lt;/a&gt; é, provavelmente, conhecida de quase todos os desenvolvedores web pois permite agilizar a processo de criação e aumentar a produtividade.&lt;/p&gt;
+
+&lt;p&gt;Com esta extensão são ativados diversos atalhos e uma funcionalidade de abreviaturas. Se, por exemplo, escrevermos: &lt;code&gt;ul#minha_lista&amp;gt;li*5&lt;/code&gt; e clicarmos na tecla &amp;ldquo;tab&amp;rdquo;, o seguinte será produzido:&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span class=&#34;nt&#34;&gt;&amp;lt;ul&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;id=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;quot;minha_lista&amp;quot;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;&amp;gt;&lt;/span&gt;
+ &lt;span class=&#34;nt&#34;&gt;&amp;lt;li&amp;gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
+ &lt;span class=&#34;nt&#34;&gt;&amp;lt;li&amp;gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
+ &lt;span class=&#34;nt&#34;&gt;&amp;lt;li&amp;gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
+ &lt;span class=&#34;nt&#34;&gt;&amp;lt;li&amp;gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
+ &lt;span class=&#34;nt&#34;&gt;&amp;lt;li&amp;gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
+&lt;span class=&#34;nt&#34;&gt;&amp;lt;/ul&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;No vídeo abaixo mostro como instalar esta extensão além de vos mostrar como funciona o sistema de abreviaturas e alguns atalhos. &lt;a href=&#34;https://www.youtube.com/user/hacdias?sub_confirmation=1&#34;&gt;Não se esqueça de subscrever o canal&lt;/a&gt;. :)&lt;/p&gt;
+
+&lt;div class=&#34;embed video-player&#34;&gt;
+&lt;iframe class=&#34;youtube-player&#34; type=&#34;text/html&#34; width=&#34;640&#34; height=&#34;385&#34; src=&#34;http://www.youtube.com/embed/f5Uy2EyvT6E&#34; allowfullscreen frameborder=&#34;0&#34;&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
+
+
+&lt;p&gt;Como foi referido no vídeo, não falámos de todos os atalhos. Podem ver mais atalhos &lt;a href=&#34;https://github.com/emmetio/emmet-atom&#34;&gt;aqui&lt;/a&gt;. Além disso, acredito que esta extensão vos seja muito útil.&lt;/p&gt;
+
+&lt;p&gt;Esta extensão está disponível para mais editores de texto como o Espresso, Notepad++, Sublime Text, etc. Podem descarregar para outros editores de texto &lt;a href=&#34;http://emmet.io/download/&#34;&gt;aqui&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Atom - Um excelente editor de texto da GitHub</title>
+      <link>http://localhost:1313/general/atom-io-um-excelente-editor-de-texto-da-github</link>
+      <pubDate>Thu, 07 Aug 2014 18:50:03 +0000</pubDate>
+      
+      <guid>http://localhost:1313/general/atom-io-um-excelente-editor-de-texto-da-github</guid>
+      <description>&lt;p&gt;O mundo dos editores de texto é competitivo mas o &lt;em&gt;podium&lt;/em&gt; está ocupado pelos mais conhecidos e melhores como o &lt;a href=&#34;http://notepad-plus-plus.org/&#34;&gt;&lt;strong&gt;Notepad++&lt;/strong&gt;&lt;/a&gt;e o &lt;a href=&#34;http://www.sublimetext.com/&#34;&gt;&lt;strong&gt;Sublime Text&lt;/strong&gt;&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Hoje damos a conhecer outro concorrente, que ainda está em fase &lt;em&gt;alpha&lt;/em&gt; mas que promete ser o editor de texto deste século: o &lt;strong&gt;Atom&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/atom00.jpg&#34; alt=&#34;Atom - Um excelente editor de texto da GitHub&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;As ferramentas mais utilizadas pelos desenvolvedores programadores são os editores de texto e IDEs sendo as primeiras mais utilizadas para edições simples e as segundas para projetos maiores.&lt;/p&gt;
+
+&lt;p&gt;O &lt;a href=&#34;https://atom.io/&#34;&gt;&lt;strong&gt;Atom&lt;/strong&gt;&lt;/a&gt; é um editor de texto que está a ser produzido pela maior empresa ligada ao software livre do mundo, a &lt;strong&gt;GitHub&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Este editor de texto está disponível para Windows e Mac OS sendo que os utilizadores de Linux podem fazer a &lt;em&gt;build&lt;/em&gt; com as instruções fornecidas no site.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/atom01.jpg&#34; alt=&#34;atom01&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Como defensora de &lt;em&gt;open source&lt;/em&gt;, a GitHub disponibiliza o código fonte deste maravilhoso editor de texto &lt;a href=&#34;https://github.com/atom/atom&#34;&gt;aqui&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Os desenvolvedores podem contribuir criando &lt;a href=&#34;https://atom.io/docs/latest/creating-a-package&#34;&gt;&lt;em&gt;packages&lt;/em&gt;&lt;/a&gt; ou seja, extensões que aumentam as funcionalidades do editor e também podem criar temas.&lt;/p&gt;
+
+&lt;p&gt;Este editor de texto tem como base tecnologias web sendo baseado no &lt;strong&gt;Chromium&lt;/strong&gt; e utilizador de &lt;strong&gt;Node.js&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/atom03.jpg&#34; alt=&#34;atom03&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Atualmente está apenas na versão 0.120.0 logo ainda está numa fase muito primordial. Apesar disso, este editor apresenta muitas das funcionalidades presentes nos editores mais conhecidos e oferece uma experiência de utilização razoável.&lt;/p&gt;
+
+&lt;p&gt;Outro recurso interessante deste editor de texto é o facto de trazer integração com o sistema &lt;strong&gt;git&lt;/strong&gt; nativamente.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/atom02.jpg&#34; alt=&#34;atom02&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Existem excelentes extensões que trazem fantásticas funcionalidades. Iremos falar sobre algumas extensões nas próximas semanas começando amanhã.&lt;/p&gt;
+
+&lt;p&gt;Através do que é possível ver nesta versão &lt;em&gt;alpha&lt;/em&gt; acredito que este possa ser um dos futuros mais conhecidos editores de texto por diversas razões que já mencionei.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>PHP Ninja - A documentação na palma das tuas mãos!</title>
+      <link>http://localhost:1313/general/php-ninja-documentacao-na-palma-das-tuas-maos</link>
+      <pubDate>Tue, 05 Aug 2014 15:07:28 +0000</pubDate>
+      
+      <guid>http://localhost:1313/general/php-ninja-documentacao-na-palma-das-tuas-maos</guid>
+      <description>&lt;p&gt;Recentemente falámos sobre uma pequena ferramenta que pode ser muito útil para desenvolvedores web, o &lt;a href=&#34;http://henriquedias.com/postman/&#34;&gt;POSTMAN&lt;/a&gt;. Hoje vamos falar de mais uma pequena grande ferramenta.&lt;/p&gt;
+
+&lt;p&gt;Para quem  trabalha com PHP e utiliza o Google Chrome, esta ferramenta será indispensável no seu trabalho. Chama-se &lt;strong&gt;PHP Ninja&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/php-ninja.png&#34; alt=&#34;PHP Ninja - A documentação na palma das tuas mãos!&#34; /&gt;]&lt;/p&gt;
+
+&lt;p&gt;Esta extensão chegou aos meus ouvidos através do desenvolvedor &lt;a href=&#34;https://plus.google.com/u/0/+Jonatamdossantos/posts&#34;&gt;Jonatan&lt;/a&gt; na comunidade &lt;a href=&#34;https://plus.google.com/u/0/communities/106163623473782778474&#34;&gt;PHP Brasil&lt;/a&gt; e fiquei deveras interessado na mesma.&lt;/p&gt;
+
+&lt;p&gt;A extensão é muito simples e fácil de utilizar sendo também excelente e muito útil. Pode instalá-la através deste &lt;a href=&#34;https://chrome.google.com/webstore/detail/php-ninja-manual/clbhjjdhmgeibgdccjfoliooccomjcab&#34;&gt;link&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Para abrir a extensão basta clicar no seu ícone na zona dos ícones das extensões ou clicando nas teclas &lt;strong&gt;Shift + Alt +  F&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Esta extensão permite-nos obter a documentação do PHP de forma muito fácil. Basta abrir a &lt;em&gt;popup&lt;/em&gt; da extensão e pesquisar pelo que queremos.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://localhost:1313/images/phpninja01.jpg&#34;&gt;phpninja01&lt;/a&gt;]&lt;/p&gt;
+
+&lt;p&gt;Enquanto escrevemos serão também dadas sugestões do que procuramos devido à sua função de auto-completar.&lt;/p&gt;
+
+&lt;p&gt;A documentação está disponível em oito línguas, dentro delas &lt;strong&gt;português&lt;/strong&gt; e &lt;strong&gt;inglês&lt;/strong&gt;. Isto pode ser alterado nas definições da extensão.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://localhost:1313/images/phpninja02.jpg&#34;&gt;phpninja02&lt;/a&gt;]&lt;/p&gt;
+
+&lt;p&gt;A linguagem padrão é inglês e sempre que alterarmos de língua, a extensão irá atualizar a base de dados com a nova linguagem.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Download:&lt;/strong&gt; &lt;a href=&#34;https://chrome.google.com/webstore/detail/php-ninja-manual/clbhjjdhmgeibgdccjfoliooccomjcab&#34;&gt;Chrome Store&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>POSTMAN - Um cliente REST</title>
+      <link>http://localhost:1313/general/postman-cliente-rest</link>
+      <pubDate>Fri, 25 Jul 2014 13:19:02 +0000</pubDate>
+      
+      <guid>http://localhost:1313/general/postman-cliente-rest</guid>
+      <description>&lt;p&gt;Os desenvolvedores contam com diversas ferramentas que visam ajudar no desenvolvimento. Por vezes, existem excelentes ferramentas que passam despercebidas para muitos.&lt;/p&gt;
+
+&lt;p&gt;Para todos os desenvolvedores web, o &lt;strong&gt;POSTMAN&lt;/strong&gt; vai ser uma grande ajuda no desenvolvimento web, principalmente quando o assunto se refere a solicitações HTTP (&lt;em&gt;HTTP requests&lt;/em&gt;).&lt;/p&gt;
+
+&lt;p&gt;O &lt;strong&gt;POSTMAN&lt;/strong&gt; é um cliente &lt;a href=&#34;http://pt.wikipedia.org/wiki/REST&#34;&gt;REST&lt;/a&gt; - pequena grande ferramenta -  criada pela programador &lt;a href=&#34;http://www.rickreation.com/&#34;&gt;Abhinav Asthana&lt;/a&gt; e está disponível na forma de extensão para o Google Chrome. Pode fazer o download da extensão &lt;a href=&#34;https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop&#34;&gt;aqui&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Considero esta extensão excelente pois permite-nos &amp;ldquo;injetar&amp;rdquo; e receber dados muito facilmente através de métodos HTTP ou de outras opções.&lt;/p&gt;
+
+&lt;p&gt;Com esta extensão torna-se mais fácil encontrar um problema numa aplicação ou &lt;em&gt;website&lt;/em&gt; que estejamos a desenvolver. Abaixo encontram um exemplo que pelo qual comecei a utilizar esta extensão.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Recentemente estava a enviar pedidos POST para o servidor utilizando &lt;a href=&#34;http://blog.henriquedias.com/post-get-ajax-resposta-php/&#34;&gt;jQuery e  Ajax&lt;/a&gt; sendo que a resposta desses pedidos devia ser em JSON mas estava sempre a receber o erro &lt;code&gt;unexpected character&lt;/code&gt; do lado do cliente.&lt;/p&gt;
+
+&lt;p&gt;Na altura sabia que o JS estava a receber uma página HTML em vez de dados em JSON o que queria dizer que havia um erro no lado do servidor, nos ficheiros PHP.&lt;/p&gt;
+
+&lt;p&gt;O erro é-nos normalmente dado pelo PHP  quando visualizamos a página, mas como não sabia o que estava a receber, não o podia ver e não tinha mais nenhuma opção sem ser ir &amp;ldquo;à busca do erro&amp;rdquo; até que o  POSTMAN surgiu.&lt;/p&gt;
+
+&lt;p&gt;Instalei a aplicação,  coloquei os dados do pedido POST, o URL e recebi tudo o que o servidor enviou. Aí consegui detetar o erro do PHP facilmente e corrigi-lo.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Esta extensão também é boa quando queremos testar se existem problemas de segurança no site. Será que conseguimos alterar as opções do utilizador numa *web app* fazendo apenas um pedido mesmo sem a sessão iniciada? Devemos ter cuidado com tudo isso.&lt;/p&gt;
+
+&lt;p&gt;Deixo-vos aqui também o vídeo da demo criado pelo próprio autor da extensão:&lt;/p&gt;
+
+&lt;div class=&#34;embed video-player&#34;&gt;
+&lt;iframe class=&#34;youtube-player&#34; type=&#34;text/html&#34; width=&#34;640&#34; height=&#34;385&#34; src=&#34;http://www.youtube.com/embed/m4in-ea201U&#34; allowfullscreen frameborder=&#34;0&#34;&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
+
+
+&lt;p&gt;Na demo acima puderam ver mais funções que esta extensão vos pode fornecer e acredito que esta vos seja útil =D&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

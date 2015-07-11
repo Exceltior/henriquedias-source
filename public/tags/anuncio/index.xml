@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Anuncio on Henrique Dias</title>
+    <link>http://localhost:1313/tags/anuncio/</link>
+    <description>Recent content in Anuncio on Henrique Dias</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 12 Jul 2014 14:05:48 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/anuncio/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Apresentação</title>
+      <link>http://localhost:1313/personal/apresentacao</link>
+      <pubDate>Sat, 12 Jul 2014 14:05:48 +0000</pubDate>
+      
+      <guid>http://localhost:1313/personal/apresentacao</guid>
+      <description>&lt;p&gt;Olá!&lt;/p&gt;
+
+&lt;p&gt;Antes de mais, vou fazer-vos uma breve apresentação minha. O meu nome é &lt;strong&gt;Henrique Dias&lt;/strong&gt;, sou português e vivo em Portugal, no Alentejo. Quero ser Engenheiro de Software e o meu grande &lt;strong&gt;objetivo&lt;/strong&gt; é fazer algo útil para o resto da Humanidade.&lt;/p&gt;
+
+&lt;p&gt;Penso que todos deveriam aprender a programar porque além de ser algo muito importante nos dias de hoje, é uma boa forma de nos divertirmos e também treinar o nosso cérebro, estimulando a criatividade.&lt;/p&gt;
+
+&lt;p&gt;Atualmente escrevo para um &lt;em&gt;blog&lt;/em&gt; chamado &lt;a href=&#34;http://kids.pplware.com&#34;&gt;Pplware Kids&lt;/a&gt;, parte do projeto nacional &lt;a href=&#34;http://pplware.com&#34;&gt;Pplware&lt;/a&gt;. Já há algum tempo que queria criar um &lt;em&gt;site/blog&lt;/em&gt; em que pudesses escrever outras coisas não relacionadas com os temas do Pplware Kids e, quando surgiu a oportunidade, criei-o.&lt;/p&gt;
+
+&lt;p&gt;Espero escrever, principalmente, artigos relacionados com o mundo de desenvolvimento &lt;em&gt;web&lt;/em&gt; e de &lt;em&gt;software&lt;/em&gt; e também relacionados com outros temas.&lt;/p&gt;
+
+&lt;p&gt;Espero que visitem o blog mais vezes =D&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

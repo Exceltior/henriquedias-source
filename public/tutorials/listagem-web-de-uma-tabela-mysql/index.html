@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en-US">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Listagem web de uma tabela MySQL | Henrique Dias</title>
+<meta name="description" content="Como fazer a listagem de uma tabela MySQL com interface web, botões de navegação e limitação do número de linhas por página.">
+<link rel="canonical" href="http://localhost:1313/tutorials/listagem-web-de-uma-tabela-mysql">
+<link rel="publisher" href="https://plus.google.com/+HenriqueDias"/>
+<meta property="og:locale" content="en-us" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Listagem web de uma tabela MySQL | Henrique Dias" />
+<meta property="og:description" content="Como fazer a listagem de uma tabela MySQL com interface web, botões de navegação e limitação do número de linhas por página." />
+<meta property="og:url" content="http://localhost:1313/tutorials/listagem-web-de-uma-tabela-mysql" />
+<meta property="og:site_name" content="Henrique Dias | A CompSci Enthusiast" />
+<meta property="article:publisher" content="https://www.facebook.com/hacdias" />
+<meta property="article:author" content="https://www.facebook.com/hacdias" />
+<meta property="article:tag" content="Base de Dados, HTML, MySQL, PHP" />
+<meta property="article:section" content="Tutorials" />
+<meta property="article:published_time" content="2014-07-17T14:51:56Z" />
+<meta property="article:modified_time" content="2014-07-17T14:51:56Z" />
+<meta property="og:updated_time" content="2014-07-17T14:51:56Z" />
+<meta property="og:image" content="http://localhost:1313/images/listagem-web-de-uma-tabela-mysql.jpg" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:description" content="Como fazer a listagem de uma tabela MySQL com interface web, botões de navegação e limitação do número de linhas por página."/>
+<meta name="twitter:title" content="Listagem web de uma tabela MySQL | Henrique Dias"/>
+<meta name="twitter:site" content="@hacdias"/>
+<meta name="twitter:domain" content="Henrique Dias"/>
+<meta name="twitter:image:src" content="http://localhost:1313/images/listagem-web-de-uma-tabela-mysql.jpg"/>
+<meta name="twitter:creator" content="@hacdias"/>
+
+<meta name="msvalidate.01" content="B471CBBC9EF6900039C6BBF251EF277C" />
+<meta name="google-site-verification" content="nVQ4_x6m6ZTRAzclMPNxpB0iMgK-xoIj_d-l85u32nY" />
+
+
+<link rel="shortcut icon" href="http://localhost:1313/favicon.ico" type="image/x-icon">
+<link rel="icon" href="http://localhost:1313/favicon.ico" type="image/x-icon">
+<link rel="stylesheet" href="http://localhost:1313/css/normalize.css">
+<link rel="stylesheet" href="http://localhost:1313/css/main.css">
+<link rel="stylesheet" href="http://localhost:1313/css/syntax.css">
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Person",
+  "email": "mailto:hacdias@gmail.com",
+  "image": "http:\/\/localhost:1313\/henrique.png",
+  "jobTitle": "Author",
+  "name": "Henrique Dias",
+  "telephone": "351 965 856 140",
+  "url": "http:\/\/localhost:1313\/",
+  "sameAs" : [ "http://www.facebook.com/hacdias",
+      "http://twitter.com/hacdias",
+      "http://instagram.com/hacdias",
+      "http://www.linkedin.com/in/hacdias",
+      "http://plus.google.com/+HenriqueDias"]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "author": "Henrique Dias",
+  "name": "Listagem web de uma tabela MySQL"
+}
+</script>
+
+</head>
+
+<body lang="en">
+
+
+<section id="main">
+  <h1 id="title">Listagem web de uma tabela MySQL</h1>
+  <div>
+        <article id="content">
+           
+
+<p>No <a href="/tutorials/selecionar-um-intervalo-de-linhas-em-mysql/">último artigo</a>, falei sobre como selecionar um intervalo de linhas em MySQL e, no final, prometi escrever um tutorial que explicasse como criar um  pequeno sistema de navegação em PHP e HTML para listar as linhas contidas numa tabela de uma base de dados.</p>
+
+<p>Aqui está ele. Abaixo encontram passo-a-passo como criar um pequeno sistema que liste todas as linhas de uma base de dados, separadas com páginas, cada uma com <code>x</code> linhas e botões de navegação.</p>
+
+<p>Para seguir este tutorial é necessário o Apache e o MySQL instalados no computador. Pode utilizar, por exemplo, o tudo-em-um <a href="https://www.apachefriends.org/pt_br/index.html">XAMPP</a> que já conta com o Apache e MySQL e é muito fácil de instalar.</p>
+
+<p>Para este tutorial estou a utilizar uma base de dados MySQL com uma tabela chamada <code>mytable</code> que conta com 145 linhas. Existem duas colunas: a do <code>id</code> e a do conteúdo a que chamei <code>content</code>.</p>
+
+<p>Na primeira coluna, todas as linhas estão numeradas automaticamente e na segunda, todas as linhas têm uma pequena frase gerada <a href="http://pt.lipsum.com/">aqui</a>. O conteúdo desta coluna é igual para todas as linhas pois utilizei um pequeno script para criar todas as linhas automaticamente.</p>
+
+<h2 id="1-ligação-à-base-de-dados:95ae2512994674faa2e5d9de8679b927">1. Ligação à Base de Dados</h2>
+
+<p>Neste tutorial assumo que os leitores sabem criar uma base de dados e/ou já têm uma criada. Caso tenham alguma dúvida não hesitem em perguntar, ou através dos comentários, ou da página <a href="https://henriquedias.com/contact/">contacto</a>.</p>
+
+<p>Dentro da pasta onde estão colocados os documentos do servidor (o XAMPP usa normalmente a directoria &ldquo;C:/xampp/htdocs&rdquo;) crie um ficheiro chamado <strong>index.php</strong>. Dentro deste copie e cole o seguinte código:</p>
+
+<div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+<span class="cm">/* Coloque abaixo os dados de acesso à base de dados.</span>
+<span class="cm"> *</span>
+<span class="cm"> * $host -&gt; servidor onde está localizada a base de dados.</span>
+<span class="cm"> *          se for o seu computador mantenha &quot;localhost&quot;.</span>
+<span class="cm"> *</span>
+<span class="cm"> * $db   -&gt; nome da base de dados.</span>
+<span class="cm"> * $username -&gt; o nome de utilizador para aceder à base de dados.</span>
+<span class="cm"> * $password -&gt; a senha correspondente ao utilizador anterior.</span>
+<span class="cm"> */</span>
+
+<span class="nv">$host</span> <span class="o">=</span> <span class="s1">&#39;localhost&#39;</span><span class="p">;</span>
+<span class="nv">$db</span> <span class="o">=</span> <span class="s1">&#39;mydb&#39;</span><span class="p">;</span>
+<span class="nv">$username</span> <span class="o">=</span> <span class="s1">&#39;username&#39;</span><span class="p">;</span>
+<span class="nv">$password</span> <span class="o">=</span> <span class="s1">&#39;password&#39;</span><span class="p">;</span>
+
+<span class="c1">//Utilizando a extensão PDO, criamos uma ligação à base de dados.</span>
+<span class="nv">$db</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">PDO</span><span class="p">(</span><span class="s1">&#39;mysql:host=&#39;</span> <span class="o">.</span> <span class="nv">$host</span> <span class="o">.</span> <span class="s1">&#39;;dbname=&#39;</span> <span class="o">.</span> <span class="nv">$db</span><span class="p">,</span> <span class="nv">$username</span><span class="p">,</span> <span class="nv">$password</span><span class="p">);</span>
+</pre></div>
+
+
+<p>Se não conhecerem bem a extensão PDO, recomendo-vos uma pequena leitura no <a href="http://php.net/manual/pt_BR/book.pdo.php">manual oficial do PHP</a>. Não se esqueça de alterar os dados acima para ligar à base de dados.</p>
+
+<h2 id="2-htacess-e-mais-uns-pormenores:95ae2512994674faa2e5d9de8679b927">2. HTACESS e mais uns pormenores</h2>
+
+<p>Como vão ser listados <code>x</code> linhas por página, é provável que tenham que existir várias páginas. Estas irão ser do formato: <code>URL/NÚMERO_DA_PÁGINA</code>. Se estivermos a correr num servidor local (no nosso computador) será, por exemplo, <code>http://localhost/1</code>, <code>http://localhost/2</code>, etc.</p>
+
+<p>Mas, quando escrevemos esse URL, o Apache assume que estamos a tentar aceder a pastas cujo nome é 1, 2&hellip; por aí fora. Para que isto não aconteça, vamos criar um ficheiro chamado <code>.htaccess</code> na mesma pasta onde está o <code>index.php</code>.</p>
+
+<p>É crucial que o ficheiro tenha o nome mencionado. Neste copia e cola o seguinte código:</p>
+
+<div class="highlight"><pre><span class="nt">&lt;IfModule</span> <span class="s">mod_rewrite.c</span><span class="nt">&gt;</span>
+	<span class="nb">RewriteEngine</span> <span class="k">On</span>
+
+	<span class="nb">RewriteCond</span> %{REQUEST_FILENAME} !-d
+	<span class="nb">RewriteCond</span> %{REQUEST_FILENAME} !-f
+	<span class="nb">RewriteRule</span> ^(.*) index.php?url=$1 [QSA,L]
+<span class="nt">&lt;/IfModule&gt;</span>
+</pre></div>
+
+
+<p>Normalmente o <code>mod_rewrite</code> já vem ativado por padrão. Caso vocês tentem aceder a alguma página e dê algum erro, expliquem o que acontece nos comentários para eu ou outro leitor tentarmos ajudar.</p>
+
+<p>Não vou explicar de forma profunda o código acima, mas este faz com que todo o que escrevemos depois da barra do URL seja aberto na <strong>index.php</strong> através de um método GET. Podes ler mais sobre os métodos GET <a href="http://www.w3schools.com/tags/ref_httpmethods.asp">aqui</a>.</p>
+
+<p>Agora precisamos que o nosso ficheiro em PHP consiga saber qual a página em que estamos de forma a mais tarde mostrar apenas os itens referentes aquela página. Para isso copia e cola o código seguinte a seguir da ligação à base de dados:</p>
+
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28</pre></div></td><td class="code"><div class="highlight"><pre><span class="x">/*</span>
+<span class="x"> * Utilizando o operador ternário, definimos</span>
+<span class="x"> * a variável $url.</span>
+<span class="x"> */</span>
+
+<span class="x">$url = isset($_GET[&#39;url&#39;]) ? $_GET[&#39;url&#39;] : null;</span>
+
+<span class="x">//Remove-se alguma barra do final do $url caso exista.</span>
+<span class="x">$url = rtrim($url, &#39;/&#39;);</span>
+
+<span class="x">// Cria-se uma array dividindo o $url em partes.</span>
+<span class="x">$url = explode(&#39;/&#39;, $url);</span>
+
+<span class="x">/*</span>
+<span class="x"> * Se o primeiro valor da array estiver vazio,</span>
+<span class="x"> * define este como 1 pois não podemos ter uma página sem identificação.</span>
+<span class="x"> */</span>
+
+<span class="x">if (empty($url[0])) {</span>
+<span class="x">      $url[0] = 1;</span>
+<span class="x">}</span>
+
+<span class="x">/*</span>
+<span class="x"> * Definimos a variável $n com o primeiro valor que vem depois do URL, o número da página.</span>
+<span class="x"> * $n -&gt; Número da Página</span>
+<span class="x"> */</span>
+
+<span class="x">$n = $url[0];</span>
+</pre></div>
+</td></tr></table>
+
+<p>A explicação do código acima está feita nos comentários. Podes saber mais acerca do <strong>operador ternário </strong><a href="/explanations/operador-ternario/">aqui</a>. Agora que já podemos saber o número da página e temos uma ligação à base de dados pronta, vamos avançar para a página e a listagem em si.</p>
+
+<h2 id="3-um-pouco-de-html-e-php:95ae2512994674faa2e5d9de8679b927">3. Um pouco de HTML&hellip; e PHP</h2>
+
+<p>Abaixo da tag ?&gt; , copiem e colem o seguinte trecho de código HTML.</p>
+
+<div class="highlight"><pre><span class="nt">&lt;html&gt;</span>
+	<span class="nt">&lt;head&gt;</span>
+		<span class="nt">&lt;title&gt;</span>Listagem de uma tabela MySQL<span class="nt">&lt;/title&gt;</span>
+	<span class="nt">&lt;/head&gt;</span>
+
+	<span class="nt">&lt;body&gt;</span>
+		<span class="nt">&lt;h1&gt;</span>Listagem de uma tabela MySQL<span class="nt">&lt;/h1&gt;</span>
+		<span class="c">&lt;!-- Aqui vamos criar a listagem --&gt;</span>
+
+	<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</pre></div>
+
+
+<p>Penso que tudo o que está acima seja conhecido de todos vós por isso, vamos continuar.  O restante código será todo escrito no local do comentário acima. Faremos a listagem das linhas e os botões de navegação aí.</p>
+
+<p>Agora, no local do comentário copia o seguinte:</p>
+
+<div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+<span class="cm">/*</span>
+<span class="cm"> * Criação de uma consulta à Base de Dados para</span>
+<span class="cm"> * sabermos o número total de linhas existentes na tabela</span>
+<span class="cm"> */</span>
+<span class="nv">$consulta</span> <span class="o">=</span> <span class="nv">$db</span><span class="o">-&gt;</span><span class="na">query</span><span class="p">(</span><span class="s2">&quot;SELECT count(*) FROM mytable&quot;</span><span class="p">);</span>
+<span class="nv">$numeroDeLinhas</span> <span class="o">=</span> <span class="nv">$consulta</span><span class="o">-&gt;</span><span class="na">fetchColumn</span><span class="p">();</span>
+
+<span class="cm">/*</span>
+<span class="cm"> * Sabendo o número de linhas é possível determinar o</span>
+<span class="cm"> * número máximo de páginas. Para isso dividimos o número</span>
+<span class="cm"> * total de linhas pelo número de itens a apresentar em</span>
+<span class="cm"> * cada página. ($numeroDeLinhas / $itensPorPag).</span>
+<span class="cm"> *</span>
+<span class="cm"> * Depois arredondamos para cima esse número utilizando</span>
+<span class="cm"> * a função ceil().</span>
+<span class="cm"> *</span>
+<span class="cm"> * O arredondamento para cima é feito porque, por exemplo,</span>
+<span class="cm"> * se a divisão resultasse em 4.2, seriam necessárias 5 páginas</span>
+<span class="cm"> * para mostrar todo o conteúdo e não 4. Utilizando um arredon-</span>
+<span class="cm"> * damento tradicional, o valor ficaria em 4 não mostrando os</span>
+<span class="cm"> * restantes itens.</span>
+<span class="cm"> */</span>
+
+<span class="nv">$itensPorPag</span> <span class="o">=</span> <span class="mi">15</span><span class="p">;</span>
+<span class="nv">$maximoDePaginas</span> <span class="o">=</span> <span class="nb">ceil</span><span class="p">(</span><span class="nv">$numeroDeLinhas</span> <span class="o">/</span> <span class="nv">$itensPorPag</span><span class="p">);</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="nv">$n</span> <span class="o">&gt;</span> <span class="nv">$maximoDePaginas</span> <span class="o">||</span> <span class="nv">$n</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+
+	<span class="cm">/*</span>
+<span class="cm">	 * Se o número da página for superior ao número máximo de páginas</span>
+<span class="cm">	 * ou for menor que 1, a página mostra a mensagem que está entre aspas.</span>
+<span class="cm">	 */</span>
+
+	<span class="k">echo</span> <span class="s1">&#39;Página não existe.&#39;</span><span class="p">;</span>
+
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+
+	<span class="cm">/*</span>
+<span class="cm">	 * Por outro lado, se o número da página for coerente, devemos definir</span>
+<span class="cm">	 * o OFFSET para utilizar na consulta à BD.</span>
+<span class="cm">	 *</span>
+<span class="cm">	 * Para definir o offset/deslocamento utilizamos uma pequena função algébrica</span>
+<span class="cm">	 * sendo a variável $n o número da página, substraímos a esta 1 e multiplicamo-la</span>
+<span class="cm">	 * pelo número de itens por página.</span>
+<span class="cm">	 *</span>
+<span class="cm">	 * Exemplos:</span>
+<span class="cm">	 *</span>
+<span class="cm">	 *	Sendo $n = 1 e $itensPorPag = 15, $offset = (1-1)*15 = 0*15 = 0.</span>
+<span class="cm">	 *	O deslocamento seria 0 e o limite 15 logo seriam apresentados os itens 1 a 15.</span>
+<span class="cm">	 *</span>
+<span class="cm">	 *	Sendo $n = 2 e $itensPorPag = 15, $offset = (2-1)*15 = 1*15 = 15.</span>
+<span class="cm">	 *	O deslocamento seria 0 e o limite 15 logo seriam apresentados os itens 16 a 30.</span>
+<span class="cm">	 */</span>
+
+	<span class="nv">$offset</span> <span class="o">=</span> <span class="p">(</span><span class="nv">$n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="nv">$itensPorPag</span><span class="p">;</span>
+
+	<span class="cm">/*</span>
+<span class="cm">	 * Aqui é feita a consulta à Base de Dados que seleciona o intervalo de linhas</span>
+<span class="cm">	 * referentes à página atual.</span>
+<span class="cm">	 */</span>
+
+	<span class="nv">$query</span> <span class="o">=</span> <span class="s2">&quot;SELECT * FROM mytable LIMIT &quot;</span><span class="o">.</span> <span class="nv">$itensPorPag</span> <span class="o">.</span> <span class="s2">&quot; OFFSET &quot;</span> <span class="o">.</span> <span class="nv">$offset</span><span class="p">;</span>
+	<span class="nv">$items</span> <span class="o">=</span> <span class="nv">$db</span><span class="o">-&gt;</span><span class="na">query</span><span class="p">(</span><span class="nv">$query</span><span class="p">);</span>
+
+	<span class="k">foreach</span><span class="p">(</span><span class="nv">$items</span> <span class="k">as</span> <span class="nv">$item</span><span class="p">)</span>	<span class="p">{</span>	<span class="cp">?&gt;</span><span class="x"></span>
+
+<span class="x">		&lt;!--</span>
+<span class="x">			O apresentado abaixo é o que vai ser mostrado para cada linha que foi</span>
+<span class="x">			seleciona com a query anterior.</span>
+
+<span class="x">			O formato para chamar o conteúdo de uma coluna de uma linha é:</span>
+
+<span class="x">			$item[&#39;NOME_DA_COLUNA&#39;];</span>
+<span class="x">		--&gt;</span>
+
+<span class="x">		&lt;h2&gt;Id: </span><span class="cp">&lt;?</span><span class="o">=</span><span class="nv">$item</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">];</span><span class="cp">?&gt;</span><span class="x">&lt;/h2&gt;</span>
+<span class="x">		&lt;p&gt;</span><span class="cp">&lt;?</span><span class="o">=</span><span class="nv">$item</span><span class="p">[</span><span class="s1">&#39;content&#39;</span><span class="p">];</span><span class="cp">?&gt;</span><span class="x">&lt;/p&gt;</span>
+
+<span class="x">	</span><span class="cp">&lt;?php</span> <span class="p">}</span>
+
+	<span class="c1">//Botões de Navegação</span>
+
+	<span class="k">if</span> <span class="p">(</span><span class="nv">$n</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+
+		<span class="cm">/*</span>
+<span class="cm">		 * Se o  número da página for maior que 1, mostra o botão para voltar</span>
+<span class="cm">		 * à página anterior.</span>
+<span class="cm">		 */</span>
+
+		<span class="nv">$pagAnterior</span> <span class="o">=</span> <span class="nv">$n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span> <span class="cp">?&gt;</span><span class="x"></span>
+
+<span class="x">		&lt;button&gt;&lt;a href=&quot;/</span><span class="cp">&lt;?</span><span class="o">=</span><span class="nv">$pagAnterior</span><span class="p">;</span><span class="cp">?&gt;</span><span class="x">&quot;&gt;Anterior&lt;/a&gt;&lt;/button&gt;</span>
+
+<span class="x">	</span><span class="cp">&lt;?php</span> <span class="p">}</span>
+
+	<span class="k">if</span> <span class="p">(</span><span class="nv">$n</span> <span class="o">&lt;</span> <span class="nv">$maximoDePaginas</span><span class="p">)</span> <span class="p">{</span>
+
+		<span class="cm">/*</span>
+<span class="cm">		 * Se o número da página for inferior ao número total de páginas,</span>
+<span class="cm">		 * mostra o botão para ir para a página seguinte-</span>
+<span class="cm">		 */</span>
+
+		<span class="nv">$pagSeguinte</span> <span class="o">=</span> <span class="nv">$n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span> <span class="cp">?&gt;</span><span class="x"></span>
+
+<span class="x">		&lt;button&gt;&lt;a href=&quot;/</span><span class="cp">&lt;?</span><span class="o">=</span><span class="nv">$pagSeguinte</span><span class="p">;</span><span class="cp">?&gt;</span><span class="x">&quot;&gt;Seguinte&lt;/a&gt;&lt;/button&gt;</span>
+
+<span class="x">	</span><span class="cp">&lt;?php</span> <span class="p">}</span>
+
+<span class="p">}</span>
+
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+
+
+<p>O código está todo comentado e explicado. Reforço novamente que, caso tenham  alguma dúvida, não hesitem em perguntar. Se quiserem saber mais sobre a função ceil , podem aceder a <a href="http://php.net/manual/en/function.ceil.php">esta página</a>.</p>
+
+<h2 id="4-já-está:95ae2512994674faa2e5d9de8679b927">4. Já está</h2>
+
+<p>Tal como o sub cabeçalho indica, já está! Basta abrirem a página através do browser para verem como ficou. É evidente que essa página não está muito bonita mas vocês logo tratam do CSS.</p>
+
+<p>Visto que o PDO é um pouco abstrato às bases de dados, este tutorial funciona também para <strong>SQLite</strong> e outros tipos de Bases de Dados alterando apenas o comando de conexão.</p>
+
+<p>Abaixo encontram-se dois botões que podem utilizar para fazer download de todo o código, comentado e não comentado e também uma demo. Espero que tenham gostado :)</p>
+
+<p><a href="//henriquedias.com/downloads/listagem-mysql.zip">Download</a> | <a href="//henriquedias.com/downloads/listagem-mysql-comentado.zip">Download (Comentado)</a> | <a href="https://github.com/hacdias/labs/tree/master/php/paginated-database-listing">GitHub</a></p>
+
+        </article>
+  </div>
+</section>
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'hacdias';
+    var disqus_identifier = 'http:\/\/localhost:1313\/tutorials\/listagem-web-de-uma-tabela-mysql';
+    var disqus_title = 'Listagem web de uma tabela MySQL';
+    var disqus_url = 'http:\/\/localhost:1313\/tutorials\/listagem-web-de-uma-tabela-mysql';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+<footer>
+
+</footer>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-59697241-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+<script data-no-instant>document.write('<script src="http://'
+        + (location.host || 'localhost').split(':')[0]
+		+ ':1313/livereload.js?mindelay=10"></'
+        + 'script>')</script></body>
+</html>
+
