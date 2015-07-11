@@ -4,11 +4,11 @@
 <meta property="og:description" content="{{ if .Description }}{{ .Description }}{{ else }}{{ .Site.Params.Description }}{{ end }}" />
 <meta property="og:url" content="{{ .Permalink }}" />
 <meta property="og:site_name" content="{{ .Site.Title }} | A CompSci Enthusiast" />
-{{ if (not .IsHome) and (eq .Type "post") }}<meta property="article:publisher" content="https://www.facebook.com/{{ .Site.Social.Facebook }}" />
+{{ if (not .IsHome) }}<meta property="article:publisher" content="https://www.facebook.com/{{ .Site.Social.Facebook }}" />
 <meta property="article:author" content="https://www.facebook.com/{{ .Site.Social.Facebook }}" />
 {{ if .Params.tags }}<meta property="article:tag" content="{{ delimit .Params.tags ", " }}" />{{ end }}
-<meta property="article:section" content="{{ delimit .Params.categories ", " }}" />
-<meta property="article:published_time" content="{{ if .PublishDate.IsZero }}{{ .Date.Format "2006-01-02T15:04:05Z" }}{{ else }}{{ .PublishDate.Format "2006-01-02T15:04:05Z" }}{{ end }}" />
+{{ if .Params.categories }}<meta property="article:section" content="{{ delimit .Params.categories ", " }}" />{{ end }}
+{{ if not .Date.IsZero }}<meta property="article:published_time" content="{{ if .PublishDate.IsZero }}{{ .Date.Format "2006-01-02T15:04:05Z" }}{{ else }}{{ .PublishDate.Format "2006-01-02T15:04:05Z" }}{{ end }}" />
 <meta property="article:modified_time" content="{{ .Date.Format "2006-01-02T15:04:05Z" }}" />
-<meta property="og:updated_time" content="{{ .Date.Format "2006-01-02T15:04:05Z" }}" />{{ end }}
+<meta property="og:updated_time" content="{{ .Date.Format "2006-01-02T15:04:05Z" }}" />{{ end }} {{ end }}
 <meta property="og:image" content="{{ .Site.BaseURL }}{{ if .Params.image }}{{ .Params.image }}{{ else }}{{ .Site.Params.Image }}{{ end }}" />

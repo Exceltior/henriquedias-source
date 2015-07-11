@@ -1,3 +1,5 @@
+{{ partial "header" . }}
+
 {{ $paginator := .Paginate (where .Data.Pages "Type" "post") }}
 {{ template "_internal/pagination.html" . }}
 {{ range $paginator.Pages }}

@@ -1,7 +1,4 @@
 {{ partial "header" . }}
-{{ partial "navbar" . }}
-{{ partial "imaged-header" . }}
-
   <main id="index" role="main">
     <div class="article-header light-gray"><h1>Recent Articles</h1></div>
     {{ $paginator := .Paginate (where .Data.Pages "Type" "post") }}

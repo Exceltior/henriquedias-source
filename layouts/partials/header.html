@@ -4,29 +4,26 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+
 <title>{{ .Title }} | {{ if .IsHome }}A CompSci Enthusiast{{ else }}{{ .Site.Title }}{{ end }}</title>
 <meta name="description" content="{{ if .Description }}{{ .Description }}{{ else }}{{ .Site.Params.Description }}{{ end }}">
 <link rel="canonical" href="{{ .Permalink }}">
 <link rel="publisher" href="https://plus.google.com/+{{ .Site.Social.GooglePlus }}"/>
-{{ partial "seo/og" . }}
-{{ partial "seo/twitter" .}}
-<meta name="msvalidate.01" content="{{ .Site.Params.Webmaster.Bing }}" />
-<meta name="google-site-verification" content="{{ .Site.Params.Webmaster.Google }}" />
+
+{{ partial "head/og" . }}
+{{ partial "head/twitter" .}}
+{{ partial "head/webmaster" .}}
+
 {{ if .RSSlink }}
-<link href="{{ .RSSlink }}" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }} | A CompSci Enthusia" />
+<link href="{{ .RSSlink }}" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }} | A CompSci Enthusiast" />
 <link href="{{ .RSSlink }}" rel="feed" type="application/rss+xml" title="{{ .Site.Title }}" />
 {{ end }}
-<!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-<![endif]-->
-<link rel="shortcut icon" href="{{ .Site.BaseURL }}favicon.ico" type="image/x-icon">
-<link rel="icon" href="{{ .Site.BaseURL}}favicon.ico" type="image/x-icon">
-<link rel="stylesheet" href="{{ .Site.BaseURL}}css/normalize.css">
-<link rel="stylesheet" href="{{ .Site.BaseURL}}css/main.css">
-<link rel="stylesheet" href="{{ .Site.BaseURL}}css/syntax.css">
+
+{{ partial "head/icons" .}}
+{{ partial "head/includes" .}}
 {{ partial "schema/person" . }}
 {{ if (not .IsHome) and (eq .Type "post") }}{{ partial "schema/article" . }}{{ end }}
 </head>
 
 <body>
+  {{ partial "navbar" . }}

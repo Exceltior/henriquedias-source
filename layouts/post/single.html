@@ -1,5 +1,4 @@
 {{ partial "header" . }}
-{{ partial "navbar" . }}
 
 <article>
   <header {{ if isset .Params "image" }}class="imaged"{{ end }}>
@@ -20,10 +19,12 @@
   </div>
 
   <footer class="container">
-    {{ template "_internal/disqus.html" . }}
+    <div class="post-navigation">
+      {{ if .Next }}<a href="{{ .Next.Permalink  }}"><div class="prev">Previous</div></a>{{ end }}
+      {{ if .Prev }}<a href="{{ .Prev.Permalink  }}"><div class="next">Next</div></a>{{ end }}
+    </div>
+    {{ partial "disqus" . }}
   </footer>
 </article>
-
-<a href="{{ .Next.Permalink  }}">Next</a>
 
 {{ partial "footer" . }}
