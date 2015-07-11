@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="no-js" lang="en-US">
+<html class="no-js" lang="en-us">
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -69,14 +69,35 @@
 
 </head>
 
-<body lang="en">
+<body>
+
+<header class="site-header">
+  <div class="left site-title">
+    <a href="http://localhost:1313/">Henrique<strong>Dias</strong></a>
+  </div><div class="right">
+    <nav>
+       <ul>
+           <li><a href="http://localhost:1313/">Home</a></li>
+           <li><a href="http://localhost:1313/about/">About</a></li>
+       </ul>
+    </nav>
+  </div>
+</header>
 
 
-<section id="main">
-  <h1 id="title">Como utilizar o Bower, um gestor de pacotes web</h1>
-  <div>
-        <article id="content">
-           <p>O <strong>Bower</strong> é um excelente gestor de pacotes web. Utilizando este gestor, torna-se mais fácil e prático adicionar e atualizar as diversas bibliotecas que utilizamos nos nossos sites/web-apps.</p>
+<article>
+  <header >
+    
+    <div class="container">
+      <h1>Como utilizar o Bower, um gestor de pacotes web</h1>
+      <span class="meta">
+        Posted on <time datetime="2015-06-23">June 23, 2015
+      </span>
+    </div>
+  </header>
+
+  <div class="container">
+    <p>O <strong>Bower</strong> é um excelente gestor de pacotes web. Utilizando este gestor, torna-se mais fácil e prático adicionar e atualizar as diversas bibliotecas que utilizamos nos nossos sites/web-apps.</p>
 
 <p>Hoje vamos instalar o Bower e depois vamos criar um ficheiro para gerir os pacotes de um site de exemplo.</p>
 
@@ -143,11 +164,10 @@ bower install package#version
 
 <p>Como podem ver, é bastante simples fazer o download de pacotes utilizando o Bower. Para os chamar através do HTML basta fazermos como sempre: utilizar as tags <code>&lt;script&gt;</code> e utilizar o URL absoluto ou relativo para o local onde estão os ficheiros.</p>
 
-        </article>
   </div>
-</section>
 
-<div id="disqus_thread"></div>
+  <footer class="container">
+    <div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_shortname = 'hacdias';
     var disqus_identifier = 'http:\/\/localhost:1313\/tutorials\/como-utilizar-o-bower-um-gestor-de-pacotes-web';
@@ -162,8 +182,11 @@ bower install package#version
 </script>
 <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-<footer>
+  </footer>
+</article>
 
+<footer>
+About | Projects | Publications | Contact
 </footer>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

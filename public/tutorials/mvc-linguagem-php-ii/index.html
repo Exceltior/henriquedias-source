@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="no-js" lang="en-US">
+<html class="no-js" lang="en-us">
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -69,14 +69,35 @@
 
 </head>
 
-<body lang="en">
+<body>
+
+<header class="site-header">
+  <div class="left site-title">
+    <a href="http://localhost:1313/">Henrique<strong>Dias</strong></a>
+  </div><div class="right">
+    <nav>
+       <ul>
+           <li><a href="http://localhost:1313/">Home</a></li>
+           <li><a href="http://localhost:1313/about/">About</a></li>
+       </ul>
+    </nav>
+  </div>
+</header>
 
 
-<section id="main">
-  <h1 id="title">MVC na linguagem PHP - II</h1>
-  <div>
-        <article id="content">
-           
+<article>
+  <header >
+    
+    <div class="container">
+      <h1>MVC na linguagem PHP - II</h1>
+      <span class="meta">
+        Posted on <time datetime="2015-06-23">June 23, 2015
+      </span>
+    </div>
+  </header>
+
+  <div class="container">
+    
 
 <p>A pedido de um leitor, decidimos escrever um artigo em que exemplificamos este maravilhoso (ou não) modelo MVC utilizando a linguagem de programação PHP.</p>
 
@@ -494,11 +515,10 @@
 
 <p>Até ao próximo artigo. O principal já está feito. Faltam os dois ficheiros que iniciarão tudo (e mais algumas coisinhas).</p>
 
-        </article>
   </div>
-</section>
 
-<div id="disqus_thread"></div>
+  <footer class="container">
+    <div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_shortname = 'hacdias';
     var disqus_identifier = 'http:\/\/localhost:1313\/tutorials\/mvc-linguagem-php-ii';
@@ -513,8 +533,11 @@
 </script>
 <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-<footer>
+  </footer>
+</article>
 
+<footer>
+About | Projects | Publications | Contact
 </footer>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

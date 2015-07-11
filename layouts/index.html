@@ -1,9 +1,11 @@
 {{ partial "header" . }}
+{{ partial "navbar" . }}
+{{ partial "imaged-header" . }}
 
   <main id="index" role="main">
     <div class="article-header light-gray"><h1>Recent Articles</h1></div>
     {{ $paginator := .Paginate (where .Data.Pages "Type" "post") }}
-    {{ template "_internal/pagination.html" . }}
+
     {{ range $paginator.Pages }}
     <div class="summary">
       <h2><a href="{{ .Permalink }}">{{ .Title }} {{ if .Draft }}:: DRAFT{{end}}</a></h2>
@@ -16,5 +18,7 @@
     </div>
     {{ end }}
   </main>
-  
+
+  {{ template "_internal/pagination.html" . }}
+
 {{ partial "footer" . }}

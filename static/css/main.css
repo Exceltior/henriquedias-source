@@ -1,0 +1,90 @@
+@import url(http://fonts.googleapis.com/css?family=Roboto:300,300italic,400,400italic,500);
+
+body {
+  font: 300 18px/1.5 Roboto, "Helvetica Neue", Arial, sans-serif;
+  padding-top: 3em;
+}
+
+a,
+a:hover,
+a:visited {
+  color: #1E88E5;
+  text-decoration: none;
+}
+
+h1, h2, h3, h4 {
+  font-weight: 500;
+}
+
+strong {
+  font-weight: 500;
+}
+
+.site-header {
+  height: 3em;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.85);
+  color: #fff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 0 10%;
+  box-sizing: border-box;
+}
+
+.site-header a {
+  color: inherit;
+}
+
+.site-header div {
+  width: 50%;
+  vertical-align: top;
+  display: inline-block;
+}
+
+.site-header div.left {
+  text-transform: lowercase;
+  font-size: 1.5em;
+  line-height: 2em;
+  height: 2em;
+}
+
+.site-header div.right {
+  text-align: right;
+  line-height: 3em;
+  height: 3em;
+}
+
+.site-header nav {
+  display: inline-block;
+}
+
+.site-header nav ul {
+  list-style: none;
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+}
+
+.site-header nav ul li {
+  display: inline-block;
+}
+
+header.imaged .banner {
+    margin-top: -3em;
+    height: 28em;
+    width: 100%;
+    background: no-repeat center center;
+    background-attachment: scroll;
+    background-size: cover;
+}
+
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* ARTICLES */
+article header.imaged h1 {
+
+}

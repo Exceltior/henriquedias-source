@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="no-js" lang="en-US">
+<html class="no-js" lang="en-us">
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -69,14 +69,37 @@
 
 </head>
 
-<body lang="en">
+<body>
+
+<header class="site-header">
+  <div class="left site-title">
+    <a href="http://localhost:1313/">Henrique<strong>Dias</strong></a>
+  </div><div class="right">
+    <nav>
+       <ul>
+           <li><a href="http://localhost:1313/">Home</a></li>
+           <li><a href="http://localhost:1313/about/">About</a></li>
+       </ul>
+    </nav>
+  </div>
+</header>
 
 
-<section id="main">
-  <h1 id="title">POSTMAN - Um cliente REST</h1>
-  <div>
-        <article id="content">
-           <p>Os desenvolvedores contam com diversas ferramentas que visam ajudar no desenvolvimento. Por vezes, existem excelentes ferramentas que passam despercebidas para muitos.</p>
+<article>
+  <header class="imaged">
+    
+    <div class="banner" style="background-image: url('http://localhost:1313/images/postman.jpg')"></div>
+    
+    <div class="container">
+      <h1>POSTMAN - Um cliente REST</h1>
+      <span class="meta">
+        Posted on <time datetime="2015-06-23">June 23, 2015
+      </span>
+    </div>
+  </header>
+
+  <div class="container">
+    <p>Os desenvolvedores contam com diversas ferramentas que visam ajudar no desenvolvimento. Por vezes, existem excelentes ferramentas que passam despercebidas para muitos.</p>
 
 <p>Para todos os desenvolvedores web, o <strong>POSTMAN</strong> vai ser uma grande ajuda no desenvolvimento web, principalmente quando o assunto se refere a solicitações HTTP (<em>HTTP requests</em>).</p>
 
@@ -108,11 +131,10 @@
 
 <p>Na demo acima puderam ver mais funções que esta extensão vos pode fornecer e acredito que esta vos seja útil =D</p>
 
-        </article>
   </div>
-</section>
 
-<div id="disqus_thread"></div>
+  <footer class="container">
+    <div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_shortname = 'hacdias';
     var disqus_identifier = 'http:\/\/localhost:1313\/general\/postman-cliente-rest';
@@ -127,8 +149,11 @@
 </script>
 <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-<footer>
+  </footer>
+</article>
 
+<footer>
+About | Projects | Publications | Contact
 </footer>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

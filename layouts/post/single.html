@@ -1,0 +1,26 @@
+{{ partial "header" . }}
+{{ partial "navbar" . }}
+
+<article>
+  <header {{ if isset .Params "image" }}class="imaged"{{ end }}>
+    {{ if isset .Params "image" }}
+    <div class="banner" style="background-image: url('{{ .Site.BaseURL }}{{ .Params.image }}')"></div>
+    {{ end }}
+    <div class="container">
+      <h1>{{ .Title }}</h1>
+      <span class="meta">
+        Posted on <time datetime="2015-06-23">June 23, 2015
+      </span>
+    </div>
+  </header>
+
+  <div class="container">
+    {{ .Content }}
+  </div>
+
+  <footer class="container">
+    {{ template "_internal/disqus.html" . }}
+  </footer>
+</article>
+
+{{ partial "footer" . }}

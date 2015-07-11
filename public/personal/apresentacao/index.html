@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="no-js" lang="en-US">
+<html class="no-js" lang="en-us">
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -69,14 +69,37 @@
 
 </head>
 
-<body lang="en">
+<body>
+
+<header class="site-header">
+  <div class="left site-title">
+    <a href="http://localhost:1313/">Henrique<strong>Dias</strong></a>
+  </div><div class="right">
+    <nav>
+       <ul>
+           <li><a href="http://localhost:1313/">Home</a></li>
+           <li><a href="http://localhost:1313/about/">About</a></li>
+       </ul>
+    </nav>
+  </div>
+</header>
 
 
-<section id="main">
-  <h1 id="title">Apresentação</h1>
-  <div>
-        <article id="content">
-           <p>Olá!</p>
+<article>
+  <header class="imaged">
+    
+    <div class="banner" style="background-image: url('http://localhost:1313/images/apresentacao.jpg')"></div>
+    
+    <div class="container">
+      <h1>Apresentação</h1>
+      <span class="meta">
+        Posted on <time datetime="2015-06-23">June 23, 2015
+      </span>
+    </div>
+  </header>
+
+  <div class="container">
+    <p>Olá!</p>
 
 <p>Antes de mais, vou fazer-vos uma breve apresentação minha. O meu nome é <strong>Henrique Dias</strong>, sou português e vivo em Portugal, no Alentejo. Quero ser Engenheiro de Software e o meu grande <strong>objetivo</strong> é fazer algo útil para o resto da Humanidade.</p>
 
@@ -88,11 +111,10 @@
 
 <p>Espero que visitem o blog mais vezes =D</p>
 
-        </article>
   </div>
-</section>
 
-<div id="disqus_thread"></div>
+  <footer class="container">
+    <div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_shortname = 'hacdias';
     var disqus_identifier = 'http:\/\/localhost:1313\/personal\/apresentacao';
@@ -107,8 +129,11 @@
 </script>
 <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-<footer>
+  </footer>
+</article>
 
+<footer>
+About | Projects | Publications | Contact
 </footer>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

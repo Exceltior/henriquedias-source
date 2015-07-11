@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="no-js" lang="en-US">
+<html class="no-js" lang="en-us">
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -69,14 +69,37 @@
 
 </head>
 
-<body lang="en">
+<body>
+
+<header class="site-header">
+  <div class="left site-title">
+    <a href="http://localhost:1313/">Henrique<strong>Dias</strong></a>
+  </div><div class="right">
+    <nav>
+       <ul>
+           <li><a href="http://localhost:1313/">Home</a></li>
+           <li><a href="http://localhost:1313/about/">About</a></li>
+       </ul>
+    </nav>
+  </div>
+</header>
 
 
-<section id="main">
-  <h1 id="title">PHP - Como utilizar o Gettext para traduções [Parte 2]</h1>
-  <div>
-        <article id="content">
-           <p>Na <a href="/tutorials/php-como-utilizar-o-gettext-para-traducoes/">primeira parte</a> deste artigo, ensinámos a configurar o Gettext em conjunto com o PHP de forma a que hoje possamos criar as nossas primeiras traduções.</p>
+<article>
+  <header class="imaged">
+    
+    <div class="banner" style="background-image: url('http://localhost:1313/images/gettext.jpg')"></div>
+    
+    <div class="container">
+      <h1>PHP - Como utilizar o Gettext para traduções [Parte 2]</h1>
+      <span class="meta">
+        Posted on <time datetime="2015-06-23">June 23, 2015
+      </span>
+    </div>
+  </header>
+
+  <div class="container">
+    <p>Na <a href="/tutorials/php-como-utilizar-o-gettext-para-traducoes/">primeira parte</a> deste artigo, ensinámos a configurar o Gettext em conjunto com o PHP de forma a que hoje possamos criar as nossas primeiras traduções.</p>
 
 <p>Agora é hora de criarmos as nossas primeiras traduções. Para isso, podemos instalar um programa chamado <strong>Poedit</strong> que nos vai ajudar. Podem descarregá-lo <a href="http://poedit.net/">aqui</a>.</p>
 
@@ -108,11 +131,10 @@
 <p>Refiro ainda que o Gettext faz <em>caching _de todas as _strings</em>.</p>
 </blockquote>
 
-        </article>
   </div>
-</section>
 
-<div id="disqus_thread"></div>
+  <footer class="container">
+    <div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_shortname = 'hacdias';
     var disqus_identifier = 'http:\/\/localhost:1313\/tutorials\/php-como-utilizar-o-gettext-para-traducoes-parte-2';
@@ -127,8 +149,11 @@
 </script>
 <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-<footer>
+  </footer>
+</article>
 
+<footer>
+About | Projects | Publications | Contact
 </footer>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
