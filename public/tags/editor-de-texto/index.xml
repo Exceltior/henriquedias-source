@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Editor De Texto on Henrique Dias</title>
+    <link>https://henriquedias.com/tags/editor-de-texto/</link>
+    <description>Recent content in Editor De Texto on Henrique Dias</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 08 Aug 2014 13:14:25 +0000</lastBuildDate>
+    <atom:link href="https://henriquedias.com/tags/editor-de-texto/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Extensão Emmet para o editor de texto Atom</title>
+      <link>https://henriquedias.com/general/extensao-emmet-para-editor-de-texto-atom</link>
+      <pubDate>Fri, 08 Aug 2014 13:14:25 +0000</pubDate>
+      
+      <guid>https://henriquedias.com/general/extensao-emmet-para-editor-de-texto-atom</guid>
+      <description>&lt;p&gt;Ontem fizemos uma breve apresentação ao &lt;a href=&#34;https://henriquedias.com/general/atom-io-um-excelente-editor-de-texto-da-github/&#34;&gt;editor de texto Atom&lt;/a&gt; da GitHub e referimos que, a partir de hoje, iríamos falar sobre algumas extensões disponíveis para o Atom.&lt;/p&gt;
+
+&lt;p&gt;Assim, vamos começar hoje com a primeira: &lt;strong&gt;Emmet&lt;/strong&gt;. Esta é uma extensão que vai ajudar na produtividade de todos os desenvolvedores web.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://henriquedias.com/images/extensaoemmet.png&#34; alt=&#34;Extensão Emmet para o editor de texto Atom&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;A extensão &lt;a href=&#34;http://emmet.io/&#34;&gt;Emmet&lt;/a&gt; é, provavelmente, conhecida de quase todos os desenvolvedores web pois permite agilizar a processo de criação e aumentar a produtividade.&lt;/p&gt;
+
+&lt;p&gt;Com esta extensão são ativados diversos atalhos e uma funcionalidade de abreviaturas. Se, por exemplo, escrevermos: &lt;code&gt;ul#minha_lista&amp;gt;li*5&lt;/code&gt; e clicarmos na tecla &amp;ldquo;tab&amp;rdquo;, o seguinte será produzido:&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span class=&#34;nt&#34;&gt;&amp;lt;ul&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;id=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;quot;minha_lista&amp;quot;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;&amp;gt;&lt;/span&gt;
+ &lt;span class=&#34;nt&#34;&gt;&amp;lt;li&amp;gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
+ &lt;span class=&#34;nt&#34;&gt;&amp;lt;li&amp;gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
+ &lt;span class=&#34;nt&#34;&gt;&amp;lt;li&amp;gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
+ &lt;span class=&#34;nt&#34;&gt;&amp;lt;li&amp;gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
+ &lt;span class=&#34;nt&#34;&gt;&amp;lt;li&amp;gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
+&lt;span class=&#34;nt&#34;&gt;&amp;lt;/ul&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;No vídeo abaixo mostro como instalar esta extensão além de vos mostrar como funciona o sistema de abreviaturas e alguns atalhos. &lt;a href=&#34;https://www.youtube.com/user/hacdias?sub_confirmation=1&#34;&gt;Não se esqueça de subscrever o canal&lt;/a&gt;. :)&lt;/p&gt;
+
+&lt;div class=&#34;embed video-player&#34;&gt;
+&lt;iframe class=&#34;youtube-player&#34; type=&#34;text/html&#34; width=&#34;640&#34; height=&#34;385&#34; src=&#34;http://www.youtube.com/embed/f5Uy2EyvT6E&#34; allowfullscreen frameborder=&#34;0&#34;&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
+
+
+&lt;p&gt;Como foi referido no vídeo, não falámos de todos os atalhos. Podem ver mais atalhos &lt;a href=&#34;https://github.com/emmetio/emmet-atom&#34;&gt;aqui&lt;/a&gt;. Além disso, acredito que esta extensão vos seja muito útil.&lt;/p&gt;
+
+&lt;p&gt;Esta extensão está disponível para mais editores de texto como o Espresso, Notepad++, Sublime Text, etc. Podem descarregar para outros editores de texto &lt;a href=&#34;http://emmet.io/download/&#34;&gt;aqui&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

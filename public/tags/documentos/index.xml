@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Documentos on Henrique Dias</title>
+    <link>https://henriquedias.com/tags/documentos/</link>
+    <description>Recent content in Documentos on Henrique Dias</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 22 Aug 2014 09:38:31 +0000</lastBuildDate>
+    <atom:link href="https://henriquedias.com/tags/documentos/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Papers We Love - Um dos melhores repositórios do GitHub</title>
+      <link>https://henriquedias.com/general/papers-we-love-um-dos-melhores-repositorios-github</link>
+      <pubDate>Fri, 22 Aug 2014 09:38:31 +0000</pubDate>
+      
+      <guid>https://henriquedias.com/general/papers-we-love-um-dos-melhores-repositorios-github</guid>
+      <description>&lt;p&gt;Todos nós, vocês, eu, começaram por aprender em algum sítio, não interessa qual, mas aprenderam. O caminho do conhecimento é infinito e a informação nunca se esgota.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://henriquedias.com/images/paperswelove.png&#34; alt=&#34;&amp;quot;Papers We Love&amp;quot; - Um dos melhores repositórios do GitHub&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Recentemente encontrei um excelente repositório no &lt;a href=&#34;https://github.com&#34;&gt;GitHub&lt;/a&gt; chamado &lt;a href=&#34;https://github.com/papers-we-love/papers-we-love&#34;&gt;&amp;ldquo;Papers We Love&amp;rdquo;&lt;/a&gt; que contém muita informação sobre &lt;em&gt;computer science&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Computer Science&lt;/em&gt; traduz-se para &amp;ldquo;Ciência dos Computadores&amp;rdquo; ou &amp;ldquo;Ciência da Computação&amp;rdquo; e é uma área diretamente ligada com o mundo da informática.&lt;/p&gt;
+
+&lt;p&gt;Neste repositório encontram das mais diversas informações relacionadas com este universo:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Design&lt;/li&gt;
+&lt;li&gt;Inteligência Artificial&lt;/li&gt;
+&lt;li&gt;Segurança&lt;/li&gt;
+&lt;li&gt;Criptografia&lt;/li&gt;
+&lt;li&gt;Sistemas Operativos&lt;/li&gt;
+&lt;li&gt;Paradigmas&lt;/li&gt;
+&lt;li&gt;Máquinas Virtuais&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Et cetera&lt;/em&gt;, etc, etc&amp;hellip;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Este repositório nas contém apenas os &amp;ldquo;papéis&amp;rdquo; em si como também tem links para outros repositórios na Internet e documentos.&lt;/p&gt;
+
+&lt;p&gt;Como achei o repositório extremamente útil e interessante decidi compartilhá-lo convosco pois tenho a certeza de que vos será útil.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Aqui está o link para o &lt;a href=&#34;http://papers-we-love.github.io/&#34;&gt;site&lt;/a&gt; e para o &lt;a href=&#34;https://github.com/papers-we-love/papers-we-love&#34;&gt;repositório&lt;/a&gt; :)&lt;/strong&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Bower on Henrique Dias</title>
+    <link>https://henriquedias.com/tags/bower/</link>
+    <description>Recent content in Bower on Henrique Dias</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 18 Aug 2014 12:01:12 +0000</lastBuildDate>
+    <atom:link href="https://henriquedias.com/tags/bower/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Como utilizar o Bower, um gestor de pacotes web</title>
+      <link>https://henriquedias.com/tutorials/como-utilizar-o-bower-um-gestor-de-pacotes-web</link>
+      <pubDate>Mon, 18 Aug 2014 12:01:12 +0000</pubDate>
+      
+      <guid>https://henriquedias.com/tutorials/como-utilizar-o-bower-um-gestor-de-pacotes-web</guid>
+      <description>&lt;p&gt;O &lt;strong&gt;Bower&lt;/strong&gt; é um excelente gestor de pacotes web. Utilizando este gestor, torna-se mais fácil e prático adicionar e atualizar as diversas bibliotecas que utilizamos nos nossos sites/web-apps.&lt;/p&gt;
+
+&lt;p&gt;Hoje vamos instalar o Bower e depois vamos criar um ficheiro para gerir os pacotes de um site de exemplo.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://henriquedias.com/images/bower.jpg&#34; alt=&#34;Como utilizar o Bower, um gestor de pacotes web&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Utilizar o &lt;a href=&#34;http://bower.io/&#34;&gt;Bower&lt;/a&gt; é bastante simples. Vamos começar com os requisitos. Para podermos utilizar este gestor de pacotes, temos que ter instalado o &lt;a href=&#34;http://nodejs.org/&#34;&gt;Node.js&lt;/a&gt;  no nosso computador. Podem descarregar o Node.js no site oficial.&lt;/p&gt;
+
+&lt;p&gt;Depois de terem o node.js instalado no vosso computador, vamos instalar o Bower. Para isso, abram a linha de comandos do vosso SO, se for Windows corram como Administrador e escrevam o seguinte:&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;npm install -g bower
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Agora, existem várias formas de fazer o dowload dos pacotes que precisamos no nosso projeto. Nós vamos começar por analisar as &amp;ldquo;menos divertidas&amp;rdquo; e depois passaremos à que, talvez, possa ser considerada a &amp;ldquo;melhor&amp;rdquo;&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span class=&#34;c&#34;&gt;# Instala através do ficheiro bower.json&lt;/span&gt;
+bower install
+&lt;span class=&#34;c&#34;&gt;# Instala um pacote específico&lt;/span&gt;
+bower install package
+&lt;span class=&#34;c&#34;&gt;# Instala uma versão específica de um pacote&lt;/span&gt;
+bower install package#version
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Como podem ver, existem essas três formas mencionadas acima. Podemos substituir &lt;strong&gt;package&lt;/strong&gt; por diversos itens como:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Nome do pacote como angularjs&lt;/li&gt;
+&lt;li&gt;Ficheiro zip ou tar remoto ou local&lt;/li&gt;
+&lt;li&gt;Repositório Git remoto ou local&lt;/li&gt;
+&lt;li&gt;Atalho para repositórios do GitHub&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Assim, para instalar o jQuery, basta correr o seguinte comando para que seja criada uma pasta no caminho &lt;strong&gt;bower_components\jquery&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;bower install jquery
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Agora vamos criar um ficheiro chamado &lt;code&gt;bower.json&lt;/code&gt; para descarregar a versão 1.11.0 do jQuery e a versão mais recente do &lt;strong&gt;angular.js&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+  &lt;span class=&#34;nt&#34;&gt;&amp;quot;name&amp;quot;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;quot;projeto-x&amp;quot;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+  &lt;span class=&#34;nt&#34;&gt;&amp;quot;version&amp;quot;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;quot;0.0.1&amp;quot;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+  &lt;span class=&#34;nt&#34;&gt;&amp;quot;dependencies&amp;quot;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+    &lt;span class=&#34;nt&#34;&gt;&amp;quot;jquery&amp;quot;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;quot;1.11.0&amp;quot;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+    &lt;span class=&#34;nt&#34;&gt;&amp;quot;angular&amp;quot;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;quot;master&amp;quot;&lt;/span&gt;
+  &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Agora basta correr o seguinte comando para efetuar o download dos pacotes:&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;bower install
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Agora, imaginando que saia uma nova versão do angular.js, bastava correr o seguinte comando para atualizar o angular e manter o jQuery na mesma versão:&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;bower update
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Como podem ver, é bastante simples fazer o download de pacotes utilizando o Bower. Para os chamar através do HTML basta fazermos como sempre: utilizar as tags &lt;code&gt;&amp;lt;script&amp;gt;&lt;/code&gt; e utilizar o URL absoluto ou relativo para o local onde estão os ficheiros.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

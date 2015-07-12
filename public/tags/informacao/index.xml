@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Informacao on Henrique Dias</title>
+    <link>https://henriquedias.com/tags/informacao/</link>
+    <description>Recent content in Informacao on Henrique Dias</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 13 Sep 2014 09:16:48 +0000</lastBuildDate>
+    <atom:link href="https://henriquedias.com/tags/informacao/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>PHP e WordPress: comandos &#39;printf&#39; e &#39;sprintf&#39;</title>
+      <link>https://henriquedias.com/explanations/php-wordpress-comandos-printf-sprintf</link>
+      <pubDate>Sat, 13 Sep 2014 09:16:48 +0000</pubDate>
+      
+      <guid>https://henriquedias.com/explanations/php-wordpress-comandos-printf-sprintf</guid>
+      <description>
+
+&lt;p&gt;No &lt;a href=&#34;https://henriquedias.com/explanations/php-interpolacao-concatenacao/&#34;&gt;último artigo&lt;/a&gt; sugeriram-me falar sobre as funções printf  e  sprintf  que são utilizadas em massa no Wordpress e é isso que vou fazer! Vamos analisar cada uma das funções.&lt;/p&gt;
+
+
+&lt;figure &gt;
+    
+        &lt;img src=&#34;https://henriquedias.com/images/printfsprintf.jpg&#34; alt=&#34;PHP - Strings: interpolação e concatenação&#34; /&gt;
+    
+    
+&lt;/figure&gt;
+
+
+&lt;p&gt;Vou começar por analisar as duas funções em separado, explicando para que servem e dando alguns exemplos.&lt;/p&gt;
+
+&lt;h2 id=&#34;printf:e349da165fbbbc6e6ae9edeba8cd3125&#34;&gt;printf&lt;/h2&gt;
+
+&lt;p&gt;O nome desta função quer dizer &lt;em&gt;print formatted&lt;/em&gt;, ou seja, &amp;ldquo;imprimir dados formatados&amp;rdquo;. Abaixo encontra um exemplo mais simples:&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span class=&#34;x&#34;&gt;printf(&amp;quot;Olá mundo!&amp;quot;);&lt;/span&gt;
+
+&lt;span class=&#34;x&#34;&gt;//Olá mundo!&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;E agora você pergunta-me: que utilidade tem essa função se podemos fazer o mesmo com &lt;code&gt;echo&lt;/code&gt; ou &lt;code&gt;print&lt;/code&gt;?&lt;/p&gt;
+
+&lt;p&gt;É aqui que está função se destaca. Compare as seguintes impressões, todas vão imprimir o mesmo.&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span class=&#34;x&#34;&gt;$foo = &amp;quot;Henrique&amp;quot;;&lt;/span&gt;
+&lt;span class=&#34;x&#34;&gt;$bar = &amp;quot;14&amp;quot;;&lt;/span&gt;
+&lt;span class=&#34;x&#34;&gt;$site = &amp;quot;COXPE&amp;quot;;&lt;/span&gt;
+
+&lt;span class=&#34;x&#34;&gt;//Chamo-me Henrique, tenho 14 anos e estou a navegar no COXPE.&lt;/span&gt;
+
+&lt;span class=&#34;x&#34;&gt;echo &amp;#39;Chamo-me &amp;#39; . $foo . &amp;#39;, tenho &amp;#39; . $bar . &amp;#39; anos e estou a navegar no &amp;#39; . $site . &amp;#39;.&amp;#39;;&lt;/span&gt;
+
+&lt;span class=&#34;x&#34;&gt;echo &amp;quot;Chamo-me {$foo} tenho {$bar} anos e estou a navegar no {$site}.&amp;quot;;&lt;/span&gt;
+
+&lt;span class=&#34;x&#34;&gt;printf(&amp;quot;Chamo-me %s e tenho %d anos e estou a navegar no %s.&amp;quot;,&lt;/span&gt;
+&lt;span class=&#34;x&#34;&gt;	$foo, $bar, $site);&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Se repararmos, das três, a última é a que tem uma maior legibilidade, tal como o leitor Carlos Santos tinha mencionado.&lt;/p&gt;
+
+&lt;p&gt;Como pode ver, existe ali um &lt;code&gt;%s&lt;/code&gt; e um&lt;code&gt; %d&lt;/code&gt; que são substituídos pelas variáveis que coloco depois. Existem vários &amp;ldquo;por centos&amp;rdquo;:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;%&lt;/code&gt; → imprime um sinal &amp;ldquo;%&amp;rdquo;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;%b&lt;/code&gt; → permite o envio de um número inteiro que será imprimido em binário&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;%c&lt;/code&gt; → permite o envio de um número inteiro e será imprimido o caractere ASCII correspondente.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;%d&lt;/code&gt; → permite o envio de um número inteiro e imprime-o&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;%e&lt;/code&gt; → o argumento é tratado como notação científica&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;%E&lt;/code&gt; → igual ao anterior porém o &amp;ldquo;e&amp;rdquo; tem que ser maiúsculo (&amp;ldquo;12E5&amp;rdquo; em vez de &amp;ldquo;12e5&amp;rdquo;)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;%f&lt;/code&gt; → o argumento é tratado como &lt;em&gt;float&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;%g&lt;/code&gt; → atalho para &lt;code&gt;%e&lt;/code&gt; e &lt;code&gt;%f&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;%G&lt;/code&gt; → atalho para &lt;code&gt;%E&lt;/code&gt; e &lt;code&gt;%f&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Estes são os mais utilizados porém podem ver mais &lt;a href=&#34;http://php.net/manual/en/function.sprintf.php&#34;&gt;aqui&lt;/a&gt;. Assim, para utilizar esta função, seguimos a seguinte sintaxe:&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span class=&#34;x&#34;&gt;printf($formato[, $restantesArgumentos...])&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;O $formato  é a string que contém a frase a ser imprimida com as diversas diretivas que podem ser 0 ou mais. É indiferente.&lt;/p&gt;
+
+&lt;p&gt;Os restantes argumentos são os dados que são para ser enviados para essas diretivas por ordem de aparecimento na string.&lt;/p&gt;
+
+&lt;h2 id=&#34;sprintf:e349da165fbbbc6e6ae9edeba8cd3125&#34;&gt;sprintf&lt;/h2&gt;
+
+&lt;p&gt;A única diferença entre esta função e a &lt;code&gt;printf&lt;/code&gt;  é que esta &lt;strong&gt;retorna&lt;/strong&gt; a string formatada e &lt;code&gt;printf&lt;/code&gt;  &lt;strong&gt;imprime&lt;/strong&gt; a string formatada.&lt;/p&gt;
+
+&lt;h2 id=&#34;wordpress-traduções-e-estas-funções:e349da165fbbbc6e6ae9edeba8cd3125&#34;&gt;WordPress, traduções e estas funções&amp;hellip;&lt;/h2&gt;
+
+&lt;p&gt;O WordPress usa estas funções em massa juntamente com o sistema de tradução tornando esta função extremamente potente.&lt;/p&gt;
+
+&lt;p&gt;Este CMS usa o sistema &lt;a href=&#34;Gettext&#34;&gt;Gettext&lt;/a&gt; para traduzir o conteúdo que nos é visível. Agora não vamos entrar em detalhes sobre a ativação deste sistema (se tiverem qualquer dúvida coloquem).&lt;/p&gt;
+
+&lt;p&gt;O WordPress deve utilizar este sistema também pela simplicidade de leitura visto que os comandos de tradução do Gettext são um quanto &amp;ldquo;complicados&amp;rdquo; de ler.&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span class=&#34;x&#34;&gt;//Exemplo de &amp;quot;printf&amp;quot; utilizado pelo WordPress&lt;/span&gt;
+&lt;span class=&#34;x&#34;&gt;printf( __( &amp;#39;Ready to publish your first post? &amp;lt;a href=&amp;quot;%1$s&amp;quot;&amp;gt;Get started here&amp;lt;/a&amp;gt;.&amp;#39;, &amp;#39;twentyfourteen&amp;#39; ), admin_url( &amp;#39;post-new.php&amp;#39; ) );&lt;/span&gt;
+
+&lt;span class=&#34;x&#34;&gt;//Em Echo&lt;/span&gt;
+&lt;span class=&#34;x&#34;&gt;$url = admin_url( &amp;#39;post-new.php&amp;#39; );&lt;/span&gt;
+&lt;span class=&#34;x&#34;&gt;echo __( &amp;quot;Ready to publish your first post? &amp;lt;a href=&amp;quot;{$url}&amp;quot;&amp;gt;Get started here&amp;lt;/a&amp;gt;.&amp;quot;, &amp;#39;twentyfourteen&amp;#39; );&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;A forma que coloquei com echo poderia variar. Mas, como pode visualizar, o printf é mais simples de ler.&lt;/p&gt;
+
+&lt;p&gt;Vou deixar esta parte para um outro artigo ;) Deixo já nos rascunhos. Em breve poderei fazer um artigo sobre o Gettext, como ativar e usar! =D&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;A partir de segunda-feira, a frequência de lançamento de artigos irá diminuir porque a escola vai recomeçar. Continuarei a lançar a &lt;a href=&#34;http://pplware.sapo.pt/tutoriais/programacao/vamos-programar-introducao-a-programacao-2/&#34;&gt;rubrica semanal&lt;/a&gt; com o Pplware e também no &lt;a href=&#34;http://kids.pplware.sapo.pt/&#34;&gt;Pplware Kids&lt;/a&gt;. Isto não quer dizer que deixarei de escrever para o COXPE. Sempre que puder, virei aqui :) Obrigado pela compreensão.&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>PHP - Strings: interpolação e concatenação</title>
+      <link>https://henriquedias.com/explanations/php-interpolacao-concatenacao</link>
+      <pubDate>Tue, 09 Sep 2014 15:19:43 +0000</pubDate>
+      
+      <guid>https://henriquedias.com/explanations/php-interpolacao-concatenacao</guid>
+      <description>
+
+&lt;p&gt;Hoje vamos falar um pouco sobre PHP, mais precisamente no campo das strings, variáveis e concatenações. Como sabem, existem várias formas de inserir o valor de variáveis dentro de strings, mas qual será a &amp;ldquo;melhor&amp;rdquo; e mais rápida?&lt;/p&gt;
+
+
+&lt;figure &gt;
+    
+        &lt;img src=&#34;https://henriquedias.com/images/phpinterpolacaoconcatenacao.jpg&#34; alt=&#34;PHP - Strings: interpolação e concatenação&#34; /&gt;
+    
+    
+&lt;/figure&gt;
+
+
+&lt;p&gt;Em primeiro lugar, vamos rever as formas de inserir variáveis dentro de &lt;em&gt;strings&lt;/em&gt; atualmente já existentes:&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span class=&#34;cp&#34;&gt;&amp;lt;?php&lt;/span&gt;
+&lt;span class=&#34;nv&#34;&gt;$foo&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;uma pessoa&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+
+&lt;span class=&#34;nv&#34;&gt;$bar&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;quot;Eu sou &amp;quot;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;.&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$foo&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;.&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;quot;!&amp;quot;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;// =&amp;gt; 1&lt;/span&gt;
+&lt;span class=&#34;nv&#34;&gt;$bar&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;Eu sou &amp;#39;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;.&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$foo&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;.&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;!&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;// =&amp;gt; 2&lt;/span&gt;
+&lt;span class=&#34;nv&#34;&gt;$bar&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;quot;Eu sou &lt;/span&gt;&lt;span class=&#34;si&#34;&gt;$foo&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;!&amp;quot;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;// =&amp;gt; 3&lt;/span&gt;
+&lt;span class=&#34;nv&#34;&gt;$bar&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;quot;Eu sou &lt;/span&gt;&lt;span class=&#34;si&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$foo&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;!&amp;quot;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;// =&amp;gt; 4&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Vamos analisar os quatro exemplos acima sendo que os primeiros dois é utilizada &lt;strong&gt;concatenação&lt;/strong&gt; e nos últimos dois &lt;strong&gt;interpolação&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;métodos-1-e-2:2784d983cbda87ee9c00b8472de3a7a0&#34;&gt;Métodos 1 e 2&lt;/h2&gt;
+
+&lt;p&gt;Vamos começar por analisar o primeiro. Neste caso, o segundo método devia ser utilizado ao invés do primeiro. Porquê?&lt;/p&gt;
+
+&lt;p&gt;As aspas duplas dizem ao PHP para iniciar a interpolação gastando mais recursos e podendo demorar mais tempo. Devemos utilizar a aspa única quando não utilizamos nenhum benefício da interpolação como &lt;code&gt;n&lt;/code&gt;, por exemplo.&lt;/p&gt;
+
+&lt;h2 id=&#34;métodos-3-e-4:2784d983cbda87ee9c00b8472de3a7a0&#34;&gt;Métodos 3 e 4&lt;/h2&gt;
+
+&lt;p&gt;Em relação ao terceiro e quarto, é indiferente porém o uso de chavetas é extremamente recomendado quando se inserem variáveis mais complexas como &lt;em&gt;arrays&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;Caso sejam variáveis simples, o uso de chavetas é desnecessário não trazendo benefícios nem malefícios.&lt;/p&gt;
+
+&lt;h2 id=&#34;qual-devo-usar:2784d983cbda87ee9c00b8472de3a7a0&#34;&gt;Qual devo usar?&lt;/h2&gt;
+
+&lt;p&gt;Depende! Geralmente, a interpolação é mais lenta porém, a concatenação pode tornar-se mais lenta caso sejam utilizadas muitas variáveis.&lt;/p&gt;
+
+&lt;p&gt;Executei seguinte teste para confirmar as velocidades que cada um demora a correr (função &lt;a href=&#34;http://stackoverflow.com/questions/13620/speed-difference-in-using-inline-strings-vs-concatenation-in-php5&#34;&gt;timeFunc&lt;/a&gt; obtida aqui):&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span class=&#34;cp&#34;&gt;&amp;lt;?php&lt;/span&gt;
+
+&lt;span class=&#34;k&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;timeFunc&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$function&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$runs&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+  &lt;span class=&#34;nv&#34;&gt;$times&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;array&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;();&lt;/span&gt;
+
+  &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$i&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$i&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$runs&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$i&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;++&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+  &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+    &lt;span class=&#34;nv&#34;&gt;$time&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;microtime&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;();&lt;/span&gt;
+    &lt;span class=&#34;nb&#34;&gt;call_user_func&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$function&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+    &lt;span class=&#34;nv&#34;&gt;$times&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$i&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;microtime&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$time&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+  &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+
+  &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;array_sum&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$times&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;/&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$runs&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+
+&lt;span class=&#34;k&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;Method1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+  &lt;span class=&#34;nv&#34;&gt;$foo&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;uma pessoa&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+  &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$i&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$i&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;10000&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$i&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;++&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+    &lt;span class=&#34;nv&#34;&gt;$t&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;quot;Eu sou &amp;quot;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;.&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$foo&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;.&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;quot;!&amp;quot;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;//1&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+
+&lt;span class=&#34;k&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;Method2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+  &lt;span class=&#34;nv&#34;&gt;$foo&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;uma pessoa&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+  &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$i&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$i&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;10000&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$i&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;++&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+    &lt;span class=&#34;nv&#34;&gt;$t&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;Eu sou &amp;#39;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;.&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$foo&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;.&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;!&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;//2&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+
+&lt;span class=&#34;k&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;Method3&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+ &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+  &lt;span class=&#34;nv&#34;&gt;$foo&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;uma pessoa&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+  &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$i&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$i&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;10000&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$i&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;++&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+    &lt;span class=&#34;nv&#34;&gt;$t&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;quot;Eu sou &lt;/span&gt;&lt;span class=&#34;si&#34;&gt;$foo&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;!&amp;quot;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;//3&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;span class=&#34;k&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;Method4&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+ &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+  &lt;span class=&#34;nv&#34;&gt;$foo&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;uma pessoa&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+  &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$i&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$i&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;10000&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$i&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;++&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+    &lt;span class=&#34;nv&#34;&gt;$t&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;quot;Eu sou &lt;/span&gt;&lt;span class=&#34;si&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$foo&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;!&amp;quot;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;//4&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+
+&lt;span class=&#34;k&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;timeFunc&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;Method1&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;10&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;.&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;quot;n&amp;quot;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;// =&amp;gt; 0.0020885&lt;/span&gt;
+&lt;span class=&#34;k&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;timeFunc&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;Method2&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;10&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;.&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;quot;n&amp;quot;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;// =&amp;gt; 0.0021168&lt;/span&gt;
+&lt;span class=&#34;k&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;timeFunc&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;Method3&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;10&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;.&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;quot;n&amp;quot;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;// =&amp;gt; 0.0021132&lt;/span&gt;
+&lt;span class=&#34;k&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;timeFunc&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;Method4&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;10&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;.&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;quot;n&amp;quot;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;// =&amp;gt; 0.0023884&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Recebi os valores mencionados nos comentários. Como podem ver, não existem grandes diferenças no tempo de execução destes pequenos exemplos. Espero que o post tenha sido útil.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>PHP - Devemos usar a tag de fechamento ou não?</title>
+      <link>https://henriquedias.com/explanations/php-devemos-usar-tag-fechamento-ou-nao</link>
+      <pubDate>Wed, 27 Aug 2014 09:15:18 +0000</pubDate>
+      
+      <guid>https://henriquedias.com/explanations/php-devemos-usar-tag-fechamento-ou-nao</guid>
+      <description>
+
+&lt;p&gt;Recentemente comecei a reparar que muitos programadores omitiam a tag de fechamento dos ficheiros PHP e, obviamente, fiquei curioso.&lt;/p&gt;
+
+&lt;p&gt;Depois de uma pesquisa, trago-vos o &lt;strong&gt;porquê&lt;/strong&gt; de não utilizar a tag &lt;code&gt;?&amp;gt;&lt;/code&gt; no final dos ficheiros.&lt;/p&gt;
+
+
+&lt;figure &gt;
+    
+        &lt;img src=&#34;https://henriquedias.com/images/phptagfechamento.png&#34; alt=&#34;PHP - Devemos usar a tag de fechamento ou não?&#34; /&gt;
+    
+    
+&lt;/figure&gt;
+
+
+&lt;p&gt;Em primeiro lugar, esta prática só deve ser realizada em ficheiros cujo seu conteúdo seja &lt;strong&gt;somente PHP&lt;/strong&gt; e não contenha HTML, por exemplo.&lt;/p&gt;
+
+&lt;h2 id=&#34;o-que-acontece-se:28ef2dafecfeffa0dabf42801406fb11&#34;&gt;O que acontece se&amp;hellip;?&lt;/h2&gt;
+
+&lt;p&gt;Vamos começar por debater a pergunta que vocês vêm aí em cima: &lt;strong&gt;o que acontece&lt;/strong&gt; se omitirmos a &lt;em&gt;tag&lt;/em&gt; de fechamento.&lt;/p&gt;
+
+&lt;p&gt;A resposta é muito simples: se omitirmos a &lt;em&gt;tag&lt;/em&gt; de fechamento de PHP, este irá tratar todos os espaços vazios e quebras de linha como caracteres &amp;ldquo;inúteis&amp;rdquo;.&lt;/p&gt;
+
+&lt;p&gt;Agora, invertendo a pergunta, &lt;strong&gt;o que acontece se utilizarmos a tag de fechamento&lt;/strong&gt;?&lt;/p&gt;
+
+&lt;p&gt;Se o fizermos, tudo o que se encontra depois dessa tag irá ser enviado para o browser e, além disso poderá haver problemas com os cabeçalhos HTTP.&lt;/p&gt;
+
+&lt;h2 id=&#34;como-assim:28ef2dafecfeffa0dabf42801406fb11&#34;&gt;Como assim?&lt;/h2&gt;
+
+&lt;p&gt;Existem diversas funções que utilizamos frequentemente no código como &lt;code&gt;session_start()&lt;/code&gt;, &lt;code&gt;header()&lt;/code&gt;, dentro de muitas outras que alteram estes cabeçalhos.&lt;/p&gt;
+
+&lt;p&gt;Ou seja, se alguém cometer qualquer descuido e colocar, simplesmente, diversas linhas em branco no ficheiro, poderá ocorrer um erro ao utilizar funções que utilizem os cabeçalhos.&lt;/p&gt;
+
+&lt;h2 id=&#34;assim:28ef2dafecfeffa0dabf42801406fb11&#34;&gt;Assim&amp;hellip;&lt;/h2&gt;
+
+&lt;p&gt;Depois de eu próprio ter lido tudo isto descobri a solução a um grande problema que estava a ter:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Cannot modify header information – headers already sent&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Este erro leva-nos, por vezes, a grandes &amp;ldquo;buscas&amp;rdquo; sendo o problema simplesmente simples. E que tal, já sabiam desta pequena &amp;ldquo;dica&amp;rdquo;?&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;Edição:&lt;/strong&gt; Criei um &lt;a href=&#34;https://gist.github.com/hacdias/aacf68dd880e9fb15447&#34;&gt;Gist&lt;/a&gt; no GitHub com alguns exemplos. Sintam-se livres para colaborar :)&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

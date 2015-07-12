@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Font Awesome on Henrique Dias</title>
+    <link>https://henriquedias.com/tags/font-awesome/</link>
+    <description>Recent content in Font Awesome on Henrique Dias</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 25 Oct 2014 10:56:42 +0000</lastBuildDate>
+    <atom:link href="https://henriquedias.com/tags/font-awesome/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Font Awesome - Excelente para designers.</title>
+      <link>https://henriquedias.com/general/font-awesome-excelente-para-designers</link>
+      <pubDate>Sat, 25 Oct 2014 10:56:42 +0000</pubDate>
+      
+      <guid>https://henriquedias.com/general/font-awesome-excelente-para-designers</guid>
+      <description>
+
+&lt;p&gt;Nós, aqui, temos uma categoria unicamente dedicada a ferramentas para desenvolvedores e, hoje, trazemos mais um item para ser colocado nessa categoria.&lt;/p&gt;
+
+&lt;p&gt;Apesar de não ser uma ferramenta de definição, colocarei este artigo nessa categoria porque a &lt;strong&gt;Font Awesome&lt;/strong&gt; é algo que pode ser deveras útil para os programadores e &lt;em&gt;web designers&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://henriquedias.com/images/fontawesome.jpg&#34; alt=&#34;Font Awesome - Excelente para designers.&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Font Awesome&lt;/strong&gt; é um projeto &lt;em&gt;open source&lt;/em&gt; que nos permite, de forma muito simples, incorporar ícones em páginas &lt;em&gt;web&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;Como assim? Através de um simples ficheiro CSS temos à nossa disposição uma gigante quantidade de ícones padrão como o símbolo de eliminar, câmara, de redes sociais, etc.&lt;/p&gt;
+
+&lt;h2 id=&#34;como-instalar:409e4fee0e71fc53e6c8d129bdfedc19&#34;&gt;Como &amp;ldquo;instalar&amp;rdquo;&lt;/h2&gt;
+
+&lt;p&gt;Existem diversas formas de utilizar a &lt;em&gt;Font Awesome&lt;/em&gt;. A primeira e mais fácil forma é, simplesmente, chamar o ficheiro CSS da fonte no cabeçalho de um ficheiro HTML.&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span class=&#34;nt&#34;&gt;&amp;lt;link&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;href=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;quot;//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css&amp;quot;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;rel=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;quot;stylesheet&amp;quot;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Pode também descarregar os ficheiros da &lt;em&gt;Font Awesome&lt;/em&gt; &lt;a href=&#34;http://fortawesome.github.io/Font-Awesome/&#34;&gt;aqui&lt;/a&gt; e chamar o ficheiro CSS principal, o font-awesome.min.css font-awesome.min.css  através do HTML.&lt;/p&gt;
+
+&lt;p&gt;Existem outras formas mais complicadas que podem ser úteis em diversas situações. Pode ver &lt;a href=&#34;http://fortawesome.github.io/Font-Awesome/get-started/&#34;&gt;aqui&lt;/a&gt; mais formas de instalar a &lt;em&gt;Font Awesome&lt;/em&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;como-utilizar:409e4fee0e71fc53e6c8d129bdfedc19&#34;&gt;Como utilizar&lt;/h2&gt;
+
+&lt;p&gt;A utilização da Font Awesomeé deveras simples. Para inserir ícones utilizamos a seguinte sintaxe:&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span class=&#34;nt&#34;&gt;&amp;lt;i&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;class=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;quot;fa fa-nome fa-tamanho&amp;quot;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;&amp;gt;&amp;lt;/i&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;No código HTML acima devemos substituir nome  pelo respetivo nome do ícone que pode encontrar &lt;a href=&#34;http://fortawesome.github.io/Font-Awesome/icons/&#34;&gt;aqui&lt;/a&gt; e, tamanho  por um dos seguintes:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://henriquedias.com/images/fontawesomesize.jpg&#34; alt=&#34;fontawesomesize&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Existem ainda muitos outros atributos que pode adicionar ao código de forma a personalizar o ícone. Veja a tabela seguinte:&lt;/p&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;strong&gt;Código&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Para que serve&lt;/strong&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;fa-spin&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Faz com que o ícone rode continuamente no sentido dos ponteiros do relógio.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;fa-border&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Adiciona uma borda ao ícone.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;fa-rotate-x&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Gira o ícone 90, 180 ou 270 graus (colocar os graus em vez de &amp;ldquo;x&amp;rdquo;).&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;fa-flip-x&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Transforma o ícone no seu simétrico vertical ou horizontalmente.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;Etc&lt;/td&gt;
+&lt;td&gt;Pode ver mais &lt;a href=&#34;http://fortawesome.github.io/Font-Awesome/examples/&#34;&gt;aqui&lt;/a&gt;.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;Como pode ver, este pequeno CSS pode ser extremamente útil quando o site/aplicação que está a desenvolver necessita de muitos ícones. Se quiser ler mais sobre a Font Awesome, pode aceder ao seu site oficial &lt;a href=&#34;http://fontawesome.io/&#34;&gt;aqui&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

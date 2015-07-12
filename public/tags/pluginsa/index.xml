@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Pluginsa on Henrique Dias</title>
+    <link>https://henriquedias.com/tags/pluginsa/</link>
+    <description>Recent content in Pluginsa on Henrique Dias</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 16 Aug 2014 09:39:32 +0000</lastBuildDate>
+    <atom:link href="https://henriquedias.com/tags/pluginsa/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Editor de Texto Atom - Extensão Minimap</title>
+      <link>https://henriquedias.com/general/editor-de-texto-atom-extensao-minimap</link>
+      <pubDate>Sat, 16 Aug 2014 09:39:32 +0000</pubDate>
+      
+      <guid>https://henriquedias.com/general/editor-de-texto-atom-extensao-minimap</guid>
+      <description>&lt;p&gt;Na semana passada, &lt;a href=&#34;https://henriquedias.com/general/atom-io-um-excelente-editor-de-texto-da-github/&#34;&gt;apresentei-vos o editor de texto Atom&lt;/a&gt;, da GitHub e ainda falei de uma das centenas de extensões disponíveis para ele, &lt;a href=&#34;https://henriquedias.com/general/extensao-emmet-para-editor-de-texto-atom/&#34;&gt;a extensão Emmet&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Referi ainda que, ao longo do tempo, iria falar de mais extensões e hoje, é hora de outra. Esta é uma funcionalidade muito útil e chama-se &lt;strong&gt;minimap&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://henriquedias.com/images/minimap.png&#34; alt=&#34;Editor de Texto Atom - Extensão Minimap&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Para quem utiliza o Sublime Text, esta funcionalidade não é nenhuma novidade porque já vem instalada por padrão.&lt;/p&gt;
+
+&lt;p&gt;Como o Atom é modular, os desenvolvedores decidiram trazer esta funcionalidade para este editor de texto criando uma simples extensão (ou pacote).&lt;/p&gt;
+
+&lt;p&gt;O &lt;a href=&#34;https://atom.io/packages/minimap&#34;&gt;&lt;strong&gt;Minimap&lt;/strong&gt;&lt;/a&gt; permite aos utilizadores terem um mini-mapa num dos lados do ecrã (esquerdo ou direito) em que todo o código do ficheiro pode ser visualizado em miniatura.&lt;/p&gt;
+
+&lt;p&gt;Com esta extensão torna-se facílimo navegar por dentro do ficheiro visto que basta clicar e arrastar sobre o mini-mapa para o fazer.&lt;/p&gt;
+
+&lt;p&gt;Existem outras extensões que permitem ampliar as funcionalidades desta extensão (passa a redundância) e podem encontrar os links para as mesmas &lt;a href=&#34;https://atom.io/packages/minimap&#34;&gt;aqui&lt;/a&gt;, na secção plugins.&lt;/p&gt;
+
+&lt;p&gt;Aqui está um vídeo onde, além de explicar como se instala, explico como podemos ativar o mini-mapa por predefinição sempre que abrimos o Atom.&lt;/p&gt;
+
+&lt;iframe width=&#34;100%&#34; height=&#34;auto&#34; src=&#34;https://www.youtube.com/embed/4xpkHqYFLCg&#34; frameborder=&#34;0&#34; allowfullscreen&gt;&lt;/iframe&gt;
+
+&lt;p&gt;Espero que tenham gostado e que esta extensão vos seja bastante útil.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en-us">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>PHP - Diferenças entre &#39;&amp;&amp;/||&#39; e &#39;AND/OR&#39; | Henrique Dias</title>
+<meta name="description" content="Depois de publicar um artigo sobre as diferenças entre os operadores &#39;==&#39; e &#39;===&#39;, vou falar sobre as diferenças entre os operadores &#39;&amp;&amp;/||&#39; e &#39;AND/OR&#39;.">
+<link rel="canonical" href="https://henriquedias.com/explanations/php-diferencas-operadores-logicos-precedencia">
+<link rel="publisher" href="https://plus.google.com/+HenriqueDias"/>
+
+<meta property="og:locale" content="en-us" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="PHP - Diferenças entre &#39;&amp;&amp;/||&#39; e &#39;AND/OR&#39; | Henrique Dias" />
+<meta property="og:description" content="Depois de publicar um artigo sobre as diferenças entre os operadores &#39;==&#39; e &#39;===&#39;, vou falar sobre as diferenças entre os operadores &#39;&amp;&amp;/||&#39; e &#39;AND/OR&#39;." />
+<meta property="og:url" content="https://henriquedias.com/explanations/php-diferencas-operadores-logicos-precedencia" />
+<meta property="og:site_name" content="Henrique Dias | A CompSci Enthusiast" />
+<meta property="article:publisher" content="https://www.facebook.com/hacdias" />
+<meta property="article:author" content="https://www.facebook.com/hacdias" />
+<meta property="article:tag" content="Diferenças, Explicação, Operadores" />
+<meta property="article:section" content="Explanations" />
+<meta property="article:published_time" content="2014-07-28T11:00:32Z" />
+<meta property="article:modified_time" content="2015-06-10T15:01:00Z" />
+<meta property="og:updated_time" content="2015-06-10T15:01:00Z" /> 
+<meta property="og:image" content="https://henriquedias.com/images/home.jpg" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:description" content="Depois de publicar um artigo sobre as diferenças entre os operadores &#39;==&#39; e &#39;===&#39;, vou falar sobre as diferenças entre os operadores &#39;&amp;&amp;/||&#39; e &#39;AND/OR&#39;."/>
+<meta name="twitter:title" content="PHP - Diferenças entre &#39;&amp;&amp;/||&#39; e &#39;AND/OR&#39; | Henrique Dias"/>
+<meta name="twitter:site" content="@hacdias"/>
+<meta name="twitter:domain" content="Henrique Dias"/>
+<meta name="twitter:image:src" content="https://henriquedias.com/images/home.jpg"/>
+<meta name="twitter:creator" content="@hacdias"/>
+
+<meta name="msvalidate.01" content="B471CBBC9EF6900039C6BBF251EF277C" />
+<meta name="google-site-verification" content="nVQ4_x6m6ZTRAzclMPNxpB0iMgK-xoIj_d-l85u32nY" />
+
+
+
+
+<link rel="shortcut icon" href="https://henriquedias.com/favicon.ico" type="image/x-icon">
+<link rel="icon" href="https://henriquedias.com/favicon.ico" type="image/x-icon">
+
+<link rel="stylesheet" href="https://henriquedias.com/css/normalize.min.css">
+<link rel="stylesheet" href="https://henriquedias.com/css/main.min.css">
+
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Person",
+  "email": "mailto:hacdias@gmail.com",
+  "image": "https:\/\/henriquedias.com\/henrique.png",
+  "jobTitle": "Author",
+  "name": "Henrique Dias",
+  "telephone": "351 965 856 140",
+  "url": "https:\/\/henriquedias.com\/",
+  "sameAs" : [ "http://www.facebook.com/hacdias",
+      "http://twitter.com/hacdias",
+      "http://instagram.com/hacdias",
+      "http://www.linkedin.com/in/hacdias",
+      "http://plus.google.com/+HenriqueDias"]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "author": "Henrique Dias",
+  "name": "PHP - Diferenças entre \x27\x26\x26\/||\x27 e \x27AND\/OR\x27"
+}
+</script>
+
+</head>
+
+<body>
+  <header class="site-header sans">
+  <div class="left site-title">
+    <a href="https://henriquedias.com/">Henrique<strong>Dias</strong></a>
+  </div><div class="right">
+    <nav>
+       <ul>
+           <a href="https://henriquedias.com/"><li>Home</li></a>
+           <a href="https://henriquedias.com/about/"><li>About</li></a>
+       </ul>
+    </nav>
+  </div>
+  <div style="clear:both"></div>
+</header>
+
+
+
+<article>
+  <header >
+  
+  <div class="container sans">
+    <h1>PHP - Diferenças entre &#39;&amp;&amp;/||&#39; e &#39;AND/OR&#39;</h1>
+    <span class="meta sans">
+  <span class="category"><a href="/explanations">Explanations</a></span> |
+  Updated on <time datetime="2015-06-10">Jun 10, 2015
+  <span class="tags">
+    
+    #<a href="/tags/diferencas">Diferenças</a>&nbsp;
+    
+    #<a href="/tags/explicacao">Explicação</a>&nbsp;
+    
+    #<a href="/tags/operadores">Operadores</a>&nbsp;
+    
+  </span>
+</span>
+
+  </div>
+</header>
+
+
+  <div class="container">
+  <p>Há alguns dias publiquei um artigo onde expliquei as <a href="/explanations/diferencas-entre-igual-identico-php/">diferenças entre os operadores <code>==</code> e <code>===</code></a>. Depois de partilhar esse artigo no Google Plus, a comunidade <a href="https://plus.google.com/communities/106163623473782778474">PHP Brasil</a> sugeriu-me que falasse sobre as diferenças entre os operadores <code>&amp;&amp;</code>/<code>||</code> e <code>AND</code>/<code>OR</code>.</p>
+
+<p>Depois de ter pesquisado sobre estes quatro operadores, descobri que sim, realmente <strong>existem diferenças entre</strong> esses dois conjuntos de operadores.</p>
+
+<p>Para exemplificar, vamos utilizar valores <strong>booleanos</strong>, ou seja, <code>false</code> e <code>true</code> (ou 0 e 1, respetivamente), e os operadores <code>AND</code> e <code>&amp;&amp;</code>.</p>
+
+<p>Em primeiro lugar, vamos declarar duas variáveis, uma que seja igual a true  e outra igual a false como as seguintes:</p>
+
+<div class="highlight"><pre><span class="x">$verdadeiro = true;</span>
+<span class="x">$falso = false;</span>
+</pre></div>
+
+
+<p>Antes de continuarmos, vou recordar algo parecido às regras da multiplicação/divisão com sinais diferentes, mas aqui para verdadeiros e falsos:</p>
+
+<table>
+<thead>
+<tr>
+<th></th>
+<th><strong>true</strong></th>
+<th><strong>false</strong></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><strong>true</strong></td>
+<td>true</td>
+<td>false</td>
+</tr>
+
+<tr>
+<td><strong>false</strong></td>
+<td>false</td>
+<td>true</td>
+</tr>
+</tbody>
+</table>
+
+<p>Esta tabela mostra o resultado de comparações feitas entre os vários valores booleanos. Continuando agora com o &ldquo;nosso&rdquo; PHP, vamos definir uma variável chamada, por exemplo, $comparacao e igualá-la a comparações entre as variáveis booleanas anteriormente definidas.</p>
+
+<div class="highlight"><pre><span class="x">$comparacao = $verdadeiro &amp;&amp; $falso;</span>
+</pre></div>
+
+
+<p>Assim, concluímos que a variável <code>$comparacao</code>  é igual a falso. Vamos agora utilizar o operador AND.</p>
+
+<div class="highlight"><pre><span class="x">$comparacao = $verdadeiro AND $falso;</span>
+</pre></div>
+
+
+<p>Olhando para a tabela e para a igualdade, pensamos logo que $comparacao  é igual a falso mas&hellip; está <strong>errado!</strong> <code>$comparacao</code>  é agora igual a <strong>verdadeiro</strong>. Mas como assim?</p>
+
+<p>Isto acontece devido ao <strong><a href="http://php.net/manual/pt_BR/language.operators.precedence.php">nível de precedência</a></strong> dos operadores, ou seja, quando existe mais do que um operador num comando, existem níveis de prioridade sendo uns executados antes do que outros.</p>
+
+<p>As duas linhas acima são equivalentes às seguintes, respetivamente:</p>
+
+<div class="highlight"><pre><span class="x">$comparacao = ( $verdadeiro &amp;&amp; $falso );</span>
+<span class="x">( $comparacao = $verdadeiro ) AND $falso;</span>
+</pre></div>
+
+
+<p>O nível de precedência do operador <code>=</code>  é mais elevado que o do operador <code>AND</code>. Porém, o nível de precedência do operador <code>&amp;&amp;</code> é mais elevado que o de <code>=</code>.</p>
+
+<p>Podemos exemplificar isto dos níveis de precedência utilizando matemática. Se escrevermos <code>5 + 2 * 4</code>, automaticamente sabemos que vamos efetuar primeiro a multiplicação e só depois a adição, resultando em 13 ou seja, a multiplicação tem prioridade em relação à adição. Assim, <code>5 + 2 * 4 = 5 + (2 * 4)</code>.</p>
+
+<p>Só colocando parênteses é que podemos efetuar primeiro a adição e depois a multiplicação: (5 + 2) * 4 . Esta última já resulta em 28.</p>
+
+<p>O mesmo acontece com os operadores <code>OR</code> e <code>||</code> sendo que o segundo tem um nível de precedência mais elevado que o primeiro. Acrescento ainda que esta explicação é válida para outras linguagens de programação, como Ruby, por exemplo.</p>
+
+  </div>
+
+  
+  <footer class="container">
+  <div class="addthis_sharing_toolbox"></div>
+  <div class="post-navigation">
+    <a href="https://henriquedias.com/tutorials/wordpress-adicionar-menus-de-administracao-parte-2"><div class="prev">Previous</div></a>
+    <a href="https://henriquedias.com/general/your-imdb-profile-on-your-wordpress-website"><div class="next">Next</div></a>
+  </div>
+  <div style="clear:both"></div>
+  <div class="discussion">
+  <div class="sans">
+    <h2>Discussion</h2>
+  </div>
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'hacdias';
+    var disqus_identifier = 'https:\/\/henriquedias.com\/explanations\/php-diferencas-operadores-logicos-precedencia';
+    var disqus_title = 'PHP - Diferenças entre \x27\x26\x26\/||\x27 e \x27AND\/OR\x27';
+    var disqus_url = 'https:\/\/henriquedias.com\/explanations\/php-diferencas-operadores-logicos-precedencia';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+</footer>
+
+  
+</article>
+
+<footer class="site-footer">
+  <div class="division">
+    <h3>Social</h3>
+    <nav>
+       <ul class="social">
+         <a href="https://twitter.com/hacdias"><li class="twitter">Twitter</li></a>
+         <a href="https://facebook.com/hacdias"><li class="fb">Facebook</li></a>
+         <a href="https://github.com/hacdias"><li class="gh">GitHub</li></a>
+        <a href="https://www.linkedin.com/in/hacdias"><li class="linkin">LinkedIn</li></a>
+         <a href="https://plus.google.com/+HenriqueDias"><li class="gplus">Google Plus</li></a>
+         <a href="https://instagram.com/hacdias"><li class="insta">Instagram</li></a>
+         <a href="https://youtube.com/channel/UCEJe-YgDEvr351w1oNjzolw"><li class="yt">YouTube</li></a>
+       </ul>
+    </nav>
+  </div><div class="division">
+    <h3>More things</h3>
+    <nav>
+       <ul>
+           <a href="https://henriquedias.com/"><li>Home</li></a>
+           <a href="https://henriquedias.com/about/"><li>About</li></a>
+           <a href="https://henriquedias.com/contact/"><li>Contact</li></a>
+           <a href="https://henriquedias.com/projects/"><li>Projects</li></a>
+           <a href="https://henriquedias.com/publications/"><li>Publications</li></a>
+       </ul>
+    </nav>
+  </div><div class="division">
+    &copy; Henrique Dias 2015<br>
+    <small>Email <a href="mailto:me@henriquedias.com">me@henriquedias.com</a><br>
+    All of the code is licensed with <a href="http://opensource.org/licenses/MIT">MIT license</a>.</small>
+  </div>
+</footer>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-59697241-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-55a225a57b261aa9" async="async"></script>
+
+</body>
+</html>
+

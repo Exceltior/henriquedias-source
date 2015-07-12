@@ -1,0 +1,1071 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Mvc on Henrique Dias</title>
+    <link>https://henriquedias.com/tags/mvc/</link>
+    <description>Recent content in Mvc on Henrique Dias</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 21 Dec 2014 10:00:04 +0000</lastBuildDate>
+    <atom:link href="https://henriquedias.com/tags/mvc/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>MVC na linguagem PHP - IV</title>
+      <link>https://henriquedias.com/tutorials/mvc-linguagem-php-iv</link>
+      <pubDate>Sun, 21 Dec 2014 10:00:04 +0000</pubDate>
+      
+      <guid>https://henriquedias.com/tutorials/mvc-linguagem-php-iv</guid>
+      <description>
+
+&lt;p&gt;A pedido de um leitor, decidimos escrever um artigo em que exemplificamos este maravilhoso (ou não) modelo MVC utilizando a linguagem de programação PHP.&lt;/p&gt;
+
+&lt;p&gt;A &lt;a href=&#34;https://henriquedias.com/tutorials/mvc-linguagem-php/&#34;&gt;primeira&lt;/a&gt;, &lt;a href=&#34;https://henriquedias.com/tutorials/mvc-linguagem-php-ii/&#34;&gt;segunda&lt;/a&gt; e &lt;a href=&#34;https://henriquedias.com/tutorials/mvc-linguagem-php-iv/&#34;&gt;terceiras&lt;/a&gt; partes já foram publicadas. Hoje, trago a quarta e última parte desta mini-série de artigos.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://henriquedias.com/images/mvcp4.jpg&#34; alt=&#34;Modelo MVC – Uma exemplificação com PHP #4&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;O que vamos fazer hoje é, simplesmente, criar uma página dinâmica que liste diversos &lt;em&gt;posts&lt;/em&gt; que estão na base de dados da aplicação.&lt;/p&gt;
+
+&lt;p&gt;Se bem se lembra, a ligação à base de dados é configurada no ficheiro &lt;code&gt;config.php&lt;/code&gt;, por isso assegure-se que a sua conexão está bem configurada.&lt;/p&gt;
+
+&lt;p&gt;Aqui, tenho uma base de dados chamada &lt;em&gt;mvc&lt;/em&gt; com uma tabela chamada &lt;em&gt;posts&lt;/em&gt;, e esta tabela tem três colunas: a &lt;code&gt;id&lt;/code&gt;, &lt;code&gt;title&lt;/code&gt; e &lt;code&gt;content&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;De momento tenho duas linhas inseridas nessa mesma tabela, ou seja, de momento tenho exatamente o seguinte:&lt;/p&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;id&lt;/th&gt;
+&lt;th&gt;title&lt;/th&gt;
+&lt;th&gt;content&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;Lorem Ipsum&lt;/td&gt;
+&lt;td&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus id velit non tellus feugiat feugiat vitae quis nibh. Pellentesque maximus lectus ut enim tincidunt, a rutrum dui elementum. Vestibulum elit sapien, malesuada sit amet est lacinia, aliquet laoreet arcu. Duis quis velit hendrerit, pretium nibh ut, faucibus odio. Fusce hendrerit nunc urna, vitae varius augue fringilla in. Nunc a ex eget lectus dictum mollis. Proin quis nisl consectetur metus bibendum ultricies eu non orci. Quisque nec efficitur quam. Suspendisse lorem nulla, sollicitudin ac sagittis id, eleifend eget eros. Interdum et malesuada fames ac ante ipsum primis in faucibus. Cras neque leo, consectetur nec sem quis, imperdiet viverra quam. Pellentesque ultricies felis a molestie egestas. Aliquam malesuada eget justo condimentum venenatis. Duis mattis ut nisi in suscipit. Phasellus scelerisque, arcu ut sollicitudin sagittis, ex ante posuere neque, et dapibus ex lectus quis libero.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;2&lt;/td&gt;
+&lt;td&gt;Usto Risus&lt;/td&gt;
+&lt;td&gt;Usto risus, cursus non iaculis a, semper vitae dolor. Nunc pellentesque tempor pretium. Sed sem risus, accumsan ut urna in, sollicitudin sagittis nisi. Integer ullamcorper orci id nisl iaculis, ac congue purus posuere. Vivamus pharetra nibh in arcu vulputate, in feugiat dolor feugiat. Aliquam erat volutpat. Maecenas sodales magna urna, quis faucibus arcu mattis sit amet. Ali. Fusce hendrerit nunc urna, vitae varius augue fringilla in. Nunc a ex eget lectus dictum mollis. Proin quis nisl consectetur metus bibendum ultricies eu non orci. Quisque nec efficitur quam. Suspendisse lorem nulla, sollicitudin ac sagittis id, eleifend eget eros. Interdum et malesuada fames ac ante ipsum primis in faucibus. Cras neque leo, consectetur nec sem quis, imperdiet viverra quam. Pellentesque ultricies felis a molestie egestas. Aliquam malesuada eget justo condimentum venenatis. Duis mattis ut nisi in suscipit. Phasellus scelerisque, arcu ut sollicitudin sagittis, ex ante posuere neque, et dapibus ex lectus quis libero.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h2 id=&#34;controlador:30a6231206f46a4d16a2087c59187fd6&#34;&gt;Controlador&lt;/h2&gt;
+
+&lt;p&gt;Como sempre, iremos começar com um simples controlador. De momento, o controlador deverá ser simples e ter apenas o seguinte:&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span class=&#34;cp&#34;&gt;&amp;lt;?php&lt;/span&gt;
+
+&lt;span class=&#34;k&#34;&gt;namespace&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;Controller&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+
+&lt;span class=&#34;k&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;Posts&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;extends&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;Controller&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+
+    &lt;span class=&#34;k&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;__construct&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+        &lt;span class=&#34;k&#34;&gt;parent&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;__construct&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;posts&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+
+    &lt;span class=&#34;k&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;index&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+        &lt;span class=&#34;cm&#34;&gt;/* REQUERER POSTS */&lt;/span&gt;
+
+        &lt;span class=&#34;nv&#34;&gt;$this&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;view&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;setTitle&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;Posts&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+        &lt;span class=&#34;nv&#34;&gt;$this&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;view&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;render&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;posts/index&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;De momento, apenas declaramos o construtor e também a função index  que será aquela que vai  ser acedida ao acedermos a &lt;code&gt;URL/posts&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;modelo:30a6231206f46a4d16a2087c59187fd6&#34;&gt;Modelo&lt;/h2&gt;
+
+&lt;p&gt;Vamos então virar a nossa cara para os modelos. O modelo correspondente a este controlador deverá estar localizado em &lt;code&gt;app_core/models/posts.php&lt;/code&gt; e deverá conter um código semelhante ao seguinte:&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span class=&#34;cp&#34;&gt;&amp;lt;?php&lt;/span&gt;
+
+&lt;span class=&#34;k&#34;&gt;namespace&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;Model&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+
+&lt;span class=&#34;k&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;Posts&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;extends&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;Model&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+
+    &lt;span class=&#34;k&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;__construct&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+        &lt;span class=&#34;k&#34;&gt;parent&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;__construct&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;();&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+
+    &lt;span class=&#34;k&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;getPosts&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+        &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$this&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;db&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;select&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;quot;SELECT * FROM posts&amp;quot;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Onde utilizamos o construtor para criar uma ligação à base de dados e criamos a função &lt;code&gt;getPosts&lt;/code&gt; que irá buscar todos as as colunas da tabela &lt;em&gt;posts&lt;/em&gt; da base de dados a que está ligada a nossa aplicação.&lt;/p&gt;
+
+&lt;p&gt;Como pode ver, este é um modelo bastante simples cuja única função é buscar os ficheiros à base de dados. De momento não há mais nenhuma alteração.&lt;/p&gt;
+
+&lt;h2 id=&#34;voltando-ao-controlador:30a6231206f46a4d16a2087c59187fd6&#34;&gt;Voltando ao controlador&amp;hellip;&lt;/h2&gt;
+
+&lt;p&gt;Agora devemos voltar ao controlador e substituir o comentário que lá deixámos pelas seguintes duas linhas:&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span class=&#34;x&#34;&gt;$data = $this-&amp;gt;model-&amp;gt;getPosts();&lt;/span&gt;
+&lt;span class=&#34;x&#34;&gt;$this-&amp;gt;view-&amp;gt;setData($data);&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;A função destas duas linhas é bastante simples: primeiro, declaramos uma variável que será igual ao retorno da função que criámos anteriormente para selecionar os artigos.&lt;/p&gt;
+
+&lt;p&gt;De seguida, &amp;ldquo;injetamos&amp;rdquo; o conteúdo desta variável na &lt;em&gt;view&lt;/em&gt; deste controlador utilizando a função &lt;code&gt;setData&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;que-bela-vista:30a6231206f46a4d16a2087c59187fd6&#34;&gt;Que bela vista!&lt;/h2&gt;
+
+&lt;p&gt;Agora só falta a parte que irá mostrar os itens na página: a &lt;em&gt;view&lt;/em&gt;. Esta &lt;em&gt;view&lt;/em&gt; deverá ser declarada no diretório &lt;code&gt;app_core/views/posts/index.php&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Relembro que a localização do ficheiro é definida quando utilizamos a função render . Então, o conteúdo que coloquei nesta página é o seguinte:&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span class=&#34;x&#34;&gt;&amp;lt;h1&amp;gt;Posts&amp;lt;/h1&amp;gt;&lt;/span&gt;
+
+&lt;span class=&#34;cp&#34;&gt;&amp;lt;?php&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;foreach&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$this&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;_data&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;as&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$post&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;cp&#34;&gt;?&amp;gt;&lt;/span&gt;&lt;span class=&#34;x&#34;&gt;&lt;/span&gt;
+&lt;span class=&#34;x&#34;&gt;    &amp;lt;h2&amp;gt;&lt;/span&gt;&lt;span class=&#34;cp&#34;&gt;&amp;lt;?php&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$post&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;title&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;];&lt;/span&gt; &lt;span class=&#34;cp&#34;&gt;?&amp;gt;&lt;/span&gt;&lt;span class=&#34;x&#34;&gt;&amp;lt;/h2&amp;gt;&lt;/span&gt;
+&lt;span class=&#34;x&#34;&gt;    &amp;lt;p&amp;gt;&lt;/span&gt;&lt;span class=&#34;cp&#34;&gt;&amp;lt;?php&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$post&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;content&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;];&lt;/span&gt; &lt;span class=&#34;cp&#34;&gt;?&amp;gt;&lt;/span&gt;&lt;span class=&#34;x&#34;&gt;&amp;lt;/p&amp;gt;&lt;/span&gt;
+&lt;span class=&#34;cp&#34;&gt;&amp;lt;?php&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;endforeach&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;cp&#34;&gt;?&amp;gt;&lt;/span&gt;&lt;span class=&#34;x&#34;&gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Como pode ver, aqui percorremos todos os itens do array &lt;code&gt;$_data&lt;/code&gt; que faz parte da vista e, de seguida, imprimimos o título e o conteúdo de cada &lt;em&gt;post&lt;/em&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;ou-seja:30a6231206f46a4d16a2087c59187fd6&#34;&gt;Ou seja,&lt;/h2&gt;
+
+&lt;p&gt;Ou seja, é muito simples. Muitas coisas podem ser agora feitas neste modelo, pois a parte mais difícil já foi feita: o &lt;em&gt;core&lt;/em&gt;, o &lt;em&gt;kernel&lt;/em&gt;, o núcleo da aplicação.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Tem alguma sugestão, ideia ou modificação? Sinta-se livre para contribuir para esta simples, pequena e &lt;em&gt;homemade framework&lt;/em&gt; no &lt;a href=&#34;https://github.com/hacdias/InMVC&#34;&gt;GitHub&lt;/a&gt; :)&lt;/strong&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>MVC na linguagem PHP - III</title>
+      <link>https://henriquedias.com/tutorials/mvc-linguagem-php-iii</link>
+      <pubDate>Sat, 20 Dec 2014 09:00:23 +0000</pubDate>
+      
+      <guid>https://henriquedias.com/tutorials/mvc-linguagem-php-iii</guid>
+      <description>
+
+&lt;p&gt;A pedido de um leitor, decidimos escrever um artigo em que exemplificamos este maravilhoso (ou não) modelo MVC utilizando a linguagem de programação PHP.&lt;/p&gt;
+
+&lt;p&gt;A &lt;a href=&#34;https://henriquedias.com/tutorials/mvc-linguagem-php/&#34;&gt;primeira&lt;/a&gt; e &lt;a href=&#34;https://henriquedias.com/tutorials/mvc-linguagem-php-ii/&#34;&gt;segunda&lt;/a&gt; partes já foram publicadas e hoje é a vez da terceira onde tudo começa a tornar-se mais facilmente compreendido.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://henriquedias.com/images/mvcphp.jpg&#34; alt=&#34;Modelo MVC – Uma exemplificação com PHP #3&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Em primeiro lugar, quero referir algumas modificações que efetuei em alguns dos ficheiros que já trabalhámos.&lt;/p&gt;
+
+&lt;p&gt;Adicionei a constante &lt;code&gt;SITE_TITLE&lt;/code&gt; ao ficheiro &lt;code&gt;config.php&lt;/code&gt;, ficando a primeira secção deste ficheiro da seguinte forma:&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span class=&#34;cp&#34;&gt;&amp;lt;?php&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;//...&lt;/span&gt;
+&lt;span class=&#34;c1&#34;&gt;//1. Base Constants&lt;/span&gt;
+&lt;span class=&#34;nb&#34;&gt;define&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;ROOT&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;dirname&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;__FILE__&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;.&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;/&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;span class=&#34;nb&#34;&gt;define&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;URL&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;http://localhost/mvc/&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;span class=&#34;nb&#34;&gt;define&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;SITE_TITLE&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;Simple MVC Structure Model&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;span class=&#34;c1&#34;&gt;//...&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Na classe &lt;code&gt;View&lt;/code&gt; foi adicionada uma função que permitirá ao utilizador definir o título (aquele que aparece na parte superior do &lt;em&gt;browser&lt;/em&gt;).&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span class=&#34;x&#34;&gt;public function setTitle($title)&lt;/span&gt;
+&lt;span class=&#34;x&#34;&gt;{&lt;/span&gt;
+&lt;span class=&#34;x&#34;&gt;    $this-&amp;gt;_pageInfo[&amp;#39;title&amp;#39;] = $title . &amp;#39; | &amp;#39; . SITE_TITLE;&lt;/span&gt;
+&lt;span class=&#34;x&#34;&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2 id=&#34;public-html:ae98e7c4c7a05fc53108b63636849ebe&#34;&gt;&lt;code&gt;public_html&lt;/code&gt;&lt;/h2&gt;
+
+&lt;p&gt;Hoje vamos continuar a nossa jornada começando na pasta pública, ou seja, na pasta &lt;code&gt;public_html&lt;/code&gt;. Vamos começar com o nosso maravilhoso &lt;code&gt;.htaccess&lt;/code&gt;.&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span class=&#34;nb&#34;&gt;ErrorDocument&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;404&lt;/span&gt; &lt;span class=&#34;sx&#34;&gt;/404&lt;/span&gt;
+&lt;span class=&#34;nb&#34;&gt;ErrorDocument&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;500&lt;/span&gt; &lt;span class=&#34;sx&#34;&gt;/500&lt;/span&gt;
+
+&lt;span class=&#34;nt&#34;&gt;&amp;lt;IfModule&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;mod_rewrite.c&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;&amp;gt;&lt;/span&gt;
+
+    &lt;span class=&#34;nb&#34;&gt;RewriteEngine&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;On&lt;/span&gt;
+
+    &lt;span class=&#34;nb&#34;&gt;RewriteCond&lt;/span&gt; %{REQUEST_FILENAME} !-d
+    &lt;span class=&#34;nb&#34;&gt;RewriteCond&lt;/span&gt; %{REQUEST_FILENAME} !-f
+    &lt;span class=&#34;nb&#34;&gt;RewriteCond&lt;/span&gt; %{REQUEST_FILENAME} !-l
+
+    &lt;span class=&#34;nb&#34;&gt;RewriteRule&lt;/span&gt; ^(.+)$ index.php?url=$1 [QSA,L]
+
+&lt;span class=&#34;nt&#34;&gt;&amp;lt;/IfModule&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Como pode ver, todos os pedidos serão direcionados para o ficheiro &lt;code&gt;index.php&lt;/code&gt; com o URL completo na forma de parâmetro GET.&lt;/p&gt;
+
+&lt;p&gt;Falando em &lt;code&gt;index.php&lt;/code&gt;, e que tal lhe darmos uma espreitadela? Este vai ser o ficheiro que vai iniciar toda a sequência de acontecimentos. Ora veja:&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span class=&#34;cp&#34;&gt;&amp;lt;?php&lt;/span&gt;
+
+&lt;span class=&#34;sd&#34;&gt;/**&lt;/span&gt;
+&lt;span class=&#34;sd&#34;&gt; * Main file.&lt;/span&gt;
+&lt;span class=&#34;sd&#34;&gt; *&lt;/span&gt;
+&lt;span class=&#34;sd&#34;&gt; * @package MVC PHP Bootstrap&lt;/span&gt;
+&lt;span class=&#34;sd&#34;&gt; */&lt;/span&gt;
+&lt;span class=&#34;k&#34;&gt;require&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;../app_core/config.php&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+
+&lt;span class=&#34;k&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;autoLoad&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$className&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;require&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;DIR_LIBS&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;.&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$className&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;.&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;.php&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+
+&lt;span class=&#34;nb&#34;&gt;spl_autoload_register&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;autoLoad&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+
+&lt;span class=&#34;nv&#34;&gt;$bootstrap&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;Bootstrap&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;();&lt;/span&gt;
+&lt;span class=&#34;nv&#34;&gt;$bootstrap&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;init&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;();&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Neste ficheiro, como pode ver, o ficheiro das configurações é chamado e, de seguida, é criado uma função de auto carregamento.&lt;/p&gt;
+
+&lt;p&gt;O que faz esta função? Simplesmente tenta carregar uma classe indefinida. Como pode ver, eu não importo a classe &lt;code&gt;Bootstrap&lt;/code&gt;, mas logo de seguida uso-a.&lt;/p&gt;
+
+&lt;p&gt;Consigo utilizá-la porque a a função de &lt;em&gt;auto load&lt;/em&gt; chama esta classe automaticamente. Mas atenção! Este código apenas nos permite carregar automaticamente classes contidas na pasta &lt;code&gt;libs&lt;/code&gt;.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Se neste momento experimentar correr o código nesta pasta irá receber diversos erros porque ainda não foram criados nenhuns controladores. Nem mesmo o dos erros!&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;header-and-footer:ae98e7c4c7a05fc53108b63636849ebe&#34;&gt;&lt;em&gt;Header and Footer&lt;/em&gt;&lt;/h2&gt;
+
+&lt;p&gt;Antes de continuarmos para a criação dos controladores, devemos criar os ficheiros do cabeçalho e do rodapé que são chamados quando executamos a função &lt;em&gt;render&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;Estes dois ficheiros deverão estar localizados na diretoria &lt;code&gt;app_core/views/*.php&lt;/code&gt;, onde &lt;code&gt;*&lt;/code&gt; corresponde a &lt;em&gt;header&lt;/em&gt; e a &lt;em&gt;footer&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;A minha proposta para o ficheiro do cabeçalho é a seguinte:&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span class=&#34;cp&#34;&gt;&amp;lt;!doctype html&amp;gt;&lt;/span&gt;
+&lt;span class=&#34;nt&#34;&gt;&amp;lt;html&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;lang=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#39;en-EN&amp;#39;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;&amp;gt;&lt;/span&gt;
+
+&lt;span class=&#34;nt&#34;&gt;&amp;lt;head&amp;gt;&lt;/span&gt;
+    &lt;span class=&#34;nt&#34;&gt;&amp;lt;title&amp;gt;&lt;/span&gt;&lt;span class=&#34;cp&#34;&gt;&amp;lt;?php echo (isset($this-&amp;gt;_pageInfo[&amp;#39;title&amp;#39;])) ? $this-&amp;gt;_pageInfo[&amp;#39;title&amp;#39;] : SITE_TITLE; ?&amp;gt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;&amp;lt;/title&amp;gt;&lt;/span&gt;
+
+    &lt;span class=&#34;nt&#34;&gt;&amp;lt;meta&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;charset=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#39;utf-8&amp;#39;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&#34;nt&#34;&gt;&amp;lt;meta&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;name=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#39;viewport&amp;#39;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;content=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#39;width=device-width, initial-scale=1&amp;#39;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;&amp;gt;&lt;/span&gt;
+
+    &lt;span class=&#34;nt&#34;&gt;&amp;lt;link&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;rel=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#39;stylesheet&amp;#39;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;href=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#39;&amp;lt;?php echo URL; ?&amp;gt;css/template.css&amp;#39;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;type=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#39;text/css&amp;#39;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;media=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#39;all&amp;#39;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;/&amp;gt;&lt;/span&gt;
+    &lt;span class=&#34;nt&#34;&gt;&amp;lt;link&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;rel=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#39;stylesheet&amp;#39;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;href=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#39;&amp;lt;?php echo URL; ?&amp;gt;css/normalize.css&amp;#39;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;type=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#39;text/css&amp;#39;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;media=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#39;all&amp;#39;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;/&amp;gt;&lt;/span&gt;
+&lt;span class=&#34;nt&#34;&gt;&amp;lt;/head&amp;gt;&lt;/span&gt;
+
+&lt;span class=&#34;nt&#34;&gt;&amp;lt;body&amp;gt;&lt;/span&gt;
+&lt;span class=&#34;nt&#34;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;id=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#39;header&amp;#39;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&#34;nt&#34;&gt;&amp;lt;strong&amp;gt;&lt;/span&gt;MVCPHPB&lt;span class=&#34;nt&#34;&gt;&amp;lt;/strong&amp;gt;&lt;/span&gt;
+    | &lt;span class=&#34;nt&#34;&gt;&amp;lt;a&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;href=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;quot;&amp;lt;?php echo URL; ?&amp;gt;&amp;quot;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;&amp;gt;&lt;/span&gt;Home&lt;span class=&#34;nt&#34;&gt;&amp;lt;/a&amp;gt;&lt;/span&gt;
+    | &lt;span class=&#34;nt&#34;&gt;&amp;lt;a&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;href=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;quot;&amp;lt;?php echo URL; ?&amp;gt;page&amp;quot;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;&amp;gt;&lt;/span&gt;Page&lt;span class=&#34;nt&#34;&gt;&amp;lt;/a&amp;gt;&lt;/span&gt;
+    | &lt;span class=&#34;nt&#34;&gt;&amp;lt;a&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;href=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;quot;&amp;lt;?php echo URL; ?&amp;gt;posts&amp;quot;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;&amp;gt;&lt;/span&gt;Posts&lt;span class=&#34;nt&#34;&gt;&amp;lt;/a&amp;gt;&lt;/span&gt;
+&lt;span class=&#34;nt&#34;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+
+&lt;span class=&#34;nt&#34;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;id=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;quot;wrap&amp;quot;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Onde já temos o título da página que será igual ao título que é definido utilizando a função que referi no início do artigo, ou apenas o nome do site.&lt;/p&gt;
+
+&lt;p&gt;Deixei também uma pequena introdução à estrutura HTML do site e uma pista àquilo que iremos criar: iremos criar uma página estática (&lt;em&gt;Page&lt;/em&gt;) e uma página dinâmica com alguns itens de uma base de dados (&lt;em&gt;Posts&lt;/em&gt;).&lt;/p&gt;
+
+&lt;p&gt;Estou também a utilizar o &lt;code&gt;normalize.css&lt;/code&gt; e uma folha de estilos própria com alguns ajustes de forma a distinguir melhor cada uma das partes do site. Aqui está o &lt;code&gt;template.css&lt;/code&gt; (deve ser colocado na pasta &lt;code&gt;css&lt;/code&gt;):&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span class=&#34;nf&#34;&gt;#header&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt;
+&lt;span class=&#34;nf&#34;&gt;#wrap&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt;
+&lt;span class=&#34;nf&#34;&gt;#footer&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+  &lt;span class=&#34;k&#34;&gt;padding&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;20px&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+
+&lt;span class=&#34;nf&#34;&gt;#header&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+  &lt;span class=&#34;k&#34;&gt;background&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;rgba&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;12&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+
+&lt;span class=&#34;nf&#34;&gt;#footer&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+  &lt;span class=&#34;k&#34;&gt;background&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;rgba&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;5&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+  &lt;span class=&#34;k&#34;&gt;color&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;#fff&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Vamos agora ver o rodapé. O rodapé está localizado no ficheiro &lt;code&gt;app_core/views/footer.php&lt;/code&gt; e o conteúdo deve ser algo semelhante ao seguinte:&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span class=&#34;nt&#34;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+
+&lt;span class=&#34;nt&#34;&gt;&amp;lt;footer&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;id=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;quot;footer&amp;quot;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&#34;nt&#34;&gt;&amp;lt;strong&amp;gt;&amp;lt;strong&amp;gt;&lt;/span&gt;MVCPHPB&lt;span class=&#34;nt&#34;&gt;&amp;lt;/strong&amp;gt;&amp;lt;/strong&amp;gt;&lt;/span&gt; Footer
+&lt;span class=&#34;nt&#34;&gt;&amp;lt;/footer&amp;gt;&lt;/span&gt;
+
+&lt;span class=&#34;nt&#34;&gt;&amp;lt;/body&amp;gt;&lt;/span&gt;
+&lt;span class=&#34;nt&#34;&gt;&amp;lt;/html&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2 id=&#34;controladores:ae98e7c4c7a05fc53108b63636849ebe&#34;&gt;Controladores&lt;/h2&gt;
+
+&lt;p&gt;Depois de termos &amp;ldquo;montado&amp;rdquo; a estrutura, devemos passar à criação das páginas. Em primeiro lugar, vamos criar o controlador do erro.&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span class=&#34;cp&#34;&gt;&amp;lt;?php&lt;/span&gt;
+
+&lt;span class=&#34;k&#34;&gt;namespace&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;Controller&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+
+&lt;span class=&#34;k&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;Error&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;extends&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;Controller&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+
+    &lt;span class=&#34;k&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;__construct&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+        &lt;span class=&#34;k&#34;&gt;parent&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;__construct&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;error&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+
+    &lt;span class=&#34;k&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;index&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$error&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;404&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+        &lt;span class=&#34;nv&#34;&gt;$data&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;array&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;();&lt;/span&gt;
+
+        &lt;span class=&#34;k&#34;&gt;switch&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$error&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+            &lt;span class=&#34;k&#34;&gt;case&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;404&amp;#39;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt;
+                &lt;span class=&#34;nv&#34;&gt;$data&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;title&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;Error 404&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+                &lt;span class=&#34;nv&#34;&gt;$data&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;msg&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;quot;Not found. There is nothing here.&amp;quot;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+                &lt;span class=&#34;k&#34;&gt;break&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+            &lt;span class=&#34;k&#34;&gt;case&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;500&amp;#39;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt;
+            &lt;span class=&#34;k&#34;&gt;default&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt;
+                &lt;span class=&#34;nv&#34;&gt;$data&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;title&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;Error 500&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+                &lt;span class=&#34;nv&#34;&gt;$data&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;msg&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;quot;Internal Server Error. Probably we did something wrong.&amp;quot;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+                &lt;span class=&#34;k&#34;&gt;break&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+        &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+
+        &lt;span class=&#34;nv&#34;&gt;$this&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;view&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;setTitle&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$data&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;title&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]);&lt;/span&gt;
+        &lt;span class=&#34;nv&#34;&gt;$this&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;view&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;setData&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$data&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+        &lt;span class=&#34;nv&#34;&gt;$this&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;view&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;render&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;error/index&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Os controladores devem pertencer à &lt;em&gt;namespace&lt;/em&gt; Controller e devem ter, obrigatoriamente, o seu construtor presente no formato mostrado acima.&lt;/p&gt;
+
+&lt;p&gt;Este é um controlador que só terá o método _index _relacionado com as páginas pois não irá ser utilizado mais nenhum. Acima pode visualizar que este método irá receber um argumento que, por padrão, é &amp;lsquo;404&amp;rsquo;.&lt;/p&gt;
+
+&lt;p&gt;De seguida, algumas informações são atribuídas dependendo do erro em questão. Depois o título da página é definido e, mais tarde, os dados são enviados para a &lt;em&gt;view&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;Falando em &lt;em&gt;view&lt;/em&gt;, esta é renderizada logo de seguida. A _view _que colocámos é &lt;code&gt;error/index&lt;/code&gt;, então o ficheiro PHP deverá encontrar-se em &lt;code&gt;app_core/views/error/index.php&lt;/code&gt;.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Se experimentar correr o código neste momento, deverá receber um erro por não encontrar a _View _da página de erro.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Vamos então visualizar a &lt;em&gt;view&lt;/em&gt; que corresponde à página de erro:&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span class=&#34;x&#34;&gt;    &amp;lt;h1&amp;gt; &lt;/span&gt;&lt;span class=&#34;cp&#34;&gt;&amp;lt;?php&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$this&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;_data&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;title&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;cp&#34;&gt;?&amp;gt;&lt;/span&gt;&lt;span class=&#34;x&#34;&gt;&amp;lt;/h1&amp;gt;&lt;/span&gt;
+
+&lt;span class=&#34;x&#34;&gt;    &amp;lt;p&amp;gt;&lt;/span&gt;&lt;span class=&#34;cp&#34;&gt;&amp;lt;?php&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$this&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;_data&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;msg&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;];&lt;/span&gt; &lt;span class=&#34;cp&#34;&gt;?&amp;gt;&lt;/span&gt;&lt;span class=&#34;x&#34;&gt;&amp;lt;/p&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;É simples. Serve apenas para mostrar que ocorreu um erro. Mas não podemos continuar assim pois ao abrirmos a página inicial estamos apenas a ver um erro.&lt;/p&gt;
+
+&lt;p&gt;Vamos então criar o controlador da página inicial, que deve conter o seguinte código:&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span class=&#34;cp&#34;&gt;&amp;lt;?php&lt;/span&gt;
+
+&lt;span class=&#34;k&#34;&gt;namespace&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;Controller&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+
+&lt;span class=&#34;k&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;Index&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;extends&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;Controller&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+
+    &lt;span class=&#34;k&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;__construct&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+        &lt;span class=&#34;k&#34;&gt;parent&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;__construct&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;index&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+
+    &lt;span class=&#34;k&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;index&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+        &lt;span class=&#34;nv&#34;&gt;$this&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;view&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;setTitle&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;Home&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+        &lt;span class=&#34;nv&#34;&gt;$this&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;view&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;render&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;index/index&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;E o ficheiro da sua _view _deverá ter qualquer coisa que deseje. Eu, por exemplo, coloquei:&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span class=&#34;nt&#34;&gt;&amp;lt;h1&amp;gt;&lt;/span&gt;MVC PHP Bootstrap (MVCPHPB)&lt;span class=&#34;nt&#34;&gt;&amp;lt;/h1&amp;gt;&lt;/span&gt;
+
+&lt;span class=&#34;nt&#34;&gt;&amp;lt;p&amp;gt;&lt;/span&gt;This is the main page of this website that is a simple mvc structure model example.&lt;span class=&#34;nt&#34;&gt;&amp;lt;/p&amp;gt;&lt;/span&gt;
+
+&lt;span class=&#34;nt&#34;&gt;&amp;lt;p&amp;gt;&lt;/span&gt;Esta é a página principal deste site que é um exemplo de modelo de estrutura MVC simples.&lt;span class=&#34;nt&#34;&gt;&amp;lt;/p&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Coloque o que queira. De momento, se aceder à página inicial deverá visualizar a página inicial propriamente dita e se tentar, eventualmente, abrir qualquer outra possível página, irá ver a página de erro 404.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;No próximo tutorial iremos ver a criação de uma página dinâmica com um modelo&lt;/strong&gt;. Pode, entretanto, experimentar criar mais páginas ou até mesmo criar mais métodos para sub-páginas.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>MVC na linguagem PHP - II</title>
+      <link>https://henriquedias.com/tutorials/mvc-linguagem-php-ii</link>
+      <pubDate>Fri, 19 Dec 2014 12:26:59 +0000</pubDate>
+      
+      <guid>https://henriquedias.com/tutorials/mvc-linguagem-php-ii</guid>
+      <description>
+
+&lt;p&gt;A pedido de um leitor, decidimos escrever um artigo em que exemplificamos este maravilhoso (ou não) modelo MVC utilizando a linguagem de programação PHP.&lt;/p&gt;
+
+&lt;p&gt;Depois de publicarmos a &lt;a href=&#34;https://henriquedias.com/mvc-linguagem-php/&#34;&gt;primeira parte&lt;/a&gt;, onde explicámos a estrutura da pequena &lt;em&gt;framework&lt;/em&gt; que iremos criar, aqui está a segunda parte.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://henriquedias.com/images/mvc02.jpg&#34; alt=&#34;Modelo MVC - Uma exemplificação com PHP #2&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Hoje iremos trabalhar no coração da aplicação, ou seja, na diretoria &lt;code&gt;app_core/libs&lt;/code&gt;. Nesta pasta mãe, irão ser colocados todos os ficheiros PHP que serão as classes mãe de todos os outros ficheiros.&lt;/p&gt;
+
+&lt;h2 id=&#34;bootstrap-php:8c5520c3a68364cd39d5b7074fc8e9f3&#34;&gt;&lt;strong&gt;Bootstrap.php&lt;/strong&gt;&lt;/h2&gt;
+
+&lt;p&gt;Vamos começar por criar um ficheiro denominado Bootstrap.php onde iremos colocar todo o seguinte código:&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span class=&#34;cp&#34;&gt;&amp;lt;?php&lt;/span&gt;
+
+&lt;span class=&#34;sd&#34;&gt;/**&lt;/span&gt;
+&lt;span class=&#34;sd&#34;&gt; * Class Bootstrap&lt;/span&gt;
+&lt;span class=&#34;sd&#34;&gt; *&lt;/span&gt;
+&lt;span class=&#34;sd&#34;&gt; * @package MVC PHP Bootstrap&lt;/span&gt;
+&lt;span class=&#34;sd&#34;&gt; */&lt;/span&gt;
+&lt;span class=&#34;k&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;Bootstrap&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;private&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$_url&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;null&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;private&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$_controller&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;null&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+
+    &lt;span class=&#34;k&#34;&gt;private&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$_errorFile&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;error.php&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+
+    &lt;span class=&#34;sd&#34;&gt;/**&lt;/span&gt;
+&lt;span class=&#34;sd&#34;&gt;     * Starts the Bootstrap&lt;/span&gt;
+&lt;span class=&#34;sd&#34;&gt;     *&lt;/span&gt;
+&lt;span class=&#34;sd&#34;&gt;     * @return boolean&lt;/span&gt;
+&lt;span class=&#34;sd&#34;&gt;     */&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;init&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+        &lt;span class=&#34;nv&#34;&gt;$this&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;_getUrl&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;();&lt;/span&gt;
+
+        &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;empty&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$this&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;_url&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]))&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+            &lt;span class=&#34;nv&#34;&gt;$this&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;_url&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;index&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+        &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+
+        &lt;span class=&#34;nv&#34;&gt;$this&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;_controller&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;();&lt;/span&gt;
+        &lt;span class=&#34;nv&#34;&gt;$this&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;_method&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;();&lt;/span&gt;
+
+        &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;false&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+
+    &lt;span class=&#34;sd&#34;&gt;/**&lt;/span&gt;
+&lt;span class=&#34;sd&#34;&gt;     * This function get the content of &amp;#39;url&amp;#39; variable&lt;/span&gt;
+&lt;span class=&#34;sd&#34;&gt;     * of HTTP GET method. See the .htaccess for more&lt;/span&gt;
+&lt;span class=&#34;sd&#34;&gt;     * information.&lt;/span&gt;
+&lt;span class=&#34;sd&#34;&gt;     */&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;private&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;_getUrl&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+        &lt;span class=&#34;nv&#34;&gt;$url&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;isset&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$_GET&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;url&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;])&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;?&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$_GET&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;url&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;null&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+        &lt;span class=&#34;nv&#34;&gt;$url&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;rtrim&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$url&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;/&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+        &lt;span class=&#34;nv&#34;&gt;$url&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;filter_var&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$url&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;FILTER_SANITIZE_URL&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+        &lt;span class=&#34;nv&#34;&gt;$this&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;_url&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;explode&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;/&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$url&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+
+    &lt;span class=&#34;sd&#34;&gt;/**&lt;/span&gt;
+&lt;span class=&#34;sd&#34;&gt;     * This function initializes the controller that&lt;/span&gt;
+&lt;span class=&#34;sd&#34;&gt;     * matches with the current url.&lt;/span&gt;
+&lt;span class=&#34;sd&#34;&gt;     *&lt;/span&gt;
+&lt;span class=&#34;sd&#34;&gt;     * @return bool&lt;/span&gt;
+&lt;span class=&#34;sd&#34;&gt;     */&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;private&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;_controller&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+        &lt;span class=&#34;nv&#34;&gt;$file&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;DIR_CONTROLLERS&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;.&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$this&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;_url&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;.&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;.php&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+
+        &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;file_exists&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$file&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+            &lt;span class=&#34;k&#34;&gt;require&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$file&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+
+            &lt;span class=&#34;nv&#34;&gt;$controller&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;quot;Controller&amp;quot;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;.&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$this&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;_url&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;];&lt;/span&gt;
+
+            &lt;span class=&#34;nv&#34;&gt;$this&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;_controller&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$controller&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$this&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;_url&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]);&lt;/span&gt;
+
+            &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;false&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+        &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;else&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+            &lt;span class=&#34;nv&#34;&gt;$this&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;_error&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;();&lt;/span&gt;
+            &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;false&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+        &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+
+    &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+
+    &lt;span class=&#34;sd&#34;&gt;/**&lt;/span&gt;
+&lt;span class=&#34;sd&#34;&gt;     * This function calls the method depending on the&lt;/span&gt;
+&lt;span class=&#34;sd&#34;&gt;     * url fetched above.&lt;/span&gt;
+&lt;span class=&#34;sd&#34;&gt;     */&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;private&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;_method&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+        &lt;span class=&#34;nv&#34;&gt;$length&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;count&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$this&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;_url&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+
+        &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$length&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+            &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;!&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;method_exists&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$this&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;_controller&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$this&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;_url&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]))&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+                &lt;span class=&#34;nv&#34;&gt;$this&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;_error&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;();&lt;/span&gt;
+            &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+        &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+
+        &lt;span class=&#34;k&#34;&gt;switch&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$length&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+            &lt;span class=&#34;k&#34;&gt;case&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;5&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt;
+                &lt;span class=&#34;c1&#34;&gt;//Controller-&amp;gt;Method(Param1, Param2, Param3)&lt;/span&gt;
+                &lt;span class=&#34;nv&#34;&gt;$this&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;_controller&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$this&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;_url&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]}(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$this&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;_url&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;],&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$this&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;_url&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;],&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$this&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;_url&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;4&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]);&lt;/span&gt;
+                &lt;span class=&#34;k&#34;&gt;break&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+
+            &lt;span class=&#34;k&#34;&gt;case&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;4&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt;
+                &lt;span class=&#34;c1&#34;&gt;//Controller-&amp;gt;Method(Param1, Param2)&lt;/span&gt;
+                &lt;span class=&#34;nv&#34;&gt;$this&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;_controller&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$this&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;_url&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]}(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$this&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;_url&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;],&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$this&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;_url&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]);&lt;/span&gt;
+                &lt;span class=&#34;k&#34;&gt;break&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+
+            &lt;span class=&#34;k&#34;&gt;case&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt;
+                &lt;span class=&#34;c1&#34;&gt;//Controller-&amp;gt;Method(Param1, Param2)&lt;/span&gt;
+                &lt;span class=&#34;nv&#34;&gt;$this&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;_controller&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$this&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;_url&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]}(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$this&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;_url&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]);&lt;/span&gt;
+                &lt;span class=&#34;k&#34;&gt;break&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+
+            &lt;span class=&#34;k&#34;&gt;case&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt;
+                &lt;span class=&#34;c1&#34;&gt;//Controller-&amp;gt;Method(Param1, Param2)&lt;/span&gt;
+                &lt;span class=&#34;nv&#34;&gt;$this&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;_controller&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$this&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;_url&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]}();&lt;/span&gt;
+                &lt;span class=&#34;k&#34;&gt;break&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+
+            &lt;span class=&#34;k&#34;&gt;default&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt;
+                &lt;span class=&#34;nv&#34;&gt;$this&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;_controller&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;index&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;();&lt;/span&gt;
+                &lt;span class=&#34;k&#34;&gt;break&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+        &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+
+    &lt;span class=&#34;sd&#34;&gt;/**&lt;/span&gt;
+&lt;span class=&#34;sd&#34;&gt;     * Display an error page if there&amp;#39;s no controller&lt;/span&gt;
+&lt;span class=&#34;sd&#34;&gt;     * that corresponds with the current url.&lt;/span&gt;
+&lt;span class=&#34;sd&#34;&gt;     */&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;private&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;_error&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+        &lt;span class=&#34;k&#34;&gt;require&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;DIR_CONTROLLERS&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;.&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$this&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;_errorFile&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+
+        &lt;span class=&#34;nv&#34;&gt;$this&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;_controller&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;ControllerError&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;();&lt;/span&gt;
+        &lt;span class=&#34;nv&#34;&gt;$this&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;_controller&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;index&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;();&lt;/span&gt;
+
+        &lt;span class=&#34;k&#34;&gt;exit&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;O código acima é aquele que irá inicializar todo a aplicação. Em primeiro lugar, gostava de dizer que a estrutura do URL da aplicação será a seguinte:&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;    http://site/controlador/método/arg1/arg2/&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;arg...&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Vamos então ver, por partes, o que faz cada uma das funções declaradas acima.&lt;/p&gt;
+
+&lt;h3 id=&#34;init:8c5520c3a68364cd39d5b7074fc8e9f3&#34;&gt;&lt;code&gt;init&lt;/code&gt;&lt;/h3&gt;
+
+&lt;p&gt;A função &lt;code&gt;init&lt;/code&gt; é a função onde tudo começa. Em primeiro lugar, esta função chama a função &lt;code&gt;_getUrl&lt;/code&gt; que recebe o URL atual (será analisada mais à frente).&lt;/p&gt;
+
+&lt;p&gt;De seguida, esta função define a página como index caso nenhuma página esteja definida no URL. Então a função chama duas outras que iremos ver de seguida.&lt;/p&gt;
+
+&lt;h3 id=&#34;geturl:8c5520c3a68364cd39d5b7074fc8e9f3&#34;&gt;&lt;code&gt;_getUrl&lt;/code&gt;&lt;/h3&gt;
+
+&lt;p&gt;Esta função recebe a variável url que foi passada através do método GET (em breve veremos as modificações que têm que ser efetuadas no &lt;code&gt;.htaccess&lt;/code&gt; para que seja passada esta variável).&lt;/p&gt;
+
+&lt;p&gt;Aqui é utilizado o &lt;a href=&#34;https://henriquedias.com/explanations/operador-ternario/&#34;&gt;operador ternário&lt;/a&gt; de forma a que a variável&lt;code&gt;$url&lt;/code&gt; seja igual a null  caso não haja nenhum conteúdo na variável url que foi passada através do método GET.&lt;/p&gt;
+
+&lt;p&gt;Depois é removida a última barra (/) da variável com a função &lt;code&gt;rtrim&lt;/code&gt;. De seguida é aplicado um filtro à array  de forma a remover todos os caracteres não permitidos aqui.&lt;/p&gt;
+
+&lt;p&gt;Finalmente, a variável do url da classe (&lt;code&gt;$_url&lt;/code&gt;) é igualada à &amp;ldquo;explosão&amp;rdquo; da variável &lt;code&gt;$url&lt;/code&gt; que se irá tornar num array .&lt;/p&gt;
+
+&lt;h3 id=&#34;controller:8c5520c3a68364cd39d5b7074fc8e9f3&#34;&gt;&lt;code&gt;_controller&lt;/code&gt;&lt;/h3&gt;
+
+&lt;p&gt;Esta função, em primeiro lugar, define o caminho do ficheiro do controlador correspondente ao URL atual. O caminho será igual à constante &lt;code&gt;DIR_CONTROLLERS&lt;/code&gt; + a primeira parte do url + a extensão do ficheiro que é &lt;code&gt;.php&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;De seguida, é feita a verificação se o controlador em questão existe. Se existir, o controlador é inicializado, caso contrário, o fluxo da aplicação é direcionado para a função de erro (&lt;code&gt;_error&lt;/code&gt;).&lt;/p&gt;
+
+&lt;h3 id=&#34;method:8c5520c3a68364cd39d5b7074fc8e9f3&#34;&gt;&lt;code&gt;_method&lt;/code&gt;&lt;/h3&gt;
+
+&lt;p&gt;Esta função é como um GPS: ela é que envia o fluxo para o sítio correto. Isto vai ser feito dependendo do que foi enviado no URL.&lt;/p&gt;
+
+&lt;p&gt;Esta função irá executar o método em questão que, caso não seja especificado nenhum, é o método index do controlador em questão.&lt;/p&gt;
+
+&lt;h3 id=&#34;error:8c5520c3a68364cd39d5b7074fc8e9f3&#34;&gt;&lt;code&gt;_error&lt;/code&gt;&lt;/h3&gt;
+
+&lt;p&gt;Finalmente, temos a função de erro que irá inicializar o controlador dos erros. O ficheiro que corresponde a este controlador é definido na variável &lt;code&gt;$_errorFile&lt;/code&gt;, que eu coloquei &lt;code&gt;error.php&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;controller-php:8c5520c3a68364cd39d5b7074fc8e9f3&#34;&gt;&lt;code&gt;Controller.php&lt;/code&gt;&lt;/h2&gt;
+
+&lt;p&gt;De momento, o que foi feito até agora pode aparentar não ter muito sentido, mas com o encaixar das peças tudo irá ser mais claro. Vejamos agora a classe mãe dos Controladores.&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span class=&#34;cp&#34;&gt;&amp;lt;?php&lt;/span&gt;
+
+&lt;span class=&#34;sd&#34;&gt;/**&lt;/span&gt;
+&lt;span class=&#34;sd&#34;&gt; * Class Controller&lt;/span&gt;
+&lt;span class=&#34;sd&#34;&gt; *&lt;/span&gt;
+&lt;span class=&#34;sd&#34;&gt; * @package MVC PHP Bootstrap&lt;/span&gt;
+&lt;span class=&#34;sd&#34;&gt; */&lt;/span&gt;
+&lt;span class=&#34;k&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;Controller&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+    &lt;span class=&#34;sd&#34;&gt;/**&lt;/span&gt;
+&lt;span class=&#34;sd&#34;&gt;     * The constructor of this class automatically initializes&lt;/span&gt;
+&lt;span class=&#34;sd&#34;&gt;     * the View and sets the corresponding model path. If the&lt;/span&gt;
+&lt;span class=&#34;sd&#34;&gt;     * model file exists, it calls it.&lt;/span&gt;
+&lt;span class=&#34;sd&#34;&gt;     *&lt;/span&gt;
+&lt;span class=&#34;sd&#34;&gt;     * @param $name&lt;/span&gt;
+&lt;span class=&#34;sd&#34;&gt;     */&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;__construct&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$name&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+        &lt;span class=&#34;nv&#34;&gt;$this&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;view&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;View&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;();&lt;/span&gt;
+
+        &lt;span class=&#34;nv&#34;&gt;$path&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;ROOT&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;.&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;models/&amp;#39;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;.&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$name&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;.&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;.php&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+
+        &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;file_exists&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$path&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+            &lt;span class=&#34;k&#34;&gt;require&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$path&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+
+            &lt;span class=&#34;nv&#34;&gt;$modelName&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;quot;Model&amp;quot;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;.&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$name&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+            &lt;span class=&#34;nv&#34;&gt;$this&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;model&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$modelName&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;();&lt;/span&gt;
+        &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Esta classe é claramente menos complexa que a anterior e conta apenas com o seu construtor que recebe o nome do controlador e inicializa, automaticamente, a &lt;em&gt;View&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;De seguida, o construtor constrói o caminho até ao modelo do controlador em questão, que caso o controlador se chame &amp;ldquo;about&amp;rdquo; , o caminho para o modelo seria &lt;code&gt;ROOT . &#39;models/about.php&#39;&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Depois é feita a verificação se existe o ficheiro do modelo e, caso este exista, é inicializado o modelo do controlador.&lt;/p&gt;
+
+&lt;p&gt;Mas, porque é que esta verificação é feita? Porque nem todas as páginas utilizarão a base de dados. Páginas estáticas como, por exemplo, a página sobre, não necessitam, geralmente, de manipulação de dados.&lt;/p&gt;
+
+&lt;h2 id=&#34;database-php:8c5520c3a68364cd39d5b7074fc8e9f3&#34;&gt;&lt;code&gt;Database.php&lt;/code&gt;&lt;/h2&gt;
+
+&lt;p&gt;A classe Database vai estar intimamente ligada com a classe PDO e será com ela que inicializaremos a ligação à base de dados e não com a PDO, pois a Database  é baseada na PDO. Ora veja:&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span class=&#34;cp&#34;&gt;&amp;lt;?php&lt;/span&gt;
+
+&lt;span class=&#34;sd&#34;&gt;/**&lt;/span&gt;
+&lt;span class=&#34;sd&#34;&gt; * Class Database&lt;/span&gt;
+&lt;span class=&#34;sd&#34;&gt; *&lt;/span&gt;
+&lt;span class=&#34;sd&#34;&gt; * @package MVC PHP Bootstrap&lt;/span&gt;
+&lt;span class=&#34;sd&#34;&gt; */&lt;/span&gt;
+&lt;span class=&#34;k&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;Database&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;extends&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;PDO&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+
+    &lt;span class=&#34;k&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;__construct&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$DB_TYPE&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$DB_HOST&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$DB_NAME&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$DB_USER&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$DB_PASS&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+        &lt;span class=&#34;k&#34;&gt;parent&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;__construct&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$DB_TYPE&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;.&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;:host=&amp;#39;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;.&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$DB_HOST&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;.&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;;dbname=&amp;#39;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;.&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$DB_NAME&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$DB_USER&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$DB_PASS&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+        &lt;span class=&#34;nv&#34;&gt;$this&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;exec&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;quot;SET NAMES &amp;#39;utf8&amp;#39;;&amp;quot;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+
+    &lt;span class=&#34;sd&#34;&gt;/**&lt;/span&gt;
+&lt;span class=&#34;sd&#34;&gt;     * Function used to select something of the database.&lt;/span&gt;
+&lt;span class=&#34;sd&#34;&gt;     *&lt;/span&gt;
+&lt;span class=&#34;sd&#34;&gt;     * @param string $sql An SQL string&lt;/span&gt;
+&lt;span class=&#34;sd&#34;&gt;     * @param array $array Parameters to bind&lt;/span&gt;
+&lt;span class=&#34;sd&#34;&gt;     * @param const|int $fetchMode A PDO Fetch mode&lt;/span&gt;
+&lt;span class=&#34;sd&#34;&gt;     * @return mixed&lt;/span&gt;
+&lt;span class=&#34;sd&#34;&gt;     */&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;select&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$sql&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$array&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;array&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(),&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$fetchMode&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;PDO&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;FETCH_ASSOC&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+        &lt;span class=&#34;nv&#34;&gt;$sth&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$this&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;prepare&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$sql&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+
+        &lt;span class=&#34;k&#34;&gt;foreach&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$array&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;as&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$key&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$value&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+            &lt;span class=&#34;nv&#34;&gt;$sth&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;bindValue&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;$key&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$value&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+        &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+
+        &lt;span class=&#34;nv&#34;&gt;$sth&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;execute&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;();&lt;/span&gt;
+        &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$sth&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;fetchAll&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$fetchMode&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+
+    &lt;span class=&#34;sd&#34;&gt;/**&lt;/span&gt;
+&lt;span class=&#34;sd&#34;&gt;     * Function used to insert things in the database.&lt;/span&gt;
+&lt;span class=&#34;sd&#34;&gt;     *&lt;/span&gt;
+&lt;span class=&#34;sd&#34;&gt;     * @param string $table A name of table to insert into&lt;/span&gt;
+&lt;span class=&#34;sd&#34;&gt;     * @param string $data An associative array&lt;/span&gt;
+&lt;span class=&#34;sd&#34;&gt;     */&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;insert&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$table&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$data&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+        &lt;span class=&#34;nb&#34;&gt;ksort&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$data&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+
+        &lt;span class=&#34;nv&#34;&gt;$fieldNames&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;implode&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;`, `&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;array_keys&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$data&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;));&lt;/span&gt;
+        &lt;span class=&#34;nv&#34;&gt;$fieldValues&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;:&amp;#39;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;.&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;implode&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;, :&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;array_keys&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$data&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;));&lt;/span&gt;
+
+        &lt;span class=&#34;nv&#34;&gt;$sth&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$this&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;prepare&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;quot;INSERT INTO &lt;/span&gt;&lt;span class=&#34;si&#34;&gt;$table&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt; (`&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;$fieldNames&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;`) VALUES (&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;$fieldValues&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;)&amp;quot;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+
+        &lt;span class=&#34;k&#34;&gt;foreach&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$data&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;as&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$key&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$value&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+            &lt;span class=&#34;nv&#34;&gt;$sth&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;bindValue&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;quot;:&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;$key&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$value&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+        &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+
+        &lt;span class=&#34;nv&#34;&gt;$sth&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;execute&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;();&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+
+    &lt;span class=&#34;sd&#34;&gt;/**&lt;/span&gt;
+&lt;span class=&#34;sd&#34;&gt;     * Function used to update things on the database.&lt;/span&gt;
+&lt;span class=&#34;sd&#34;&gt;     *&lt;/span&gt;
+&lt;span class=&#34;sd&#34;&gt;     * @param string $table A name of table to insert into&lt;/span&gt;
+&lt;span class=&#34;sd&#34;&gt;     * @param string $data An associative array&lt;/span&gt;
+&lt;span class=&#34;sd&#34;&gt;     * @param string $where the WHERE query part&lt;/span&gt;
+&lt;span class=&#34;sd&#34;&gt;     */&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;update&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$table&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$data&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$where&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+        &lt;span class=&#34;nb&#34;&gt;ksort&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$data&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+        &lt;span class=&#34;nv&#34;&gt;$fieldDetails&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;NULL&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+
+        &lt;span class=&#34;k&#34;&gt;foreach&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$data&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;as&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$key&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$value&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+            &lt;span class=&#34;nv&#34;&gt;$fieldDetails&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;.=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;quot;`&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;$key&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;`=:&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;$key&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;,&amp;quot;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+        &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+
+        &lt;span class=&#34;nv&#34;&gt;$fieldDetails&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;rtrim&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$fieldDetails&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;,&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+
+        &lt;span class=&#34;nv&#34;&gt;$sth&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$this&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;prepare&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;quot;UPDATE &lt;/span&gt;&lt;span class=&#34;si&#34;&gt;$table&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt; SET &lt;/span&gt;&lt;span class=&#34;si&#34;&gt;$fieldDetails&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt; WHERE &lt;/span&gt;&lt;span class=&#34;si&#34;&gt;$where&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+
+        &lt;span class=&#34;k&#34;&gt;foreach&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$data&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;as&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$key&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$value&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+            &lt;span class=&#34;nv&#34;&gt;$sth&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;bindValue&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;quot;:&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;$key&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$value&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+        &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+
+        &lt;span class=&#34;nv&#34;&gt;$sth&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;execute&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;();&lt;/span&gt;
+
+    &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+
+    &lt;span class=&#34;sd&#34;&gt;/**&lt;/span&gt;
+&lt;span class=&#34;sd&#34;&gt;     * Function used to delete things from the database.&lt;/span&gt;
+&lt;span class=&#34;sd&#34;&gt;     *&lt;/span&gt;
+&lt;span class=&#34;sd&#34;&gt;     * @param string $table&lt;/span&gt;
+&lt;span class=&#34;sd&#34;&gt;     * @param string $where&lt;/span&gt;
+&lt;span class=&#34;sd&#34;&gt;     * @param integer $limit&lt;/span&gt;
+&lt;span class=&#34;sd&#34;&gt;     * @return integer Affected Rows&lt;/span&gt;
+&lt;span class=&#34;sd&#34;&gt;     */&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;delete&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$table&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$where&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$limit&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+        &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$this&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;exec&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;quot;DELETE FROM &lt;/span&gt;&lt;span class=&#34;si&#34;&gt;$table&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt; WHERE &lt;/span&gt;&lt;span class=&#34;si&#34;&gt;$where&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt; LIMIT &lt;/span&gt;&lt;span class=&#34;si&#34;&gt;$limit&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Não há muito a falar sobre esta classe visto que ela contém apenas algumas funções para agilizar diversas operações como inserções na base de dados, seleções, atualizações e eliminações.&lt;/p&gt;
+
+&lt;p&gt;Acrescento que o construtor deve receber todos aqueles itens que escrevemos nas constantes da configuração: todos os dados relativos à conexão à Base de Dados.&lt;/p&gt;
+
+&lt;h2 id=&#34;model-php:8c5520c3a68364cd39d5b7074fc8e9f3&#34;&gt;&lt;code&gt;Model.php&lt;/code&gt;&lt;/h2&gt;
+
+&lt;p&gt;Vejamos então a classe superior de todos os modelos que irão constituir a nossa aplicação:&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span class=&#34;cp&#34;&gt;&amp;lt;?php&lt;/span&gt;
+
+&lt;span class=&#34;sd&#34;&gt;/**&lt;/span&gt;
+&lt;span class=&#34;sd&#34;&gt; * Class Model&lt;/span&gt;
+&lt;span class=&#34;sd&#34;&gt; *&lt;/span&gt;
+&lt;span class=&#34;sd&#34;&gt; * @package MVC PHP Bootstrap&lt;/span&gt;
+&lt;span class=&#34;sd&#34;&gt; */&lt;/span&gt;
+&lt;span class=&#34;k&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;Model&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+    &lt;span class=&#34;sd&#34;&gt;/**&lt;/span&gt;
+&lt;span class=&#34;sd&#34;&gt;     * The constructor of this class automatically initializes&lt;/span&gt;
+&lt;span class=&#34;sd&#34;&gt;     * the Database.&lt;/span&gt;
+&lt;span class=&#34;sd&#34;&gt;     */&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;__construct&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+        &lt;span class=&#34;nv&#34;&gt;$this&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;db&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;Database&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;DB_TYPE&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;DB_HOST&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;DB_NAME&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;DB_USER&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;DB_PASS&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Como pode ver, a classe é pequena e o seu construtor apenas inicializa uma instância da conexão à Base de Dados que será utilizada em todos os modelos.&lt;/p&gt;
+
+&lt;h2 id=&#34;view-php:8c5520c3a68364cd39d5b7074fc8e9f3&#34;&gt;&lt;code&gt;View.php&lt;/code&gt;&lt;/h2&gt;
+
+&lt;p&gt;O modelo da &lt;em&gt;View&lt;/em&gt; que já foi muito falado acima também é muito pequeno.&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span class=&#34;cp&#34;&gt;&amp;lt;?php&lt;/span&gt;
+
+&lt;span class=&#34;sd&#34;&gt;/**&lt;/span&gt;
+&lt;span class=&#34;sd&#34;&gt; * Class View&lt;/span&gt;
+&lt;span class=&#34;sd&#34;&gt; *&lt;/span&gt;
+&lt;span class=&#34;sd&#34;&gt; * @package MVC PHP Bootstrap&lt;/span&gt;
+&lt;span class=&#34;sd&#34;&gt; */&lt;/span&gt;
+&lt;span class=&#34;k&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;View&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;protected&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$_data&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+
+    &lt;span class=&#34;k&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;__construct&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+        &lt;span class=&#34;c1&#34;&gt;//Views Contruct&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+
+    &lt;span class=&#34;k&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;render&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$name&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+        &lt;span class=&#34;k&#34;&gt;require&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;DIR_VIEWS&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;.&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;header.php&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+        &lt;span class=&#34;k&#34;&gt;require&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;DIR_VIEWS&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;.&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$name&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;.&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;.php&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+        &lt;span class=&#34;k&#34;&gt;require&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;DIR_VIEWS&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;.&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;footer.php&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+
+    &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+
+    &lt;span class=&#34;k&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;setData&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$data&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+        &lt;span class=&#34;nv&#34;&gt;$this&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;_data&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$data&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Neste é inicializada uma variável chamada &lt;code&gt;$_data &lt;/code&gt; que irá conter todo o conteúdo que deverá ser enviado para o HTML de forma a ser imprimido.&lt;/p&gt;
+
+&lt;p&gt;Temos também a função render  que é aquela que vai incluir (ou requerer) todos os ficheiros para serem apresentados. Dividi os ficheiros em três partes: o cabeçalho (&lt;em&gt;header&lt;/em&gt;), o principal e o rodapé (&lt;em&gt;footer&lt;/em&gt;).&lt;/p&gt;
+
+&lt;p&gt;Temos, por fim, a função setData que será utilizada para definir a variável da vista. Utilizei uma função para não haver manipulação direta das variáveis da classe.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Provavelmente reparou que coloquei vários comentário em Inglês. No final desta saga de artigos vou colocar esta &lt;em&gt;framework&lt;/em&gt; simples no GitHub de forma a que todos os que queiram possam contribuir ou até mesmo utilizar. :)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Até ao próximo artigo. O principal já está feito. Faltam os dois ficheiros que iniciarão tudo (e mais algumas coisinhas).&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>MVC na linguagem PHP</title>
+      <link>https://henriquedias.com/tutorials/mvc-linguagem-php</link>
+      <pubDate>Thu, 18 Dec 2014 22:55:34 +0000</pubDate>
+      
+      <guid>https://henriquedias.com/tutorials/mvc-linguagem-php</guid>
+      <description>
+
+&lt;p&gt;No último artigo publicado, foi falado acerca do &lt;a href=&#34;https://henriquedias.com/explanations/mvc-uma-breve-explicacao/&#34;&gt;&lt;strong&gt;Modelo MVC&lt;/strong&gt;&lt;/a&gt; e sobre aquilo em que este consiste. O Modelo &lt;em&gt;Model-View-Controller&lt;/em&gt; é amplamente utilizado nos dias de hoje.&lt;/p&gt;
+
+&lt;p&gt;A pedido de um leitor, decidimos escrever um artigo em que exemplificamos este maravilhoso (ou não) modelo MVC utilizando a linguagem de programação PHP.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://henriquedias.com/images/mvcuecphppI.jpg&#34; alt=&#34;Modelo MVC - Uma exemplificação com PHP #1&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Gostaria de dizer que esta exemplificação terá como base uma &amp;ldquo;framework base&amp;rdquo; MVC construída por mim através de vários tutoriais e ideias que encontrei &lt;em&gt;online&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;Para a aplicação começar a ser construída, é necessário efetuar a estruturação da mesma. Esta estruturação passa pela disposição dos ficheiros pelas pastas. Irá ser utilizada a seguinte estrutura:&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; app_core &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;Application Core&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
+     &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; controllers
+     &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; libs
+     &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; models
+     &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; views
+     &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; config.php
+
+&lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; public_html &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;Public HTML&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
+     &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; css
+     &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; imgs
+     &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; js
+     &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; .htaccess
+     &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; index.php
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Visualizando a estruturação anterior, é possível verificar que existem duas pastas principais: a pasta &lt;code&gt;app_core&lt;/code&gt; e a pasta &lt;code&gt;public_html&lt;/code&gt;. Cada uma das duas pastas tem a sua função específica. Vejamos então qual a finalidade de cada uma das pastas.&lt;/p&gt;
+
+&lt;h2 id=&#34;application-core:2145cfb95ae0f5633dadec63c3e54ade&#34;&gt;&lt;em&gt;Application Core&lt;/em&gt;&lt;/h2&gt;
+
+&lt;p&gt;O núcleo (ou motor) da aplicação está contido na pasta &lt;code&gt;app_core&lt;/code&gt; estando no mesmo nível que a pasta que irá estar pública através do &lt;em&gt;browser&lt;/em&gt;, logo os visitantes não terão acesso a nenhum conteúdo desta pasta. Dentro desta pasta podemos verificar a existência de quatro outras e também de um ficheiro.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;controllers&lt;/code&gt; → pasta para colocar os controladores da aplicação que são, de forma generalizada, aqueles ficheiros que comandam a aplicação: o seu cérebro;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;code&gt;libs&lt;/code&gt; → nesta pasta estão contidas as classes base para todos os outros ficheiros da aplicação como os modelos, controladores, vistas, base de dados, etc.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;code&gt;models&lt;/code&gt; → aqui são colocados os modelos da aplicação, ou seja, aqueles ficheiros que estão encarregados da manipulação de dados;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;code&gt;views&lt;/code&gt; → esta pasta irá conter todos os ficheiros que têm como base HTML. Mais nenhuma pasta da aplicação deverá conter ficheiros com HTML;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;code&gt;config.php&lt;/code&gt; → o ficheiro de configuração principal. Aqui são definidas as diversas constantes que irão ser necessárias na execução da aplicação.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;public-html:2145cfb95ae0f5633dadec63c3e54ade&#34;&gt;&lt;em&gt;Public HTML&lt;/em&gt;&lt;/h2&gt;
+
+&lt;p&gt;A pasta &lt;code&gt;public_html&lt;/code&gt; será aquela que para a qual o servidor web, como por exemplo o apache, estará a apontar. Esta irá conter todos os ficheiros que estarão disponíveis ao utilizador.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;css&lt;/code&gt; → todos os ficheiros de estilo serão incluídos nesta pasta;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;imgs&lt;/code&gt; → qualquer imagem que seja utilizada na aplicação poderá ser colocada aqui;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;js&lt;/code&gt; → todos os scripts escritos na linguagem &lt;em&gt;javascript&lt;/em&gt; deverão aqui ser colocados;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;.htacces&lt;/code&gt;s → o ficheiro que dispensa apresentações;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;index.php&lt;/code&gt; → o ficheiro onde tudo começa.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;config-php:2145cfb95ae0f5633dadec63c3e54ade&#34;&gt;config.php&lt;/h2&gt;
+
+&lt;p&gt;Iremos começar pelo ficheiro mais simples: o ficheiro &lt;code&gt;config.php&lt;/code&gt; que está contido base do núcleo da aplicação (&lt;code&gt;app_core/config.php&lt;/code&gt;). Este ficheiro, como já referido, irá conter as constantes principais. Ora veja:&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span class=&#34;cp&#34;&gt;&amp;lt;?php&lt;/span&gt;
+
+&lt;span class=&#34;cm&#34;&gt;/*&lt;/span&gt;
+&lt;span class=&#34;cm&#34;&gt;* Ficheiro de Configuração&lt;/span&gt;
+&lt;span class=&#34;cm&#34;&gt;*&lt;/span&gt;
+&lt;span class=&#34;cm&#34;&gt;* Este ficheiro contém a configuração base deste website/aplicação:&lt;/span&gt;
+&lt;span class=&#34;cm&#34;&gt;*  1. Constantes Base&lt;/span&gt;
+&lt;span class=&#34;cm&#34;&gt;*  2. Constantes de Diretórios&lt;/span&gt;
+&lt;span class=&#34;cm&#34;&gt;*  3. Configuração da Base de Dados&lt;/span&gt;
+&lt;span class=&#34;cm&#34;&gt;*  4. Definições de erros&lt;/span&gt;
+&lt;span class=&#34;cm&#34;&gt;*&lt;/span&gt;
+&lt;span class=&#34;cm&#34;&gt;* Coloque sempre uma barra (/) depois de todos os caminhos.&lt;/span&gt;
+&lt;span class=&#34;cm&#34;&gt;*/&lt;/span&gt;
+
+&lt;span class=&#34;c1&#34;&gt;//1. Constantes Base&lt;/span&gt;
+&lt;span class=&#34;nb&#34;&gt;define&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;ROOT&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;dirname&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;__FILE__&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;.&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;/&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;span class=&#34;nb&#34;&gt;define&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;URL&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;http://localhost/mvc/&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+
+&lt;span class=&#34;c1&#34;&gt;//2. Constantes de Diretórios&lt;/span&gt;
+&lt;span class=&#34;nb&#34;&gt;define&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;DIR_LIBS&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;ROOT&lt;/span&gt;  &lt;span class=&#34;o&#34;&gt;.&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;libs/&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;span class=&#34;nb&#34;&gt;define&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;DIR_MODELS&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;ROOT&lt;/span&gt;  &lt;span class=&#34;o&#34;&gt;.&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;models/&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;span class=&#34;nb&#34;&gt;define&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;DIR_VIEWS&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;ROOT&lt;/span&gt;  &lt;span class=&#34;o&#34;&gt;.&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;views/&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;span class=&#34;nb&#34;&gt;define&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;DIR_CONTROLLERS&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;ROOT&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;.&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;controllers/&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;span class=&#34;nb&#34;&gt;define&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;DIR_PUBLIC&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;../public_html/&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+
+&lt;span class=&#34;c1&#34;&gt;//3. Configuração da Base de Dados&lt;/span&gt;
+&lt;span class=&#34;nb&#34;&gt;define&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;DB_TYPE&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;mysql&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;span class=&#34;nb&#34;&gt;define&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;DB_HOST&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;localhost&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;span class=&#34;nb&#34;&gt;define&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;DB_NAME&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;dbname&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;span class=&#34;nb&#34;&gt;define&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;DB_USER&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;dbuser&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;span class=&#34;nb&#34;&gt;define&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;DB_PASS&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;dbpass&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+
+&lt;span class=&#34;cm&#34;&gt;/*&lt;/span&gt;
+&lt;span class=&#34;cm&#34;&gt;* 4. Definições de Erros&lt;/span&gt;
+&lt;span class=&#34;cm&#34;&gt;*&lt;/span&gt;
+&lt;span class=&#34;cm&#34;&gt;* Defina error_reporting:&lt;/span&gt;
+&lt;span class=&#34;cm&#34;&gt;*  para -1 de forma a mostrar todos os erros que ocorrem;&lt;/span&gt;
+&lt;span class=&#34;cm&#34;&gt;*  para  0 de forma a ocultar todos os erros gerados.&lt;/span&gt;
+&lt;span class=&#34;cm&#34;&gt;*/&lt;/span&gt;
+&lt;span class=&#34;nb&#34;&gt;error_reporting&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;span class=&#34;nb&#34;&gt;ini_set&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;display_errors&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;-1&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Crie um ficheiro com o código acima e guarde-o na pasta mencionada. Não se esqueça de alterar a constante URL, de forma a corresponder com o URL que vai utilizar para criar esta pequena aplicação. Altere também os dados da Configuração da Base de Dados.&lt;/p&gt;
+
+&lt;h3 id=&#34;dica:2145cfb95ae0f5633dadec63c3e54ade&#34;&gt;Dica:&lt;/h3&gt;
+
+&lt;p&gt;Como pode ter reparado acima, eu estou a utilizar o link &lt;code&gt;localhost/mvc&lt;/code&gt;  que redirecionará para a pasta pública da aplicação, sendo que a base dos documentos do meu servidor é &lt;code&gt;C:\Web\Server\Apache24\htdocs&lt;/code&gt;  e a aplicação está localizada em &lt;code&gt;D:\Development\mvc&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Como fiz isto? Criei um &lt;a href=&#34;http://en.wikipedia.org/wiki/Symbolic_link&#34;&gt;&lt;em&gt;link simbólico&lt;/em&gt;&lt;/a&gt; de forma a que C:WebServerApache24htdocsmvc  corresponda a D:Developmentmvcpublic_html . Para criar um link simbólico no Windows basta correr o seguinte comando na linha de comandos em modo de administrador:&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;MKLINK /D &amp;lt;novo-link&amp;gt; &amp;lt;&lt;span class=&#34;nb&#34;&gt;local&lt;/span&gt;-dos-ficheiros&amp;gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Onde &lt;code&gt;&amp;lt;novo-link&lt;/code&gt;&amp;gt; corresponde ao local a que irá corresponder o &lt;code&gt;&amp;lt;local-dos-ficheiros&amp;gt;&lt;/code&gt;. No meu caso, tive que executar o seguinte comando:&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;MKLINK /D C:&lt;span class=&#34;se&#34;&gt;\W&lt;/span&gt;ebServer&lt;span class=&#34;se&#34;&gt;\A&lt;/span&gt;pache24&lt;span class=&#34;se&#34;&gt;\h&lt;/span&gt;tdocs&lt;span class=&#34;se&#34;&gt;\m&lt;/span&gt;vc D:&lt;span class=&#34;se&#34;&gt;\D&lt;/span&gt;evelopment&lt;span class=&#34;se&#34;&gt;\m&lt;/span&gt;vc&lt;span class=&#34;se&#34;&gt;\p&lt;/span&gt;ublic_html
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Isto pode ser, obviamente, feito também em &lt;em&gt;linux&lt;/em&gt; e &lt;em&gt;OS X&lt;/em&gt; porém não sei como, mas caso tenha uma distribuição Linux ou OS X, recomendo a leitura desta &lt;a href=&#34;http://apple.stackexchange.com/questions/115646/how-can-i-create-a-symbolic-link-in-terminal&#34;&gt;página&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;saindo-da-dica:2145cfb95ae0f5633dadec63c3e54ade&#34;&gt;Saindo da dica&amp;hellip;&lt;/h2&gt;
+
+&lt;p&gt;Como pode ver pela estrutura da aplicação, ainda há muito a fazer. Em breve lançarei a segunda parte desta mini-série de artigos. Esperemos que tenham gostado deste e que gostem dos próximos artigos.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Modelo MVC - Uma breve explicação</title>
+      <link>https://henriquedias.com/explanations/mvc-uma-breve-explicacao</link>
+      <pubDate>Sat, 22 Nov 2014 16:02:56 +0000</pubDate>
+      
+      <guid>https://henriquedias.com/explanations/mvc-uma-breve-explicacao</guid>
+      <description>
+
+&lt;p&gt;A programação é algo fantástico que nos permite fazer qualquer coisa das mais diversas formas. Podemos criar, inovar, melhorar e até nos divertirmos. Existem várias formas de programar, várias maneiras.&lt;/p&gt;
+
+&lt;p&gt;Cada um, ao longo do tempo, vai adotando diversas formas de programar, diversas idiossincrasias que o vai distinguir ao longo do tempo. Mas o que vos trazemos hoje não é nenhuma idiossincrasia, é o modelo &lt;strong&gt;MVC&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;MVC&lt;/strong&gt; é um modelo de arquitetura de software que é muito utilizado atualmente mas, por vezes, pode tornar-se confuso inicialmente (como me aconteceu) mas, depois de alguma pesquisa, cheguei à conclusão de que é muito simples &lt;strong&gt;compreender&lt;/strong&gt; este modelo.&lt;/p&gt;
+
+&lt;h2 id=&#34;o-que-quer-dizer-mvc:451bfcfedd1834e71bbe73844715757f&#34;&gt;O que quer dizer MVC?&lt;/h2&gt;
+
+&lt;p&gt;Em primeiro lugar, é importante saber o que quer dizer MVC e o que é e para que serve cada uma das suas componentes.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;MVC&lt;/strong&gt; quer dizer, em inglês, &lt;em&gt;model-view-controller&lt;/em&gt; e, em português, podemos traduzir para &lt;strong&gt;modelo-vista-controlador&lt;/strong&gt;. Estas são também as três componentes base deste modelo.&lt;/p&gt;
+
+&lt;h2 id=&#34;vista:451bfcfedd1834e71bbe73844715757f&#34;&gt;Vista&lt;/h2&gt;
+
+
+&lt;figure &gt;
+    
+        &lt;img src=&#34;https://henriquedias.com/images/olho.jpg&#34; /&gt;
+    
+    
+    &lt;figcaption&gt;
+        &lt;h4&gt;As vistas são os olhos da aplicação&lt;/h4&gt;
+        
+    &lt;/figcaption&gt;
+    
+&lt;/figure&gt;
+
+
+&lt;p&gt;A camada &lt;strong&gt;Vista&lt;/strong&gt; (&lt;em&gt;View&lt;/em&gt;) é aquela que é mostrada ao utilizador, aquela que com a qual o utilizador vai interagir. É a &lt;strong&gt;camada de apresentação&lt;/strong&gt;. A camada dos estilos, do &lt;em&gt;design&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;Geralmente, esta camada não conta com lógica de programação podendo, por vezes, ser &amp;ldquo;puro&amp;rdquo; HTML com alguns bocados de outra linguagem para, por exemplo, inserir algum dado necessário.&lt;/p&gt;
+
+&lt;h2 id=&#34;controladores:451bfcfedd1834e71bbe73844715757f&#34;&gt;Controladores&lt;/h2&gt;
+
+
+&lt;figure &gt;
+    
+        &lt;img src=&#34;https://henriquedias.com/images/cerebro.jpg&#34; /&gt;
+    
+    
+    &lt;figcaption&gt;
+        &lt;h4&gt;Os controladores, o cérebro&lt;/h4&gt;
+        
+    &lt;/figcaption&gt;
+    
+&lt;/figure&gt;
+
+
+&lt;p&gt;A segunda camada a ser mencionada é a dos &lt;strong&gt;Controladores&lt;/strong&gt; (&lt;em&gt;Controllers&lt;/em&gt;) e é nela que &lt;strong&gt;a magia acontece&lt;/strong&gt;. É a camada intermédia do padrão MVC e toda a lógica está aqui contida.&lt;/p&gt;
+
+&lt;p&gt;Quando acedemos a um site cujo modelo de programação tenha sido MVC, automaticamente acedemos ao controlador que vai receber o nosso pedido. Logo de seguida, ele coordena todos os processos seguintes: pedir informação, receber informação, mostrar a página (&lt;strong&gt;Vista&lt;/strong&gt;) ao utilizador, etc,&lt;/p&gt;
+
+&lt;h2 id=&#34;modelos:451bfcfedd1834e71bbe73844715757f&#34;&gt;Modelos&lt;/h2&gt;
+
+
+&lt;figure &gt;
+    
+        &lt;img src=&#34;https://henriquedias.com/images/sist-nev.jpg&#34; /&gt;
+    
+    
+    &lt;figcaption&gt;
+        &lt;h4&gt;E o sistema nervoso&lt;/h4&gt;
+        
+    &lt;/figcaption&gt;
+    
+&lt;/figure&gt;
+
+
+&lt;p&gt;Esta é a camada mais invisível ao utilizador. É nela que tudo o que tem haver com dados é feito: pedir coisas à base de dados, inserir coisas, eliminar coisas, trocar coisas, etc.&lt;/p&gt;
+
+&lt;p&gt;O controlador (mencionado acima), envia informação para o modelo armazenar/apagar/etc da base de dados. De forma generalizada, o &lt;strong&gt;modelo&lt;/strong&gt; trabalha com os dados.&lt;/p&gt;
+
+&lt;h2 id=&#34;é-útil:451bfcfedd1834e71bbe73844715757f&#34;&gt;É útil?&lt;/h2&gt;
+
+&lt;p&gt;Diga-me você! Existem várias vantagens e desvantagens em trabalhar com o modelo MVC. Por um lado, é bom porque cada coisa está no seu devido sítio sendo mais fácil trabalhar e alterar estruturas.&lt;/p&gt;
+
+&lt;p&gt;Por outro lado, não é recomendado para pequenas aplicações visto que a sua complexidade pode prejudicar um pouco a performance e também o design. &lt;strong&gt;Qual a sua opinião acerca do modelo MVC?&lt;/strong&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
