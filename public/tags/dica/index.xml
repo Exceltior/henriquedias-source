@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Dica on Henrique Dias</title>
+    <link>https://henriquedias.com/tags/dica/</link>
+    <description>Recent content in Dica on Henrique Dias</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 10 Jun 2015 11:27:37 +0000</lastBuildDate>
+    <atom:link href="https://henriquedias.com/tags/dica/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>WordPress: adicionar menus de administração [Parte 2]</title>
+      <link>https://henriquedias.com/tutorials/wordpress-adicionar-menus-de-administracao-parte-2</link>
+      <pubDate>Wed, 10 Jun 2015 11:27:37 +0000</pubDate>
+      
+      <guid>https://henriquedias.com/tutorials/wordpress-adicionar-menus-de-administracao-parte-2</guid>
+      <description>&lt;p&gt;O &lt;strong&gt;WordPress&lt;/strong&gt; é, como vocês sabem, um dos mais populares CMS do mundo. Isto, se não o for. Um dos nossos primeiros artigos foi referente ao WordPress e ensinámos a &lt;a href=&#34;https://henriquedias.com/tutorials/remover-hash-dos-links-continuar-a-ler/&#34;&gt;remover a hash dos links &amp;ldquo;Ler mais&amp;rdquo;&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Hoje vamos dar continuação ao tutorial sobre como &lt;a href=&#34;https://henriquedias.com/tutorials/wordpress-adicionar-menus-de-administracao/&#34;&gt;adicionar menus de administração&lt;/a&gt; a temas e plugins do WordPress.&lt;/p&gt;
+
+&lt;p&gt;Na primeira parte, criámos duas funções e adicionámos uma opção ao menu de administração do WordPress sendo que ficámos com o seguinte código:&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span class=&#34;cp&#34;&gt;&amp;lt;?php&lt;/span&gt;
+
+&lt;span class=&#34;k&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;themeslug_admin_menus&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+
+    &lt;span class=&#34;c1&#34;&gt;//Adição do sub-menu Opções ao menu principal Apresentação&lt;/span&gt;
+    &lt;span class=&#34;nx&#34;&gt;add_theme_page&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;Opções&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;Opções&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;manage_options&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;opcoes&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;themeslug_options&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+
+&lt;span class=&#34;k&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;themeslug_options&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+    &lt;span class=&#34;c1&#34;&gt;//Esta função vai conter a página &amp;quot;Opções&amp;quot;.&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+
+&lt;span class=&#34;nx&#34;&gt;add_action&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;quot;admin_menu&amp;quot;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;quot;themeslug_admin_menus&amp;quot;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Hoje vamos dedicar-nos, principalmente, à segunda função (&lt;code&gt;themeslug_options()&lt;/code&gt;) e à utilização de uma variável definida nas opções.&lt;/p&gt;
+
+&lt;p&gt;Resumindo, hoje vamos fazer o seguinte:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Criar uma opção das definições para adicionar o &lt;em&gt;link&lt;/em&gt; do site para a sua página do Facebook.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Se o &lt;em&gt;link&lt;/em&gt; estiver definido, vai aparecer um ícone no tema para ir para a página, caso não esteja, o ícone não aparecerá.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Pode parecer complicado, mas vai ver que é simples. Vamos começar por substituir o comentário que está dentro da função themeslug_options  pelo seguinte:&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span class=&#34;cp&#34;&gt;&amp;lt;?php&lt;/span&gt;
+
+&lt;span class=&#34;c1&#34;&gt;//...&lt;/span&gt;
+
+&lt;span class=&#34;cm&#34;&gt;/*&lt;/span&gt;
+&lt;span class=&#34;cm&#34;&gt; * Este loop if verifica se o utilizador tem permissões suficientes&lt;/span&gt;
+&lt;span class=&#34;cm&#34;&gt; * para aceder a esta página. Se não tiver, a função termina aqui&lt;/span&gt;
+&lt;span class=&#34;cm&#34;&gt; * utilizando a função wp_die() e será apresentada a mensagem que está&lt;/span&gt;
+&lt;span class=&#34;cm&#34;&gt; * dentro de parêntesis ao utilizador.&lt;/span&gt;
+&lt;span class=&#34;cm&#34;&gt; */&lt;/span&gt;
+&lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;!&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;current_user_can&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;manage_options&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+    &lt;span class=&#34;nx&#34;&gt;wp_die&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;Não tem permissões suficientes para aceder a esta página!&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+
+&lt;span class=&#34;cp&#34;&gt;?&amp;gt;&lt;/span&gt;&lt;span class=&#34;x&#34;&gt;&lt;/span&gt;
+
+&lt;span class=&#34;x&#34;&gt;&amp;lt;!--  Aqui começa a nossa página, inserindo o título. --&amp;gt;&lt;/span&gt;
+&lt;span class=&#34;x&#34;&gt;&amp;lt;div class=&amp;quot;wrap&amp;quot;&amp;gt;&lt;/span&gt;
+&lt;span class=&#34;x&#34;&gt;    &amp;lt;h2&amp;gt;Opções&amp;lt;/h2&amp;gt;&lt;/span&gt;
+
+&lt;span class=&#34;cp&#34;&gt;&amp;lt;?php&lt;/span&gt;
+
+&lt;span class=&#34;cm&#34;&gt;/*&lt;/span&gt;
+&lt;span class=&#34;cm&#34;&gt; * Ao voltarmos ao PHP, declaramos uma variável chamada Facebook que vai&lt;/span&gt;
+&lt;span class=&#34;cm&#34;&gt; * conter a opção que irá ser definida.&lt;/span&gt;
+&lt;span class=&#34;cm&#34;&gt; *&lt;/span&gt;
+&lt;span class=&#34;cm&#34;&gt; * Esta variável vai buscar a opção que está guardada. (Ver &amp;#39;if&amp;#39; seguinte)&lt;/span&gt;
+&lt;span class=&#34;cm&#34;&gt; */&lt;/span&gt;
+
+&lt;span class=&#34;nv&#34;&gt;$facebook&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;get_option&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;quot;themeslug_facebook&amp;quot;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+
+&lt;span class=&#34;cm&#34;&gt;/*&lt;/span&gt;
+&lt;span class=&#34;cm&#34;&gt; * Neste loop if, verificamos se o formulário abaixo foi submetido. Isto é feito&lt;/span&gt;
+&lt;span class=&#34;cm&#34;&gt; * verificando se um &amp;quot;input&amp;quot; abaixo foi definido. Este estará oculto de forma a&lt;/span&gt;
+&lt;span class=&#34;cm&#34;&gt; * que não possa ser alterado.&lt;/span&gt;
+&lt;span class=&#34;cm&#34;&gt; *&lt;/span&gt;
+&lt;span class=&#34;cm&#34;&gt; * Se estiver definida, a variável $facebook será &amp;quot;reescrita&amp;quot; colocando desta&lt;/span&gt;
+&lt;span class=&#34;cm&#34;&gt; * vez o valor obtido através do método POST do formulário a seguir.&lt;/span&gt;
+&lt;span class=&#34;cm&#34;&gt; */&lt;/span&gt;
+&lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;isset&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$_POST&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;quot;update_settings&amp;quot;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]))&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+
+    &lt;span class=&#34;nv&#34;&gt;$facebook&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;esc_attr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$_POST&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;quot;facebook&amp;quot;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]);&lt;/span&gt;
+
+    &lt;span class=&#34;cm&#34;&gt;/*&lt;/span&gt;
+&lt;span class=&#34;cm&#34;&gt;     * Aqui atualizamos a opção &amp;quot;themeslug_facebook&amp;quot; com o valor da variável&lt;/span&gt;
+&lt;span class=&#34;cm&#34;&gt;     * $facebook.&lt;/span&gt;
+&lt;span class=&#34;cm&#34;&gt;     */&lt;/span&gt;
+    &lt;span class=&#34;nx&#34;&gt;update_option&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;quot;themeslug_facebook&amp;quot;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$facebook&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+
+    &lt;span class=&#34;c1&#34;&gt;//Apresentação de uma mensagem de sucesso&lt;/span&gt;
+    &lt;span class=&#34;cp&#34;&gt;?&amp;gt;&lt;/span&gt;&lt;span class=&#34;x&#34;&gt; &amp;lt;div id=&amp;quot;message&amp;quot; class=&amp;quot;updated below-h2&amp;quot;&amp;gt;&amp;lt;p&amp;gt;Definições guardadas&amp;lt;/p&amp;gt;&amp;lt;/div&amp;gt; &lt;/span&gt;&lt;span class=&#34;cp&#34;&gt;&amp;lt;?php&lt;/span&gt;
+
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+
+&lt;span class=&#34;cm&#34;&gt;/* Formulário que utilizaremos para submeter as definições.&lt;/span&gt;
+&lt;span class=&#34;cm&#34;&gt; * Este formulário utiliza classes CSS próprias do WordPress,&lt;/span&gt;
+&lt;span class=&#34;cm&#34;&gt; * como &amp;quot;top&amp;quot; e outras.  &lt;/span&gt;
+&lt;span class=&#34;cm&#34;&gt; */&lt;/span&gt;
+
+&lt;span class=&#34;cp&#34;&gt;?&amp;gt;&lt;/span&gt;&lt;span class=&#34;x&#34;&gt;&lt;/span&gt;
+&lt;span class=&#34;x&#34;&gt;&amp;lt;form method=&amp;quot;POST&amp;quot; action=&amp;quot;&amp;quot;&amp;gt;&lt;/span&gt;
+&lt;span class=&#34;x&#34;&gt;    &amp;lt;table class=&amp;quot;form-table&amp;quot;&amp;gt;&lt;/span&gt;
+&lt;span class=&#34;x&#34;&gt;        &amp;lt;tr valign=&amp;quot;top&amp;quot;&amp;gt;&lt;/span&gt;
+&lt;span class=&#34;x&#34;&gt;            &amp;lt;th scope=&amp;quot;row&amp;quot;&amp;gt;&lt;/span&gt;
+&lt;span class=&#34;x&#34;&gt;                &amp;lt;label for=&amp;quot;facebook&amp;quot;&amp;gt;&lt;/span&gt;
+&lt;span class=&#34;x&#34;&gt;                    Facebook:&lt;/span&gt;
+&lt;span class=&#34;x&#34;&gt;                &amp;lt;/label&amp;gt;&lt;/span&gt;
+&lt;span class=&#34;x&#34;&gt;            &amp;lt;/th&amp;gt;&lt;/span&gt;
+&lt;span class=&#34;x&#34;&gt;            &amp;lt;td&amp;gt;&lt;/span&gt;
+&lt;span class=&#34;x&#34;&gt;                &lt;/span&gt;&lt;span class=&#34;cp&#34;&gt;&amp;lt;?php&lt;/span&gt; &lt;span class=&#34;cm&#34;&gt;/* Este input será onde colocaremos o link. O seu valor será igual à variável $facebook&lt;/span&gt;
+&lt;span class=&#34;cm&#34;&gt;                    anteriormente definida. Assim, caso essa opção não tenha sido definida, será apresentado&lt;/span&gt;
+&lt;span class=&#34;cm&#34;&gt;                    um campo vazio.&lt;/span&gt;
+
+&lt;span class=&#34;cm&#34;&gt;                    Caso já tenha sido definida, o campo irá conter o valor atual tornando-se mais fácil de editar. */&lt;/span&gt; &lt;span class=&#34;cp&#34;&gt;?&amp;gt;&lt;/span&gt;&lt;span class=&#34;x&#34;&gt;&lt;/span&gt;
+&lt;span class=&#34;x&#34;&gt;                &amp;lt;input type=&amp;quot;text&amp;quot; name=&amp;quot;facebook&amp;quot; size=&amp;quot;100%&amp;quot; value=&amp;quot;&lt;/span&gt;&lt;span class=&#34;cp&#34;&gt;&amp;lt;?php&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$facebook&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;cp&#34;&gt;?&amp;gt;&lt;/span&gt;&lt;span class=&#34;x&#34;&gt;&amp;quot;/&amp;gt;&lt;/span&gt;
+&lt;span class=&#34;x&#34;&gt;            &amp;lt;/td&amp;gt;&lt;/span&gt;
+&lt;span class=&#34;x&#34;&gt;        &amp;lt;/tr&amp;gt;&lt;/span&gt;
+&lt;span class=&#34;x&#34;&gt;    &amp;lt;/table&amp;gt;&lt;/span&gt;
+
+&lt;span class=&#34;x&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;cp&#34;&gt;&amp;lt;?php&lt;/span&gt; &lt;span class=&#34;cm&#34;&gt;/* Criação de um input oculto para informar o PHP se estamos a submeter o formulário ou não. */&lt;/span&gt; &lt;span class=&#34;cp&#34;&gt;?&amp;gt;&lt;/span&gt;&lt;span class=&#34;x&#34;&gt;&lt;/span&gt;
+&lt;span class=&#34;x&#34;&gt;    &amp;lt;input type=&amp;quot;hidden&amp;quot; name=&amp;quot;update_settings&amp;quot; value=&amp;quot;Y&amp;quot; /&amp;gt;&lt;/span&gt;
+
+&lt;span class=&#34;x&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;cp&#34;&gt;&amp;lt;?php&lt;/span&gt; &lt;span class=&#34;cm&#34;&gt;/* Botão de submissão do formulário. */&lt;/span&gt; &lt;span class=&#34;cp&#34;&gt;?&amp;gt;&lt;/span&gt;&lt;span class=&#34;x&#34;&gt;&lt;/span&gt;
+&lt;span class=&#34;x&#34;&gt;    &amp;lt;input type=&amp;quot;submit&amp;quot; name=&amp;quot;submit&amp;quot; value=&amp;quot;Guardar alterações&amp;quot; class=&amp;quot;button button-primary&amp;quot; /&amp;gt;&lt;/span&gt;
+&lt;span class=&#34;x&#34;&gt;&amp;lt;/form&amp;gt;    &lt;/span&gt;&lt;span class=&#34;cp&#34;&gt;&amp;lt;?php&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;O código acima está integralmente comentado. Se lerem os comentários de cima para baixo, não conhecendo o resto do código, é normal que sintam alguma confusão.&lt;/p&gt;
+
+&lt;p&gt;Porém, essa ordem é necessária de forma a que a variável &lt;code&gt;$facebook&lt;/code&gt; fique definida e apareça no input  do formulário. Por isso, se tiverem alguma dúvida, não hesitem em perguntar.&lt;/p&gt;
+
+&lt;p&gt;Agora, quando acederem às definições do vosso tema (neste caso), irão ter uma página de opções.&lt;/p&gt;
+
+&lt;p&gt;Podem agora definir o &lt;em&gt;link&lt;/em&gt; para a página do Facebook que desejam utilizar. Depois de guardarem as alterações ir-vos-à ser apresentada uma mensagem.&lt;/p&gt;
+
+&lt;p&gt;Para aplicar a variável no tema é muito simples. Como viram acima, utilizámos a função get_option  para obter a opção que foi gravada e será assim que a iremos obter e utilizar no tema.&lt;/p&gt;
+
+&lt;p&gt;O código acima verifica se a opção &lt;code&gt;themeslug_facebook&lt;/code&gt; foi definida e se sim, cria um link em HTML que direcionará para a página que foi definida nas opções do tema.&lt;/p&gt;
+
+&lt;p&gt;É simples utilizar as opções nos temas do WordPress. Não se esqueçam, se não compreenderem qualquer coisa, podem sempre utilizar os comentários ou utilizar a &lt;a href=&#34;https://henriquedias.com/contact&#34;&gt;página de contacto&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Espero que tenham gostado deste pequeno tutorial :)&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>WordPress: adicionar menus de administração [Parte 1]</title>
+      <link>https://henriquedias.com/tutorials/wordpress-adicionar-menus-de-administracao</link>
+      <pubDate>Sat, 02 Aug 2014 11:27:37 +0000</pubDate>
+      
+      <guid>https://henriquedias.com/tutorials/wordpress-adicionar-menus-de-administracao</guid>
+      <description>
+
+&lt;p&gt;O &lt;strong&gt;WordPress&lt;/strong&gt; é, como vocês sabem, um dos mais populares CMS do mundo. Isto, se não o for. Um dos nossos primeiros artigos foi referente ao WordPress e ensinámos a &lt;a href=&#34;https://henriquedias.com/tutorials/remover-hash-dos-links-continuar-a-ler/&#34;&gt;remover a hash dos links &amp;ldquo;Ler mais&amp;rdquo;&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Hoje vamos dar continuação às dicas e tutoriais sobre este CMS. Se vocês utilizam o WordPress com um tema pago, já devem ter reparado que este vem com um menu de personalização próprio criado pelo(s) autor(es) do tema. Hoje vamos ensinar-vos a criar estes menus.&lt;/p&gt;
+
+&lt;h3 id=&#34;1-criar-ficheiro-das-opções-e-chamá-lo:3fc6ecadd2dd3ef718d67d2dce26a6fd&#34;&gt;1. Criar ficheiro das opções e chamá-lo&lt;/h3&gt;
+
+&lt;p&gt;&lt;em&gt;O tutorial é direcionado para &lt;strong&gt;temas&lt;/strong&gt; porém a criação dos menus faz-se da mesma forma nos &lt;strong&gt;plugins&lt;/strong&gt;.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Começaremos por criar um ficheiro chamado &lt;code&gt;admin.php&lt;/code&gt; na pasta &lt;code&gt;inc&lt;/code&gt; do vosso tema (ou plugin). Caso esta pasta não exista, podem criá-la ou colocá-lo numa outra pasta que queiram.&lt;/p&gt;
+
+&lt;p&gt;Antes de continuarmos o desenvolvimento deste ficheiro, vamos chamar este ficheiro através do &lt;code&gt;functions.php&lt;/code&gt;. &lt;strong&gt;Neste, coloquem o seguinte código:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span class=&#34;x&#34;&gt;//...&lt;/span&gt;
+
+&lt;span class=&#34;x&#34;&gt;require get_template_directory() . &amp;#39;/inc/admin.php&amp;#39;;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Este pequeno trecho de código chama o ficheiro através do comando &lt;code&gt;require&lt;/code&gt; e da localização do mesmo. Para obtermos a localização da pasta principal do tema utilizamos a função &lt;code&gt;get_template_directory()&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Depois concatenamos o caminho do tema ao resto do directório que, no nosso caso é &lt;code&gt;/inc/admin.php&lt;/code&gt; . Se colocaram noutra pasta não se esqueçam de alterar o caminho.&lt;/p&gt;
+
+&lt;h3 id=&#34;2-hora-de-criar-as-opções:3fc6ecadd2dd3ef718d67d2dce26a6fd&#34;&gt;2. Hora de criar as opções&lt;/h3&gt;
+
+&lt;p&gt;Agora sim, vamos virar-nos para o ficheiro &lt;code&gt;admin.php&lt;/code&gt;. Neste ficheiro irá estar todo o código referente às opções de administração do tema.&lt;/p&gt;
+
+&lt;p&gt;Neste tutorial, iremos criar uma variável com um dado que será depois utilizada no tema. Assim, aprendem como se faz e depois podem criar vocês próprios as opções que quiserem.&lt;/p&gt;
+
+&lt;p&gt;Vamos começar por criar a seguinte função:&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span class=&#34;cp&#34;&gt;&amp;lt;?php&lt;/span&gt;
+
+&lt;span class=&#34;k&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;themeslug_admin_menus&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+    &lt;span class=&#34;c1&#34;&gt;//Colocaremos aqui os menus&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+
+&lt;span class=&#34;nx&#34;&gt;add_action&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;quot;admin_menu&amp;quot;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;quot;themeslug_admin_menus&amp;quot;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Não se esqueça de substituir &lt;code&gt;themeslug&lt;/code&gt; pelo prefixo das funções do seu tema. Criámos uma pequena função que vai servir para adicionar os menus à barra de administração do WordPress.&lt;/p&gt;
+
+&lt;p&gt;Depois adicionamos essa função utilizando a função add_action . Este comando liga uma &lt;strong&gt;função&lt;/strong&gt; a uma &lt;strong&gt;ação&lt;/strong&gt;. Podem ler mais sobre a mesma &lt;a href=&#34;http://codex.wordpress.org/Function_Reference/add_action&#34;&gt;aqui&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Existem várias formas de adicionar um menu. Podemos adicionar um sub-menu ou um menu. Vou dar-vos um exemplo com algo já existente no WP:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://henriquedias.com/images/wpsubmenu.png&#34; alt=&#34;WordPress Menu e Sub-menu&#34; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Settings&lt;/strong&gt; é um menu.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Media&lt;/strong&gt; é um sub-menu do menu &lt;strong&gt;Settings&lt;/strong&gt;.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Para adicionar um sub-menu a um menu, utilizamos a função &lt;code&gt;add_theme_page&lt;/code&gt; que tem a seguinte sintaxe:&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span class=&#34;x&#34;&gt;add_theme_page( $titulo_da_pagina, $titulo_do_menu, $permissoes, $slug_do_menu, $funcao);&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Vamos por partes:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;$titulo_da_pagina&lt;/code&gt;  -&amp;gt; Obviamente que é o título da página;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;$titulo_do_menu&lt;/code&gt;  -&amp;gt; Nome que irá aparecer na barra de administração;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;$permissoes&lt;/code&gt;  -&amp;gt; O mínimo de permissões que o utilizador deve ter para aceder à página;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;$slug_do_menu&lt;/code&gt;  -&amp;gt; O nome do menu sem caracteres especiais e sem maiúsculas para ser utilizado no URL;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;$funcao&lt;/code&gt;  -&amp;gt; A função que vai &amp;ldquo;tratar&amp;rdquo; deste sub-menu.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Para criar um menu de nível principal (como &lt;em&gt;Settings&lt;/em&gt;), utiliza-se a seguinte sintaxe:&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span class=&#34;x&#34;&gt;add_menu_page( $titulo_da_pag, $titulo_do_menu, $permissoes, $slug_do_menu, $funcao, $icon_url, $posicao );&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;A sintaxe é muito parecida mas conta com mais duas variáveis. A &lt;code&gt;$icon_url&lt;/code&gt; serve para indicar o caminho do ícone e $posicao  é a posição na barra lateral da &lt;em&gt;dashboard&lt;/em&gt;. Ambas são opções opcionais e podes ler mais sobre elas &lt;a href=&#34;http://codex.wordpress.org/Function_Reference/add_menu_page&#34;&gt;aqui&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Vamos, finalmente, criar o menu. Já conhecendo a sintaxe, vou substituir o comentário que escrevemos no ficheiro &lt;code&gt;admin.php&lt;/code&gt; pela criação de um sub-menu ficando o código da seguinte forma:&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span class=&#34;cp&#34;&gt;&amp;lt;?php&lt;/span&gt;
+
+&lt;span class=&#34;k&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;themeslug_admin_menus&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+
+    &lt;span class=&#34;c1&#34;&gt;//Adição do sub-menu Opções ao menu principal Apresentação&lt;/span&gt;
+    &lt;span class=&#34;nx&#34;&gt;add_theme_page&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;Opções&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;Opções&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;manage_options&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;opcoes&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;themeslug_options&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+
+&lt;span class=&#34;k&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;themeslug_options&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+    &lt;span class=&#34;c1&#34;&gt;//Esta função vai conter a página &amp;quot;Opções&amp;quot;.&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+
+&lt;span class=&#34;nx&#34;&gt;add_action&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;quot;admin_menu&amp;quot;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;quot;themeslug_admin_menus&amp;quot;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Agora, quando voltarem à &lt;em&gt;dashboard&lt;/em&gt; do WordPress, já lá deverão ter o novo menu.&lt;/p&gt;
+
+&lt;p&gt;Se abrirem a página vão ver que ainda não existe nada nessa página. Como este tutorial está a ficar um pouco extenso, deixarei a criação de uma opção e a sua aplicação para a segunda parte deste tutorial que &lt;del&gt;deve chegar dentro de dois ou três dias&lt;/del&gt; podes encontrar &lt;a href=&#34;https://henriquedias.com/tutorials/wordpress-adicionar-menus-de-administracao-parte-2/&#34;&gt;aqui&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Esperamos que o tutorial vos tenha sido útil.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Remover hash dos links &#34;Continuar a Ler&#34;</title>
+      <link>https://henriquedias.com/tutorials/remover-hash-dos-links-continuar-a-ler</link>
+      <pubDate>Mon, 14 Jul 2014 13:36:38 +0000</pubDate>
+      
+      <guid>https://henriquedias.com/tutorials/remover-hash-dos-links-continuar-a-ler</guid>
+      <description>
+
+&lt;p&gt;O &lt;strong&gt;WordPress&lt;/strong&gt; é um dos CMS (Sistema de Gestão de Conteúdo, em português) mais conhecidos do mundo, porque é muito simples de utilizar e tem milhares de temas e &lt;em&gt;plugins&lt;/em&gt; gratuitos e pagos à disposição do utilizador.&lt;/p&gt;
+
+&lt;p&gt;Por vezes precisamos de melhorar os temas ou alguma outra coisa. Quando estava a desenvolver o tema deste blog deparei-me com um simples problema: os links dos botões &amp;ldquo;Continuar a Ler&amp;rdquo; levavam o utilizador ao local onde havia colocado o código, mas eu não queria que isso acontecesse.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://henriquedias.com/images/hash-links-wp.png&#34; alt=&#34;Remover hash dos links &amp;quot;Continuar a Ler&amp;quot;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Depois de uma rápida pesquisa deparei-me com um fórum onde explicavam, em Inglês, como proceder. Afinal é bastante simples. No ficheiro &lt;code&gt;functions.php&lt;/code&gt; do vosso tema basta colarem o seguinte código:&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span class=&#34;x&#34;&gt;function remove_more_link_scroll( $link ) {&lt;/span&gt;
+&lt;span class=&#34;x&#34;&gt;  $link = preg_replace( &amp;#39;|#more-[0-9]+|&amp;#39;, &amp;#39;&amp;#39;, $link );&lt;/span&gt;
+&lt;span class=&#34;x&#34;&gt;  return $link;&lt;/span&gt;
+&lt;span class=&#34;x&#34;&gt;}&lt;/span&gt;
+&lt;span class=&#34;x&#34;&gt;add_filter( &amp;#39;the_content_more_link&amp;#39;, &amp;#39;remove_more_link_scroll&amp;#39; );&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Sim, está bem, mas o que faz realmente esse código? Vamos começar por analisar o que existe dentro da função &lt;code&gt;remove_more_link_scroll()&lt;/code&gt;. Esta aceita uma variável a que vamos chamar &lt;code&gt;$link&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;explicação:3e711b92a5df38110639b52a97a9737f&#34;&gt;Explicação&lt;/h2&gt;
+
+&lt;p&gt;Assim, vamos começar pela função &lt;code&gt;preg_replace()&lt;/code&gt;. Esta aceita três argumentos sendo o primeiro uma expressão regular, o segundo o substituto e o terceiro o texto. Esta função pesquisa no texto a expressão regular e substitui-a.&lt;/p&gt;
+
+&lt;p&gt;Neste caso, a função &lt;code&gt;preg_replace()&lt;/code&gt; substitui no &lt;code&gt;$link&lt;/code&gt;  todos os caracteres possíveis na expressão &lt;code&gt;#more-[0-9]+&lt;/code&gt; por &amp;ldquo; ou seja, nada. Depois disso, a função retorna o link sem a hash que direciona para a âncora.&lt;/p&gt;
+
+&lt;p&gt;Dentro da expressão regular que está contida na função, temos vários &amp;ldquo;locais&amp;rdquo; a destacar. Os caracteres que se encontram no início e no final (&lt;code&gt;|&lt;/code&gt;) servem para delimitar o início e o fim da expressão de forma a que o PHP a consiga detetar.&lt;/p&gt;
+
+&lt;p&gt;O texto #more-  corresponde ao início da hash do link. O WordPress faz as âncoras de ler mais iniciando por &lt;code&gt;#more-&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;O resto, &lt;code&gt;[0-9]+&lt;/code&gt;, quer dizer que procura por qualquer número entre 0 e 9 e fá-lo mais do que uma vez.&lt;/p&gt;
+
+&lt;p&gt;Depois desta função, nós temos que a adicionar aos filtros do WordPress e, para isso, utilizamos as funções próprias do WordPress que, neste caso é a &lt;code&gt;add_filter()&lt;/code&gt;. Esta aceita quatro argumentos mas só vamos falar de 2 que são os únicos obrigatórios. Se quiseres saber mais sobre a adição de filtros aos temas no WordPress podes aceder a &lt;a href=&#34;http://codex.wordpress.org/Function_Reference/add_filter&#34;&gt;esta página&lt;/a&gt; do site do WP em inglês.&lt;/p&gt;
+
+&lt;p&gt;O primeiro é a tag que, neste caso é &amp;lsquo;the_content_more_link&amp;rsquo; . Podes obter mais informações sobre estas tags &lt;a href=&#34;http://codex.wordpress.org/Plugin_API/Filter_Reference&#34;&gt;aqui&lt;/a&gt;. O segundo argumento é a função a adicionar, que é a função que criámos antes.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;Sei que é uma dica simples mas de certeza que vai ajudar alguém tal como me ajudou a mim :)&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

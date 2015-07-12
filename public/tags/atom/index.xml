@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Atom on Henrique Dias</title>
+    <link>https://henriquedias.com/tags/atom/</link>
+    <description>Recent content in Atom on Henrique Dias</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 25 Aug 2014 12:25:12 +0000</lastBuildDate>
+    <atom:link href="https://henriquedias.com/tags/atom/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Atom - Extensão Fancy New File</title>
+      <link>https://henriquedias.com/general/atom-extensao-fancy-new-file</link>
+      <pubDate>Mon, 25 Aug 2014 12:25:12 +0000</pubDate>
+      
+      <guid>https://henriquedias.com/general/atom-extensao-fancy-new-file</guid>
+      <description>&lt;p&gt;Como sabem, nas últimas semanas tenho vindo a publicar semanalmente uma extensão para o editor de texto Atom com um vídeo.&lt;/p&gt;
+
+&lt;p&gt;A extensão que vos trazemos hoje chama-se &lt;strong&gt;Fancy New File&lt;/strong&gt; e vai fazer com que a criação de ficheiros se torne mais rápida.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://henriquedias.com/images/atomfancy01.jpg&#34; alt=&#34;Atom - Extensão Fancy New File&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Hoje, ao contrário dos outros dias, o artigo não irá estar acompanhado de vídeo visto que a extensão é deveras simples de utilizar. Vamos ver :)&lt;/p&gt;
+
+&lt;p&gt;A extensão pode ser descarregada &lt;a href=&#34;https://atom.io/packages/fancy-new-file&#34;&gt;aqui&lt;/a&gt; e, para utilizar, basta clicar nas teclas &lt;strong&gt;alt-cmd-n&lt;/strong&gt; para Mac e &lt;strong&gt;alt-ctrl+n&lt;/strong&gt; no Windows e Linux e depois digitar o caminho onde queremos criar o ficheiro.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://henriquedias.com/images/fancynewfile.gif&#34; alt=&#34;Fancy New FIle&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;O caminho pode ser relativo (à pasta atualmente aberta) ou então absoluto. Nas definições da extensão temos também três úteis opções que podemos ativar:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Auto completação sensitiva&lt;/li&gt;
+&lt;li&gt;Mostrar ficheiros na auto completação&lt;/li&gt;
+&lt;li&gt;Sugerir o caminho do ficheiro atual&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;del&gt;Na próxima semana traremos mais uma extensão, mas dessa vez, com vídeo :)&lt;/del&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

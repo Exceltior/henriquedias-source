@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en-us">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>MVC na linguagem PHP - IV | Henrique Dias</title>
+<meta name="description" content="No último tutorial sobre a criação de uma framework que segue o modelo MVC, criamos uma página dinâmica com acesso à base de dados.">
+<link rel="canonical" href="https://henriquedias.com/tutorials/mvc-linguagem-php-iv">
+<link rel="publisher" href="https://plus.google.com/+HenriqueDias"/>
+
+<meta property="og:locale" content="en-us" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="MVC na linguagem PHP - IV | Henrique Dias" />
+<meta property="og:description" content="No último tutorial sobre a criação de uma framework que segue o modelo MVC, criamos uma página dinâmica com acesso à base de dados." />
+<meta property="og:url" content="https://henriquedias.com/tutorials/mvc-linguagem-php-iv" />
+<meta property="og:site_name" content="Henrique Dias | A CompSci Enthusiast" />
+<meta property="article:publisher" content="https://www.facebook.com/hacdias" />
+<meta property="article:author" content="https://www.facebook.com/hacdias" />
+<meta property="article:tag" content="MVC, PHP, Tutorial" />
+<meta property="article:section" content="Tutorials" />
+<meta property="article:published_time" content="2014-12-21T10:00:04Z" />
+<meta property="article:modified_time" content="2014-12-21T10:00:04Z" />
+<meta property="og:updated_time" content="2014-12-21T10:00:04Z" /> 
+<meta property="og:image" content="https://henriquedias.com/images/home.jpg" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:description" content="No último tutorial sobre a criação de uma framework que segue o modelo MVC, criamos uma página dinâmica com acesso à base de dados."/>
+<meta name="twitter:title" content="MVC na linguagem PHP - IV | Henrique Dias"/>
+<meta name="twitter:site" content="@hacdias"/>
+<meta name="twitter:domain" content="Henrique Dias"/>
+<meta name="twitter:image:src" content="https://henriquedias.com/images/home.jpg"/>
+<meta name="twitter:creator" content="@hacdias"/>
+
+<meta name="msvalidate.01" content="B471CBBC9EF6900039C6BBF251EF277C" />
+<meta name="google-site-verification" content="nVQ4_x6m6ZTRAzclMPNxpB0iMgK-xoIj_d-l85u32nY" />
+
+
+
+
+<link rel="shortcut icon" href="https://henriquedias.com/favicon.ico" type="image/x-icon">
+<link rel="icon" href="https://henriquedias.com/favicon.ico" type="image/x-icon">
+
+<link rel="stylesheet" href="https://henriquedias.com/css/normalize.min.css">
+<link rel="stylesheet" href="https://henriquedias.com/css/main.min.css">
+
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Person",
+  "email": "mailto:hacdias@gmail.com",
+  "image": "https:\/\/henriquedias.com\/henrique.png",
+  "jobTitle": "Author",
+  "name": "Henrique Dias",
+  "telephone": "351 965 856 140",
+  "url": "https:\/\/henriquedias.com\/",
+  "sameAs" : [ "http://www.facebook.com/hacdias",
+      "http://twitter.com/hacdias",
+      "http://instagram.com/hacdias",
+      "http://www.linkedin.com/in/hacdias",
+      "http://plus.google.com/+HenriqueDias"]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "author": "Henrique Dias",
+  "name": "MVC na linguagem PHP - IV"
+}
+</script>
+
+</head>
+
+<body>
+  <header class="site-header sans">
+  <div class="left site-title">
+    <a href="https://henriquedias.com/">Henrique<strong>Dias</strong></a>
+  </div><div class="right">
+    <nav>
+       <ul>
+           <a href="https://henriquedias.com/"><li>Home</li></a>
+           <a href="https://henriquedias.com/about/"><li>About</li></a>
+       </ul>
+    </nav>
+  </div>
+  <div style="clear:both"></div>
+</header>
+
+
+
+<article>
+  <header >
+  
+  <div class="container sans">
+    <h1>MVC na linguagem PHP - IV</h1>
+    <span class="meta sans">
+  <span class="category"><a href="/tutorials">Tutorials</a></span> |
+  Posted on <time datetime="2014-12-21">Dec 21, 2014
+  <span class="tags">
+    
+    #<a href="/tags/mvc">MVC</a>&nbsp;
+    
+    #<a href="/tags/php">PHP</a>&nbsp;
+    
+    #<a href="/tags/tutorial">Tutorial</a>&nbsp;
+    
+  </span>
+</span>
+
+  </div>
+</header>
+
+
+  <div class="container">
+  
+
+<p>A pedido de um leitor, decidimos escrever um artigo em que exemplificamos este maravilhoso (ou não) modelo MVC utilizando a linguagem de programação PHP.</p>
+
+<p>A <a href="/tutorials/mvc-linguagem-php/">primeira</a>, <a href="/tutorials/mvc-linguagem-php-ii/">segunda</a> e <a href="/tutorials/mvc-linguagem-php-iv/">terceiras</a> partes já foram publicadas. Hoje, trago a quarta e última parte desta mini-série de artigos.</p>
+
+<p><img src="/images/mvcp4.jpg" alt="Modelo MVC – Uma exemplificação com PHP #4" /></p>
+
+<p>O que vamos fazer hoje é, simplesmente, criar uma página dinâmica que liste diversos <em>posts</em> que estão na base de dados da aplicação.</p>
+
+<p>Se bem se lembra, a ligação à base de dados é configurada no ficheiro <code>config.php</code>, por isso assegure-se que a sua conexão está bem configurada.</p>
+
+<p>Aqui, tenho uma base de dados chamada <em>mvc</em> com uma tabela chamada <em>posts</em>, e esta tabela tem três colunas: a <code>id</code>, <code>title</code> e <code>content</code>.</p>
+
+<p>De momento tenho duas linhas inseridas nessa mesma tabela, ou seja, de momento tenho exatamente o seguinte:</p>
+
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>title</th>
+<th>content</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>1</td>
+<td>Lorem Ipsum</td>
+<td>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus id velit non tellus feugiat feugiat vitae quis nibh. Pellentesque maximus lectus ut enim tincidunt, a rutrum dui elementum. Vestibulum elit sapien, malesuada sit amet est lacinia, aliquet laoreet arcu. Duis quis velit hendrerit, pretium nibh ut, faucibus odio. Fusce hendrerit nunc urna, vitae varius augue fringilla in. Nunc a ex eget lectus dictum mollis. Proin quis nisl consectetur metus bibendum ultricies eu non orci. Quisque nec efficitur quam. Suspendisse lorem nulla, sollicitudin ac sagittis id, eleifend eget eros. Interdum et malesuada fames ac ante ipsum primis in faucibus. Cras neque leo, consectetur nec sem quis, imperdiet viverra quam. Pellentesque ultricies felis a molestie egestas. Aliquam malesuada eget justo condimentum venenatis. Duis mattis ut nisi in suscipit. Phasellus scelerisque, arcu ut sollicitudin sagittis, ex ante posuere neque, et dapibus ex lectus quis libero.</td>
+</tr>
+
+<tr>
+<td>2</td>
+<td>Usto Risus</td>
+<td>Usto risus, cursus non iaculis a, semper vitae dolor. Nunc pellentesque tempor pretium. Sed sem risus, accumsan ut urna in, sollicitudin sagittis nisi. Integer ullamcorper orci id nisl iaculis, ac congue purus posuere. Vivamus pharetra nibh in arcu vulputate, in feugiat dolor feugiat. Aliquam erat volutpat. Maecenas sodales magna urna, quis faucibus arcu mattis sit amet. Ali. Fusce hendrerit nunc urna, vitae varius augue fringilla in. Nunc a ex eget lectus dictum mollis. Proin quis nisl consectetur metus bibendum ultricies eu non orci. Quisque nec efficitur quam. Suspendisse lorem nulla, sollicitudin ac sagittis id, eleifend eget eros. Interdum et malesuada fames ac ante ipsum primis in faucibus. Cras neque leo, consectetur nec sem quis, imperdiet viverra quam. Pellentesque ultricies felis a molestie egestas. Aliquam malesuada eget justo condimentum venenatis. Duis mattis ut nisi in suscipit. Phasellus scelerisque, arcu ut sollicitudin sagittis, ex ante posuere neque, et dapibus ex lectus quis libero.</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="controlador:30a6231206f46a4d16a2087c59187fd6">Controlador</h2>
+
+<p>Como sempre, iremos começar com um simples controlador. De momento, o controlador deverá ser simples e ter apenas o seguinte:</p>
+
+<div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+<span class="k">namespace</span> <span class="nx">Controller</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">Posts</span> <span class="k">extends</span> <span class="nx">Controller</span>
+<span class="p">{</span>
+
+    <span class="k">function</span> <span class="nf">__construct</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">parent</span><span class="o">::</span><span class="na">__construct</span><span class="p">(</span><span class="s1">&#39;posts&#39;</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">function</span> <span class="nf">index</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="cm">/* REQUERER POSTS */</span>
+
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">view</span><span class="o">-&gt;</span><span class="na">setTitle</span><span class="p">(</span><span class="s1">&#39;Posts&#39;</span><span class="p">);</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">view</span><span class="o">-&gt;</span><span class="na">render</span><span class="p">(</span><span class="s1">&#39;posts/index&#39;</span><span class="p">);</span>
+    <span class="p">}</span>
+
+<span class="p">}</span>
+</pre></div>
+
+
+<p>De momento, apenas declaramos o construtor e também a função index  que será aquela que vai  ser acedida ao acedermos a <code>URL/posts</code>.</p>
+
+<h2 id="modelo:30a6231206f46a4d16a2087c59187fd6">Modelo</h2>
+
+<p>Vamos então virar a nossa cara para os modelos. O modelo correspondente a este controlador deverá estar localizado em <code>app_core/models/posts.php</code> e deverá conter um código semelhante ao seguinte:</p>
+
+<div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+<span class="k">namespace</span> <span class="nx">Model</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">Posts</span> <span class="k">extends</span> <span class="nx">Model</span>
+<span class="p">{</span>
+
+    <span class="k">function</span> <span class="nf">__construct</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">parent</span><span class="o">::</span><span class="na">__construct</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="k">function</span> <span class="nf">getPosts</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">db</span><span class="o">-&gt;</span><span class="na">select</span><span class="p">(</span><span class="s2">&quot;SELECT * FROM posts&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>Onde utilizamos o construtor para criar uma ligação à base de dados e criamos a função <code>getPosts</code> que irá buscar todos as as colunas da tabela <em>posts</em> da base de dados a que está ligada a nossa aplicação.</p>
+
+<p>Como pode ver, este é um modelo bastante simples cuja única função é buscar os ficheiros à base de dados. De momento não há mais nenhuma alteração.</p>
+
+<h2 id="voltando-ao-controlador:30a6231206f46a4d16a2087c59187fd6">Voltando ao controlador&hellip;</h2>
+
+<p>Agora devemos voltar ao controlador e substituir o comentário que lá deixámos pelas seguintes duas linhas:</p>
+
+<div class="highlight"><pre><span class="x">$data = $this-&gt;model-&gt;getPosts();</span>
+<span class="x">$this-&gt;view-&gt;setData($data);</span>
+</pre></div>
+
+
+<p>A função destas duas linhas é bastante simples: primeiro, declaramos uma variável que será igual ao retorno da função que criámos anteriormente para selecionar os artigos.</p>
+
+<p>De seguida, &ldquo;injetamos&rdquo; o conteúdo desta variável na <em>view</em> deste controlador utilizando a função <code>setData</code>.</p>
+
+<h2 id="que-bela-vista:30a6231206f46a4d16a2087c59187fd6">Que bela vista!</h2>
+
+<p>Agora só falta a parte que irá mostrar os itens na página: a <em>view</em>. Esta <em>view</em> deverá ser declarada no diretório <code>app_core/views/posts/index.php</code>.</p>
+
+<p>Relembro que a localização do ficheiro é definida quando utilizamos a função render . Então, o conteúdo que coloquei nesta página é o seguinte:</p>
+
+<div class="highlight"><pre><span class="x">&lt;h1&gt;Posts&lt;/h1&gt;</span>
+
+<span class="cp">&lt;?php</span> <span class="k">foreach</span> <span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">_data</span> <span class="k">as</span> <span class="nv">$post</span><span class="p">)</span> <span class="o">:</span> <span class="cp">?&gt;</span><span class="x"></span>
+<span class="x">    &lt;h2&gt;</span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nv">$post</span><span class="p">[</span><span class="s1">&#39;title&#39;</span><span class="p">];</span> <span class="cp">?&gt;</span><span class="x">&lt;/h2&gt;</span>
+<span class="x">    &lt;p&gt;</span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nv">$post</span><span class="p">[</span><span class="s1">&#39;content&#39;</span><span class="p">];</span> <span class="cp">?&gt;</span><span class="x">&lt;/p&gt;</span>
+<span class="cp">&lt;?php</span> <span class="k">endforeach</span><span class="p">;</span> <span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+
+
+<p>Como pode ver, aqui percorremos todos os itens do array <code>$_data</code> que faz parte da vista e, de seguida, imprimimos o título e o conteúdo de cada <em>post</em>.</p>
+
+<h2 id="ou-seja:30a6231206f46a4d16a2087c59187fd6">Ou seja,</h2>
+
+<p>Ou seja, é muito simples. Muitas coisas podem ser agora feitas neste modelo, pois a parte mais difícil já foi feita: o <em>core</em>, o <em>kernel</em>, o núcleo da aplicação.</p>
+
+<p><strong>Tem alguma sugestão, ideia ou modificação? Sinta-se livre para contribuir para esta simples, pequena e <em>homemade framework</em> no <a href="https://github.com/hacdias/InMVC">GitHub</a> :)</strong></p>
+
+  </div>
+
+  
+  <footer class="container">
+  <div class="addthis_sharing_toolbox"></div>
+  <div class="post-navigation">
+    <a href="https://henriquedias.com/tutorials/mvc-linguagem-php-iii"><div class="prev">Previous</div></a>
+    <a href="https://henriquedias.com/general/postura-perante-matematica"><div class="next">Next</div></a>
+  </div>
+  <div style="clear:both"></div>
+  <div class="discussion">
+  <div class="sans">
+    <h2>Discussion</h2>
+  </div>
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'hacdias';
+    var disqus_identifier = 'https:\/\/henriquedias.com\/tutorials\/mvc-linguagem-php-iv';
+    var disqus_title = 'MVC na linguagem PHP - IV';
+    var disqus_url = 'https:\/\/henriquedias.com\/tutorials\/mvc-linguagem-php-iv';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+</footer>
+
+  
+</article>
+
+<footer class="site-footer">
+  <div class="division">
+    <h3>Social</h3>
+    <nav>
+       <ul class="social">
+         <a href="https://twitter.com/hacdias"><li class="twitter">Twitter</li></a>
+         <a href="https://facebook.com/hacdias"><li class="fb">Facebook</li></a>
+         <a href="https://github.com/hacdias"><li class="gh">GitHub</li></a>
+        <a href="https://www.linkedin.com/in/hacdias"><li class="linkin">LinkedIn</li></a>
+         <a href="https://plus.google.com/+HenriqueDias"><li class="gplus">Google Plus</li></a>
+         <a href="https://instagram.com/hacdias"><li class="insta">Instagram</li></a>
+         <a href="https://youtube.com/channel/UCEJe-YgDEvr351w1oNjzolw"><li class="yt">YouTube</li></a>
+       </ul>
+    </nav>
+  </div><div class="division">
+    <h3>More things</h3>
+    <nav>
+       <ul>
+           <a href="https://henriquedias.com/"><li>Home</li></a>
+           <a href="https://henriquedias.com/about/"><li>About</li></a>
+           <a href="https://henriquedias.com/contact/"><li>Contact</li></a>
+           <a href="https://henriquedias.com/projects/"><li>Projects</li></a>
+           <a href="https://henriquedias.com/publications/"><li>Publications</li></a>
+       </ul>
+    </nav>
+  </div><div class="division">
+    &copy; Henrique Dias 2015<br>
+    <small>Email <a href="mailto:me@henriquedias.com">me@henriquedias.com</a><br>
+    All of the code is licensed with <a href="http://opensource.org/licenses/MIT">MIT license</a>.</small>
+  </div>
+</footer>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-59697241-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-55a225a57b261aa9" async="async"></script>
+
+</body>
+</html>
+

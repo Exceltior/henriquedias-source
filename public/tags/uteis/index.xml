@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Uteis on Henrique Dias</title>
+    <link>https://henriquedias.com/tags/uteis/</link>
+    <description>Recent content in Uteis on Henrique Dias</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 07 Sep 2014 10:23:57 +0000</lastBuildDate>
+    <atom:link href="https://henriquedias.com/tags/uteis/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>SASS - Será a futura versão do CSS?</title>
+      <link>https://henriquedias.com/personal/sass-sera-a-futura-versao-do-css</link>
+      <pubDate>Sun, 07 Sep 2014 10:23:57 +0000</pubDate>
+      
+      <guid>https://henriquedias.com/personal/sass-sera-a-futura-versao-do-css</guid>
+      <description>&lt;p&gt;Atualmente, uma das grandes vertentes da programação é a web e esta está muito difundida. Os desenvolvedores web, têm que utilizar várias linguagens de vários tipos: programação, marcação e estilo.&lt;/p&gt;
+
+&lt;p&gt;A última versão do CSS &lt;em&gt;(Cascading Style Sheet)&lt;/em&gt;, o CSS3, trouxe muitas melhorias e novidades tornando-se mais poderoso. &lt;strong&gt;Mas será suficiente?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://henriquedias.com/images/sass.jpg&#34; alt=&#34;SASS - Será a futura versão do CSS?&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Atualmente, existem várias &amp;ldquo;alternativas&amp;rdquo; e pré-processadores de CSS, como &lt;a href=&#34;http://lesscss.org/&#34;&gt;LESS&lt;/a&gt; e SASS. Este último, tem vindo a crescer e muitos acreditam que poderá ser a &lt;strong&gt;futura versão do CSS.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;O SASS está na versão 3.4.3 e toda a versão três é mais conhecida por SCSS ou seja, Sassy CSS. Para utilizar esta ferramenta é necessário terem Ruby instalado no vosso computador. Pode seguir as restantes &lt;a href=&#34;http://sass-lang.com/install&#34;&gt;instruções aqui&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Aqui está um pequeno exemplo que compara CSS com SCSS.&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span class=&#34;cm&#34;&gt;/* CSS */&lt;/span&gt;
+
+&lt;span class=&#34;nt&#34;&gt;nav&lt;/span&gt; &lt;span class=&#34;err&#34;&gt;{&lt;/span&gt;
+  &lt;span class=&#34;na&#34;&gt;color&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;blue&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;;&lt;/span&gt;
+  &lt;span class=&#34;na&#34;&gt;font-family&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;no&#34;&gt;sans-serif&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;;&lt;/span&gt;
+&lt;span class=&#34;err&#34;&gt;}&lt;/span&gt;
+
+&lt;span class=&#34;nt&#34;&gt;nav&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;ul&lt;/span&gt; &lt;span class=&#34;err&#34;&gt;{&lt;/span&gt;
+  &lt;span class=&#34;na&#34;&gt;margin&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;;&lt;/span&gt;
+  &lt;span class=&#34;na&#34;&gt;padding&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;;&lt;/span&gt;
+  &lt;span class=&#34;na&#34;&gt;list-style&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;no&#34;&gt;none&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;;&lt;/span&gt;
+&lt;span class=&#34;err&#34;&gt;}&lt;/span&gt;
+
+
+&lt;span class=&#34;na&#34;&gt;nav&lt;/span&gt;&lt;span class=&#34;err&#34;&gt; &lt;/span&gt;&lt;span class=&#34;na&#34;&gt;li&lt;/span&gt;&lt;span class=&#34;err&#34;&gt; &lt;/span&gt;&lt;span class=&#34;na&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;err&#34;&gt; &lt;/span&gt;&lt;span class=&#34;na&#34;&gt;display&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;no&#34;&gt;inline&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;no&#34;&gt;block&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;err&#34;&gt;}&lt;/span&gt;
+
+&lt;span class=&#34;nt&#34;&gt;nav&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;a&lt;/span&gt; &lt;span class=&#34;err&#34;&gt;{&lt;/span&gt;
+  &lt;span class=&#34;na&#34;&gt;display&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;no&#34;&gt;block&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;;&lt;/span&gt;
+  &lt;span class=&#34;na&#34;&gt;padding&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;6&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;px&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;12&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;px&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;;&lt;/span&gt;
+  &lt;span class=&#34;na&#34;&gt;text-decoration&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;no&#34;&gt;none&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;;&lt;/span&gt;
+  &lt;span class=&#34;na&#34;&gt;color&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;red&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;;&lt;/span&gt;
+&lt;span class=&#34;err&#34;&gt;}&lt;/span&gt;
+
+&lt;span class=&#34;c1&#34;&gt;//O Mesmo em SCSS&lt;/span&gt;
+
+&lt;span class=&#34;na&#34;&gt;$font-stack&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt;    &lt;span class=&#34;no&#34;&gt;sans-serif&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;;&lt;/span&gt;
+&lt;span class=&#34;na&#34;&gt;$primary-color&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;blue&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;;&lt;/span&gt;
+&lt;span class=&#34;na&#34;&gt;$links-color&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt;   &lt;span class=&#34;nb&#34;&gt;red&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;;&lt;/span&gt;
+
+&lt;span class=&#34;nt&#34;&gt;nav&lt;/span&gt; &lt;span class=&#34;err&#34;&gt;{&lt;/span&gt;
+  &lt;span class=&#34;na&#34;&gt;color&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$primary-color&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;;&lt;/span&gt;
+  &lt;span class=&#34;na&#34;&gt;font-family&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$font-stack&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;;&lt;/span&gt;
+
+  &lt;span class=&#34;nt&#34;&gt;ul&lt;/span&gt; &lt;span class=&#34;err&#34;&gt;{&lt;/span&gt;
+    &lt;span class=&#34;na&#34;&gt;margin&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;;&lt;/span&gt;
+    &lt;span class=&#34;na&#34;&gt;padding&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;;&lt;/span&gt;
+    &lt;span class=&#34;na&#34;&gt;list-style&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;no&#34;&gt;none&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;;&lt;/span&gt;
+  &lt;span class=&#34;err&#34;&gt;}&lt;/span&gt;
+
+  &lt;span class=&#34;na&#34;&gt;li&lt;/span&gt;&lt;span class=&#34;err&#34;&gt; &lt;/span&gt;&lt;span class=&#34;na&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;err&#34;&gt; &lt;/span&gt;&lt;span class=&#34;na&#34;&gt;display&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;no&#34;&gt;inline&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;no&#34;&gt;block&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;err&#34;&gt;}&lt;/span&gt;
+
+  &lt;span class=&#34;nt&#34;&gt;a&lt;/span&gt; &lt;span class=&#34;err&#34;&gt;{&lt;/span&gt;
+    &lt;span class=&#34;na&#34;&gt;display&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;no&#34;&gt;block&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;;&lt;/span&gt;
+    &lt;span class=&#34;na&#34;&gt;padding&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;6&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;px&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;12&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;px&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;;&lt;/span&gt;
+    &lt;span class=&#34;na&#34;&gt;text-decoration&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;no&#34;&gt;none&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;;&lt;/span&gt;
+    &lt;span class=&#34;na&#34;&gt;color&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$links-color&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;;&lt;/span&gt;
+  &lt;span class=&#34;err&#34;&gt;}&lt;/span&gt;
+
+&lt;span class=&#34;err&#34;&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Sim, viram bem. Com SCSS podemos utilizar variáveis e também aninhar itens. Mas não acaba por aqui. Existem várias outras funcionalidades:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Importar ficheiros com &lt;code&gt;@import &#39;nome&#39;&lt;/code&gt;;&lt;/li&gt;
+&lt;li&gt;Mixins;&lt;/li&gt;
+&lt;li&gt;Herança utilizando &lt;code&gt;@extend&lt;/code&gt;;&lt;/li&gt;
+&lt;li&gt;Operadores aritméticos.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Podem ler mais sobre estas funcionalidades no &lt;a href=&#34;http://sass-lang.com/guide&#34;&gt;guia oficial&lt;/a&gt;. Uma das grandes vantagens em utilizar este pré-processador é o aumento de produtividade.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Agora, deixo-vos a pergunta: acham que o SCSS pode vir a ser o futuro CSS?
+Poder-se-à tornar mais que um pré-processador?&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Como utilizar a API de Passwords do PHP 5.5&#43;</title>
+      <link>https://henriquedias.com/tutorials/como-utilizar-api-passwords-php-55</link>
+      <pubDate>Wed, 20 Aug 2014 22:16:15 +0000</pubDate>
+      
+      <guid>https://henriquedias.com/tutorials/como-utilizar-api-passwords-php-55</guid>
+      <description>
+
+&lt;p&gt;Como muitas das novidades introduzidas na &lt;a href=&#34;http://php.net/manual/en/migration55.changes.php&#34;&gt;versão 5.5&lt;/a&gt; do PHP, a API de passwords não passou despercebida aos desenvolvedores. Hoje vamos falar da criação de hash de passwords utilizando esta API.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://henriquedias.com/images/api_passwords.jpg&#34; alt=&#34;Como utilizar a API de Passwords do PHP 5.5+&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Antes de começarmos a analisar como se criam as passwords, vamos ver que novas funções trouxe &lt;a href=&#34;http://php.net/manual/en/book.password.php&#34;&gt;esta API&lt;/a&gt; para o PHP:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;password_get_info&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;password_hash&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;password_needs_rehash&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;password_verify&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Cada uma tem uma função diferente porém estão todas relacionadas. Assim, vamos falar de cada uma destas funções. Vamos começar!&lt;/p&gt;
+
+&lt;h2 id=&#34;password-hash:f2cd69faba962abe878d8e6257d3bccb&#34;&gt;password_hash&lt;/h2&gt;
+
+&lt;p&gt;Esta função pode ser considerada a principal do conjunto pois é com ela que criamos as &lt;em&gt;hash&lt;/em&gt; e deve ser utilizada da seguinte forma:&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span class=&#34;x&#34;&gt;$password = &amp;#39;a_minha_password&amp;#39;;&lt;/span&gt;
+
+&lt;span class=&#34;x&#34;&gt;/*&lt;/span&gt;
+&lt;span class=&#34;x&#34;&gt; * Da seguinte forma podemos gerar a hash de uma password&lt;/span&gt;
+&lt;span class=&#34;x&#34;&gt; * utilizando o algoritmo que está definido em DEFAULT.&lt;/span&gt;
+&lt;span class=&#34;x&#34;&gt; *&lt;/span&gt;
+&lt;span class=&#34;x&#34;&gt; * Na versão 5.5.0 do PHP este algoritmo correponde ao BCRYPT&lt;/span&gt;
+&lt;span class=&#34;x&#34;&gt; *&lt;/span&gt;
+&lt;span class=&#34;x&#34;&gt; * A hash vai ter o comprimento de, no mínimo, 60 caracteres.&lt;/span&gt;
+&lt;span class=&#34;x&#34;&gt; * Este comprimento pode alterar em novas versões do PHP.&lt;/span&gt;
+&lt;span class=&#34;x&#34;&gt; */&lt;/span&gt;
+&lt;span class=&#34;x&#34;&gt;password_hash($password, PASSWORD_DEFAULT);&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Podemos ainda definir alguns parâmetros opcionais nomeadamente o &lt;code&gt;cost&lt;/code&gt; (&amp;ldquo;custo&amp;rdquo;) e o &lt;code&gt;salt&lt;/code&gt; (&amp;ldquo;sal&amp;rdquo;) da seguinte forma:&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span class=&#34;x&#34;&gt;$password = &amp;#39;a_minha_password&amp;#39;;&lt;/span&gt;
+
+&lt;span class=&#34;x&#34;&gt;/*&lt;/span&gt;
+&lt;span class=&#34;x&#34;&gt; * Da seguinte forma podemos gerar a hash de uma password&lt;/span&gt;
+&lt;span class=&#34;x&#34;&gt; * utilizando o algoritmo BCRYPT.&lt;/span&gt;
+&lt;span class=&#34;x&#34;&gt; *&lt;/span&gt;
+&lt;span class=&#34;x&#34;&gt; * Podemos definir duas opções no terceiro parâmetro:&lt;/span&gt;
+&lt;span class=&#34;x&#34;&gt; *  COST  =&amp;gt;  Por padrão, será criado um novo por cada nova&lt;/span&gt;
+&lt;span class=&#34;x&#34;&gt; * hash criada porém pode ser definido.&lt;/span&gt;
+&lt;span class=&#34;x&#34;&gt; *&lt;/span&gt;
+&lt;span class=&#34;x&#34;&gt; *  SALT  =&amp;gt;  Por padrão, o valor 10 irá ser utilizado porém&lt;/span&gt;
+&lt;span class=&#34;x&#34;&gt; * pode ser alterado à semelhança do anterior.&lt;/span&gt;
+&lt;span class=&#34;x&#34;&gt; */&lt;/span&gt;
+
+&lt;span class=&#34;x&#34;&gt;$options = array(&lt;/span&gt;
+&lt;span class=&#34;x&#34;&gt;    &amp;#39;cost&amp;#39;  =&amp;gt; 13,&lt;/span&gt;
+&lt;span class=&#34;x&#34;&gt;    &amp;#39;salt&amp;#39;  =&amp;gt; mcrypt_create_iv(25, MCRYPT_DEV_URANDOM)&lt;/span&gt;
+&lt;span class=&#34;x&#34;&gt;  );&lt;/span&gt;
+
+&lt;span class=&#34;x&#34;&gt;password_hash($password, PASSWORD_BCRYPT, $options);&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Acrescento ainda que a função retornará &lt;code&gt;false&lt;/code&gt; em caso de erro.&lt;/p&gt;
+
+&lt;h2 id=&#34;password-verify:f2cd69faba962abe878d8e6257d3bccb&#34;&gt;password_verify&lt;/h2&gt;
+
+&lt;p&gt;Depois de criarmos a &lt;em&gt;hash&lt;/em&gt; vamos precisar de, evidentemente, confirmá-la. Para confirmar se uma password corresponde a uma hash basta utilizarmos esta função da seguinte forma:&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span class=&#34;x&#34;&gt;/*&lt;/span&gt;
+&lt;span class=&#34;x&#34;&gt; * Para utilizar esta função basta colocar a password&lt;/span&gt;
+&lt;span class=&#34;x&#34;&gt; * a verificar no primeiro parâmetro e a hash no segundo.&lt;/span&gt;
+&lt;span class=&#34;x&#34;&gt; *&lt;/span&gt;
+&lt;span class=&#34;x&#34;&gt; * Não precisa de se preocupar se colocou algum &amp;quot;salt&amp;quot; ou&lt;/span&gt;
+&lt;span class=&#34;x&#34;&gt; * &amp;quot;cost&amp;quot; personalizados pois esta informação está embutida&lt;/span&gt;
+&lt;span class=&#34;x&#34;&gt; * na hash.&lt;/span&gt;
+&lt;span class=&#34;x&#34;&gt; *&lt;/span&gt;
+&lt;span class=&#34;x&#34;&gt; * A função irá returnar os valores &amp;quot;true&amp;quot; ou &amp;quot;false&amp;quot;.&lt;/span&gt;
+&lt;span class=&#34;x&#34;&gt; */&lt;/span&gt;
+
+&lt;span class=&#34;x&#34;&gt;$password = &amp;#39;teste&amp;#39;;&lt;/span&gt;
+&lt;span class=&#34;x&#34;&gt;$hash = &amp;#39;$2y$10$M.3t0/gmB12IrSETmINf7uy9XhruDrmB8vjaktfd5vC8AfVPH695.&amp;#39;;&lt;/span&gt;
+
+&lt;span class=&#34;x&#34;&gt;password_verify($password, $hash);&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2 id=&#34;password-get-info:f2cd69faba962abe878d8e6257d3bccb&#34;&gt;password_get_info&lt;/h2&gt;
+
+&lt;p&gt;Esta informação permite-nos obter a informação acerca de uma hash. A informação obtida corresponde ao algoritmo, o seu nome e as opções dadas quando criámos a hash. Exemplo:&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span class=&#34;x&#34;&gt;//Criação de uma hash de exemplo&lt;/span&gt;
+
+&lt;span class=&#34;x&#34;&gt;$options = array(&lt;/span&gt;
+&lt;span class=&#34;x&#34;&gt;    &amp;#39;cost&amp;#39;  =&amp;gt; 13,&lt;/span&gt;
+&lt;span class=&#34;x&#34;&gt;    &amp;#39;salt&amp;#39;  =&amp;gt; mcrypt_create_iv(25, MCRYPT_DEV_URANDOM)&lt;/span&gt;
+&lt;span class=&#34;x&#34;&gt;  );&lt;/span&gt;
+
+&lt;span class=&#34;x&#34;&gt;$hash = password_hash(&amp;#39;a_minha_password&amp;#39;, PASSWORD_BCRYPT, $options);&lt;/span&gt;
+
+&lt;span class=&#34;x&#34;&gt;/*&lt;/span&gt;
+&lt;span class=&#34;x&#34;&gt; * Utilizando a função password_get_info, vamos obter as diversas opções&lt;/span&gt;
+&lt;span class=&#34;x&#34;&gt; * enviadas quando criámos a hash.&lt;/span&gt;
+&lt;span class=&#34;x&#34;&gt; */&lt;/span&gt;
+
+&lt;span class=&#34;x&#34;&gt;$info = password_get_info($hash);&lt;/span&gt;
+
+&lt;span class=&#34;x&#34;&gt;/*&lt;/span&gt;
+&lt;span class=&#34;x&#34;&gt; * Assim, var_dump($info) irá retornar o seguinte:&lt;/span&gt;
+&lt;span class=&#34;x&#34;&gt; *&lt;/span&gt;
+&lt;span class=&#34;x&#34;&gt; * array(3) {&lt;/span&gt;
+&lt;span class=&#34;x&#34;&gt; * 	[&amp;quot;algo&amp;quot;]=&amp;gt; int(1)&lt;/span&gt;
+&lt;span class=&#34;x&#34;&gt; *	[&amp;quot;algoName&amp;quot;]=&amp;gt; string(6) &amp;quot;bcrypt&amp;quot;&lt;/span&gt;
+&lt;span class=&#34;x&#34;&gt; *	[&amp;quot;options&amp;quot;]=&amp;gt; array(1)&lt;/span&gt;
+&lt;span class=&#34;x&#34;&gt; *		{ [&amp;quot;cost&amp;quot;]=&amp;gt; int(13) }&lt;/span&gt;
+&lt;span class=&#34;x&#34;&gt; *	}&lt;/span&gt;
+&lt;span class=&#34;x&#34;&gt; */&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2 id=&#34;password-needs-rehash:f2cd69faba962abe878d8e6257d3bccb&#34;&gt;password_needs_rehash&lt;/h2&gt;
+
+&lt;p&gt;Esta função permite-nos confirmar se uma hash já criada corresponde a uma array de opções e a um algoritmos. Podem observar mais no seguinte exemplo:&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span class=&#34;x&#34;&gt;//Criação de uma hash de exemplo&lt;/span&gt;
+
+&lt;span class=&#34;x&#34;&gt;$options = array(&lt;/span&gt;
+&lt;span class=&#34;x&#34;&gt;    &amp;#39;cost&amp;#39;  =&amp;gt; 13,&lt;/span&gt;
+&lt;span class=&#34;x&#34;&gt;    &amp;#39;salt&amp;#39;  =&amp;gt; mcrypt_create_iv(25, MCRYPT_DEV_URANDOM)&lt;/span&gt;
+&lt;span class=&#34;x&#34;&gt;  );&lt;/span&gt;
+
+&lt;span class=&#34;x&#34;&gt;$hash = password_hash(&amp;#39;a_minha_password&amp;#39;, PASSWORD_BCRYPT, $options);&lt;/span&gt;
+
+&lt;span class=&#34;x&#34;&gt;/*&lt;/span&gt;
+&lt;span class=&#34;x&#34;&gt; * A função seguinte irá retornar true porque todas as opções corresponde&lt;/span&gt;
+&lt;span class=&#34;x&#34;&gt; * às que foram dadas anteriormente.&lt;/span&gt;
+&lt;span class=&#34;x&#34;&gt; */&lt;/span&gt;
+
+&lt;span class=&#34;x&#34;&gt;password_needs_rehash($hash, 0, $options);&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Se tiver qualquer dúvida relacionada ao segundo parâmetro da função, sugiro-lhe a leitura &lt;a href=&#34;http://php.net/manual/pt_BR/password.constants.php&#34;&gt;desta página&lt;/a&gt; e também que verifique os valores obtidos com &lt;code&gt;password_get_info&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Espero que dê bom uso a esta função :)&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Editor de Texto Atom - Extensão Minimap</title>
+      <link>https://henriquedias.com/general/editor-de-texto-atom-extensao-minimap</link>
+      <pubDate>Sat, 16 Aug 2014 09:39:32 +0000</pubDate>
+      
+      <guid>https://henriquedias.com/general/editor-de-texto-atom-extensao-minimap</guid>
+      <description>&lt;p&gt;Na semana passada, &lt;a href=&#34;https://henriquedias.com/general/atom-io-um-excelente-editor-de-texto-da-github/&#34;&gt;apresentei-vos o editor de texto Atom&lt;/a&gt;, da GitHub e ainda falei de uma das centenas de extensões disponíveis para ele, &lt;a href=&#34;https://henriquedias.com/general/extensao-emmet-para-editor-de-texto-atom/&#34;&gt;a extensão Emmet&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Referi ainda que, ao longo do tempo, iria falar de mais extensões e hoje, é hora de outra. Esta é uma funcionalidade muito útil e chama-se &lt;strong&gt;minimap&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://henriquedias.com/images/minimap.png&#34; alt=&#34;Editor de Texto Atom - Extensão Minimap&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Para quem utiliza o Sublime Text, esta funcionalidade não é nenhuma novidade porque já vem instalada por padrão.&lt;/p&gt;
+
+&lt;p&gt;Como o Atom é modular, os desenvolvedores decidiram trazer esta funcionalidade para este editor de texto criando uma simples extensão (ou pacote).&lt;/p&gt;
+
+&lt;p&gt;O &lt;a href=&#34;https://atom.io/packages/minimap&#34;&gt;&lt;strong&gt;Minimap&lt;/strong&gt;&lt;/a&gt; permite aos utilizadores terem um mini-mapa num dos lados do ecrã (esquerdo ou direito) em que todo o código do ficheiro pode ser visualizado em miniatura.&lt;/p&gt;
+
+&lt;p&gt;Com esta extensão torna-se facílimo navegar por dentro do ficheiro visto que basta clicar e arrastar sobre o mini-mapa para o fazer.&lt;/p&gt;
+
+&lt;p&gt;Existem outras extensões que permitem ampliar as funcionalidades desta extensão (passa a redundância) e podem encontrar os links para as mesmas &lt;a href=&#34;https://atom.io/packages/minimap&#34;&gt;aqui&lt;/a&gt;, na secção plugins.&lt;/p&gt;
+
+&lt;p&gt;Aqui está um vídeo onde, além de explicar como se instala, explico como podemos ativar o mini-mapa por predefinição sempre que abrimos o Atom.&lt;/p&gt;
+
+&lt;iframe width=&#34;100%&#34; height=&#34;auto&#34; src=&#34;https://www.youtube.com/embed/4xpkHqYFLCg&#34; frameborder=&#34;0&#34; allowfullscreen&gt;&lt;/iframe&gt;
+
+&lt;p&gt;Espero que tenham gostado e que esta extensão vos seja bastante útil.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

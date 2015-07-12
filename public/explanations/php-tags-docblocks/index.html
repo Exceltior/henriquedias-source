@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en-us">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>PHP - (Algumas) tags dos DOCBlocks | Henrique Dias</title>
+<meta name="description" content="Os DOCBlocks do PHP são extremamente úteis para os desenvolvedores que desejam partilhar o código. Venha conhecer as tags mais utilizadas.">
+<link rel="canonical" href="https://henriquedias.com/explanations/php-tags-docblocks">
+<link rel="publisher" href="https://plus.google.com/+HenriqueDias"/>
+
+<meta property="og:locale" content="en-us" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="PHP - (Algumas) tags dos DOCBlocks | Henrique Dias" />
+<meta property="og:description" content="Os DOCBlocks do PHP são extremamente úteis para os desenvolvedores que desejam partilhar o código. Venha conhecer as tags mais utilizadas." />
+<meta property="og:url" content="https://henriquedias.com/explanations/php-tags-docblocks" />
+<meta property="og:site_name" content="Henrique Dias | A CompSci Enthusiast" />
+<meta property="article:publisher" content="https://www.facebook.com/hacdias" />
+<meta property="article:author" content="https://www.facebook.com/hacdias" />
+<meta property="article:tag" content="Explicação, PHP, útil" />
+<meta property="article:section" content="Explanations" />
+<meta property="article:published_time" content="2014-08-11T20:26:21Z" />
+<meta property="article:modified_time" content="2014-08-11T20:26:21Z" />
+<meta property="og:updated_time" content="2014-08-11T20:26:21Z" /> 
+<meta property="og:image" content="https://henriquedias.com/images/home.jpg" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:description" content="Os DOCBlocks do PHP são extremamente úteis para os desenvolvedores que desejam partilhar o código. Venha conhecer as tags mais utilizadas."/>
+<meta name="twitter:title" content="PHP - (Algumas) tags dos DOCBlocks | Henrique Dias"/>
+<meta name="twitter:site" content="@hacdias"/>
+<meta name="twitter:domain" content="Henrique Dias"/>
+<meta name="twitter:image:src" content="https://henriquedias.com/images/home.jpg"/>
+<meta name="twitter:creator" content="@hacdias"/>
+
+<meta name="msvalidate.01" content="B471CBBC9EF6900039C6BBF251EF277C" />
+<meta name="google-site-verification" content="nVQ4_x6m6ZTRAzclMPNxpB0iMgK-xoIj_d-l85u32nY" />
+
+
+
+
+<link rel="shortcut icon" href="https://henriquedias.com/favicon.ico" type="image/x-icon">
+<link rel="icon" href="https://henriquedias.com/favicon.ico" type="image/x-icon">
+
+<link rel="stylesheet" href="https://henriquedias.com/css/normalize.min.css">
+<link rel="stylesheet" href="https://henriquedias.com/css/main.min.css">
+
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Person",
+  "email": "mailto:hacdias@gmail.com",
+  "image": "https:\/\/henriquedias.com\/henrique.png",
+  "jobTitle": "Author",
+  "name": "Henrique Dias",
+  "telephone": "351 965 856 140",
+  "url": "https:\/\/henriquedias.com\/",
+  "sameAs" : [ "http://www.facebook.com/hacdias",
+      "http://twitter.com/hacdias",
+      "http://instagram.com/hacdias",
+      "http://www.linkedin.com/in/hacdias",
+      "http://plus.google.com/+HenriqueDias"]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "author": "Henrique Dias",
+  "name": "PHP - (Algumas) tags dos DOCBlocks"
+}
+</script>
+
+</head>
+
+<body>
+  <header class="site-header sans">
+  <div class="left site-title">
+    <a href="https://henriquedias.com/">Henrique<strong>Dias</strong></a>
+  </div><div class="right">
+    <nav>
+       <ul>
+           <a href="https://henriquedias.com/"><li>Home</li></a>
+           <a href="https://henriquedias.com/about/"><li>About</li></a>
+       </ul>
+    </nav>
+  </div>
+  <div style="clear:both"></div>
+</header>
+
+
+
+<article>
+  <header >
+  
+  <div class="container sans">
+    <h1>PHP - (Algumas) tags dos DOCBlocks</h1>
+    <span class="meta sans">
+  <span class="category"><a href="/explanations">Explanations</a></span> |
+  Posted on <time datetime="2014-08-11">Aug 11, 2014
+  <span class="tags">
+    
+    #<a href="/tags/explicacao">Explicação</a>&nbsp;
+    
+    #<a href="/tags/php">PHP</a>&nbsp;
+    
+    #<a href="/tags/util">útil</a>&nbsp;
+    
+  </span>
+</span>
+
+  </div>
+</header>
+
+
+  <div class="container">
+  <p>Para quem desenvolve aplicações em PHP com outras pessoas ou mesmo sozinho, por vezes precisa de colocar <strong>comentários</strong> em vários locais para identificar os diversos processos que vão ocorrendo.</p>
+
+<p>Os <strong>DocBlocks</strong> são (quase) fundamentais na vida dos programadores e estão disponíveis em várias linguagens. Vamos analisar as <strong>tags</strong> que existem nos de PHP e como os utilizar.</p>
+
+
+<figure >
+    
+        <img src="/images/docblockstag.jpg" alt="PHP - (Algumas) tags dos DOCBlocks" />
+    
+    
+</figure>
+
+
+<p>Os DocBlocks em PHP são parte do PHPDoc, uma adaptação do sistema <strong>javadoc</strong> para a linguagem de programação PHP.</p>
+
+<p>Os DocBlocks, ao contrário dos comentários tradicionais, começam sempre por <code>/**</code> ao invés de <code>/*</code> ou <code>//</code>.</p>
+
+<p>Estes blocos documentam o código a que precedem. Abaixo podem ver um simples exemplo:</p>
+
+<div class="highlight"><pre><span class="x">/**</span>
+<span class="x"> * Função lorem faz x,y,z</span>
+<span class="x"> *</span>
+<span class="x"> * @param    string $sth    Descrição do param</span>
+<span class="x"> * @return    string        Descrição do retorno</span>
+<span class="x"> */</span>
+<span class="x">function lorem($sth = &#39;&#39;) {</span>
+
+<span class="x">    if (!is_string($sth)) {</span>
+<span class="x">        return &#39;Fail&#39;;</span>
+<span class="x">    }</span>
+
+<span class="x">    return $sth;</span>
+<span class="x">}</span>
+</pre></div>
+
+
+<p>Normalmente, a estrutura destes blocos de documentação é:</p>
+
+<ul>
+<li>Descrição curta</li>
+<li>Descrição longa</li>
+<li>Tags
+Hoje vamos analisar o último ponto: as <strong>tags</strong>. Existem imensas e vamos apenas ver as principais e mais utilizadas.</li>
+</ul>
+
+<div class="highlight"><pre><span class="x">/**</span>
+<span class="x"> * @author        Nome Do Autor &lt;email@do.autor&gt;    -&gt; Autor do ficheiro</span>
+<span class="x"> * @copyright     Nome Data                         -&gt; Info da Copyright</span>
+<span class="x"> * @param         tipo [$nome-da-var] descrição     -&gt; Info acerca de um parâmetro</span>
+<span class="x"> * @return        tipo descrição                    -&gt; Info acerca do retorno de uma função, p.e.</span>
+<span class="x"> * @since         Versão                            -&gt; Disponível desde a versão xxxx</span>
+<span class="x"> * @todo          Descrição do afazer               -&gt; Tarefas para fazer</span>
+<span class="x"> * @package       Nome do pacote                    -&gt; Nome do pacote onde o ficheiro está inserido</span>
+<span class="x"> * @subpackage    Nome do sub-pacote                -&gt; Nome do sub-pacote</span>
+<span class="x"> * @deprecated    Versão                            -&gt; Definição de um método obsoleto a partir da versão xxxx</span>
+<span class="x"> * @version       Versão                            -&gt; Utilizado para definir a versão de um ficheiro/método</span>
+<span class="x"> */</span>
+<span class="x"> </span>
+</pre></div>
+
+
+<p>O código acima pode ser visivelmente dividido em três colunas. A primeira são as <strong>tags</strong>, a segunda a forma de <strong>implementação</strong> e a terceira, que começa com setas, são indicações a descrever para que servem as tags.</p>
+
+<p>Estas informações são apenas para vos informar e não devem ser utilizadas em quaisquer contexto dentro de um ficheiro PHP.</p>
+
+<p>Existem mais tags que podem ser inseridas nos comentários DOCBlocks porém as que se encontram acima são as mais importantes e essenciais. Se quiseres ler mais sobre isto, podes aceder a <a href="http://manual.phpdoc.org/HTMLSmartyConverter/PHP/phpDocumentor/tutorial_tags.pkg.html">esta página.</a></p>
+
+<p>Espero que este artigo  vos tenha sido útil.</p>
+
+  </div>
+
+  
+  <footer class="container">
+  <div class="addthis_sharing_toolbox"></div>
+  <div class="post-navigation">
+    <a href="https://henriquedias.com/general/extensao-emmet-para-editor-de-texto-atom"><div class="prev">Previous</div></a>
+    <a href="https://henriquedias.com/tutorials/guardar-os-erros-php-num-ficheiro-com-o-htaccess"><div class="next">Next</div></a>
+  </div>
+  <div style="clear:both"></div>
+  <div class="discussion">
+  <div class="sans">
+    <h2>Discussion</h2>
+  </div>
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'hacdias';
+    var disqus_identifier = 'https:\/\/henriquedias.com\/explanations\/php-tags-docblocks';
+    var disqus_title = 'PHP - (Algumas) tags dos DOCBlocks';
+    var disqus_url = 'https:\/\/henriquedias.com\/explanations\/php-tags-docblocks';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+</footer>
+
+  
+</article>
+
+<footer class="site-footer">
+  <div class="division">
+    <h3>Social</h3>
+    <nav>
+       <ul class="social">
+         <a href="https://twitter.com/hacdias"><li class="twitter">Twitter</li></a>
+         <a href="https://facebook.com/hacdias"><li class="fb">Facebook</li></a>
+         <a href="https://github.com/hacdias"><li class="gh">GitHub</li></a>
+        <a href="https://www.linkedin.com/in/hacdias"><li class="linkin">LinkedIn</li></a>
+         <a href="https://plus.google.com/+HenriqueDias"><li class="gplus">Google Plus</li></a>
+         <a href="https://instagram.com/hacdias"><li class="insta">Instagram</li></a>
+         <a href="https://youtube.com/channel/UCEJe-YgDEvr351w1oNjzolw"><li class="yt">YouTube</li></a>
+       </ul>
+    </nav>
+  </div><div class="division">
+    <h3>More things</h3>
+    <nav>
+       <ul>
+           <a href="https://henriquedias.com/"><li>Home</li></a>
+           <a href="https://henriquedias.com/about/"><li>About</li></a>
+           <a href="https://henriquedias.com/contact/"><li>Contact</li></a>
+           <a href="https://henriquedias.com/projects/"><li>Projects</li></a>
+           <a href="https://henriquedias.com/publications/"><li>Publications</li></a>
+       </ul>
+    </nav>
+  </div><div class="division">
+    &copy; Henrique Dias 2015<br>
+    <small>Email <a href="mailto:me@henriquedias.com">me@henriquedias.com</a><br>
+    All of the code is licensed with <a href="http://opensource.org/licenses/MIT">MIT license</a>.</small>
+  </div>
+</footer>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-59697241-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-55a225a57b261aa9" async="async"></script>
+
+</body>
+</html>
+

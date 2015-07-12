@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en-us">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>MVC na linguagem PHP - II | Henrique Dias</title>
+<meta name="description" content="Continuamos a construir a nossa framework que terá como base o modelo MVC. Neste artigo criamos o coração da nossa framework.">
+<link rel="canonical" href="https://henriquedias.com/tutorials/mvc-linguagem-php-ii">
+<link rel="publisher" href="https://plus.google.com/+HenriqueDias"/>
+
+<meta property="og:locale" content="en-us" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="MVC na linguagem PHP - II | Henrique Dias" />
+<meta property="og:description" content="Continuamos a construir a nossa framework que terá como base o modelo MVC. Neste artigo criamos o coração da nossa framework." />
+<meta property="og:url" content="https://henriquedias.com/tutorials/mvc-linguagem-php-ii" />
+<meta property="og:site_name" content="Henrique Dias | A CompSci Enthusiast" />
+<meta property="article:publisher" content="https://www.facebook.com/hacdias" />
+<meta property="article:author" content="https://www.facebook.com/hacdias" />
+<meta property="article:tag" content="Framework, MVC, PHP" />
+<meta property="article:section" content="Tutorials" />
+<meta property="article:published_time" content="2014-12-19T12:26:59Z" />
+<meta property="article:modified_time" content="2014-12-19T12:26:59Z" />
+<meta property="og:updated_time" content="2014-12-19T12:26:59Z" /> 
+<meta property="og:image" content="https://henriquedias.com/images/home.jpg" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:description" content="Continuamos a construir a nossa framework que terá como base o modelo MVC. Neste artigo criamos o coração da nossa framework."/>
+<meta name="twitter:title" content="MVC na linguagem PHP - II | Henrique Dias"/>
+<meta name="twitter:site" content="@hacdias"/>
+<meta name="twitter:domain" content="Henrique Dias"/>
+<meta name="twitter:image:src" content="https://henriquedias.com/images/home.jpg"/>
+<meta name="twitter:creator" content="@hacdias"/>
+
+<meta name="msvalidate.01" content="B471CBBC9EF6900039C6BBF251EF277C" />
+<meta name="google-site-verification" content="nVQ4_x6m6ZTRAzclMPNxpB0iMgK-xoIj_d-l85u32nY" />
+
+
+
+
+<link rel="shortcut icon" href="https://henriquedias.com/favicon.ico" type="image/x-icon">
+<link rel="icon" href="https://henriquedias.com/favicon.ico" type="image/x-icon">
+
+<link rel="stylesheet" href="https://henriquedias.com/css/normalize.min.css">
+<link rel="stylesheet" href="https://henriquedias.com/css/main.min.css">
+
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Person",
+  "email": "mailto:hacdias@gmail.com",
+  "image": "https:\/\/henriquedias.com\/henrique.png",
+  "jobTitle": "Author",
+  "name": "Henrique Dias",
+  "telephone": "351 965 856 140",
+  "url": "https:\/\/henriquedias.com\/",
+  "sameAs" : [ "http://www.facebook.com/hacdias",
+      "http://twitter.com/hacdias",
+      "http://instagram.com/hacdias",
+      "http://www.linkedin.com/in/hacdias",
+      "http://plus.google.com/+HenriqueDias"]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "author": "Henrique Dias",
+  "name": "MVC na linguagem PHP - II"
+}
+</script>
+
+</head>
+
+<body>
+  <header class="site-header sans">
+  <div class="left site-title">
+    <a href="https://henriquedias.com/">Henrique<strong>Dias</strong></a>
+  </div><div class="right">
+    <nav>
+       <ul>
+           <a href="https://henriquedias.com/"><li>Home</li></a>
+           <a href="https://henriquedias.com/about/"><li>About</li></a>
+       </ul>
+    </nav>
+  </div>
+  <div style="clear:both"></div>
+</header>
+
+
+
+<article>
+  <header >
+  
+  <div class="container sans">
+    <h1>MVC na linguagem PHP - II</h1>
+    <span class="meta sans">
+  <span class="category"><a href="/tutorials">Tutorials</a></span> |
+  Posted on <time datetime="2014-12-19">Dec 19, 2014
+  <span class="tags">
+    
+    #<a href="/tags/framework">Framework</a>&nbsp;
+    
+    #<a href="/tags/mvc">MVC</a>&nbsp;
+    
+    #<a href="/tags/php">PHP</a>&nbsp;
+    
+  </span>
+</span>
+
+  </div>
+</header>
+
+
+  <div class="container">
+  
+
+<p>A pedido de um leitor, decidimos escrever um artigo em que exemplificamos este maravilhoso (ou não) modelo MVC utilizando a linguagem de programação PHP.</p>
+
+<p>Depois de publicarmos a <a href="/mvc-linguagem-php/">primeira parte</a>, onde explicámos a estrutura da pequena <em>framework</em> que iremos criar, aqui está a segunda parte.</p>
+
+<p><img src="/images/mvc02.jpg" alt="Modelo MVC - Uma exemplificação com PHP #2" /></p>
+
+<p>Hoje iremos trabalhar no coração da aplicação, ou seja, na diretoria <code>app_core/libs</code>. Nesta pasta mãe, irão ser colocados todos os ficheiros PHP que serão as classes mãe de todos os outros ficheiros.</p>
+
+<h2 id="bootstrap-php:8c5520c3a68364cd39d5b7074fc8e9f3"><strong>Bootstrap.php</strong></h2>
+
+<p>Vamos começar por criar um ficheiro denominado Bootstrap.php onde iremos colocar todo o seguinte código:</p>
+
+<div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+<span class="sd">/**</span>
+<span class="sd"> * Class Bootstrap</span>
+<span class="sd"> *</span>
+<span class="sd"> * @package MVC PHP Bootstrap</span>
+<span class="sd"> */</span>
+<span class="k">class</span> <span class="nc">Bootstrap</span>
+<span class="p">{</span>
+    <span class="k">private</span> <span class="nv">$_url</span> <span class="o">=</span> <span class="k">null</span><span class="p">;</span>
+    <span class="k">private</span> <span class="nv">$_controller</span> <span class="o">=</span> <span class="k">null</span><span class="p">;</span>
+
+    <span class="k">private</span> <span class="nv">$_errorFile</span> <span class="o">=</span> <span class="s1">&#39;error.php&#39;</span><span class="p">;</span>
+
+    <span class="sd">/**</span>
+<span class="sd">     * Starts the Bootstrap</span>
+<span class="sd">     *</span>
+<span class="sd">     * @return boolean</span>
+<span class="sd">     */</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">init</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">_getUrl</span><span class="p">();</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="k">empty</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">_url</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span> <span class="p">{</span>
+            <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">_url</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;index&#39;</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">_controller</span><span class="p">();</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">_method</span><span class="p">();</span>
+
+        <span class="k">return</span> <span class="k">false</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="sd">/**</span>
+<span class="sd">     * This function get the content of &#39;url&#39; variable</span>
+<span class="sd">     * of HTTP GET method. See the .htaccess for more</span>
+<span class="sd">     * information.</span>
+<span class="sd">     */</span>
+    <span class="k">private</span> <span class="k">function</span> <span class="nf">_getUrl</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="nv">$url</span> <span class="o">=</span> <span class="nb">isset</span><span class="p">(</span><span class="nv">$_GET</span><span class="p">[</span><span class="s1">&#39;url&#39;</span><span class="p">])</span> <span class="o">?</span> <span class="nv">$_GET</span><span class="p">[</span><span class="s1">&#39;url&#39;</span><span class="p">]</span> <span class="o">:</span> <span class="k">null</span><span class="p">;</span>
+        <span class="nv">$url</span> <span class="o">=</span> <span class="nb">rtrim</span><span class="p">(</span><span class="nv">$url</span><span class="p">,</span> <span class="s1">&#39;/&#39;</span><span class="p">);</span>
+        <span class="nv">$url</span> <span class="o">=</span> <span class="nb">filter_var</span><span class="p">(</span><span class="nv">$url</span><span class="p">,</span> <span class="nx">FILTER_SANITIZE_URL</span><span class="p">);</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">_url</span> <span class="o">=</span> <span class="nb">explode</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">,</span> <span class="nv">$url</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="sd">/**</span>
+<span class="sd">     * This function initializes the controller that</span>
+<span class="sd">     * matches with the current url.</span>
+<span class="sd">     *</span>
+<span class="sd">     * @return bool</span>
+<span class="sd">     */</span>
+    <span class="k">private</span> <span class="k">function</span> <span class="nf">_controller</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="nv">$file</span> <span class="o">=</span> <span class="nx">DIR_CONTROLLERS</span> <span class="o">.</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">_url</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">.</span> <span class="s1">&#39;.php&#39;</span><span class="p">;</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="nb">file_exists</span><span class="p">(</span><span class="nv">$file</span><span class="p">))</span> <span class="p">{</span>
+            <span class="k">require</span> <span class="nv">$file</span><span class="p">;</span>
+
+            <span class="nv">$controller</span> <span class="o">=</span> <span class="s2">&quot;Controller&quot;</span> <span class="o">.</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">_url</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+
+            <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">_controller</span> <span class="o">=</span> <span class="k">new</span> <span class="nv">$controller</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">_url</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
+
+            <span class="k">return</span> <span class="k">false</span><span class="p">;</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">_error</span><span class="p">();</span>
+            <span class="k">return</span> <span class="k">false</span><span class="p">;</span>
+        <span class="p">}</span>
+
+    <span class="p">}</span>
+
+    <span class="sd">/**</span>
+<span class="sd">     * This function calls the method depending on the</span>
+<span class="sd">     * url fetched above.</span>
+<span class="sd">     */</span>
+    <span class="k">private</span> <span class="k">function</span> <span class="nf">_method</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="nv">$length</span> <span class="o">=</span> <span class="nb">count</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">_url</span><span class="p">);</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="nv">$length</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nb">method_exists</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">_controller</span><span class="p">,</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">_url</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span> <span class="p">{</span>
+                <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">_error</span><span class="p">();</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+
+        <span class="k">switch</span> <span class="p">(</span><span class="nv">$length</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">case</span> <span class="mi">5</span><span class="o">:</span>
+                <span class="c1">//Controller-&gt;Method(Param1, Param2, Param3)</span>
+                <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">_controller</span><span class="o">-&gt;</span><span class="p">{</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">_url</span><span class="p">[</span><span class="mi">1</span><span class="p">]}(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">_url</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">_url</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">_url</span><span class="p">[</span><span class="mi">4</span><span class="p">]);</span>
+                <span class="k">break</span><span class="p">;</span>
+
+            <span class="k">case</span> <span class="mi">4</span><span class="o">:</span>
+                <span class="c1">//Controller-&gt;Method(Param1, Param2)</span>
+                <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">_controller</span><span class="o">-&gt;</span><span class="p">{</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">_url</span><span class="p">[</span><span class="mi">1</span><span class="p">]}(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">_url</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">_url</span><span class="p">[</span><span class="mi">3</span><span class="p">]);</span>
+                <span class="k">break</span><span class="p">;</span>
+
+            <span class="k">case</span> <span class="mi">3</span><span class="o">:</span>
+                <span class="c1">//Controller-&gt;Method(Param1, Param2)</span>
+                <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">_controller</span><span class="o">-&gt;</span><span class="p">{</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">_url</span><span class="p">[</span><span class="mi">1</span><span class="p">]}(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">_url</span><span class="p">[</span><span class="mi">2</span><span class="p">]);</span>
+                <span class="k">break</span><span class="p">;</span>
+
+            <span class="k">case</span> <span class="mi">2</span><span class="o">:</span>
+                <span class="c1">//Controller-&gt;Method(Param1, Param2)</span>
+                <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">_controller</span><span class="o">-&gt;</span><span class="p">{</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">_url</span><span class="p">[</span><span class="mi">1</span><span class="p">]}();</span>
+                <span class="k">break</span><span class="p">;</span>
+
+            <span class="k">default</span><span class="o">:</span>
+                <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">_controller</span><span class="o">-&gt;</span><span class="na">index</span><span class="p">();</span>
+                <span class="k">break</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="sd">/**</span>
+<span class="sd">     * Display an error page if there&#39;s no controller</span>
+<span class="sd">     * that corresponds with the current url.</span>
+<span class="sd">     */</span>
+    <span class="k">private</span> <span class="k">function</span> <span class="nf">_error</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">require</span> <span class="nx">DIR_CONTROLLERS</span> <span class="o">.</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">_errorFile</span><span class="p">;</span>
+
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">_controller</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ControllerError</span><span class="p">();</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">_controller</span><span class="o">-&gt;</span><span class="na">index</span><span class="p">();</span>
+
+        <span class="k">exit</span><span class="p">;</span>
+    <span class="p">}</span>
+
+<span class="p">}</span>
+</pre></div>
+
+
+<p>O código acima é aquele que irá inicializar todo a aplicação. Em primeiro lugar, gostava de dizer que a estrutura do URL da aplicação será a seguinte:</p>
+
+<div class="highlight"><pre>    http://site/controlador/método/arg1/arg2/<span class="o">[</span>arg...<span class="o">]</span>
+</pre></div>
+
+
+<p>Vamos então ver, por partes, o que faz cada uma das funções declaradas acima.</p>
+
+<h3 id="init:8c5520c3a68364cd39d5b7074fc8e9f3"><code>init</code></h3>
+
+<p>A função <code>init</code> é a função onde tudo começa. Em primeiro lugar, esta função chama a função <code>_getUrl</code> que recebe o URL atual (será analisada mais à frente).</p>
+
+<p>De seguida, esta função define a página como index caso nenhuma página esteja definida no URL. Então a função chama duas outras que iremos ver de seguida.</p>
+
+<h3 id="geturl:8c5520c3a68364cd39d5b7074fc8e9f3"><code>_getUrl</code></h3>
+
+<p>Esta função recebe a variável url que foi passada através do método GET (em breve veremos as modificações que têm que ser efetuadas no <code>.htaccess</code> para que seja passada esta variável).</p>
+
+<p>Aqui é utilizado o <a href="/explanations/operador-ternario/">operador ternário</a> de forma a que a variável<code>$url</code> seja igual a null  caso não haja nenhum conteúdo na variável url que foi passada através do método GET.</p>
+
+<p>Depois é removida a última barra (/) da variável com a função <code>rtrim</code>. De seguida é aplicado um filtro à array  de forma a remover todos os caracteres não permitidos aqui.</p>
+
+<p>Finalmente, a variável do url da classe (<code>$_url</code>) é igualada à &ldquo;explosão&rdquo; da variável <code>$url</code> que se irá tornar num array .</p>
+
+<h3 id="controller:8c5520c3a68364cd39d5b7074fc8e9f3"><code>_controller</code></h3>
+
+<p>Esta função, em primeiro lugar, define o caminho do ficheiro do controlador correspondente ao URL atual. O caminho será igual à constante <code>DIR_CONTROLLERS</code> + a primeira parte do url + a extensão do ficheiro que é <code>.php</code>.</p>
+
+<p>De seguida, é feita a verificação se o controlador em questão existe. Se existir, o controlador é inicializado, caso contrário, o fluxo da aplicação é direcionado para a função de erro (<code>_error</code>).</p>
+
+<h3 id="method:8c5520c3a68364cd39d5b7074fc8e9f3"><code>_method</code></h3>
+
+<p>Esta função é como um GPS: ela é que envia o fluxo para o sítio correto. Isto vai ser feito dependendo do que foi enviado no URL.</p>
+
+<p>Esta função irá executar o método em questão que, caso não seja especificado nenhum, é o método index do controlador em questão.</p>
+
+<h3 id="error:8c5520c3a68364cd39d5b7074fc8e9f3"><code>_error</code></h3>
+
+<p>Finalmente, temos a função de erro que irá inicializar o controlador dos erros. O ficheiro que corresponde a este controlador é definido na variável <code>$_errorFile</code>, que eu coloquei <code>error.php</code>.</p>
+
+<h2 id="controller-php:8c5520c3a68364cd39d5b7074fc8e9f3"><code>Controller.php</code></h2>
+
+<p>De momento, o que foi feito até agora pode aparentar não ter muito sentido, mas com o encaixar das peças tudo irá ser mais claro. Vejamos agora a classe mãe dos Controladores.</p>
+
+<div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+<span class="sd">/**</span>
+<span class="sd"> * Class Controller</span>
+<span class="sd"> *</span>
+<span class="sd"> * @package MVC PHP Bootstrap</span>
+<span class="sd"> */</span>
+<span class="k">class</span> <span class="nc">Controller</span>
+<span class="p">{</span>
+    <span class="sd">/**</span>
+<span class="sd">     * The constructor of this class automatically initializes</span>
+<span class="sd">     * the View and sets the corresponding model path. If the</span>
+<span class="sd">     * model file exists, it calls it.</span>
+<span class="sd">     *</span>
+<span class="sd">     * @param $name</span>
+<span class="sd">     */</span>
+    <span class="k">function</span> <span class="nf">__construct</span><span class="p">(</span><span class="nv">$name</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">view</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">View</span><span class="p">();</span>
+
+        <span class="nv">$path</span> <span class="o">=</span> <span class="nx">ROOT</span> <span class="o">.</span> <span class="s1">&#39;models/&#39;</span> <span class="o">.</span> <span class="nv">$name</span> <span class="o">.</span> <span class="s1">&#39;.php&#39;</span><span class="p">;</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="nb">file_exists</span><span class="p">(</span><span class="nv">$path</span><span class="p">))</span> <span class="p">{</span>
+            <span class="k">require</span> <span class="nv">$path</span><span class="p">;</span>
+
+            <span class="nv">$modelName</span> <span class="o">=</span> <span class="s2">&quot;Model&quot;</span> <span class="o">.</span> <span class="nv">$name</span><span class="p">;</span>
+            <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">model</span> <span class="o">=</span> <span class="k">new</span> <span class="nv">$modelName</span><span class="p">();</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+<span class="p">}</span>
+</pre></div>
+
+
+<p>Esta classe é claramente menos complexa que a anterior e conta apenas com o seu construtor que recebe o nome do controlador e inicializa, automaticamente, a <em>View</em>.</p>
+
+<p>De seguida, o construtor constrói o caminho até ao modelo do controlador em questão, que caso o controlador se chame &ldquo;about&rdquo; , o caminho para o modelo seria <code>ROOT . 'models/about.php'</code>.</p>
+
+<p>Depois é feita a verificação se existe o ficheiro do modelo e, caso este exista, é inicializado o modelo do controlador.</p>
+
+<p>Mas, porque é que esta verificação é feita? Porque nem todas as páginas utilizarão a base de dados. Páginas estáticas como, por exemplo, a página sobre, não necessitam, geralmente, de manipulação de dados.</p>
+
+<h2 id="database-php:8c5520c3a68364cd39d5b7074fc8e9f3"><code>Database.php</code></h2>
+
+<p>A classe Database vai estar intimamente ligada com a classe PDO e será com ela que inicializaremos a ligação à base de dados e não com a PDO, pois a Database  é baseada na PDO. Ora veja:</p>
+
+<div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+<span class="sd">/**</span>
+<span class="sd"> * Class Database</span>
+<span class="sd"> *</span>
+<span class="sd"> * @package MVC PHP Bootstrap</span>
+<span class="sd"> */</span>
+<span class="k">class</span> <span class="nc">Database</span> <span class="k">extends</span> <span class="nx">PDO</span>
+<span class="p">{</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">__construct</span><span class="p">(</span><span class="nv">$DB_TYPE</span><span class="p">,</span> <span class="nv">$DB_HOST</span><span class="p">,</span> <span class="nv">$DB_NAME</span><span class="p">,</span> <span class="nv">$DB_USER</span><span class="p">,</span> <span class="nv">$DB_PASS</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">parent</span><span class="o">::</span><span class="na">__construct</span><span class="p">(</span><span class="nv">$DB_TYPE</span> <span class="o">.</span> <span class="s1">&#39;:host=&#39;</span> <span class="o">.</span> <span class="nv">$DB_HOST</span> <span class="o">.</span> <span class="s1">&#39;;dbname=&#39;</span> <span class="o">.</span> <span class="nv">$DB_NAME</span><span class="p">,</span> <span class="nv">$DB_USER</span><span class="p">,</span> <span class="nv">$DB_PASS</span><span class="p">);</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">exec</span><span class="p">(</span><span class="s2">&quot;SET NAMES &#39;utf8&#39;;&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="sd">/**</span>
+<span class="sd">     * Function used to select something of the database.</span>
+<span class="sd">     *</span>
+<span class="sd">     * @param string $sql An SQL string</span>
+<span class="sd">     * @param array $array Parameters to bind</span>
+<span class="sd">     * @param const|int $fetchMode A PDO Fetch mode</span>
+<span class="sd">     * @return mixed</span>
+<span class="sd">     */</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">select</span><span class="p">(</span><span class="nv">$sql</span><span class="p">,</span> <span class="nv">$array</span> <span class="o">=</span> <span class="k">array</span><span class="p">(),</span> <span class="nv">$fetchMode</span> <span class="o">=</span> <span class="nx">PDO</span><span class="o">::</span><span class="na">FETCH_ASSOC</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$sth</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">prepare</span><span class="p">(</span><span class="nv">$sql</span><span class="p">);</span>
+
+        <span class="k">foreach</span> <span class="p">(</span><span class="nv">$array</span> <span class="k">as</span> <span class="nv">$key</span> <span class="o">=&gt;</span> <span class="nv">$value</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nv">$sth</span><span class="o">-&gt;</span><span class="na">bindValue</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">$key</span><span class="s2">&quot;</span><span class="p">,</span> <span class="nv">$value</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="nv">$sth</span><span class="o">-&gt;</span><span class="na">execute</span><span class="p">();</span>
+        <span class="k">return</span> <span class="nv">$sth</span><span class="o">-&gt;</span><span class="na">fetchAll</span><span class="p">(</span><span class="nv">$fetchMode</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="sd">/**</span>
+<span class="sd">     * Function used to insert things in the database.</span>
+<span class="sd">     *</span>
+<span class="sd">     * @param string $table A name of table to insert into</span>
+<span class="sd">     * @param string $data An associative array</span>
+<span class="sd">     */</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">insert</span><span class="p">(</span><span class="nv">$table</span><span class="p">,</span> <span class="nv">$data</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nb">ksort</span><span class="p">(</span><span class="nv">$data</span><span class="p">);</span>
+
+        <span class="nv">$fieldNames</span> <span class="o">=</span> <span class="nb">implode</span><span class="p">(</span><span class="s1">&#39;`, `&#39;</span><span class="p">,</span> <span class="nb">array_keys</span><span class="p">(</span><span class="nv">$data</span><span class="p">));</span>
+        <span class="nv">$fieldValues</span> <span class="o">=</span> <span class="s1">&#39;:&#39;</span> <span class="o">.</span> <span class="nb">implode</span><span class="p">(</span><span class="s1">&#39;, :&#39;</span><span class="p">,</span> <span class="nb">array_keys</span><span class="p">(</span><span class="nv">$data</span><span class="p">));</span>
+
+        <span class="nv">$sth</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">prepare</span><span class="p">(</span><span class="s2">&quot;INSERT INTO </span><span class="si">$table</span><span class="s2"> (`</span><span class="si">$fieldNames</span><span class="s2">`) VALUES (</span><span class="si">$fieldValues</span><span class="s2">)&quot;</span><span class="p">);</span>
+
+        <span class="k">foreach</span> <span class="p">(</span><span class="nv">$data</span> <span class="k">as</span> <span class="nv">$key</span> <span class="o">=&gt;</span> <span class="nv">$value</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nv">$sth</span><span class="o">-&gt;</span><span class="na">bindValue</span><span class="p">(</span><span class="s2">&quot;:</span><span class="si">$key</span><span class="s2">&quot;</span><span class="p">,</span> <span class="nv">$value</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="nv">$sth</span><span class="o">-&gt;</span><span class="na">execute</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="sd">/**</span>
+<span class="sd">     * Function used to update things on the database.</span>
+<span class="sd">     *</span>
+<span class="sd">     * @param string $table A name of table to insert into</span>
+<span class="sd">     * @param string $data An associative array</span>
+<span class="sd">     * @param string $where the WHERE query part</span>
+<span class="sd">     */</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">update</span><span class="p">(</span><span class="nv">$table</span><span class="p">,</span> <span class="nv">$data</span><span class="p">,</span> <span class="nv">$where</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nb">ksort</span><span class="p">(</span><span class="nv">$data</span><span class="p">);</span>
+        <span class="nv">$fieldDetails</span> <span class="o">=</span> <span class="k">NULL</span><span class="p">;</span>
+
+        <span class="k">foreach</span> <span class="p">(</span><span class="nv">$data</span> <span class="k">as</span> <span class="nv">$key</span> <span class="o">=&gt;</span> <span class="nv">$value</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nv">$fieldDetails</span> <span class="o">.=</span> <span class="s2">&quot;`</span><span class="si">$key</span><span class="s2">`=:</span><span class="si">$key</span><span class="s2">,&quot;</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="nv">$fieldDetails</span> <span class="o">=</span> <span class="nb">rtrim</span><span class="p">(</span><span class="nv">$fieldDetails</span><span class="p">,</span> <span class="s1">&#39;,&#39;</span><span class="p">);</span>
+
+        <span class="nv">$sth</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">prepare</span><span class="p">(</span><span class="s2">&quot;UPDATE </span><span class="si">$table</span><span class="s2"> SET </span><span class="si">$fieldDetails</span><span class="s2"> WHERE </span><span class="si">$where</span><span class="s2">&quot;</span><span class="p">);</span>
+
+        <span class="k">foreach</span> <span class="p">(</span><span class="nv">$data</span> <span class="k">as</span> <span class="nv">$key</span> <span class="o">=&gt;</span> <span class="nv">$value</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nv">$sth</span><span class="o">-&gt;</span><span class="na">bindValue</span><span class="p">(</span><span class="s2">&quot;:</span><span class="si">$key</span><span class="s2">&quot;</span><span class="p">,</span> <span class="nv">$value</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="nv">$sth</span><span class="o">-&gt;</span><span class="na">execute</span><span class="p">();</span>
+
+    <span class="p">}</span>
+
+    <span class="sd">/**</span>
+<span class="sd">     * Function used to delete things from the database.</span>
+<span class="sd">     *</span>
+<span class="sd">     * @param string $table</span>
+<span class="sd">     * @param string $where</span>
+<span class="sd">     * @param integer $limit</span>
+<span class="sd">     * @return integer Affected Rows</span>
+<span class="sd">     */</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">delete</span><span class="p">(</span><span class="nv">$table</span><span class="p">,</span> <span class="nv">$where</span><span class="p">,</span> <span class="nv">$limit</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">exec</span><span class="p">(</span><span class="s2">&quot;DELETE FROM </span><span class="si">$table</span><span class="s2"> WHERE </span><span class="si">$where</span><span class="s2"> LIMIT </span><span class="si">$limit</span><span class="s2">&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+
+<span class="p">}</span>
+</pre></div>
+
+
+<p>Não há muito a falar sobre esta classe visto que ela contém apenas algumas funções para agilizar diversas operações como inserções na base de dados, seleções, atualizações e eliminações.</p>
+
+<p>Acrescento que o construtor deve receber todos aqueles itens que escrevemos nas constantes da configuração: todos os dados relativos à conexão à Base de Dados.</p>
+
+<h2 id="model-php:8c5520c3a68364cd39d5b7074fc8e9f3"><code>Model.php</code></h2>
+
+<p>Vejamos então a classe superior de todos os modelos que irão constituir a nossa aplicação:</p>
+
+<div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+<span class="sd">/**</span>
+<span class="sd"> * Class Model</span>
+<span class="sd"> *</span>
+<span class="sd"> * @package MVC PHP Bootstrap</span>
+<span class="sd"> */</span>
+<span class="k">class</span> <span class="nc">Model</span>
+<span class="p">{</span>
+    <span class="sd">/**</span>
+<span class="sd">     * The constructor of this class automatically initializes</span>
+<span class="sd">     * the Database.</span>
+<span class="sd">     */</span>
+    <span class="k">function</span> <span class="nf">__construct</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">db</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Database</span><span class="p">(</span><span class="nx">DB_TYPE</span><span class="p">,</span> <span class="nx">DB_HOST</span><span class="p">,</span> <span class="nx">DB_NAME</span><span class="p">,</span> <span class="nx">DB_USER</span><span class="p">,</span> <span class="nx">DB_PASS</span><span class="p">);</span>
+    <span class="p">}</span>
+
+<span class="p">}</span>
+</pre></div>
+
+
+<p>Como pode ver, a classe é pequena e o seu construtor apenas inicializa uma instância da conexão à Base de Dados que será utilizada em todos os modelos.</p>
+
+<h2 id="view-php:8c5520c3a68364cd39d5b7074fc8e9f3"><code>View.php</code></h2>
+
+<p>O modelo da <em>View</em> que já foi muito falado acima também é muito pequeno.</p>
+
+<div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+<span class="sd">/**</span>
+<span class="sd"> * Class View</span>
+<span class="sd"> *</span>
+<span class="sd"> * @package MVC PHP Bootstrap</span>
+<span class="sd"> */</span>
+<span class="k">class</span> <span class="nc">View</span>
+<span class="p">{</span>
+    <span class="k">protected</span> <span class="nv">$_data</span><span class="p">;</span>
+
+    <span class="k">function</span> <span class="nf">__construct</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="c1">//Views Contruct</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">render</span><span class="p">(</span><span class="nv">$name</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">require</span> <span class="nx">DIR_VIEWS</span> <span class="o">.</span> <span class="s1">&#39;header.php&#39;</span><span class="p">;</span>
+        <span class="k">require</span> <span class="nx">DIR_VIEWS</span> <span class="o">.</span> <span class="nv">$name</span> <span class="o">.</span> <span class="s1">&#39;.php&#39;</span><span class="p">;</span>
+        <span class="k">require</span> <span class="nx">DIR_VIEWS</span> <span class="o">.</span> <span class="s1">&#39;footer.php&#39;</span><span class="p">;</span>
+
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">setData</span><span class="p">(</span><span class="nv">$data</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">_data</span> <span class="o">=</span> <span class="nv">$data</span><span class="p">;</span>
+    <span class="p">}</span>
+
+<span class="p">}</span>
+</pre></div>
+
+
+<p>Neste é inicializada uma variável chamada <code>$_data </code> que irá conter todo o conteúdo que deverá ser enviado para o HTML de forma a ser imprimido.</p>
+
+<p>Temos também a função render  que é aquela que vai incluir (ou requerer) todos os ficheiros para serem apresentados. Dividi os ficheiros em três partes: o cabeçalho (<em>header</em>), o principal e o rodapé (<em>footer</em>).</p>
+
+<p>Temos, por fim, a função setData que será utilizada para definir a variável da vista. Utilizei uma função para não haver manipulação direta das variáveis da classe.</p>
+
+<blockquote>
+<p>Provavelmente reparou que coloquei vários comentário em Inglês. No final desta saga de artigos vou colocar esta <em>framework</em> simples no GitHub de forma a que todos os que queiram possam contribuir ou até mesmo utilizar. :)</p>
+</blockquote>
+
+<p>Até ao próximo artigo. O principal já está feito. Faltam os dois ficheiros que iniciarão tudo (e mais algumas coisinhas).</p>
+
+  </div>
+
+  
+  <footer class="container">
+  <div class="addthis_sharing_toolbox"></div>
+  <div class="post-navigation">
+    <a href="https://henriquedias.com/tutorials/mvc-linguagem-php"><div class="prev">Previous</div></a>
+    <a href="https://henriquedias.com/tutorials/mvc-linguagem-php-iii"><div class="next">Next</div></a>
+  </div>
+  <div style="clear:both"></div>
+  <div class="discussion">
+  <div class="sans">
+    <h2>Discussion</h2>
+  </div>
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'hacdias';
+    var disqus_identifier = 'https:\/\/henriquedias.com\/tutorials\/mvc-linguagem-php-ii';
+    var disqus_title = 'MVC na linguagem PHP - II';
+    var disqus_url = 'https:\/\/henriquedias.com\/tutorials\/mvc-linguagem-php-ii';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+</footer>
+
+  
+</article>
+
+<footer class="site-footer">
+  <div class="division">
+    <h3>Social</h3>
+    <nav>
+       <ul class="social">
+         <a href="https://twitter.com/hacdias"><li class="twitter">Twitter</li></a>
+         <a href="https://facebook.com/hacdias"><li class="fb">Facebook</li></a>
+         <a href="https://github.com/hacdias"><li class="gh">GitHub</li></a>
+        <a href="https://www.linkedin.com/in/hacdias"><li class="linkin">LinkedIn</li></a>
+         <a href="https://plus.google.com/+HenriqueDias"><li class="gplus">Google Plus</li></a>
+         <a href="https://instagram.com/hacdias"><li class="insta">Instagram</li></a>
+         <a href="https://youtube.com/channel/UCEJe-YgDEvr351w1oNjzolw"><li class="yt">YouTube</li></a>
+       </ul>
+    </nav>
+  </div><div class="division">
+    <h3>More things</h3>
+    <nav>
+       <ul>
+           <a href="https://henriquedias.com/"><li>Home</li></a>
+           <a href="https://henriquedias.com/about/"><li>About</li></a>
+           <a href="https://henriquedias.com/contact/"><li>Contact</li></a>
+           <a href="https://henriquedias.com/projects/"><li>Projects</li></a>
+           <a href="https://henriquedias.com/publications/"><li>Publications</li></a>
+       </ul>
+    </nav>
+  </div><div class="division">
+    &copy; Henrique Dias 2015<br>
+    <small>Email <a href="mailto:me@henriquedias.com">me@henriquedias.com</a><br>
+    All of the code is licensed with <a href="http://opensource.org/licenses/MIT">MIT license</a>.</small>
+  </div>
+</footer>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-59697241-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-55a225a57b261aa9" async="async"></script>
+
+</body>
+</html>
+

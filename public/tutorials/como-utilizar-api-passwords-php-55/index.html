@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en-us">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Como utilizar a API de Passwords do PHP 5.5&#43; | Henrique Dias</title>
+<meta name="description" content="A API de passwords introduzida na versão 5.5 do PHP é excelente. Trouxe quatro novas maravilhosas funções. Resumimos a forma como cada uma funciona.">
+<link rel="canonical" href="https://henriquedias.com/tutorials/como-utilizar-api-passwords-php-55">
+<link rel="publisher" href="https://plus.google.com/+HenriqueDias"/>
+
+<meta property="og:locale" content="en-us" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Como utilizar a API de Passwords do PHP 5.5&#43; | Henrique Dias" />
+<meta property="og:description" content="A API de passwords introduzida na versão 5.5 do PHP é excelente. Trouxe quatro novas maravilhosas funções. Resumimos a forma como cada uma funciona." />
+<meta property="og:url" content="https://henriquedias.com/tutorials/como-utilizar-api-passwords-php-55" />
+<meta property="og:site_name" content="Henrique Dias | A CompSci Enthusiast" />
+<meta property="article:publisher" content="https://www.facebook.com/hacdias" />
+<meta property="article:author" content="https://www.facebook.com/hacdias" />
+<meta property="article:tag" content="Dicas, PHP, segurança, úteis" />
+<meta property="article:section" content="Tutorials" />
+<meta property="article:published_time" content="2014-08-20T22:16:15Z" />
+<meta property="article:modified_time" content="2014-08-20T22:16:15Z" />
+<meta property="og:updated_time" content="2014-08-20T22:16:15Z" /> 
+<meta property="og:image" content="https://henriquedias.com/images/home.jpg" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:description" content="A API de passwords introduzida na versão 5.5 do PHP é excelente. Trouxe quatro novas maravilhosas funções. Resumimos a forma como cada uma funciona."/>
+<meta name="twitter:title" content="Como utilizar a API de Passwords do PHP 5.5&#43; | Henrique Dias"/>
+<meta name="twitter:site" content="@hacdias"/>
+<meta name="twitter:domain" content="Henrique Dias"/>
+<meta name="twitter:image:src" content="https://henriquedias.com/images/home.jpg"/>
+<meta name="twitter:creator" content="@hacdias"/>
+
+<meta name="msvalidate.01" content="B471CBBC9EF6900039C6BBF251EF277C" />
+<meta name="google-site-verification" content="nVQ4_x6m6ZTRAzclMPNxpB0iMgK-xoIj_d-l85u32nY" />
+
+
+
+
+<link rel="shortcut icon" href="https://henriquedias.com/favicon.ico" type="image/x-icon">
+<link rel="icon" href="https://henriquedias.com/favicon.ico" type="image/x-icon">
+
+<link rel="stylesheet" href="https://henriquedias.com/css/normalize.min.css">
+<link rel="stylesheet" href="https://henriquedias.com/css/main.min.css">
+
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Person",
+  "email": "mailto:hacdias@gmail.com",
+  "image": "https:\/\/henriquedias.com\/henrique.png",
+  "jobTitle": "Author",
+  "name": "Henrique Dias",
+  "telephone": "351 965 856 140",
+  "url": "https:\/\/henriquedias.com\/",
+  "sameAs" : [ "http://www.facebook.com/hacdias",
+      "http://twitter.com/hacdias",
+      "http://instagram.com/hacdias",
+      "http://www.linkedin.com/in/hacdias",
+      "http://plus.google.com/+HenriqueDias"]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "author": "Henrique Dias",
+  "name": "Como utilizar a API de Passwords do PHP 5.5\x2b"
+}
+</script>
+
+</head>
+
+<body>
+  <header class="site-header sans">
+  <div class="left site-title">
+    <a href="https://henriquedias.com/">Henrique<strong>Dias</strong></a>
+  </div><div class="right">
+    <nav>
+       <ul>
+           <a href="https://henriquedias.com/"><li>Home</li></a>
+           <a href="https://henriquedias.com/about/"><li>About</li></a>
+       </ul>
+    </nav>
+  </div>
+  <div style="clear:both"></div>
+</header>
+
+
+
+<article>
+  <header >
+  
+  <div class="container sans">
+    <h1>Como utilizar a API de Passwords do PHP 5.5&#43;</h1>
+    <span class="meta sans">
+  <span class="category"><a href="/tutorials">Tutorials</a></span> |
+  Posted on <time datetime="2014-08-20">Aug 20, 2014
+  <span class="tags">
+    
+    #<a href="/tags/dicas">Dicas</a>&nbsp;
+    
+    #<a href="/tags/php">PHP</a>&nbsp;
+    
+    #<a href="/tags/seguranca">segurança</a>&nbsp;
+    
+    #<a href="/tags/uteis">úteis</a>&nbsp;
+    
+  </span>
+</span>
+
+  </div>
+</header>
+
+
+  <div class="container">
+  
+
+<p>Como muitas das novidades introduzidas na <a href="http://php.net/manual/en/migration55.changes.php">versão 5.5</a> do PHP, a API de passwords não passou despercebida aos desenvolvedores. Hoje vamos falar da criação de hash de passwords utilizando esta API.</p>
+
+<p><img src="/images/api_passwords.jpg" alt="Como utilizar a API de Passwords do PHP 5.5+" /></p>
+
+<p>Antes de começarmos a analisar como se criam as passwords, vamos ver que novas funções trouxe <a href="http://php.net/manual/en/book.password.php">esta API</a> para o PHP:</p>
+
+<ul>
+<li><code>password_get_info</code></li>
+<li><code>password_hash</code></li>
+<li><code>password_needs_rehash</code></li>
+<li><code>password_verify</code></li>
+</ul>
+
+<p>Cada uma tem uma função diferente porém estão todas relacionadas. Assim, vamos falar de cada uma destas funções. Vamos começar!</p>
+
+<h2 id="password-hash:f2cd69faba962abe878d8e6257d3bccb">password_hash</h2>
+
+<p>Esta função pode ser considerada a principal do conjunto pois é com ela que criamos as <em>hash</em> e deve ser utilizada da seguinte forma:</p>
+
+<div class="highlight"><pre><span class="x">$password = &#39;a_minha_password&#39;;</span>
+
+<span class="x">/*</span>
+<span class="x"> * Da seguinte forma podemos gerar a hash de uma password</span>
+<span class="x"> * utilizando o algoritmo que está definido em DEFAULT.</span>
+<span class="x"> *</span>
+<span class="x"> * Na versão 5.5.0 do PHP este algoritmo correponde ao BCRYPT</span>
+<span class="x"> *</span>
+<span class="x"> * A hash vai ter o comprimento de, no mínimo, 60 caracteres.</span>
+<span class="x"> * Este comprimento pode alterar em novas versões do PHP.</span>
+<span class="x"> */</span>
+<span class="x">password_hash($password, PASSWORD_DEFAULT);</span>
+</pre></div>
+
+
+<p>Podemos ainda definir alguns parâmetros opcionais nomeadamente o <code>cost</code> (&ldquo;custo&rdquo;) e o <code>salt</code> (&ldquo;sal&rdquo;) da seguinte forma:</p>
+
+<div class="highlight"><pre><span class="x">$password = &#39;a_minha_password&#39;;</span>
+
+<span class="x">/*</span>
+<span class="x"> * Da seguinte forma podemos gerar a hash de uma password</span>
+<span class="x"> * utilizando o algoritmo BCRYPT.</span>
+<span class="x"> *</span>
+<span class="x"> * Podemos definir duas opções no terceiro parâmetro:</span>
+<span class="x"> *  COST  =&gt;  Por padrão, será criado um novo por cada nova</span>
+<span class="x"> * hash criada porém pode ser definido.</span>
+<span class="x"> *</span>
+<span class="x"> *  SALT  =&gt;  Por padrão, o valor 10 irá ser utilizado porém</span>
+<span class="x"> * pode ser alterado à semelhança do anterior.</span>
+<span class="x"> */</span>
+
+<span class="x">$options = array(</span>
+<span class="x">    &#39;cost&#39;  =&gt; 13,</span>
+<span class="x">    &#39;salt&#39;  =&gt; mcrypt_create_iv(25, MCRYPT_DEV_URANDOM)</span>
+<span class="x">  );</span>
+
+<span class="x">password_hash($password, PASSWORD_BCRYPT, $options);</span>
+</pre></div>
+
+
+<p>Acrescento ainda que a função retornará <code>false</code> em caso de erro.</p>
+
+<h2 id="password-verify:f2cd69faba962abe878d8e6257d3bccb">password_verify</h2>
+
+<p>Depois de criarmos a <em>hash</em> vamos precisar de, evidentemente, confirmá-la. Para confirmar se uma password corresponde a uma hash basta utilizarmos esta função da seguinte forma:</p>
+
+<div class="highlight"><pre><span class="x">/*</span>
+<span class="x"> * Para utilizar esta função basta colocar a password</span>
+<span class="x"> * a verificar no primeiro parâmetro e a hash no segundo.</span>
+<span class="x"> *</span>
+<span class="x"> * Não precisa de se preocupar se colocou algum &quot;salt&quot; ou</span>
+<span class="x"> * &quot;cost&quot; personalizados pois esta informação está embutida</span>
+<span class="x"> * na hash.</span>
+<span class="x"> *</span>
+<span class="x"> * A função irá returnar os valores &quot;true&quot; ou &quot;false&quot;.</span>
+<span class="x"> */</span>
+
+<span class="x">$password = &#39;teste&#39;;</span>
+<span class="x">$hash = &#39;$2y$10$M.3t0/gmB12IrSETmINf7uy9XhruDrmB8vjaktfd5vC8AfVPH695.&#39;;</span>
+
+<span class="x">password_verify($password, $hash);</span>
+</pre></div>
+
+
+<h2 id="password-get-info:f2cd69faba962abe878d8e6257d3bccb">password_get_info</h2>
+
+<p>Esta informação permite-nos obter a informação acerca de uma hash. A informação obtida corresponde ao algoritmo, o seu nome e as opções dadas quando criámos a hash. Exemplo:</p>
+
+<div class="highlight"><pre><span class="x">//Criação de uma hash de exemplo</span>
+
+<span class="x">$options = array(</span>
+<span class="x">    &#39;cost&#39;  =&gt; 13,</span>
+<span class="x">    &#39;salt&#39;  =&gt; mcrypt_create_iv(25, MCRYPT_DEV_URANDOM)</span>
+<span class="x">  );</span>
+
+<span class="x">$hash = password_hash(&#39;a_minha_password&#39;, PASSWORD_BCRYPT, $options);</span>
+
+<span class="x">/*</span>
+<span class="x"> * Utilizando a função password_get_info, vamos obter as diversas opções</span>
+<span class="x"> * enviadas quando criámos a hash.</span>
+<span class="x"> */</span>
+
+<span class="x">$info = password_get_info($hash);</span>
+
+<span class="x">/*</span>
+<span class="x"> * Assim, var_dump($info) irá retornar o seguinte:</span>
+<span class="x"> *</span>
+<span class="x"> * array(3) {</span>
+<span class="x"> * 	[&quot;algo&quot;]=&gt; int(1)</span>
+<span class="x"> *	[&quot;algoName&quot;]=&gt; string(6) &quot;bcrypt&quot;</span>
+<span class="x"> *	[&quot;options&quot;]=&gt; array(1)</span>
+<span class="x"> *		{ [&quot;cost&quot;]=&gt; int(13) }</span>
+<span class="x"> *	}</span>
+<span class="x"> */</span>
+</pre></div>
+
+
+<h2 id="password-needs-rehash:f2cd69faba962abe878d8e6257d3bccb">password_needs_rehash</h2>
+
+<p>Esta função permite-nos confirmar se uma hash já criada corresponde a uma array de opções e a um algoritmos. Podem observar mais no seguinte exemplo:</p>
+
+<div class="highlight"><pre><span class="x">//Criação de uma hash de exemplo</span>
+
+<span class="x">$options = array(</span>
+<span class="x">    &#39;cost&#39;  =&gt; 13,</span>
+<span class="x">    &#39;salt&#39;  =&gt; mcrypt_create_iv(25, MCRYPT_DEV_URANDOM)</span>
+<span class="x">  );</span>
+
+<span class="x">$hash = password_hash(&#39;a_minha_password&#39;, PASSWORD_BCRYPT, $options);</span>
+
+<span class="x">/*</span>
+<span class="x"> * A função seguinte irá retornar true porque todas as opções corresponde</span>
+<span class="x"> * às que foram dadas anteriormente.</span>
+<span class="x"> */</span>
+
+<span class="x">password_needs_rehash($hash, 0, $options);</span>
+</pre></div>
+
+
+<p>Se tiver qualquer dúvida relacionada ao segundo parâmetro da função, sugiro-lhe a leitura <a href="http://php.net/manual/pt_BR/password.constants.php">desta página</a> e também que verifique os valores obtidos com <code>password_get_info</code>.</p>
+
+<p>Espero que dê bom uso a esta função :)</p>
+
+  </div>
+
+  
+  <footer class="container">
+  <div class="addthis_sharing_toolbox"></div>
+  <div class="post-navigation">
+    <a href="https://henriquedias.com/tutorials/como-utilizar-o-bower-um-gestor-de-pacotes-web"><div class="prev">Previous</div></a>
+    <a href="https://henriquedias.com/general/papers-we-love-um-dos-melhores-repositorios-github"><div class="next">Next</div></a>
+  </div>
+  <div style="clear:both"></div>
+  <div class="discussion">
+  <div class="sans">
+    <h2>Discussion</h2>
+  </div>
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'hacdias';
+    var disqus_identifier = 'https:\/\/henriquedias.com\/tutorials\/como-utilizar-api-passwords-php-55';
+    var disqus_title = 'Como utilizar a API de Passwords do PHP 5.5\x2b';
+    var disqus_url = 'https:\/\/henriquedias.com\/tutorials\/como-utilizar-api-passwords-php-55';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+</footer>
+
+  
+</article>
+
+<footer class="site-footer">
+  <div class="division">
+    <h3>Social</h3>
+    <nav>
+       <ul class="social">
+         <a href="https://twitter.com/hacdias"><li class="twitter">Twitter</li></a>
+         <a href="https://facebook.com/hacdias"><li class="fb">Facebook</li></a>
+         <a href="https://github.com/hacdias"><li class="gh">GitHub</li></a>
+        <a href="https://www.linkedin.com/in/hacdias"><li class="linkin">LinkedIn</li></a>
+         <a href="https://plus.google.com/+HenriqueDias"><li class="gplus">Google Plus</li></a>
+         <a href="https://instagram.com/hacdias"><li class="insta">Instagram</li></a>
+         <a href="https://youtube.com/channel/UCEJe-YgDEvr351w1oNjzolw"><li class="yt">YouTube</li></a>
+       </ul>
+    </nav>
+  </div><div class="division">
+    <h3>More things</h3>
+    <nav>
+       <ul>
+           <a href="https://henriquedias.com/"><li>Home</li></a>
+           <a href="https://henriquedias.com/about/"><li>About</li></a>
+           <a href="https://henriquedias.com/contact/"><li>Contact</li></a>
+           <a href="https://henriquedias.com/projects/"><li>Projects</li></a>
+           <a href="https://henriquedias.com/publications/"><li>Publications</li></a>
+       </ul>
+    </nav>
+  </div><div class="division">
+    &copy; Henrique Dias 2015<br>
+    <small>Email <a href="mailto:me@henriquedias.com">me@henriquedias.com</a><br>
+    All of the code is licensed with <a href="http://opensource.org/licenses/MIT">MIT license</a>.</small>
+  </div>
+</footer>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-59697241-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-55a225a57b261aa9" async="async"></script>
+
+</body>
+</html>
+
