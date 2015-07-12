@@ -1,4 +1,4 @@
-<meta property="og:locale" content="en_UK" />
+<meta property="og:locale" content="{{ .Site.LanguageCode }}" />
 <meta property="og:type" content="{{ if .IsHome }}website{{ else }}article{{ end }}" />
 <meta property="og:title" content="{{ .Title }} | {{ if .IsHome }}A CompSci Enthusiast{{ else }}{{ .Site.Title }}{{ end }}" />
 <meta property="og:description" content="{{ if .Description }}{{ .Description }}{{ else }}{{ .Site.Params.Description }}{{ end }}" />
