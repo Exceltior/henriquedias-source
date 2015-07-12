@@ -1,12 +1,12 @@
 {{ partial "header" . }}
 
 <article>
-  {{ partial "article.header" . }}
+  {{ partial "article/header" . }}
 
   <main role="main" class="container">
     {{ $paginator := .Paginate (where .Data.Pages "Type" "post") }}
     {{ range $paginator.Pages }}
-    {{ partial "article.summary" . }}
+    {{ partial "article/summary" . }}
     {{ end }}
     {{ template "_internal/pagination.html" . }}
   </main>

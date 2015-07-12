@@ -7,7 +7,7 @@
 <main role="main" class="container">
   {{ $paginator := .Paginate (where .Data.Pages "Type" "post") }}
   {{ range $paginator.Pages }}
-  {{ partial "article.summary" . }}
+  {{ partial "article/summary" . }}
   {{ end }}
   {{ template "_internal/pagination.html" . }}
 </main>

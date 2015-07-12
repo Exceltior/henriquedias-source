@@ -1,14 +1,14 @@
 {{ partial "header" . }}
 
 <article>
-  {{ partial "article.header" . }}
+  {{ partial "article/header" . }}
 
   <div class="container">
   {{ .Content }}
   </div>
 
   {{ if eq .Type "post" }}
-  {{ partial "article.footer" . }}
+  {{ partial "article/footer" . }}
   {{ end }}
 </article>
 

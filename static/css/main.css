@@ -379,6 +379,7 @@ article footer .post-navigation div.next {
 
 .pagination > li {
   display: inline;
+  line-height: 2.5;
 }
 
 .pagination > li > a,
@@ -386,8 +387,9 @@ article footer .post-navigation div.next {
   transition: .2s ease all;
   position: relative;
   padding: 6px 12px;
+  box-sizing: border-box;
   margin-left: -1px;
-  line-height: 1.42857143;
+  line-height: 1.456;
   color: #fff;
   text-decoration: none;
   background-color: #5D7344;

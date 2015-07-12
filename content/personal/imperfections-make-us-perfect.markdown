@@ -12,7 +12,7 @@ tags:
 - Imperfection
 ---
 
-Sometimes, I look throught a window. My bedroom window. It faces the road. I see cars. There are thousand of them. All different: in shape, in colour, in size. But that's only the outside. Their inside is all made of the same essence.
+Sometimes, I look through a window. My bedroom window. It faces the road. I see cars. There are thousand of them. All different: in shape, in colour, in size. But that's only the outside. Their inside is all made of the same essence.
 
 ## Racism
 
