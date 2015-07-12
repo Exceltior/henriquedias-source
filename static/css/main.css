@@ -552,3 +552,13 @@ form input[type="submit"]:hover {
     display: none;
   }
 }
+
+#particles-js {
+  background-color: #043564;
+  background-image: url(/images/nyan.gif);
+  background-size: 60%;
+  background-position: 0 50%;
+  background-repeat: no-repeat;
+  margin-top: -3em;
+  margin-bottom: -1.5em;
+}
