@@ -1,6 +1,6 @@
 hugo
 cd public
-git add -A
-git commit -m "update website"
-git push origin master
+git --git-dir=.git --work-tree=. add -A
+git --git-dir=.git --work-tree=. commit -m "update website"
+git --git-dir=.git --work-tree=. push origin master
 cd ..
