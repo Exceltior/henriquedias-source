@@ -1,7 +1,15 @@
 {{ partial "header" . }}
 
-{{ $paginator := .Paginate (where .Data.Pages "Type" "post") }}
-{{ template "_internal/pagination.html" . }}
-{{ range $paginator.Pages }}
-   {{ .Title }} <br>
-{{ end }}
+<article>
+  {{ partial "article.header" . }}
+
+  <main role="main" class="container">
+    {{ $paginator := .Paginate (where .Data.Pages "Type" "post") }}
+    {{ range $paginator.Pages }}
+    {{ partial "article.summary" . }}
+    {{ end }}
+    {{ template "_internal/pagination.html" . }}
+  </main>
+</article>
+
+</div>

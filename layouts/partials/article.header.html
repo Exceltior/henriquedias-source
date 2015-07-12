@@ -1,0 +1,9 @@
+<header {{ if isset .Params "image" }}class="imaged"{{ end }}>
+  {{ if isset .Params "image" }}
+  <div class="banner" style="background-image: url('{{ .Site.BaseURL }}{{ .Params.image }}')"></div>
+  {{ end }}
+  <div class="container sans">
+    <h1>{{ .Title }}</h1>
+    {{ if .IsPage }}{{ if eq .Type "post" }}{{ partial "article.meta" . }}{{ end }}{{ end }}
+  </div>
+</header>

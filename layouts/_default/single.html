@@ -1,13 +1,15 @@
 {{ partial "header" . }}
 
-<section id="main">
-  <h1 id="title">{{ .Title }}</h1>
-  <div>
-        <article id="content">
-           {{ .Content }}
-        </article>
-  </div>
-</section>
+<article>
+  {{ partial "article.header" . }}
 
-{{ template "_internal/disqus.html" . }}
+  <div class="container">
+  {{ .Content }}
+  </div>
+
+  {{ if eq .Type "post" }}
+  {{ partial "article.footer" . }}
+  {{ end }}
+</article>
+
 {{ partial "footer" . }}

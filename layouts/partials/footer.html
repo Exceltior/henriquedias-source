@@ -1,6 +1,38 @@
-<footer class="site-footer sans">
-About | Projects | Publications | Contact
+<footer class="site-footer">
+  <div class="division">
+    <h3>Social</h3>
+    <nav>
+       <ul class="social">
+         <a href="https://twitter.com/{{ .Site.Social.Twitter }}"><li class="twitter">Twitter</li></a>
+         <a href="https://facebook.com/{{ .Site.Social.Facebook }}"><li class="fb">Facebook</li></a>
+         <a href="https://github.com/{{ .Site.Social.GitHub }}"><li class="gh">GitHub</li></a>
+        <a href="https://www.linkedin.com/in/{{ .Site.Social.Linkedin }}"><li class="linkin">LinkedIn</li></a>
+         <a href="https://plus.google.com/+{{ .Site.Social.GooglePlus }}"><li class="gplus">Google Plus</li></a>
+         <a href="https://instagram.com/{{ .Site.Social.Instagram }}"><li class="insta">Instagram</li></a>
+         <a href="https://youtube.com/channel/{{ .Site.Social.YouTube }}"><li class="yt">YouTube</li></a>
+       </ul>
+    </nav>
+  </div><div class="division">
+    <h3>More things</h3>
+    <nav>
+       <ul>
+           <a href="{{ .Site.BaseURL }}"><li>Home</li></a>
+           <a href="{{ .Site.BaseURL }}about/"><li>About</li></a>
+           <a href="{{ .Site.BaseURL }}contact/"><li>Contact</li></a>
+           <a href="{{ .Site.BaseURL }}projects/"><li>Projects</li></a>
+           <a href="{{ .Site.BaseURL }}publications/"><li>Publications</li></a>
+       </ul>
+    </nav>
+  </div><div class="division">
+    &copy; Henrique Dias 2015<br>
+    <small>Email <a href="mailto:me@henriquedias.com">me@henriquedias.com</a><br>
+    All of the code is licensed with <a href="http://opensource.org/licenses/MIT">MIT license</a>.</small>
+  </div>
 </footer>
+
 {{ partial "analytics.html" . }}
+{{ if .IsPage }}{{ if eq .Type "post" }}
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-55a225a57b261aa9" async="async"></script>
+{{ end }}{{ end }}
 </body>
 </html>
