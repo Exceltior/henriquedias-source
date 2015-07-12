@@ -1,12 +1,15 @@
 ---
 type:           post
 title:          "Imperfections make us perfect"
-date:           2015-07-15
-draft:          true
-description:    ""
+date:           2015-07-12 13:45:00+00:00
+description:    "I was thinking about why there are people who think we are perfect. This is a little reflexion about it and about those people."
+image:          "images/imperfections_wood.jpg"
 categories:
 - Personal
 tags:
+- Reflexion
+- Opinion
+- Imperfection
 ---
 
 Sometimes, I look throught a window. My bedroom window. It faces the road. I see cars. There are thousand of them. All different: in shape, in colour, in size. But that's only the outside. Their inside is all made of the same essence.
