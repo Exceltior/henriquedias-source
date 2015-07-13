@@ -16,6 +16,6 @@ tags:
 
 Do you know? Today is the Pi Day 2015. Below there is a small video I made about this marvelous day.
 
-<iframe width="100%" height="auto" src="https://www.youtube.com/embed/AtwPGZ9VioE" frameborder="0" allowfullscreen></iframe>
+{{< youtube AtwPGZ9VioE >}}
 
 I hope you enjoy :)
