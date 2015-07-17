@@ -2,7 +2,7 @@
 type:           post
 draft:          true
 title:          "Stop complaining. Do!"
-date:           2015-07-17 10:00:00+00:00
+date:           2015-07-16 10:00:00+00:00
 image:          "images/change-the-world.jpg"
 description:    "Everyday I hear people complaining about almost everything. Complaining leads to nowhere. You have to DO!"
 categories:
