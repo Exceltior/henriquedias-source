@@ -188,7 +188,6 @@ header.imaged .banner {
   border-left: 0.4em solid white;
   padding-left: 0.4em;
   box-sizing: border-box;
-  margin: 0.3em 0;
 }
 
 .social .twitter {
@@ -468,6 +467,9 @@ form input[type="submit"]:hover {
   .site-footer .division {
     width: 100%;
   }
+  .division nav li {
+    margin: .3em 0;
+  }
 }
 
 @media print {
@@ -508,6 +510,7 @@ form input[type="submit"]:hover {
 	padding-top: 25px;
 	height: 0;
 }
+
 .video-player iframe {
 	position: absolute;
 	top: 0;
