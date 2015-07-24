@@ -24,6 +24,29 @@ img {
   max-width: 100%;
 }
 
+img.right,
+img.left {
+  max-width: 50%;
+}
+
+img.right {
+  float: right;
+  margin: 0 0 1em 1em;
+}
+
+img.left {
+  float: left;
+  margin: 0 1em 1em 0;
+}
+
+img.rounded {
+  border-radius: 50%;
+}
+
+hr {
+  border-style: ridge;
+}
+
 p {
   margin: 1.5em 0;
 }
