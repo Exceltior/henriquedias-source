@@ -1,6 +1,5 @@
 ---
 type:           post
-draft:          true
 title:          "Stop complaining. Do!"
 date:           2015-07-27 08:00:00+00:00
 image:          "images/change-the-world.jpg"
