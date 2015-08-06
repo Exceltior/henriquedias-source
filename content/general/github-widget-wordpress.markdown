@@ -35,4 +35,4 @@ To workaround that "problem", we made use of WordPress options to cache the info
 
 If you don't want to use the cache, set the option to 0 minutes. But if you do that, you should use a token so you don't have problems with the limit of calls. The code is **open source** on [GitHub](https://github.com/refactors/github-profile-widget).
 
-Luís Soares also [wrote an article](luissoares.com/widget-para-o-github/) about this plugin. We hope you enjoy!
+Luís Soares also [wrote an article](http://luissoares.com/widget-para-o-github/) about this plugin. We hope you enjoy!
