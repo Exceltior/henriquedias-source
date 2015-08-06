@@ -29,7 +29,7 @@ It is available for [download here](https://wordpress.org/plugins/github-profile
 
 ## Technologies and Tips
 
-To build this plugin we used the marvelous [GitHub API](https://api.github.com/) but there were a simple problem: calls per hour. GitHub's API is limited to 60 calls per hour without login, I think.
+To build this plugin we used the marvelous [GitHub API](https://api.github.com/) but there was a simple problem: calls per hour. GitHub's API is limited to 60 calls per hour without login, I think.
 
 To workaround that "problem", we made use of WordPress options to cache the information. By default, the cache is cleaned each 5 minutes to make sure you don't have problems. It can be changes.
 
