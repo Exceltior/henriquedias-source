@@ -15,7 +15,7 @@ tags:
 - IMDb
 ---
 
-A few months ago, [Luís Soares](http://luissoares.com/) and I created a [plugin for WordPress](http://localhost:4000/general/hackerrank-widget-for-wordpress/) entirely dedicated to [HackerRank](https://www.hackerrank.com/). The main functionality of that plugin is to show a mini version of your HackerRank profile on your website as a widget.
+A few months ago, [Luís Soares](http://luissoares.com/) and I created a [plugin for WordPress](/general/hackerrank-widget-for-wordpress/) entirely dedicated to [HackerRank](https://www.hackerrank.com/). The main functionality of that plugin is to show a mini version of your HackerRank profile on your website as a widget.
 
 Now, we created a new one. Not for HackerRank, but for **IMDb**. Yes, you read correctly! For that amazing service which let us know more about (almost) any movie and serie. We called it IMDb Profile Widget!
 
