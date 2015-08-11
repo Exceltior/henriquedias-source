@@ -1,13 +1,9 @@
 {{ partial "header" . }}
 
-<header class="imaged">
-  <div class="banner" style="background-image: url('{{ .Site.BaseURL }}{{ .Site.Params.Image }}')"></div>
-</header>
-
-<main role="main" class="container">
+<main role="main">
   {{ $paginator := .Paginate (where .Data.Pages "Type" "post") }}
   {{ range $paginator.Pages }}
-  {{ partial "article/summary" . }}
+  {{ partial "article/summary_new" . }}
   {{ end }}
   {{ template "_internal/pagination.html" . }}
 </main>
