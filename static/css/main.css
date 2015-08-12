@@ -971,6 +971,7 @@ code {
   margin: 0;
   padding: 0;
   font-size: .9em;
+  line-height: 3.4em;
   text-transform: lowercase; }
 
 .site-header nav ul li {
@@ -979,7 +980,7 @@ code {
   transition: .5s ease all; }
 
 .site-header nav ul li:hover {
-  background-color: rgba(255, 255, 255, 0.4); }
+  background-color: rgba(0, 0, 0, 0.1); }
 
 header.imaged .banner,
 .summary .banner {
