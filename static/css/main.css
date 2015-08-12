@@ -898,6 +898,7 @@ blockquote p:last-child {
   margin-bottom: 0; }
 
 figure {
+  margin: 0;
   text-align: center; }
 
 figcaption {
