@@ -1,1 +1,34 @@
-Future
+---
+type: post
+draft: true
+author:         "Henrique Dias"
+title:          "Something about future"
+date:	          2015-08-19 10:00:00+00:00
+description:    "Sth about future"
+categories:
+- Personal
+tags:
+
+---
+
+A word can be a very powerful thing. A word can change lifes, a word can destroy worlds, a word can lead us to other words, a word can make us stop breathing, a word can make us lively, a word can kill us. As you can see, each word is a very special thing. But I'm not here to talk about words, am I? No, I'm not, but I'm going to start with a word: **time**.
+
+Time is something interesting, isn't it? What do we know about time? When did it begin? Yes, it's a very strange question because the beginning of something implies time, and the start of time should be in some time. It's a really strange concept and maybe frustrating for the common mortal beings. We have brilliant physicists working on those theories.
+
+But, still related with time, what does the common mortal know? Past, present, future. We only know the past, and we don't know it entirely (scary, no?). The present, for me, is something complicated - I think it's a mix of past and future because the present was the future and is the past.
+
+Some time ago, a friend of mine told me about a very interesting YouTube channel, [Kurzgesagt - In a Nutshell][2]. It has very funny, beautiful and amazing videos about science and all that stuff. When I was "zapping" throughout the channel until I found a video called **What Is Life? Is Death Real?** and, of course, I saw it. See it too:
+
+{{< youtube QOCaacO8wus >}}
+
+I think that video is very scientific but also philosophical. It lead me to some interesting questions: **are we all death or all alive?**, **there is something after death** (if it *exists*)**?**, **who are we?**. I can't answer none of those questions. I've not that power, do you have?
+
+Some days ago, I was talking with [Matthew Carrozo][1], and a very interesting subject came up to our conversation: **immortality** and
+
++ Eternal Life
++ Ex machina
++ live forever
++ some toughts of matt
+
+[1]: https://www.linkedin.com/in/carrozo
+[2]: http://kurzgesagt.org/
