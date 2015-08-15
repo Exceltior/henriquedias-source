@@ -3,13 +3,15 @@ type: post
 draft: true
 author:         "Henrique Dias"
 title:          "Something about the future. Is it real? It exists?"
-image:          "images/ex-machina-ava.jpg"
+image:          "images/fiber-humans.jpg"
 date:	          2015-08-19 10:00:00+00:00
 description:    "Sth about future"
 categories:
 - Personal
 tags:
-
+- Future
+- Opinion
+- Life
 ---
 
 A word can be a very powerful thing. A word can change lifes, a [word can destroy worlds][4], a word can lead us to other words, a word can make us stop breathing, a word can make us lively, a word can kill us. As you can see, each word is a very special thing. But I'm not here to talk about words, am I? No, I'm not, but I'm going to start with a word: **[time][0]**.
@@ -40,6 +42,8 @@ Some days ago, I was talking with [Matthew Carrozo][1], and we started talking a
 
 I like this thought and I agree with it. But does that matter? I can agree, I can believe in it, but that doesn't make it real. But I hope so. I don't see myself living for millenia as Matt does, but I see a **longer lifetime** for my children, and then for their children, and so on.
 
+{{< figure src="/images/ex-machina-ava.jpg" alt="Ava from Ex Machina" caption="Ava from Ex Machina" >}}
+
 Someday, I hope the immortality can be reached, or **not**. What can the humans do being immortal? Good things, but also very bad things. If we were immortal, Albert Einstein could be alive, Pitágoras too, helping the science. But if we lived forever, there would be a lot of problems:
 
 + Earth would not be *enough*;
@@ -52,7 +56,7 @@ If you were immortal you would see the end of the universe. And being part of it
 
 ## I may not see it, you may not see it, our children may not see it. But someday, someday it will be possible.
 
-Go back to the beginning. Do you see that image? That's the image of Ava from Ex Machina. It's an AI. Would you like to be like *her*? Would we be like her? I want your opinions, please comment. It would be a very nice discussion.
+Go back a little bit. Do you see that image? That's the image of Ava from Ex Machina. It's an AI. Would you like to be like *her*? Would we be like her? I want your opinions, please comment. It would be a very nice discussion.
 
 [0]: https://www.youtube.com/watch?v=JwYX52BP2Sk
 [1]: https://www.linkedin.com/in/carrozo

@@ -1278,9 +1278,12 @@ form input[type="submit"]:hover {
 
 @media print {
   body {
+    text-rendering: geometricPrecision;
     padding-top: 0; }
   .site-header {
-    position: static; }
+    position: static;
+    background: #111;
+    color: #fff; }
   header.imaged .banner {
     margin-top: 0; }
   .discussion,
