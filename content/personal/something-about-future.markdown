@@ -14,7 +14,9 @@ tags:
 
 A word can be a very powerful thing. A word can change lifes, a [word can destroy worlds][4], a word can lead us to other words, a word can make us stop breathing, a word can make us lively, a word can kill us. As you can see, each word is a very special thing. But I'm not here to talk about words, am I? No, I'm not, but I'm going to start with a word: **[time][0]**.
 
-{{< spotify 3EpRPjuf7iKzTK31WxLXDg >}}
+If you want, you may listen to this music (The Swings of Central Park by Alexandre Desplat) while reading:
+
+{{< youtube WsglI6A9zkk >}}
 
 Time is something interesting, isn't it? What do we know about time? When did it begin? Yes, it's a very strange question because the beginning of something implies time, and the start of time should be in some time. It's a really strange concept and it maybe frustrating for the common mortal beings. We have brilliant physicists working on those theories.
 
