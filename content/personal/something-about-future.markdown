@@ -12,21 +12,27 @@ tags:
 
 ---
 
-A word can be a very powerful thing. A word can change lifes, a word can destroy worlds, a word can lead us to other words, a word can make us stop breathing, a word can make us lively, a word can kill us. As you can see, each word is a very special thing. But I'm not here to talk about words, am I? No, I'm not, but I'm going to start with a word: **time**.
+A word can be a very powerful thing. A word can change lifes, a [word can destroy worlds][4], a word can lead us to other words, a word can make us stop breathing, a word can make us lively, a word can kill us. As you can see, each word is a very special thing. But I'm not here to talk about words, am I? No, I'm not, but I'm going to start with a word: **[time][0]**.
 
 {{< spotify 3EpRPjuf7iKzTK31WxLXDg >}}
 
-Time is something interesting, isn't it? What do we know about time? When did it begin? Yes, it's a very strange question because the beginning of something implies time, and the start of time should be in some time. It's a really strange concept and maybe frustrating for the common mortal beings. We have brilliant physicists working on those theories.
+Time is something interesting, isn't it? What do we know about time? When did it begin? Yes, it's a very strange question because the beginning of something implies time, and the start of time should be in some time. It's a really strange concept and it maybe frustrating for the common mortal beings. We have brilliant physicists working on those theories.
 
 But, still related with time, what does the common mortal know? Past, present, future. We only know the past, and we don't know it entirely (scary, no?). The present, for me, is something complicated - I think it's a mix of past and future because the present was the future and is the past.
 
-Some time ago, a friend of mine told me about a very interesting YouTube channel, [Kurzgesagt - In a Nutshell][2]. It has very funny, beautiful and amazing videos about science and all that stuff. When I was "zapping" throughout the channel until I found a video called **What Is Life? Is Death Real?** and, of course, I saw it. See it too:
+Some time ago, a friend of mine told me about a very interesting YouTube channel, [Kurzgesagt - In a Nutshell][2]. It has very funny, beautiful and amazing videos about science and all that stuff. When I was "zapping" throughout the channel, I found a video called **What Is Life? Is Death Real?** and, of course, I saw it. See it too:
 
 {{< youtube QOCaacO8wus >}}
 
-I think that video is very scientific but also philosophical. It lead me to some interesting questions: **are we all death or all alive?**, **there is something after death** (if it *exists*)**?**, **who are we?**. I can't answer none of those questions. I've not that power, do you have?
+I think that video is very scientific but also philosophical. It lead me to some interesting questions:
 
-Some days ago, I was talking with [Matthew Carrozo][1], and we started talking about a very interesting and mind blowing subject: **immortality**. He just said he could see himself living for millenia as a regerated synthetic human. It has reminded me of a movie which came out this year: [Ex Machina][3] (I saw it and I recommend it too). Then we talked a little bit about it.
++ Are we all dead or all alive?
++ Is there something after death (if it *exists*)?
++ Who are we?
+
+I can't answer none of those questions. I don't have that power; do you?
+
+Some days ago, I was talking with [Matthew Carrozo][1], and we started talking about a very interesting and mind blowing subject: **immortality**. He just said he could see himself living for millennia as a regenerated synthetic human. It reminded me of a movie which came out this year: [Ex Machina][3] (I saw it and I recommend it too). Then we talked a little bit about it.
 
 > "I very much like that concept [wetware] and probably plays far more of a role in our future than people think. We won't be hunky bits of metal but we'll slowly replace ourselves, rather than worry about the transfer/copy problem. A mix of regenerating what we have and reinforcing it with the «artificial»." - Matthew Carrozo
 
@@ -46,6 +52,8 @@ If you were immortal you would see the end of the universe. And being part of it
 
 Go back to the beginning. Do you see that image? That's the image of Ava from Ex Machina. It's an AI. Would you like to be like *her*? Would we be like her? I want your opinions, please comment. It would be a very nice discussion.
 
+[0]: https://www.youtube.com/watch?v=JwYX52BP2Sk
 [1]: https://www.linkedin.com/in/carrozo
 [2]: http://kurzgesagt.org/
 [3]: http://www.imdb.com/title/tt0470752/
+[4]: https://en.wikipedia.org/wiki/Bay_of_Pigs_Invasion
