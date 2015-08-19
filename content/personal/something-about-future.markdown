@@ -4,7 +4,7 @@ draft: true
 author:         "Henrique Dias"
 title:          "Something about the future. Is it real? It exists?"
 image:          "images/fiber-humans.jpg"
-date:	          2015-08-19 10:00:00+00:00
+date:	          2015-08-19 08:30:00+00:00
 description:    "Sth about future"
 categories:
 - Personal
