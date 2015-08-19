@@ -1,11 +1,10 @@
 ---
 type: post
-draft: true
 author:         "Henrique Dias"
 title:          "Something about the future. Is it real? It exists?"
 image:          "images/fiber-humans.jpg"
 date:	          2015-08-19 08:30:00+00:00
-description:    "Sth about future"
+description:    "Is the future real? Does it exists? Who are we? What are we going to be? Time? Death. Is that real? What's the difference from life? Some interesting questions no one can answer."
 categories:
 - Personal
 tags:
