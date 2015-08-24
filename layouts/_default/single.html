@@ -1,15 +1,16 @@
 {{ partial "header" . }}
+<div class="single">
+{{ if isset .Params "image" }}{{ partial "article/banner" . }}{{ end }}
 
-<article>
+<article class="container">
   {{ partial "article/header" . }}
 
-  <div class="container">
   {{ .Content }}
-  </div>
 
   {{ if eq .Type "post" }}
   {{ partial "article/footer" . }}
   {{ end }}
 </article>
+</div>
 
 {{ partial "footer" . }}
