@@ -1010,8 +1010,8 @@ form input[type="submit"]:hover {
 
 @media (min-width: 900px) {
   .single .banner {
-    position: absolute;
-    top: 3em;
+    position: fixed;
+    top: 0;
     height: 100%;
     padding: 0;
     z-index: -5; }
@@ -1022,7 +1022,8 @@ form input[type="submit"]:hover {
     background-color: rgba(255, 255, 255, 0.9);
     padding: 1.6em 1.6em 0;
     box-sizing: border-box;
-    margin-top: 7em; } }
+    margin-top: 7em;
+    margin-bottom: 7em; } }
 
 @media (max-width: 680px) {
   .site-footer .division {
