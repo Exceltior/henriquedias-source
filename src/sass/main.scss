@@ -534,11 +534,12 @@ form input[type="submit"]:hover {
 
 @media (min-width: 900px) {
   .single .banner {
-    position: fixed;
+    position: absolute;
     top: 0;
     height: 100%;
     padding: 0;
     z-index: -5;
+    background-attachment: scroll !important;
   }
 
   .single .banner + article header h1 {
@@ -551,7 +552,6 @@ form input[type="submit"]:hover {
     padding: 1.6em 1.6em 0;
     box-sizing: border-box;
     margin-top: 7em;
-    margin-bottom: 7em;
   }
 }
 
