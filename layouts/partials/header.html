@@ -7,20 +7,11 @@
 <meta name="theme-color" content="#fff">
 <link rel="icon" sizes="192x192" href="icon.png">
 
-<title>{{ .Title }} | {{ if .IsHome }}A CompSci Enthusiast{{ else }}{{ .Site.Title }}{{ end }}</title>
-<meta name="description" content="{{ if .Description }}{{ .Description }}{{ else }}{{ .Site.Params.Description }}{{ end }}">
-<link rel="canonical" href="{{ .Permalink }}">
-<link rel="publisher" href="https://plus.google.com/+{{ .Site.Social.GooglePlus }}"/>
-
+{{ partial "head/base" . }}
 {{ partial "head/open_graph" . }}
 {{ partial "head/twitter" .}}
 {{ partial "head/webmaster" .}}
-
-{{ if .RSSlink }}
-<link href="{{ .RSSlink }}" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }} | A CompSci Enthusiast" />
-<link href="{{ .RSSlink }}" rel="feed" type="application/rss+xml" title="{{ .Site.Title }}" />
-{{ end }}
-
+{{ partial "head/rss" .}}
 {{ partial "head/icons" .}}
 {{ partial "head/includes" .}}
 {{ partial "schema/person" . }}

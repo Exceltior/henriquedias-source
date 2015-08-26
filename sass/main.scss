@@ -1,6 +1,7 @@
-// out: ../../static/css/main.css
+// out: ../static/css/main.css
 @charset "utf-8";
 @import 'normalize';
+@import 'roboto';
 @import 'syntax';
 
 html {
@@ -466,7 +467,7 @@ article footer .post-navigation div.next {
 form h2{
     background: #4D4D4D;
     text-transform: uppercase;
-    font-family: 'Open Sans Condensed', sans-serif;
+    font-family: 'Open Sans', sans-serif;
     color: #797979;
     font-size: 18px;
     font-weight: 100;
