@@ -13,10 +13,11 @@
 </article>
 </div>
 
-{{ partial "footer" . }}
 <script>
 window.onscroll = function() {
     var obj = document.getElementById("article-banner");
-    obj.style.top = ((window.pageYOffset | document.body.scrollTop) / 2) + "px";
+    obj.style.top = ((window.pageYOffset | document.body.scrollTop) / 3) + "px";
 };
 </script>
+
+{{ partial "footer" . }}

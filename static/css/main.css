@@ -909,22 +909,33 @@ article footer .post-navigation div.next {
   cursor: pointer; }
 
 /* SOCIAL ICONS */
-.addthis_sharing_toolbox {
-  background-color: rgba(0, 0, 0, 0.84);
-  margin: 1.5em 0;
-  padding: 2em;
-  text-align: center; }
+.sharing {
+  text-align: center;
+  display: flex;
+  justify-content: space-between; }
 
-.addthis_sharing_toolbox .at-share-tbx-element.addthis_32x32_style .at-share-btn,
-.addthis_sharing_toolbox .at-share-tbx-element.addthis_32x32_white_style .at-share-btn {
-  max-width: 75px !important;
-  max-height: 75px !important; }
+.sharing a {
+  color: #fff;
+  width: 100%;
+  transition: .5s ease all; }
 
-.addthis_sharing_toolbox .addthis_32x32_style .at4-icon,
-.addthis_sharing_toolbox .addthis_32x32_white_style .at4-icon, .at-32x32 {
-  height: 75px !important;
-  width: 75px !important;
-  background-size: 75px !important; }
+.sharing a:hover {
+  opacity: .8; }
+
+.sharing div {
+  padding: 1em 0; }
+
+.sharing .twitter {
+  background-color: #00aced; }
+
+.sharing .facebook {
+  background-color: #3b5998; }
+
+.sharing .gplus {
+  background-color: #dd4b39; }
+
+.sharing .linkedin {
+  background-color: #007bb6; }
 
 /* FORMS */
 form h2 {
@@ -1020,7 +1031,7 @@ form input[type="submit"]:hover {
     margin-top: 0; }
   .single .banner + article {
     max-width: 700px;
-    background-color: rgba(255, 255, 255, 0.9);
+    background-color: rgba(255, 255, 255, 0.95);
     padding: 1.6em 1.6em 0;
     box-sizing: border-box;
     margin-top: 7em; } }
