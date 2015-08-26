@@ -2,7 +2,7 @@
 type: post
 author:         "Henrique Dias"
 title:          "Portugal is a beautiful country"
-date: 2014-11-14 20:34:01+00:00
+date:    2014-11-14 20:34:01+00:00
 description:    "Portugal is one of the small big countries, in other words, Portugal have too many things to offer: history, monuments, culture, beauty!"
 image:     "images/zambujeira.jpg"
 categories:
@@ -12,7 +12,7 @@ tags:
 - Portugal
 ---
 
-Searching, exploring, walking, running, seeing, watching, taking photos... are verbs related with travelling that is one of the most amazing things that we can do.
+Searching, exploring, walking, running, seeing, knowing, watching, meeting, taking photos, etc. All are verbs related with travelling which is one of the most amazing and *important* things in life.
 
 In the last summer, I've been visiting various places in my country, Portugal. One of them was Évora that is a city in Alentejo. This is an historical city and it's also beautiful.
 
