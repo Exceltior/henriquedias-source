@@ -4,7 +4,7 @@
   "@type": "Article",
   "author": "{{ .Site.Author.Name }}",
   "name": "{{ .Title }}",
-  "datePublished": "{{ .Date.Format "2006-01-02T15:04:05-07:00" }}",
+  "datePublished": "{{ .Date.Format "2006-01-02" }}",
   "headline": "{{ if .Description }}{{ .Description }}{{ else }}{{ .Site.Params.Description }}{{ end }}",
   "image": "{{ .Site.BaseURL }}{{ if .Params.image }}{{ .Params.image }}{{ else }}{{ .Site.Params.Image }}{{ end }}"
 }
